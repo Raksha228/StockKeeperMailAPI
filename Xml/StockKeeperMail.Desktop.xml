@@ -1,0 +1,3488 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>StockKeeperMail.Desktop</name>
+    </assembly>
+    <members>
+        <member name="T:StockKeeperMail.Desktop.App">
+            <summary>
+            Interaction logic for App.xaml
+            </summary>
+            <summary>
+            App
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.App.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.App.Main">
+            <summary>
+            Application Entry Point.
+            </summary>
+        </member>
+        <member name="T:StockKeeperMail.Desktop.Controls.CurrentMonthOrders">
+            <summary>
+            Interaction logic for CurrentMonthOrders.xaml
+            </summary>
+            <summary>
+            CurrentMonthOrders
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.Controls.CurrentMonthOrders.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:StockKeeperMail.Desktop.Controls.CurrentMonthRevenue">
+            <summary>
+            Interaction logic for CurrentMonthRevenue.xaml
+            </summary>
+            <summary>
+            CurrentMonthRevenue
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.Controls.CurrentMonthRevenue.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:StockKeeperMail.Desktop.Controls.CustomHeaderControl">
+            <summary>
+            Interaction logic for CustomHeaderControl.xaml
+            </summary>
+            <summary>
+            CustomHeaderControl
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.Controls.CustomHeaderControl.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:StockKeeperMail.Desktop.Controls.DeliveredOrderCountControl">
+            <summary>
+            Interaction logic for DeliveredOrderCountControl.xaml
+            </summary>
+            <summary>
+            DeliveredOrderCountControl
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.Controls.DeliveredOrderCountControl.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:StockKeeperMail.Desktop.Controls.FilterControl">
+            <summary>
+            Interaction logic for FilterControl.xaml
+            </summary>
+            <summary>
+            FilterControl
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.Controls.FilterControl.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:StockKeeperMail.Desktop.Controls.InTransitOrderCountControl">
+            <summary>
+            Interaction logic for InTransitOrderCountControl.xaml
+            </summary>
+            <summary>
+            InTransitOrderCountControl
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.Controls.InTransitOrderCountControl.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:StockKeeperMail.Desktop.Controls.InvoiceDocumentControl">
+            <summary>
+            Interaction logic for InvoiceDocumentControl.xaml
+            </summary>
+            <summary>
+            InvoiceDocumentControl
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.Controls.InvoiceDocumentControl.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:StockKeeperMail.Desktop.Controls.MonthlyRevenue">
+            <summary>
+            Interaction logic for MonthlyRevenue.xaml
+            </summary>
+            <summary>
+            MonthlyRevenue
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.Controls.MonthlyRevenue.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:StockKeeperMail.Desktop.Controls.NavigationBar">
+            <summary>
+            Interaction logic for NavigationBar.xaml
+            </summary>
+            <summary>
+            NavigationBar
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.Controls.NavigationBar.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:StockKeeperMail.Desktop.Controls.PaginationControl">
+            <summary>
+            Interaction logic for PaginationControl.xaml
+            </summary>
+            <summary>
+            PaginationControl
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.Controls.PaginationControl.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:StockKeeperMail.Desktop.Controls.ProcessingOrderCountControl">
+            <summary>
+            Interaction logic for ProcessingOrderCountControl.xaml
+            </summary>
+            <summary>
+            ProcessingOrderCountControl
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.Controls.ProcessingOrderCountControl.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:StockKeeperMail.Desktop.Controls.ProductsInStockControl">
+            <summary>
+            Interaction logic for ProductsInStockControl.xaml
+            </summary>
+            <summary>
+            ProductsInStockControl
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.Controls.ProductsInStockControl.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:StockKeeperMail.Desktop.Controls.ShippedOrderCountControl">
+            <summary>
+            Interaction logic for ShippedOrderCountControl.xaml
+            </summary>
+            <summary>
+            ShippedOrderCountControl
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.Controls.ShippedOrderCountControl.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:StockKeeperMail.Desktop.Converters.ArrayMultiValueConverter">
+            <summary>
+            Представляет класс ArrayMultiValueConverter.
+            </summary>
+        </member>
+        <member name="T:StockKeeperMail.Desktop.Converters.EnglishToRussianUiTextConverter">
+            <summary>
+            Представляет класс EnglishToRussianUiTextConverter.
+            </summary>
+        </member>
+        <member name="T:StockKeeperMail.Desktop.DAL.GenericRepository`1">
+            <summary>
+            Представляет класс GenericRepository.
+            </summary>
+        </member>
+        <member name="T:StockKeeperMail.Desktop.DAL.IRepository`1">
+            <summary>
+            Представляет интерфейс IRepository.
+            </summary>
+        </member>
+        <member name="T:StockKeeperMail.Desktop.DAL.IUnitOfWork">
+            <summary>
+            Представляет интерфейс IUnitOfWork.
+            </summary>
+        </member>
+        <member name="T:StockKeeperMail.Desktop.DAL.UnitOfWork">
+            <summary>
+            Представляет класс UnitOfWork.
+            </summary>
+        </member>
+        <member name="T:StockKeeperMail.Desktop.MainWindow">
+            <summary>
+            Interaction logic for MainWindow.xaml
+            </summary>
+            <summary>
+            MainWindow
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.MainWindow.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:StockKeeperMail.Desktop.Services.AuthenticationService">
+            <summary>
+            Представляет класс AuthenticationService.
+            </summary>
+        </member>
+        <member name="T:StockKeeperMail.Desktop.Services.IAuthenticationService">
+            <summary>
+            Представляет интерфейс IAuthenticationService.
+            </summary>
+        </member>
+        <member name="T:StockKeeperMail.Desktop.Stores.AuthenticationStore">
+            <summary>
+            Представляет класс AuthenticationStore.
+            </summary>
+        </member>
+        <member name="T:StockKeeperMail.Desktop.Stores.NavigationStore">
+            <summary>
+            Представляет класс NavigationStore.
+            </summary>
+        </member>
+        <member name="T:StockKeeperMail.Desktop.Utilities.Constants">
+            <summary>
+            Представляет класс Constants.
+            </summary>
+        </member>
+        <member name="T:StockKeeperMail.Desktop.Utilities.Constants.LogCategory">
+            <summary>
+            Представляет перечисление LogCategory.
+            </summary>
+        </member>
+        <member name="T:StockKeeperMail.Desktop.Utilities.Constants.ActionType">
+            <summary>
+            Представляет перечисление ActionType.
+            </summary>
+        </member>
+        <member name="T:StockKeeperMail.Desktop.Utilities.LogUtil">
+            <summary>
+            Представляет класс LogUtil.
+            </summary>
+        </member>
+        <member name="T:StockKeeperMail.Desktop.ViewModels.CategoryListViewModel">
+            <summary>
+            ViewModel для отображения списка категорий.
+            Управляет загрузкой, созданием, редактированием и удалением категорий.
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.CategoryListViewModel.RemoveCategory(StockKeeperMail.Desktop.ViewModels.CategoryViewModel)">
+            <summary>
+            Удаляет выбранную категорию после подтверждения пользователя.
+            </summary>
+            <param name="categoryViewModel">ViewModel удаляемой категории.</param>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.CategoryListViewModel.EditCategory(StockKeeperMail.Desktop.ViewModels.CategoryViewModel)">
+            <summary>
+            Открывает диалог редактирования выбранной категории.
+            </summary>
+            <param name="categoryViewModel">ViewModel категории для редактирования.</param>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.CategoryListViewModel.CreateCategory">
+            <summary>
+            Открывает диалог создания новой категории.
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.CategoryListViewModel.LoadCategories">
+            <summary>
+            Загружает список всех категорий из базы данных.
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.CategoryListViewModel.LoadViewModel(StockKeeperMail.Desktop.Stores.NavigationStore)">
+            <summary>
+            Фабричный метод для создания ViewModel с предварительной загрузкой данных.
+            </summary>
+            <param name="navigationStore">Хранилище навигации.</param>
+            <returns>Загруженный экземпляр CategoryListViewModel.</returns>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.CategoryListViewModel.CloseDialogCallback">
+            <summary>
+            Callback-метод, вызываемый при закрытии диалогового окна.
+            Обновляет список категорий и закрывает диалог.
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.CategoryListViewModel.Dispose(System.Boolean)">
+            <summary>
+            Освобождает ресурсы, используемые ViewModel.
+            </summary>
+            <param name="disposing">Указывает, нужно ли освобождать управляемые ресурсы.</param>
+        </member>
+        <member name="T:StockKeeperMail.Desktop.ViewModels.CategoryViewModel">
+            <summary>
+            Представляет класс CategoryViewModel.
+            </summary>
+        </member>
+        <member name="T:StockKeeperMail.Desktop.ViewModels.CreateCategoryViewModel">
+            <summary>
+            ViewModel для формы создания новой категории.
+            Обеспечивает валидацию вводимых данных и сохранение категории в базу данных.
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.CreateCategoryViewModel.#ctor(StockKeeperMail.Desktop.Stores.NavigationStore,StockKeeperMail.Desktop.DAL.UnitOfWork,System.Action)">
+            <summary>
+            Инициализирует новый экземпляр ViewModel создания категории.
+            </summary>
+            <param name="navigationStore">Хранилище навигации.</param>
+            <param name="unitOfWork">Unit of Work для работы с базой данных.</param>
+            <param name="closeDialogCallback">Метод обратного вызова для закрытия диалога.</param>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.CreateCategoryViewModel.Submit">
+            <summary>
+            Отправляет данные формы, создаёт новую категорию и сохраняет её в базе данных.
+            Если валидация не пройдена, сохранение не выполняется.
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.CreateCategoryViewModel.Cancel">
+            <summary>
+            Отменяет создание категории и закрывает диалог.
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.CreateCategoryViewModel.LoadViewModel(StockKeeperMail.Desktop.Stores.NavigationStore,StockKeeperMail.Desktop.DAL.UnitOfWork,System.Action)">
+            <summary>
+            Фабричный метод для загрузки ViewModel с необходимыми зависимостями.
+            </summary>
+            <param name="navigationStore">Хранилище навигации.</param>
+            <param name="unitOfWork">Unit of Work для работы с базой данных.</param>
+            <param name="closeDialogCallback">Метод обратного вызова для закрытия диалога.</param>
+            <returns>Экземпляр CreateCategoryViewModel.</returns>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.CreateCategoryViewModel.Dispose(System.Boolean)">
+            <summary>
+            Освобождает ресурсы, используемые ViewModel.
+            </summary>
+            <param name="disposing">Указывает, нужно ли освобождать управляемые ресурсы.</param>
+        </member>
+        <member name="T:StockKeeperMail.Desktop.ViewModels.EditCategoryViewModel">
+            <summary>
+            ViewModel для формы редактирования существующей категории.
+            Обеспечивает валидацию вводимых данных и сохранение изменений в базе данных.
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.EditCategoryViewModel.#ctor(StockKeeperMail.Desktop.Stores.NavigationStore,StockKeeperMail.Desktop.DAL.UnitOfWork,StockKeeperMail.Database.Models.Category,System.Action)">
+            <summary>
+            Инициализирует новый экземпляр ViewModel редактирования категории.
+            </summary>
+            <param name="navigationStore">Хранилище навигации.</param>
+            <param name="unitOfWork">Unit of Work для работы с базой данных.</param>
+            <param name="category">Редактируемая категория.</param>
+            <param name="closeDialogCallback">Метод обратного вызова для закрытия диалога.</param>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.EditCategoryViewModel.SetInitialValues(StockKeeperMail.Database.Models.Category)">
+            <summary>
+            Устанавливает начальные значения полей из редактируемой категории.
+            </summary>
+            <param name="category">Категория, чьи значения используются.</param>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.EditCategoryViewModel.Cancel">
+            <summary>
+            Отменяет редактирование и закрывает диалог без сохранения изменений.
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.EditCategoryViewModel.Submit">
+            <summary>
+            Сохраняет изменения категории в базе данных, если валидация пройдена.
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.EditCategoryViewModel.LoadViewModel(StockKeeperMail.Desktop.Stores.NavigationStore,StockKeeperMail.Desktop.DAL.UnitOfWork,StockKeeperMail.Database.Models.Category,System.Action)">
+            <summary>
+            Фабричный метод для загрузки ViewModel с необходимыми зависимостями.
+            </summary>
+            <param name="navigationStore">Хранилище навигации.</param>
+            <param name="unitOfWork">Unit of Work для работы с базой данных.</param>
+            <param name="category">Редактируемая категория.</param>
+            <param name="closeDialogCallback">Метод обратного вызова для закрытия диалога.</param>
+            <returns>Экземпляр EditCategoryViewModel.</returns>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.EditCategoryViewModel.Dispose(System.Boolean)">
+            <summary>
+            Освобождает ресурсы, используемые ViewModel.
+            </summary>
+            <param name="disposing">Указывает, нужно ли освобождать управляемые ресурсы.</param>
+        </member>
+        <member name="T:StockKeeperMail.Desktop.ViewModels.CreateCustomerViewModel">
+            <summary>
+            Представляет класс CreateCustomerViewModel.
+            </summary>
+        </member>
+        <member name="T:StockKeeperMail.Desktop.ViewModels.CustomerListViewModel">
+            <summary>
+            ViewModel для отображения списка клиентов.
+            Управляет загрузкой, созданием, редактированием и удалением клиентов.
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.CustomerListViewModel.#ctor(StockKeeperMail.Desktop.Stores.NavigationStore)">
+            <summary>
+            Инициализирует новый экземпляр ViewModel списка клиентов.
+            </summary>
+            <param name="navigationStore">Хранилище навигации.</param>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.CustomerListViewModel.RemoveCustomer(StockKeeperMail.Desktop.ViewModels.CustomerViewModel)">
+            <summary>
+            Удаляет выбранного клиента после подтверждения пользователя.
+            </summary>
+            <param name="customerViewModel">ViewModel удаляемого клиента.</param>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.CustomerListViewModel.EditCustomer(StockKeeperMail.Desktop.ViewModels.CustomerViewModel)">
+            <summary>
+            Открывает диалог редактирования выбранного клиента.
+            </summary>
+            <param name="customerViewModel">ViewModel клиента для редактирования.</param>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.CustomerListViewModel.CreateCustomer">
+            <summary>
+            Открывает диалог создания нового клиента.
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.CustomerListViewModel.CloseDialogCallback">
+            <summary>
+            Callback-метод, вызываемый при закрытии диалогового окна.
+            Обновляет список клиентов и закрывает диалог.
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.CustomerListViewModel.LoadCustomers">
+            <summary>
+            Загружает список всех клиентов из базы данных.
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.CustomerListViewModel.LoadViewModel(StockKeeperMail.Desktop.Stores.NavigationStore)">
+            <summary>
+            Фабричный метод для создания ViewModel с предварительной загрузкой данных.
+            </summary>
+            <param name="navigationStore">Хранилище навигации.</param>
+            <returns>Загруженный экземпляр CustomerListViewModel.</returns>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.CustomerListViewModel.Dispose(System.Boolean)">
+            <summary>
+            Освобождает ресурсы, используемые ViewModel.
+            </summary>
+            <param name="disposing">Указывает, нужно ли освобождать управляемые ресурсы.</param>
+        </member>
+        <member name="T:StockKeeperMail.Desktop.ViewModels.CustomerViewModel">
+            <summary>
+            Представляет класс CustomerViewModel.
+            </summary>
+        </member>
+        <member name="T:StockKeeperMail.Desktop.ViewModels.EditCustomerViewModel">
+            <summary>
+            ViewModel для формы редактирования существующего клиента.
+            Обеспечивает валидацию вводимых данных и сохранение изменений в базе данных.
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.EditCustomerViewModel.#ctor(StockKeeperMail.Desktop.Stores.NavigationStore,StockKeeperMail.Desktop.DAL.UnitOfWork,StockKeeperMail.Database.Models.Customer,System.Action)">
+            <summary>
+            Инициализирует новый экземпляр ViewModel редактирования клиента.
+            </summary>
+            <param name="navigationStore">Хранилище навигации.</param>
+            <param name="unitOfWork">Unit of Work для работы с базой данных.</param>
+            <param name="customer">Редактируемый клиент.</param>
+            <param name="closeDialogCallback">Метод обратного вызова для закрытия диалога.</param>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.EditCustomerViewModel.Submit">
+            <summary>
+            Сохраняет изменения клиента в базе данных, если валидация пройдена.
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.EditCustomerViewModel.Cancel">
+            <summary>
+            Отменяет редактирование и закрывает диалог без сохранения изменений.
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.EditCustomerViewModel.LoadStaffs">
+            <summary>
+            Загружает список сотрудников для выбора (при необходимости).
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.EditCustomerViewModel.LoadViewModel(StockKeeperMail.Desktop.Stores.NavigationStore,StockKeeperMail.Desktop.DAL.UnitOfWork,StockKeeperMail.Database.Models.Customer,System.Action)">
+            <summary>
+            Фабричный метод для загрузки ViewModel с необходимыми зависимостями.
+            </summary>
+            <param name="navigationStore">Хранилище навигации.</param>
+            <param name="unitOfWork">Unit of Work для работы с базой данных.</param>
+            <param name="customer">Редактируемый клиент.</param>
+            <param name="closeDialogCallback">Метод обратного вызова для закрытия диалога.</param>
+            <returns>Экземпляр EditCustomerViewModel.</returns>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.EditCustomerViewModel.SetInitialValues(StockKeeperMail.Database.Models.Customer)">
+            <summary>
+            Устанавливает начальные значения полей из редактируемого клиента.
+            </summary>
+            <param name="customer">Клиент, чьи значения используются.</param>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.EditCustomerViewModel.Dispose(System.Boolean)">
+            <summary>
+            Освобождает ресурсы, используемые ViewModel.
+            </summary>
+            <param name="disposing">Указывает, нужно ли освобождать управляемые ресурсы.</param>
+        </member>
+        <member name="T:StockKeeperMail.Desktop.ViewModels.DashboardViewModel">
+            <summary>
+            Представляет класс DashboardViewModel.
+            </summary>
+        </member>
+        <member name="T:StockKeeperMail.Desktop.ViewModels.CreateDefectiveViewModel">
+            <summary>
+            ViewModel для формы создания записи о бракованном товаре.
+            Обеспечивает валидацию вводимых данных, проверку наличия товара на складе и сохранение в базе данных.
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.CreateDefectiveViewModel.#ctor(StockKeeperMail.Desktop.Stores.NavigationStore,StockKeeperMail.Desktop.DAL.UnitOfWork,System.Action)">
+            <summary>
+            Инициализирует новый экземпляр ViewModel создания бракованного товара.
+            </summary>
+            <param name="navigationStore">Хранилище навигации.</param>
+            <param name="unitOfWork">Unit of Work для работы с базой данных.</param>
+            <param name="closeDialogCallback">Метод обратного вызова для закрытия диалога.</param>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.CreateDefectiveViewModel.Submit">
+            <summary>
+            Отправляет данные формы, создаёт запись о бракованном товаре и уменьшает количество товара на складе.
+            Если валидация не пройдена или количество превышает доступный запас, сохранение не выполняется.
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.CreateDefectiveViewModel.Cancel">
+            <summary>
+            Отменяет создание записи и закрывает диалог.
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.CreateDefectiveViewModel.LoadProducts">
+            <summary>
+            Загружает список доступных товаров из базы данных.
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.CreateDefectiveViewModel.LoadViewModel(StockKeeperMail.Desktop.Stores.NavigationStore,StockKeeperMail.Desktop.DAL.UnitOfWork,System.Action)">
+            <summary>
+            Фабричный метод для загрузки ViewModel с необходимыми зависимостями.
+            </summary>
+            <param name="navigationStore">Хранилище навигации.</param>
+            <param name="unitOfWork">Unit of Work для работы с базой данных.</param>
+            <param name="closeDialogCallback">Метод обратного вызова для закрытия диалога.</param>
+            <returns>Экземпляр CreateDefectiveViewModel.</returns>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.CreateDefectiveViewModel.Dispose(System.Boolean)">
+            <summary>
+            Освобождает ресурсы, используемые ViewModel.
+            </summary>
+            <param name="disposing">Указывает, нужно ли освобождать управляемые ресурсы.</param>
+        </member>
+        <member name="T:StockKeeperMail.Desktop.ViewModels.DefectiveListViewModel">
+            <summary>
+            ViewModel для отображения списка бракованных товаров.
+            Управляет загрузкой, созданием, редактированием и удалением записей о браке.
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.DefectiveListViewModel.#ctor(StockKeeperMail.Desktop.Stores.NavigationStore)">
+            <summary>
+            Инициализирует новый экземпляр ViewModel списка бракованных товаров.
+            </summary>
+            <param name="navigationStore">Хранилище навигации.</param>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.DefectiveListViewModel.RemoveDefective(StockKeeperMail.Desktop.ViewModels.DefectiveViewModel)">
+            <summary>
+            Удаляет выбранную запись о бракованном товаре после подтверждения пользователя.
+            </summary>
+            <param name="defectiveViewModel">ViewModel удаляемой записи.</param>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.DefectiveListViewModel.EditDefective(StockKeeperMail.Desktop.ViewModels.DefectiveViewModel)">
+            <summary>
+            Открывает диалог редактирования выбранной записи о браке.
+            </summary>
+            <param name="defectiveViewModel">ViewModel записи для редактирования.</param>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.DefectiveListViewModel.CreateDefective">
+            <summary>
+            Открывает диалог создания новой записи о бракованном товаре.
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.DefectiveListViewModel.CloseDialogCallback">
+            <summary>
+            Callback-метод, вызываемый при закрытии диалогового окна.
+            Обновляет список записей о браке и закрывает диалог.
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.DefectiveListViewModel.LoadDefectives">
+            <summary>
+            Загружает список всех бракованных товаров из базы данных.
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.DefectiveListViewModel.LoadViewModel(StockKeeperMail.Desktop.Stores.NavigationStore)">
+            <summary>
+            Фабричный метод для создания ViewModel с предварительной загрузкой данных.
+            </summary>
+            <param name="navigationStore">Хранилище навигации.</param>
+            <returns>Загруженный экземпляр DefectiveListViewModel.</returns>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.DefectiveListViewModel.Dispose(System.Boolean)">
+            <summary>
+            Освобождает ресурсы, используемые ViewModel.
+            </summary>
+            <param name="disposing">Указывает, нужно ли освобождать управляемые ресурсы.</param>
+        </member>
+        <member name="T:StockKeeperMail.Desktop.ViewModels.DefectiveViewModel">
+            <summary>
+            Представляет класс DefectiveViewModel.
+            </summary>
+        </member>
+        <member name="T:StockKeeperMail.Desktop.ViewModels.EditDefectiveViewModel">
+            <summary>
+            ViewModel для формы редактирования записи о бракованном товаре.
+            Позволяет изменить количество бракованного товара и корректирует остатки на складе.
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.EditDefectiveViewModel.#ctor(StockKeeperMail.Desktop.Stores.NavigationStore,StockKeeperMail.Desktop.DAL.UnitOfWork,StockKeeperMail.Database.Models.Defective,System.Action)">
+            <summary>
+            Инициализирует новый экземпляр ViewModel редактирования бракованного товара.
+            </summary>
+            <param name="navigationStore">Хранилище навигации.</param>
+            <param name="unitOfWork">Unit of Work для работы с базой данных.</param>
+            <param name="defective">Редактируемая запись о браке.</param>
+            <param name="closeDialogCallback">Метод обратного вызова для закрытия диалога.</param>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.EditDefectiveViewModel.SetInitialValues(StockKeeperMail.Database.Models.Defective)">
+            <summary>
+            Устанавливает начальные значения полей из редактируемой записи.
+            </summary>
+            <param name="defective">Запись о браке, чьи значения используются.</param>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.EditDefectiveViewModel.Submit">
+            <summary>
+            Сохраняет изменения количества бракованного товара.
+            Проверяет, не превышает ли новое количество доступный остаток на складе.
+            Если валидация не пройдена или количество превышает запас, сохранение не выполняется.
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.EditDefectiveViewModel.Cancel">
+            <summary>
+            Отменяет редактирование и закрывает диалог без сохранения изменений.
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.EditDefectiveViewModel.LoadViewModel(StockKeeperMail.Desktop.Stores.NavigationStore,StockKeeperMail.Desktop.DAL.UnitOfWork,StockKeeperMail.Database.Models.Defective,System.Action)">
+            <summary>
+            Фабричный метод для загрузки ViewModel с необходимыми зависимостями.
+            </summary>
+            <param name="navigationStore">Хранилище навигации.</param>
+            <param name="unitOfWork">Unit of Work для работы с базой данных.</param>
+            <param name="defective">Редактируемая запись о браке.</param>
+            <param name="closeDialogCallback">Метод обратного вызова для закрытия диалога.</param>
+            <returns>Экземпляр EditDefectiveViewModel.</returns>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.EditDefectiveViewModel.Dispose(System.Boolean)">
+            <summary>
+            Освобождает ресурсы, используемые ViewModel.
+            </summary>
+            <param name="disposing">Указывает, нужно ли освобождать управляемые ресурсы.</param>
+        </member>
+        <member name="T:StockKeeperMail.Desktop.ViewModels.ListViewHelpers.CategoryListViewHelper">
+            <summary>
+            Представляет класс CategoryListViewHelper.
+            </summary>
+        </member>
+        <member name="T:StockKeeperMail.Desktop.ViewModels.ListViewHelpers.CustomerListViewHelper">
+            <summary>
+            Представляет класс CustomerListViewHelper.
+            </summary>
+        </member>
+        <member name="T:StockKeeperMail.Desktop.ViewModels.ListViewHelpers.LocationListViewHelper">
+            <summary>
+            Представляет класс LocationListViewHelper.
+            </summary>
+        </member>
+        <member name="T:StockKeeperMail.Desktop.ViewModels.ListViewHelpers.ListViewHelperBase`1">
+            <summary>
+            Базовый абстрактный класс для вспомогательных объектов работы со списками.
+            Обеспечивает пагинацию, фильтрацию и отображение коллекции.
+            </summary>
+            <typeparam name="TViewModel">Тип ViewModel элементов списка.</typeparam>
+        </member>
+        <member name="P:StockKeeperMail.Desktop.ViewModels.ListViewHelpers.ListViewHelperBase`1.CurrentPage">
+            <summary>
+            Текущая страница (начиная с 1).
+            </summary>
+        </member>
+        <member name="P:StockKeeperMail.Desktop.ViewModels.ListViewHelpers.ListViewHelperBase`1.NumberOfPages">
+            <summary>
+            Общее количество страниц.
+            </summary>
+        </member>
+        <member name="P:StockKeeperMail.Desktop.ViewModels.ListViewHelpers.ListViewHelperBase`1.SelectedRecordsPerPage">
+            <summary>
+            Количество записей, отображаемых на одной странице.
+            </summary>
+        </member>
+        <member name="P:StockKeeperMail.Desktop.ViewModels.ListViewHelpers.ListViewHelperBase`1.Filter">
+            <summary>
+            Строка фильтрации элементов списка.
+            </summary>
+        </member>
+        <member name="P:StockKeeperMail.Desktop.ViewModels.ListViewHelpers.ListViewHelperBase`1.NextPageCommand">
+            <summary>
+            Команда перехода на следующую страницу.
+            </summary>
+        </member>
+        <member name="P:StockKeeperMail.Desktop.ViewModels.ListViewHelpers.ListViewHelperBase`1.PreviousPageCommand">
+            <summary>
+            Команда перехода на предыдущую страницу.
+            </summary>
+        </member>
+        <member name="P:StockKeeperMail.Desktop.ViewModels.ListViewHelpers.ListViewHelperBase`1.FirstPageCommand">
+            <summary>
+            Команда перехода на первую страницу.
+            </summary>
+        </member>
+        <member name="P:StockKeeperMail.Desktop.ViewModels.ListViewHelpers.ListViewHelperBase`1.LastPageCommand">
+            <summary>
+            Команда перехода на последнюю страницу.
+            </summary>
+        </member>
+        <member name="P:StockKeeperMail.Desktop.ViewModels.ListViewHelpers.ListViewHelperBase`1.RecordsPerPage">
+            <summary>
+            Доступные варианты количества записей на странице.
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.ListViewHelpers.ListViewHelperBase`1.#ctor(System.Collections.ObjectModel.ObservableCollection{`0},System.Collections.ObjectModel.ObservableCollection{`0})">
+            <summary>
+            Инициализирует новый экземпляр вспомогательного класса для работы со списком.
+            </summary>
+            <param name="databaseCollection">Исходная коллекция (из базы данных).</param>
+            <param name="displayCollection">Коллекция для отображения (с учётом пагинации).</param>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.ListViewHelpers.ListViewHelperBase`1.FilterCollection(System.Object)">
+            <summary>
+            Метод фильтрации элемента. Должен быть реализован в производных классах.
+            </summary>
+            <param name="obj">Объект для проверки.</param>
+            <returns>true, если элемент проходит фильтр; иначе false.</returns>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.ListViewHelpers.ListViewHelperBase`1.UpdateRecordsPerPage">
+            <summary>
+            Обновляет количество страниц на основе выбранного количества записей.
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.ListViewHelpers.ListViewHelperBase`1.UpdateCollection(System.Collections.Generic.IEnumerable{`0})">
+            <summary>
+            Обновляет отображаемую коллекцию.
+            </summary>
+            <param name="collection">Коллекция элементов для отображения.</param>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.ListViewHelpers.ListViewHelperBase`1.UpdateButtonEnableStates">
+            <summary>
+            Обновляет состояние доступности кнопок навигации.
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.ListViewHelpers.ListViewHelperBase`1.NextPage">
+            <summary>
+            Переход на следующую страницу.
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.ListViewHelpers.ListViewHelperBase`1.PreviousPage">
+            <summary>
+            Переход на предыдущую страницу.
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.ListViewHelpers.ListViewHelperBase`1.FirstPage">
+            <summary>
+            Переход на первую страницу.
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.ListViewHelpers.ListViewHelperBase`1.LastPage">
+            <summary>
+            Переход на последнюю страницу.
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.ListViewHelpers.ListViewHelperBase`1.RefreshCollection">
+            <summary>
+            Обновляет всю коллекцию с учётом текущих настроек пагинации и фильтра.
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.ListViewHelpers.ListViewHelperBase`1.Dispose(System.Boolean)">
+            <summary>
+            Освобождает ресурсы, используемые объектом.
+            </summary>
+            <param name="disposing">Указывает, нужно ли освобождать управляемые ресурсы.</param>
+        </member>
+        <member name="T:StockKeeperMail.Desktop.ViewModels.ListViewHelpers.DefectiveListViewHelper">
+            <summary>
+            Представляет класс DefectiveListViewHelper.
+            </summary>
+        </member>
+        <member name="T:StockKeeperMail.Desktop.ViewModels.ListViewHelpers.LogListViewHelper">
+            <summary>
+            Представляет класс LogListViewHelper.
+            </summary>
+        </member>
+        <member name="T:StockKeeperMail.Desktop.ViewModels.ListViewHelpers.OrderListViewHelper">
+            <summary>
+            Представляет класс OrderListViewHelper.
+            </summary>
+        </member>
+        <member name="T:StockKeeperMail.Desktop.ViewModels.ListViewHelpers.ProductListViewHelper">
+            <summary>
+            Представляет класс ProductListViewHelper.
+            </summary>
+        </member>
+        <member name="T:StockKeeperMail.Desktop.ViewModels.ListViewHelpers.RoleListViewHelper">
+            <summary>
+            Представляет класс RoleListViewHelper.
+            </summary>
+        </member>
+        <member name="T:StockKeeperMail.Desktop.ViewModels.ListViewHelpers.StaffListViewHelper">
+            <summary>
+            Представляет класс StaffListViewHelper.
+            </summary>
+        </member>
+        <member name="T:StockKeeperMail.Desktop.ViewModels.ListViewHelpers.StorageDetailListViewHelper">
+            <summary>
+            Представляет класс StorageDetailListViewHelper.
+            </summary>
+        </member>
+        <member name="T:StockKeeperMail.Desktop.ViewModels.ListViewHelpers.StorageListViewHelper">
+            <summary>
+            Представляет класс StorageListViewHelper.
+            </summary>
+        </member>
+        <member name="T:StockKeeperMail.Desktop.ViewModels.ListViewHelpers.SupplierListViewHelper">
+            <summary>
+            Представляет класс SupplierListViewHelper.
+            </summary>
+        </member>
+        <member name="T:StockKeeperMail.Desktop.ViewModels.CreateLocationViewModel">
+            <summary>
+            ViewModel для формы создания нового местоположения (склада/локации).
+            </summary>
+        </member>
+        <member name="E:StockKeeperMail.Desktop.ViewModels.CreateLocationViewModel.Submitted">
+            <summary>
+            Событие, возникающее при успешной отправке формы (создана локация).
+            </summary>
+        </member>
+        <member name="E:StockKeeperMail.Desktop.ViewModels.CreateLocationViewModel.Cancelled">
+            <summary>
+            Событие, возникающее при отмене операции.
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.CreateLocationViewModel.#ctor(StockKeeperMail.Desktop.Stores.NavigationStore,StockKeeperMail.Desktop.DAL.UnitOfWork,System.Action)">
+            <summary>
+            Инициализирует новый экземпляр ViewModel создания локации.
+            </summary>
+            <param name="navigationStore">Хранилище навигации.</param>
+            <param name="unitOfWork">Unit of Work для работы с базой данных.</param>
+            <param name="closeDialogCallback">Метод обратного вызова для закрытия диалога.</param>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.CreateLocationViewModel.NavigateToLocationList">
+            <summary>
+            Выполняет навигацию к списку местоположений.
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.CreateLocationViewModel.Submit">
+            <summary>
+            Отправляет данные формы, создаёт новую локацию и сохраняет её в базе данных.
+            Если валидация не пройдена, сохранение не выполняется.
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.CreateLocationViewModel.Cancel">
+            <summary>
+            Отменяет создание локации и закрывает диалог.
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.CreateLocationViewModel.LoadViewModel(StockKeeperMail.Desktop.Stores.NavigationStore,StockKeeperMail.Desktop.DAL.UnitOfWork,System.Action)">
+            <summary>
+            Фабричный метод для загрузки ViewModel с необходимыми зависимостями.
+            </summary>
+            <param name="navigationStore">Хранилище навигации.</param>
+            <param name="unitOfWork">Unit of Work для работы с базой данных.</param>
+            <param name="closeDialogCallback">Метод обратного вызова для закрытия диалога.</param>
+            <returns>Экземпляр CreateLocationViewModel.</returns>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.CreateLocationViewModel.Dispose(System.Boolean)">
+            <summary>
+            Освобождает ресурсы, используемые ViewModel.
+            </summary>
+            <param name="disposing">Указывает, нужно ли освобождать управляемые ресурсы.</param>
+        </member>
+        <member name="T:StockKeeperMail.Desktop.ViewModels.EditLocationViewModel">
+            <summary>
+            ViewModel для формы редактирования существующего местоположения (склада/локации).
+            </summary>
+        </member>
+        <member name="E:StockKeeperMail.Desktop.ViewModels.EditLocationViewModel.Submitted">
+            <summary>
+            Событие, возникающее при успешной отправке формы (локация обновлена).
+            </summary>
+        </member>
+        <member name="E:StockKeeperMail.Desktop.ViewModels.EditLocationViewModel.Cancelled">
+            <summary>
+            Событие, возникающее при отмене операции.
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.EditLocationViewModel.#ctor(StockKeeperMail.Desktop.Stores.NavigationStore,StockKeeperMail.Desktop.DAL.UnitOfWork,StockKeeperMail.Database.Models.Location,System.Action)">
+            <summary>
+            Инициализирует новый экземпляр ViewModel редактирования локации.
+            </summary>
+            <param name="navigationStore">Хранилище навигации.</param>
+            <param name="unitOfWork">Unit of Work для работы с базой данных.</param>
+            <param name="location">Редактируемая локация.</param>
+            <param name="closeDialogCallback">Метод обратного вызова для закрытия диалога.</param>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.EditLocationViewModel.SetInitialValues(StockKeeperMail.Database.Models.Location)">
+            <summary>
+            Устанавливает начальные значения полей из редактируемой локации.
+            </summary>
+            <param name="location">Локация, чьи значения используются.</param>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.EditLocationViewModel.Submit">
+            <summary>
+            Сохраняет изменения локации в базе данных, если валидация пройдена.
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.EditLocationViewModel.Cancel">
+            <summary>
+            Отменяет редактирование и закрывает диалог без сохранения изменений.
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.EditLocationViewModel.LoadViewModel(StockKeeperMail.Desktop.Stores.NavigationStore,StockKeeperMail.Desktop.DAL.UnitOfWork,StockKeeperMail.Database.Models.Location,System.Action)">
+            <summary>
+            Фабричный метод для загрузки ViewModel с необходимыми зависимостями.
+            </summary>
+            <param name="navigationStore">Хранилище навигации.</param>
+            <param name="unitOfWork">Unit of Work для работы с базой данных.</param>
+            <param name="location">Редактируемая локация.</param>
+            <param name="closeDialogCallback">Метод обратного вызова для закрытия диалога.</param>
+            <returns>Экземпляр EditLocationViewModel.</returns>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.EditLocationViewModel.Dispose(System.Boolean)">
+            <summary>
+            Освобождает ресурсы, используемые ViewModel.
+            </summary>
+            <param name="disposing">Указывает, нужно ли освобождать управляемые ресурсы.</param>
+        </member>
+        <member name="T:StockKeeperMail.Desktop.ViewModels.LocationListViewModel">
+            <summary>
+            ViewModel для отображения списка местоположений (складов/локаций).
+            Управляет загрузкой, созданием, редактированием и удалением локаций.
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.LocationListViewModel.#ctor(StockKeeperMail.Desktop.Stores.NavigationStore)">
+            <summary>
+            Инициализирует новый экземпляр ViewModel списка локаций.
+            </summary>
+            <param name="navigationStore">Хранилище навигации.</param>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.LocationListViewModel.EditLocation(StockKeeperMail.Desktop.ViewModels.LocationViewModel)">
+            <summary>
+            Открывает диалог редактирования выбранной локации.
+            </summary>
+            <param name="locationViewModel">ViewModel локации для редактирования.</param>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.LocationListViewModel.CreateLocation">
+            <summary>
+            Открывает диалог создания новой локации.
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.LocationListViewModel.RemoveLocation(StockKeeperMail.Desktop.ViewModels.LocationViewModel)">
+            <summary>
+            Удаляет выбранную локацию после подтверждения пользователя.
+            </summary>
+            <param name="locationViewModel">ViewModel удаляемой локации.</param>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.LocationListViewModel.CloseDialogCallback">
+            <summary>
+            Callback-метод, вызываемый при закрытии диалогового окна.
+            Обновляет список локаций и закрывает диалог.
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.LocationListViewModel.LoadData">
+            <summary>
+            Загружает список всех локаций из базы данных.
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.LocationListViewModel.LoadViewModel(StockKeeperMail.Desktop.Stores.NavigationStore)">
+            <summary>
+            Фабричный метод для создания ViewModel с предварительной загрузкой данных.
+            </summary>
+            <param name="navigationStore">Хранилище навигации.</param>
+            <returns>Загруженный экземпляр LocationListViewModel.</returns>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.LocationListViewModel.Dispose(System.Boolean)">
+            <summary>
+            Освобождает ресурсы, используемые ViewModel.
+            </summary>
+            <param name="disposing">Указывает, нужно ли освобождать управляемые ресурсы.</param>
+        </member>
+        <member name="T:StockKeeperMail.Desktop.ViewModels.LocationViewModel">
+            <summary>
+            Представляет класс LocationViewModel.
+            </summary>
+        </member>
+        <member name="T:StockKeeperMail.Desktop.ViewModels.LoginViewModel">
+            <summary>
+            ViewModel для формы входа в систему.
+            Управляет аутентификацией пользователя, переключением темы, отображением справки и выходом из приложения.
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.LoginViewModel.#ctor(StockKeeperMail.Desktop.Stores.NavigationStore,StockKeeperMail.Desktop.Stores.AuthenticationStore)">
+            <summary>
+            Инициализирует новый экземпляр ViewModel входа.
+            </summary>
+            <param name="navigationStore">Хранилище навигации.</param>
+            <param name="authenticationStore">Хранилище данных аутентификации.</param>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.LoginViewModel.Help">
+            <summary>
+            Отображает окно справки с контактной информацией.
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.LoginViewModel.ToggleTheme">
+            <summary>
+            Переключает тему оформления (светлая/тёмная).
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.LoginViewModel.ExitApp">
+            <summary>
+            Завершает работу приложения.
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.LoginViewModel.LoginUser(System.Object)">
+            <summary>
+            Выполняет аутентификацию пользователя по имени и паролю.
+            При успешном входе сохраняет данные сотрудника в хранилище и переходит к панели управления.
+            </summary>
+            <param name="obj">Объект PasswordBox для получения пароля.</param>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.LoginViewModel.Dispose(System.Boolean)">
+            <summary>
+            Освобождает ресурсы, используемые ViewModel.
+            </summary>
+            <param name="disposing">Указывает, нужно ли освобождать управляемые ресурсы.</param>
+        </member>
+        <member name="T:StockKeeperMail.Desktop.ViewModels.LogListViewModel">
+            <summary>
+            ViewModel для отображения списка логов (журнала событий).
+            Загружает логи из базы данных в порядке убывания даты.
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.LogListViewModel.#ctor(StockKeeperMail.Desktop.Stores.NavigationStore)">
+            <summary>
+            Инициализирует новый экземпляр ViewModel списка логов.
+            </summary>
+            <param name="navigationStore">Хранилище навигации.</param>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.LogListViewModel.LoadLogs">
+            <summary>
+            Загружает список логов из базы данных, сортируя по дате (сначала новые).
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.LogListViewModel.LoadViewModel(StockKeeperMail.Desktop.Stores.NavigationStore)">
+            <summary>
+            Фабричный метод для создания ViewModel с предварительной загрузкой данных.
+            </summary>
+            <param name="navigationStore">Хранилище навигации.</param>
+            <returns>Загруженный экземпляр LogListViewModel.</returns>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.LogListViewModel.Dispose(System.Boolean)">
+            <summary>
+            Освобождает ресурсы, используемые ViewModel.
+            </summary>
+            <param name="disposing">Указывает, нужно ли освобождать управляемые ресурсы.</param>
+        </member>
+        <member name="T:StockKeeperMail.Desktop.ViewModels.LogViewModel">
+            <summary>
+            Представляет класс LogViewModel.
+            </summary>
+        </member>
+        <member name="T:StockKeeperMail.Desktop.ViewModels.MainViewModel">
+            <summary>
+            Представляет класс MainViewModel.
+            </summary>
+        </member>
+        <member name="T:StockKeeperMail.Desktop.ViewModels.ComposeMessageViewModel">
+            <summary>
+            Представляет класс ComposeMessageViewModel.
+            </summary>
+        </member>
+        <member name="T:StockKeeperMail.Desktop.ViewModels.MessageListItemViewModel">
+            <summary>
+            Представляет класс MessageListItemViewModel.
+            </summary>
+        </member>
+        <member name="T:StockKeeperMail.Desktop.ViewModels.MessageListViewModel">
+            <summary>
+            Представляет класс MessageListViewModel.
+            </summary>
+        </member>
+        <member name="T:StockKeeperMail.Desktop.ViewModels.MessageUserOptionViewModel">
+            <summary>
+            Представляет класс MessageUserOptionViewModel.
+            </summary>
+        </member>
+        <member name="T:StockKeeperMail.Desktop.ViewModels.CreateOrderDetailViewModel">
+            <summary>
+            ViewModel для формы создания детали заказа (добавления товара в заказ).
+            Управляет выбором товара, количеством, автоматическим расчётом суммы и проверкой остатков на складе.
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.CreateOrderDetailViewModel.#ctor(StockKeeperMail.Desktop.Stores.NavigationStore,StockKeeperMail.Desktop.DAL.UnitOfWork,StockKeeperMail.Database.Models.Order,System.Action)">
+            <summary>
+            Инициализирует новый экземпляр ViewModel создания детали заказа.
+            </summary>
+            <param name="navigationStore">Хранилище навигации.</param>
+            <param name="unitOfWork">Единица работы, используемая для текущего заказа.</param>
+            <param name="order">Заказ, для которого добавляется товар.</param>
+            <param name="closeDialogCallback">Метод обратного вызова для закрытия диалога.</param>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.CreateOrderDetailViewModel.UpdateOrderDetailAmount">
+            <summary>
+            Обновляет отображаемую сумму детали заказа на основе выбранного товара и количества.
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.CreateOrderDetailViewModel.CalculateAmount">
+            <summary>
+            Рассчитывает сумму детали заказа.
+            </summary>
+            <returns>Сумма = цена товара × количество.</returns>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.CreateOrderDetailViewModel.Submit">
+            <summary>
+            Отправляет данные формы, добавляет или обновляет деталь заказа, корректирует остатки на складе.
+            Если валидация не пройдена или недостаточно товара, сохранение не выполняется.
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.CreateOrderDetailViewModel.Cancel">
+            <summary>
+            Отменяет добавление товара и закрывает диалог.
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.CreateOrderDetailViewModel.LoadProducts(System.Collections.ObjectModel.ObservableCollection{StockKeeperMail.Desktop.ViewModels.ProductViewModel})">
+            <summary>
+            Загружает список доступных товаров (со статусом "Available").
+            </summary>
+            <param name="products">Коллекция, в которую добавляются загруженные товары.</param>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.CreateOrderDetailViewModel.LoadViewModel(StockKeeperMail.Desktop.Stores.NavigationStore,StockKeeperMail.Desktop.DAL.UnitOfWork,StockKeeperMail.Database.Models.Order,System.Action)">
+            <summary>
+            Фабричный метод для загрузки ViewModel с необходимыми зависимостями.
+            </summary>
+            <param name="navigationStore">Хранилище навигации.</param>
+            <param name="unitOfWork">Единица работы, используемая для текущего заказа.</param>
+            <param name="order">Заказ, для которого добавляется товар.</param>
+            <param name="closeDialogCallback">Метод обратного вызова для закрытия диалога.</param>
+            <returns>Экземпляр CreateOrderDetailViewModel.</returns>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.CreateOrderDetailViewModel.Dispose(System.Boolean)">
+            <summary>
+            Освобождает ресурсы, используемые ViewModel.
+            </summary>
+            <param name="disposing">Указывает, нужно ли освобождать управляемые ресурсы.</param>
+        </member>
+        <member name="T:StockKeeperMail.Desktop.ViewModels.EditOrderDetailViewModel">
+            <summary>
+            ViewModel для формы редактирования детали заказа (изменения количества товара в заказе).
+            Позволяет изменить количество товара, автоматически пересчитывает сумму и корректирует остатки на складе.
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.EditOrderDetailViewModel.#ctor(StockKeeperMail.Desktop.Stores.NavigationStore,StockKeeperMail.Database.Models.OrderDetail,System.Action)">
+            <summary>
+            Инициализирует новый экземпляр ViewModel редактирования детали заказа.
+            </summary>
+            <param name="navigationStore">Хранилище навигации.</param>
+            <param name="orderDetail">Редактируемая деталь заказа.</param>
+            <param name="closeDialogCallback">Метод обратного вызова для закрытия диалога.</param>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.EditOrderDetailViewModel.SetInitialValues(StockKeeperMail.Database.Models.OrderDetail)">
+            <summary>
+            Устанавливает начальные значения полей из редактируемой детали заказа.
+            </summary>
+            <param name="orderDetail">Деталь заказа, чьи значения используются.</param>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.EditOrderDetailViewModel.UpdateOrderDetailAmount">
+            <summary>
+            Обновляет отображаемую сумму детали заказа на основе текущего количества.
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.EditOrderDetailViewModel.CalculateAmount">
+            <summary>
+            Рассчитывает сумму детали заказа.
+            </summary>
+            <returns>Сумма = цена товара × количество.</returns>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.EditOrderDetailViewModel.Submit">
+            <summary>
+            Сохраняет изменения количества товара в заказе.
+            Корректирует остатки на складе: если количество увеличилось — списывает разницу, если уменьшилось — возвращает.
+            Если валидация не пройдена или недостаточно товара, сохранение не выполняется.
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.EditOrderDetailViewModel.Cancel">
+            <summary>
+            Отменяет редактирование и закрывает диалог без сохранения изменений.
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.EditOrderDetailViewModel.LoadViewModel(StockKeeperMail.Desktop.Stores.NavigationStore,StockKeeperMail.Database.Models.OrderDetail,System.Action)">
+            <summary>
+            Фабричный метод для загрузки ViewModel с необходимыми зависимостями.
+            </summary>
+            <param name="navigationStore">Хранилище навигации.</param>
+            <param name="orderDetail">Редактируемая деталь заказа.</param>
+            <param name="closeDialogCallback">Метод обратного вызова для закрытия диалога.</param>
+            <returns>Экземпляр EditOrderDetailViewModel.</returns>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.EditOrderDetailViewModel.Dispose(System.Boolean)">
+            <summary>
+            Освобождает ресурсы, используемые ViewModel.
+            </summary>
+            <param name="disposing">Указывает, нужно ли освобождать управляемые ресурсы.</param>
+        </member>
+        <member name="T:StockKeeperMail.Desktop.ViewModels.OrderDetailListViewModel">
+            <summary>
+            Представляет класс OrderDetailListViewModel.
+            </summary>
+        </member>
+        <member name="T:StockKeeperMail.Desktop.ViewModels.OrderDetailViewModel">
+            <summary>
+            Представляет класс OrderDetailViewModel.
+            </summary>
+        </member>
+        <member name="T:StockKeeperMail.Desktop.ViewModels.CreateOrderViewModel">
+            <summary>
+            ViewModel для формы создания нового заказа.
+            Управляет выбором клиента, добавлением товаров в заказ, расчётом итоговой суммы и сохранением заказа.
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.CreateOrderViewModel.#ctor(StockKeeperMail.Desktop.Stores.NavigationStore)">
+            <summary>
+            Инициализирует новый экземпляр ViewModel создания заказа.
+            Создаёт временный заказ, загружает список клиентов.
+            </summary>
+            <param name="navigationStore">Хранилище навигации.</param>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.CreateOrderViewModel.Submit">
+            <summary>
+            Сохраняет заказ: устанавливает клиента, статус, итоговую сумму, дату.
+            Если валидация не пройдена или список товаров пуст, сохранение не выполняется.
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.CreateOrderViewModel.Cancel">
+            <summary>
+            Отменяет создание заказа и переходит к списку заказов.
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.CreateOrderViewModel.RemoveOrderDetail(StockKeeperMail.Desktop.ViewModels.OrderDetailViewModel)">
+            <summary>
+            Удаляет деталь заказа (товар) из текущего заказа.
+            </summary>
+            <param name="orderDetailViewModel">ViewModel удаляемой детали.</param>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.CreateOrderViewModel.EditOrderDetail(StockKeeperMail.Desktop.ViewModels.OrderDetailViewModel)">
+            <summary>
+            Открывает диалог редактирования детали заказа.
+            </summary>
+            <param name="orderDetailViewModel">ViewModel редактируемой детали.</param>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.CreateOrderViewModel.CloseDialogCallback">
+            <summary>
+            Callback-метод, вызываемый при закрытии диалога.
+            Обновляет список деталей заказа и итоговую сумму.
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.CreateOrderViewModel.CreateOrderDetail">
+            <summary>
+            Открывает диалог создания новой детали заказа (добавления товара).
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.CreateOrderViewModel.LoadCustomers(System.Collections.ObjectModel.ObservableCollection{StockKeeperMail.Desktop.ViewModels.CustomerViewModel})">
+            <summary>
+            Загружает список клиентов из базы данных.
+            </summary>
+            <param name="customers">Коллекция для загрузки.</param>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.CreateOrderViewModel.LoadViewModel(StockKeeperMail.Desktop.Stores.NavigationStore)">
+            <summary>
+            Фабричный метод для создания ViewModel.
+            </summary>
+            <param name="navigationStore">Хранилище навигации.</param>
+            <returns>Экземпляр CreateOrderViewModel.</returns>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.CreateOrderViewModel.Dispose(System.Boolean)">
+            <summary>
+            Освобождает ресурсы, используемые ViewModel.
+            </summary>
+            <param name="disposing">Указывает, нужно ли освобождать управляемые ресурсы.</param>
+        </member>
+        <member name="T:StockKeeperMail.Desktop.ViewModels.EditOrderViewModel">
+            <summary>
+            ViewModel для формы редактирования существующего заказа.
+            Позволяет изменять статус доставки, добавлять/удалять товары, корректировать итоговую сумму.
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.EditOrderViewModel.#ctor(StockKeeperMail.Desktop.Stores.NavigationStore,System.Guid)">
+            <summary>
+            Инициализирует новый экземпляр ViewModel редактирования заказа.
+            </summary>
+            <param name="navigationStore">Хранилище навигации.</param>
+            <param name="orderID">Идентификатор редактируемого заказа.</param>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.EditOrderViewModel.SetInitialValues(StockKeeperMail.Database.Models.Order)">
+            <summary>
+            Устанавливает начальные значения полей из редактируемого заказа.
+            </summary>
+            <param name="order">Заказ, чьи значения используются.</param>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.EditOrderViewModel.Submit">
+            <summary>
+            Сохраняет изменения заказа: обновляет статус доставки, итоговую сумму.
+            Если валидация не пройдена или список товаров пуст, сохранение не выполняется.
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.EditOrderViewModel.Cancel">
+            <summary>
+            Отменяет редактирование и переходит к списку заказов.
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.EditOrderViewModel.RemoveOrderDetail(StockKeeperMail.Desktop.ViewModels.OrderDetailViewModel)">
+            <summary>
+            Удаляет деталь заказа (товар) из текущего заказа.
+            </summary>
+            <param name="orderDetailViewModel">ViewModel удаляемой детали.</param>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.EditOrderViewModel.EditOrderDetail(StockKeeperMail.Desktop.ViewModels.OrderDetailViewModel)">
+            <summary>
+            Открывает диалог редактирования детали заказа.
+            </summary>
+            <param name="orderDetailViewModel">ViewModel редактируемой детали.</param>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.EditOrderViewModel.CloseDialogCallback">
+            <summary>
+            Callback-метод, вызываемый при закрытии диалога.
+            Обновляет список деталей заказа и итоговую сумму.
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.EditOrderViewModel.CreateOrderDetail">
+            <summary>
+            Открывает диалог создания новой детали заказа (добавления товара).
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.EditOrderViewModel.LoadCustomers(System.Collections.ObjectModel.ObservableCollection{StockKeeperMail.Desktop.ViewModels.CustomerViewModel})">
+            <summary>
+            Загружает список клиентов из базы данных.
+            </summary>
+            <param name="customer">Коллекция для загрузки.</param>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.EditOrderViewModel.LoadViewModel(StockKeeperMail.Desktop.Stores.NavigationStore,StockKeeperMail.Database.Models.Order)">
+            <summary>
+            Фабричный метод для загрузки ViewModel с необходимыми зависимостями.
+            </summary>
+            <param name="navigationStore">Хранилище навигации.</param>
+            <param name="order">Редактируемый заказ.</param>
+            <returns>Экземпляр EditOrderViewModel.</returns>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.EditOrderViewModel.Dispose(System.Boolean)">
+            <summary>
+            Освобождает ресурсы, используемые ViewModel.
+            </summary>
+            <param name="disposing">Указывает, нужно ли освобождать управляемые ресурсы.</param>
+        </member>
+        <member name="T:StockKeeperMail.Desktop.ViewModels.OrderListViewModel">
+            <summary>
+            ViewModel для отображения списка заказов.
+            Управляет загрузкой, созданием, редактированием, удалением заказов и печатью накладных.
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.OrderListViewModel.#ctor(StockKeeperMail.Desktop.Stores.NavigationStore)">
+            <summary>
+            Инициализирует новый экземпляр ViewModel списка заказов.
+            </summary>
+            <param name="navigationStore">Хранилище навигации.</param>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.OrderListViewModel.PrintInvoice(StockKeeperMail.Desktop.ViewModels.OrderViewModel)">
+            <summary>
+            Открывает диалог печати накладной для выбранного заказа.
+            </summary>
+            <param name="orderViewModel">ViewModel заказа.</param>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.OrderListViewModel.RemoveOrder(StockKeeperMail.Desktop.ViewModels.OrderViewModel)">
+            <summary>
+            Удаляет выбранный заказ после подтверждения пользователя.
+            </summary>
+            <param name="orderViewModel">ViewModel удаляемого заказа.</param>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.OrderListViewModel.EditOrder(StockKeeperMail.Desktop.ViewModels.OrderViewModel)">
+            <summary>
+            Открывает форму редактирования выбранного заказа.
+            </summary>
+            <param name="orderViewModel">ViewModel редактируемого заказа.</param>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.OrderListViewModel.CreateOrder(StockKeeperMail.Desktop.ViewModels.OrderViewModel)">
+            <summary>
+            Открывает форму создания нового заказа.
+            </summary>
+            <param name="orderViewModel">Не используется.</param>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.OrderListViewModel.LoadOrders">
+            <summary>
+            Загружает список заказов из базы данных вместе с информацией о клиентах.
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.OrderListViewModel.LoadViewModel(StockKeeperMail.Desktop.Stores.NavigationStore)">
+            <summary>
+            Фабричный метод для создания ViewModel с предварительной загрузкой данных.
+            </summary>
+            <param name="navigationStore">Хранилище навигации.</param>
+            <returns>Загруженный экземпляр OrderListViewModel.</returns>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.OrderListViewModel.Dispose(System.Boolean)">
+            <summary>
+            Освобождает ресурсы, используемые ViewModel.
+            </summary>
+            <param name="disposing">Указывает, нужно ли освобождать управляемые ресурсы.</param>
+        </member>
+        <member name="T:StockKeeperMail.Desktop.ViewModels.OrderViewModel">
+            <summary>
+            Представляет класс OrderViewModel.
+            </summary>
+        </member>
+        <member name="T:StockKeeperMail.Desktop.ViewModels.PrintInvoiceViewModel">
+            <summary>
+            ViewModel для печати накладной (инвойса) заказа.
+            Загружает данные заказа и детали, управляет печатью документа.
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.PrintInvoiceViewModel.#ctor(StockKeeperMail.Desktop.Stores.NavigationStore,System.Guid)">
+            <summary>
+            Инициализирует новый экземпляр ViewModel печати накладной.
+            </summary>
+            <param name="navigationStore">Хранилище навигации.</param>
+            <param name="orderID">Идентификатор заказа для печати.</param>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.PrintInvoiceViewModel.Print(StockKeeperMail.Desktop.Controls.InvoiceDocumentControl)">
+            <summary>
+            Печатает накладную, используя стандартный диалог печати Windows.
+            При успешной печати записывает событие в журнал.
+            </summary>
+            <param name="userControl">Элемент управления InvoiceDocumentControl, содержащий документ для печати.</param>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.PrintInvoiceViewModel.LoadOrderDetails">
+            <summary>
+            Загружает детали заказа для отображения в накладной.
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.PrintInvoiceViewModel.LoadViewModel(StockKeeperMail.Desktop.Stores.NavigationStore,System.Guid)">
+            <summary>
+            Фабричный метод для загрузки ViewModel с предварительной загрузкой данных.
+            </summary>
+            <param name="navigationStore">Хранилище навигации.</param>
+            <param name="orderID">Идентификатор заказа.</param>
+            <returns>Экземпляр PrintInvoiceViewModel.</returns>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.PrintInvoiceViewModel.Dispose(System.Boolean)">
+            <summary>
+            Освобождает ресурсы, используемые ViewModel.
+            </summary>
+            <param name="disposing">Указывает, нужно ли освобождать управляемые ресурсы.</param>
+        </member>
+        <member name="T:StockKeeperMail.Desktop.ViewModels.CreateProductLocationViewModel">
+            <summary>
+            ViewModel для формы добавления товара на склад (в локацию).
+            Позволяет выбрать товар, указать количество и добавить его к выбранной локации.
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.CreateProductLocationViewModel.#ctor(StockKeeperMail.Desktop.Stores.NavigationStore,StockKeeperMail.Desktop.DAL.UnitOfWork,StockKeeperMail.Database.Models.Location,System.Action)">
+            <summary>
+            Инициализирует новый экземпляр ViewModel добавления товара в локацию.
+            </summary>
+            <param name="navigationStore">Хранилище навигации.</param>
+            <param name="unitOfWork">Unit of Work для работы с базой данных.</param>
+            <param name="location">Локация (склад), в которую добавляется товар.</param>
+            <param name="closeDialogCallback">Метод обратного вызова для закрытия диалога.</param>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.CreateProductLocationViewModel.Submit">
+            <summary>
+            Добавляет выбранное количество товара в локацию.
+            Если товар уже есть в локации — увеличивает его количество, иначе создаёт новую запись.
+            Также увеличивает общее количество товара на складе.
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.CreateProductLocationViewModel.Cancel">
+            <summary>
+            Отменяет операцию и закрывает диалог.
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.CreateProductLocationViewModel.LoadProducts(System.Collections.ObjectModel.ObservableCollection{StockKeeperMail.Desktop.ViewModels.ProductViewModel})">
+            <summary>
+            Загружает список всех товаров из базы данных.
+            </summary>
+            <param name="products">Коллекция для загрузки.</param>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.CreateProductLocationViewModel.LoadViewModel(StockKeeperMail.Desktop.Stores.NavigationStore,StockKeeperMail.Desktop.DAL.UnitOfWork,StockKeeperMail.Database.Models.Location,System.Action)">
+            <summary>
+            Фабричный метод для загрузки ViewModel с необходимыми зависимостями.
+            </summary>
+            <param name="navigationStore">Хранилище навигации.</param>
+            <param name="unitOfWork">Unit of Work для работы с базой данных.</param>
+            <param name="location">Локация (склад).</param>
+            <param name="closeDialogCallback">Метод обратного вызова для закрытия диалога.</param>
+            <returns>Экземпляр CreateProductLocationViewModel.</returns>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.CreateProductLocationViewModel.Dispose(System.Boolean)">
+            <summary>
+            Освобождает ресурсы, используемые ViewModel.
+            </summary>
+            <param name="disposing">Указывает, нужно ли освобождать управляемые ресурсы.</param>
+        </member>
+        <member name="T:StockKeeperMail.Desktop.ViewModels.ProductLocationViewModel">
+            <summary>
+            Представляет класс ProductLocationViewModel.
+            </summary>
+        </member>
+        <member name="T:StockKeeperMail.Desktop.ViewModels.CreateProductViewModel">
+            <summary>
+            ViewModel для формы создания нового товара.
+            Обеспечивает валидацию вводимых данных и сохранение товара в базу данных.
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.CreateProductViewModel.#ctor(StockKeeperMail.Desktop.Stores.NavigationStore,StockKeeperMail.Desktop.DAL.UnitOfWork,System.Action)">
+            <summary>
+            Инициализирует новый экземпляр ViewModel создания товара.
+            </summary>
+            <param name="navigationStore">Хранилище навигации.</param>
+            <param name="unitOfWork">Unit of Work для работы с базой данных.</param>
+            <param name="closeDialogCallback">Метод обратного вызова для закрытия диалога.</param>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.CreateProductViewModel.Submit">
+            <summary>
+            Отправляет данные формы, создаёт новый товар и сохраняет его в базе данных.
+            Если валидация не пройдена, сохранение не выполняется.
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.CreateProductViewModel.Cancel">
+            <summary>
+            Отменяет создание товара и закрывает диалог.
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.CreateProductViewModel.LoadSuppliers">
+            <summary>
+            Загружает список активных поставщиков из базы данных.
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.CreateProductViewModel.LoadLocations">
+            <summary>
+            Загружает список местоположений (складов) из базы данных.
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.CreateProductViewModel.LoadCategories">
+            <summary>
+            Загружает список активных категорий из базы данных.
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.CreateProductViewModel.LoadViewModel(StockKeeperMail.Desktop.Stores.NavigationStore,StockKeeperMail.Desktop.DAL.UnitOfWork,System.Action)">
+            <summary>
+            Фабричный метод для загрузки ViewModel с необходимыми зависимостями.
+            </summary>
+            <param name="navigationStore">Хранилище навигации.</param>
+            <param name="unitOfWork">Unit of Work для работы с базой данных.</param>
+            <param name="closeDialogCallback">Метод обратного вызова для закрытия диалога.</param>
+            <returns>Экземпляр CreateProductViewModel.</returns>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.CreateProductViewModel.Dispose(System.Boolean)">
+            <summary>
+            Освобождает ресурсы, используемые ViewModel.
+            </summary>
+            <param name="disposing">Указывает, нужно ли освобождать управляемые ресурсы.</param>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.CreateProductViewModel.CanCreateProduct(System.Object)">
+            <summary>
+            Проверяет, можно ли создать товар (всегда true).
+            </summary>
+            <param name="obj">Параметр команды.</param>
+            <returns>Всегда true.</returns>
+        </member>
+        <member name="T:StockKeeperMail.Desktop.ViewModels.EditProductViewModel">
+            <summary>
+            ViewModel для формы редактирования существующего товара.
+            Обеспечивает валидацию вводимых данных и сохранение изменений в базе данных.
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.EditProductViewModel.#ctor(StockKeeperMail.Desktop.Stores.NavigationStore,StockKeeperMail.Desktop.DAL.UnitOfWork,StockKeeperMail.Database.Models.Product,System.Action)">
+            <summary>
+            Инициализирует новый экземпляр ViewModel редактирования товара.
+            </summary>
+            <param name="navigationStore">Хранилище навигации.</param>
+            <param name="unitOfWork">Unit of Work для работы с базой данных.</param>
+            <param name="product">Редактируемый товар.</param>
+            <param name="closeDialogCallback">Метод обратного вызова для закрытия диалога.</param>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.EditProductViewModel.Submit">
+            <summary>
+            Сохраняет изменения товара в базе данных, если валидация пройдена.
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.EditProductViewModel.Cancel">
+            <summary>
+            Отменяет редактирование и закрывает диалог без сохранения изменений.
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.EditProductViewModel.LoadCategories">
+            <summary>
+            Загружает список категорий из базы данных.
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.EditProductViewModel.LoadLocations">
+            <summary>
+            Загружает список местоположений (складов) из базы данных.
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.EditProductViewModel.LoadSuppliers">
+            <summary>
+            Загружает список поставщиков из базы данных.
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.EditProductViewModel.LoadViewModel(StockKeeperMail.Desktop.Stores.NavigationStore,StockKeeperMail.Desktop.DAL.UnitOfWork,StockKeeperMail.Database.Models.Product,System.Action)">
+            <summary>
+            Фабричный метод для загрузки ViewModel с необходимыми зависимостями.
+            </summary>
+            <param name="navigationStore">Хранилище навигации.</param>
+            <param name="unitOfWork">Unit of Work для работы с базой данных.</param>
+            <param name="product">Редактируемый товар.</param>
+            <param name="closeDialogCallback">Метод обратного вызова для закрытия диалога.</param>
+            <returns>Экземпляр EditProductViewModel.</returns>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.EditProductViewModel.SetInitialValues(StockKeeperMail.Database.Models.Product)">
+            <summary>
+            Устанавливает начальные значения полей из редактируемого товара.
+            </summary>
+            <param name="product">Товар, чьи значения используются.</param>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.EditProductViewModel.Dispose(System.Boolean)">
+            <summary>
+            Освобождает ресурсы, используемые ViewModel.
+            </summary>
+            <param name="disposing">Указывает, нужно ли освобождать управляемые ресурсы.</param>
+        </member>
+        <member name="T:StockKeeperMail.Desktop.ViewModels.ProductListViewModel">
+            <summary>
+            ViewModel для отображения списка товаров.
+            Управляет загрузкой, созданием, редактированием и удалением товаров.
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.ProductListViewModel.#ctor(StockKeeperMail.Desktop.Stores.NavigationStore)">
+            <summary>
+            Инициализирует новый экземпляр ViewModel списка товаров.
+            </summary>
+            <param name="navigationStore">Хранилище навигации.</param>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.ProductListViewModel.RemoveProduct(StockKeeperMail.Desktop.ViewModels.ProductViewModel)">
+            <summary>
+            Удаляет выбранный товар после подтверждения пользователя.
+            </summary>
+            <param name="productViewModel">ViewModel удаляемого товара.</param>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.ProductListViewModel.EditProduct(StockKeeperMail.Desktop.ViewModels.ProductViewModel)">
+            <summary>
+            Открывает диалог редактирования выбранного товара.
+            </summary>
+            <param name="productViewModel">ViewModel товара для редактирования.</param>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.ProductListViewModel.CreateProduct">
+            <summary>
+            Открывает диалог создания нового товара.
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.ProductListViewModel.CloseDialogCallback">
+            <summary>
+            Callback-метод, вызываемый при закрытии диалогового окна.
+            Обновляет список товаров и закрывает диалог.
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.ProductListViewModel.LoadProducts">
+            <summary>
+            Загружает список всех товаров из базы данных вместе с поставщиками и категориями.
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.ProductListViewModel.LoadViewModel(StockKeeperMail.Desktop.Stores.NavigationStore)">
+            <summary>
+            Фабричный метод для создания ViewModel с предварительной загрузкой данных.
+            </summary>
+            <param name="navigationStore">Хранилище навигации.</param>
+            <returns>Загруженный экземпляр ProductListViewModel.</returns>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.ProductListViewModel.Dispose(System.Boolean)">
+            <summary>
+            Освобождает ресурсы, используемые ViewModel.
+            </summary>
+            <param name="disposing">Указывает, нужно ли освобождать управляемые ресурсы.</param>
+        </member>
+        <member name="T:StockKeeperMail.Desktop.ViewModels.ProductViewModel">
+            <summary>
+            Представляет класс ProductViewModel.
+            </summary>
+        </member>
+        <member name="T:StockKeeperMail.Desktop.ViewModels.CreateRoleViewModel">
+            <summary>
+            ViewModel для формы создания новой роли.
+            Обеспечивает валидацию вводимых данных, управление привилегиями и сохранение роли в базе данных.
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.CreateRoleViewModel.#ctor(StockKeeperMail.Desktop.Stores.NavigationStore,StockKeeperMail.Desktop.DAL.UnitOfWork,System.Action)">
+            <summary>
+            Инициализирует новый экземпляр ViewModel создания роли.
+            </summary>
+            <param name="navigationStore">Хранилище навигации.</param>
+            <param name="unitOfWork">Unit of Work для работы с базой данных.</param>
+            <param name="closeDialogCallback">Метод обратного вызова для закрытия диалога.</param>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.CreateRoleViewModel.Submit">
+            <summary>
+            Отправляет данные формы, создаёт новую роль с выбранными привилегиями и сохраняет в базе данных.
+            Если валидация не пройдена, сохранение не выполняется.
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.CreateRoleViewModel.Cancel">
+            <summary>
+            Отменяет создание роли и закрывает диалог.
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.CreateRoleViewModel.LoadViewModel(StockKeeperMail.Desktop.Stores.NavigationStore,StockKeeperMail.Desktop.DAL.UnitOfWork,System.Action)">
+            <summary>
+            Фабричный метод для загрузки ViewModel с необходимыми зависимостями.
+            </summary>
+            <param name="navigationStore">Хранилище навигации.</param>
+            <param name="unitOfWork">Unit of Work для работы с базой данных.</param>
+            <param name="closeDialogCallback">Метод обратного вызова для закрытия диалога.</param>
+            <returns>Экземпляр CreateRoleViewModel.</returns>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.CreateRoleViewModel.Dispose(System.Boolean)">
+            <summary>
+            Освобождает ресурсы, используемые ViewModel.
+            </summary>
+            <param name="disposing">Указывает, нужно ли освобождать управляемые ресурсы.</param>
+        </member>
+        <member name="T:StockKeeperMail.Desktop.ViewModels.EditRoleViewModel">
+            <summary>
+            ViewModel для формы редактирования существующей роли.
+            Позволяет изменять название, описание, статус и привилегии роли.
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.EditRoleViewModel.#ctor(StockKeeperMail.Desktop.Stores.NavigationStore,StockKeeperMail.Desktop.DAL.UnitOfWork,StockKeeperMail.Database.Models.Role,System.Action)">
+            <summary>
+            Инициализирует новый экземпляр ViewModel редактирования роли.
+            </summary>
+            <param name="navigationStore">Хранилище навигации.</param>
+            <param name="unitOfWork">Unit of Work для работы с базой данных.</param>
+            <param name="role">Редактируемая роль.</param>
+            <param name="closeDialogCallback">Метод обратного вызова для закрытия диалога.</param>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.EditRoleViewModel.Submit">
+            <summary>
+            Сохраняет изменения роли в базе данных, если валидация пройдена.
+            Обновляет название, описание, статус и все привилегии.
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.EditRoleViewModel.LoadViewModel(StockKeeperMail.Desktop.Stores.NavigationStore,StockKeeperMail.Desktop.DAL.UnitOfWork,StockKeeperMail.Database.Models.Role,System.Action)">
+            <summary>
+            Фабричный метод для загрузки ViewModel с необходимыми зависимостями.
+            </summary>
+            <param name="navigationStore">Хранилище навигации.</param>
+            <param name="unitOfWork">Unit of Work для работы с базой данных.</param>
+            <param name="role">Редактируемая роль.</param>
+            <param name="closeDialogCallback">Метод обратного вызова для закрытия диалога.</param>
+            <returns>Экземпляр EditRoleViewModel.</returns>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.EditRoleViewModel.Cancel">
+            <summary>
+            Отменяет редактирование и закрывает диалог без сохранения изменений.
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.EditRoleViewModel.Dispose(System.Boolean)">
+            <summary>
+            Освобождает ресурсы, используемые ViewModel.
+            </summary>
+            <param name="disposing">Указывает, нужно ли освобождать управляемые ресурсы.</param>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.EditRoleViewModel.CanModifyRole(System.Object)">
+            <summary>
+            Проверяет, можно ли изменять роль (всегда true).
+            </summary>
+            <param name="obj">Параметр команды.</param>
+            <returns>Всегда true.</returns>
+        </member>
+        <member name="T:StockKeeperMail.Desktop.ViewModels.RoleListViewModel">
+            <summary>
+            ViewModel для отображения списка ролей.
+            Управляет загрузкой, созданием, редактированием и удалением ролей.
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.RoleListViewModel.#ctor(StockKeeperMail.Desktop.Stores.NavigationStore)">
+            <summary>
+            Инициализирует новый экземпляр ViewModel списка ролей.
+            </summary>
+            <param name="navigationStore">Хранилище навигации.</param>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.RoleListViewModel.EditRole(StockKeeperMail.Desktop.ViewModels.RoleViewModel)">
+            <summary>
+            Открывает диалог редактирования выбранной роли.
+            </summary>
+            <param name="roleViewModel">ViewModel роли для редактирования.</param>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.RoleListViewModel.CreateRole">
+            <summary>
+            Открывает диалог создания новой роли.
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.RoleListViewModel.RemoveRole(StockKeeperMail.Desktop.ViewModels.RoleViewModel)">
+            <summary>
+            Удаляет выбранную роль после подтверждения пользователя.
+            </summary>
+            <param name="roleViewModel">ViewModel удаляемой роли.</param>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.RoleListViewModel.LoadData">
+            <summary>
+            Загружает список всех ролей из базы данных.
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.RoleListViewModel.CloseDialogCallback">
+            <summary>
+            Callback-метод, вызываемый при закрытии диалогового окна.
+            Обновляет список ролей и закрывает диалог.
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.RoleListViewModel.LoadViewModel(StockKeeperMail.Desktop.Stores.NavigationStore)">
+            <summary>
+            Фабричный метод для создания ViewModel с предварительной загрузкой данных.
+            </summary>
+            <param name="navigationStore">Хранилище навигации.</param>
+            <returns>Загруженный экземпляр RoleListViewModel.</returns>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.RoleListViewModel.Dispose(System.Boolean)">
+            <summary>
+            Освобождает ресурсы, используемые ViewModel.
+            </summary>
+            <param name="disposing">Указывает, нужно ли освобождать управляемые ресурсы.</param>
+        </member>
+        <member name="T:StockKeeperMail.Desktop.ViewModels.RolePrivilegesHelper">
+            <summary>
+            Представляет класс RolePrivilegesHelper.
+            </summary>
+        </member>
+        <member name="T:StockKeeperMail.Desktop.ViewModels.RoleViewModel">
+            <summary>
+            Представляет класс RoleViewModel.
+            </summary>
+        </member>
+        <member name="T:StockKeeperMail.Desktop.ViewModels.CreateStaffViewModel">
+            <summary>
+            ViewModel для формы создания нового сотрудника.
+            Обеспечивает валидацию вводимых данных, выбор роли и сохранение сотрудника в базе данных.
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.CreateStaffViewModel.#ctor(StockKeeperMail.Desktop.Stores.NavigationStore,StockKeeperMail.Desktop.DAL.UnitOfWork,System.Action)">
+            <summary>
+            Инициализирует новый экземпляр ViewModel создания сотрудника.
+            </summary>
+            <param name="navigationStore">Хранилище навигации.</param>
+            <param name="unitOfWork">Unit of Work для работы с базой данных.</param>
+            <param name="closeDialogCallback">Метод обратного вызова для закрытия диалога.</param>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.CreateStaffViewModel.Submit(System.Object)">
+            <summary>
+            Отправляет данные формы, создаёт нового сотрудника и сохраняет его в базе данных.
+            Если валидация не пройдена, сохранение не выполняется.
+            </summary>
+            <param name="obj">Объект PasswordBox для получения пароля.</param>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.CreateStaffViewModel.Cancel">
+            <summary>
+            Отменяет создание сотрудника и закрывает диалог.
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.CreateStaffViewModel.LoadRoles">
+            <summary>
+            Загружает список активных ролей из базы данных.
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.CreateStaffViewModel.LoadViewModel(StockKeeperMail.Desktop.Stores.NavigationStore,StockKeeperMail.Desktop.DAL.UnitOfWork,System.Action)">
+            <summary>
+            Фабричный метод для загрузки ViewModel с необходимыми зависимостями.
+            </summary>
+            <param name="navigationStore">Хранилище навигации.</param>
+            <param name="unitOfWork">Unit of Work для работы с базой данных.</param>
+            <param name="closeDialogCallback">Метод обратного вызова для закрытия диалога.</param>
+            <returns>Экземпляр CreateStaffViewModel.</returns>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.CreateStaffViewModel.Dispose(System.Boolean)">
+            <summary>
+            Освобождает ресурсы, используемые ViewModel.
+            </summary>
+            <param name="disposing">Указывает, нужно ли освобождать управляемые ресурсы.</param>
+        </member>
+        <member name="T:StockKeeperMail.Desktop.ViewModels.EditStaffViewModel">
+            <summary>
+            ViewModel для формы редактирования существующего сотрудника.
+            Позволяет изменять личные данные, роль, имя пользователя и пароль.
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.EditStaffViewModel.#ctor(StockKeeperMail.Desktop.Stores.NavigationStore,StockKeeperMail.Desktop.DAL.UnitOfWork,StockKeeperMail.Database.Models.Staff,System.Action)">
+            <summary>
+            Инициализирует новый экземпляр ViewModel редактирования сотрудника.
+            </summary>
+            <param name="navigationStore">Хранилище навигации.</param>
+            <param name="unitOfWork">Unit of Work для работы с базой данных.</param>
+            <param name="staff">Редактируемый сотрудник.</param>
+            <param name="closeDialogCallback">Метод обратного вызова для закрытия диалога.</param>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.EditStaffViewModel.Submit(System.Object)">
+            <summary>
+            Сохраняет изменения сотрудника в базе данных, если валидация пройдена.
+            </summary>
+            <param name="obj">Объект PasswordBox для получения нового пароля.</param>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.EditStaffViewModel.Cancel">
+            <summary>
+            Отменяет редактирование и закрывает диалог без сохранения изменений.
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.EditStaffViewModel.LoadRoles">
+            <summary>
+            Загружает список ролей из базы данных.
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.EditStaffViewModel.LoadViewModel(StockKeeperMail.Desktop.Stores.NavigationStore,StockKeeperMail.Desktop.DAL.UnitOfWork,StockKeeperMail.Database.Models.Staff,System.Action)">
+            <summary>
+            Фабричный метод для загрузки ViewModel с необходимыми зависимостями.
+            </summary>
+            <param name="navigationStore">Хранилище навигации.</param>
+            <param name="unitOfWork">Unit of Work для работы с базой данных.</param>
+            <param name="staff">Редактируемый сотрудник.</param>
+            <param name="closeDialogCallback">Метод обратного вызова для закрытия диалога.</param>
+            <returns>Экземпляр EditStaffViewModel.</returns>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.EditStaffViewModel.SetInitialValues(StockKeeperMail.Database.Models.Staff)">
+            <summary>
+            Устанавливает начальные значения полей из редактируемого сотрудника.
+            </summary>
+            <param name="staff">Сотрудник, чьи значения используются.</param>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.EditStaffViewModel.Dispose(System.Boolean)">
+            <summary>
+            Освобождает ресурсы, используемые ViewModel.
+            </summary>
+            <param name="disposing">Указывает, нужно ли освобождать управляемые ресурсы.</param>
+        </member>
+        <member name="T:StockKeeperMail.Desktop.ViewModels.StaffListViewModel">
+            <summary>
+            ViewModel для отображения списка сотрудников.
+            Управляет загрузкой, созданием, редактированием и удалением сотрудников.
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.StaffListViewModel.#ctor(StockKeeperMail.Desktop.Stores.NavigationStore)">
+            <summary>
+            Инициализирует новый экземпляр ViewModel списка сотрудников.
+            </summary>
+            <param name="navigationStore">Хранилище навигации.</param>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.StaffListViewModel.RemoveStaff(StockKeeperMail.Desktop.ViewModels.StaffViewModel)">
+            <summary>
+            Удаляет выбранного сотрудника после подтверждения пользователя.
+            </summary>
+            <param name="staffViewModel">ViewModel удаляемого сотрудника.</param>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.StaffListViewModel.EditStaff(StockKeeperMail.Desktop.ViewModels.StaffViewModel)">
+            <summary>
+            Открывает диалог редактирования выбранного сотрудника.
+            </summary>
+            <param name="staffViewModel">ViewModel сотрудника для редактирования.</param>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.StaffListViewModel.CreateStaff">
+            <summary>
+            Открывает диалог создания нового сотрудника.
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.StaffListViewModel.CloseDialogCallback">
+            <summary>
+            Callback-метод, вызываемый при закрытии диалогового окна.
+            Обновляет список сотрудников и закрывает диалог.
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.StaffListViewModel.LoadStaffs">
+            <summary>
+            Загружает список всех сотрудников из базы данных вместе с их ролями.
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.StaffListViewModel.LoadViewModel(StockKeeperMail.Desktop.Stores.NavigationStore)">
+            <summary>
+            Фабричный метод для создания ViewModel с предварительной загрузкой данных.
+            </summary>
+            <param name="navigationStore">Хранилище навигации.</param>
+            <returns>Загруженный экземпляр StaffListViewModel.</returns>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.StaffListViewModel.Dispose(System.Boolean)">
+            <summary>
+            Освобождает ресурсы, используемые ViewModel.
+            </summary>
+            <param name="disposing">Указывает, нужно ли освобождать управляемые ресурсы.</param>
+        </member>
+        <member name="T:StockKeeperMail.Desktop.ViewModels.StaffViewModel">
+            <summary>
+            Представляет класс StaffViewModel.
+            </summary>
+        </member>
+        <member name="T:StockKeeperMail.Desktop.ViewModels.DeclareDefectiveProductViewModel">
+            <summary>
+            ViewModel для формы объявления товара на складе бракованным.
+            Позволяет указать количество бракованного товара, списывает его со склада и создаёт запись в журнале брака.
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.DeclareDefectiveProductViewModel.#ctor(StockKeeperMail.Desktop.Stores.NavigationStore,StockKeeperMail.Desktop.DAL.UnitOfWork,StockKeeperMail.Database.Models.ProductLocation,System.Action)">
+            <summary>
+            Инициализирует новый экземпляр ViewModel объявления брака.
+            </summary>
+            <param name="navigationStore">Хранилище навигации.</param>
+            <param name="unitOfWork">Unit of Work для работы с базой данных.</param>
+            <param name="productLocation">Местоположение товара на складе.</param>
+            <param name="closeDialogCallback">Метод обратного вызова для закрытия диалога.</param>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.DeclareDefectiveProductViewModel.Submit">
+            <summary>
+            Отправляет данные формы: создаёт запись о браке, уменьшает количество товара в локации и общее количество товара.
+            Если валидация не пройдена или количество превышает доступное, сохранение не выполняется.
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.DeclareDefectiveProductViewModel.Cancel">
+            <summary>
+            Отменяет операцию и закрывает диалог.
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.DeclareDefectiveProductViewModel.LoadProducts">
+            <summary>
+            Загружает список всех товаров из базы данных.
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.DeclareDefectiveProductViewModel.LoadViewModel(StockKeeperMail.Desktop.Stores.NavigationStore,StockKeeperMail.Desktop.DAL.UnitOfWork,StockKeeperMail.Database.Models.ProductLocation,System.Action)">
+            <summary>
+            Фабричный метод для загрузки ViewModel с необходимыми зависимостями.
+            </summary>
+            <param name="navigationStore">Хранилище навигации.</param>
+            <param name="unitOfWork">Unit of Work для работы с базой данных.</param>
+            <param name="productLocation">Местоположение товара на складе.</param>
+            <param name="closeDialogCallback">Метод обратного вызова для закрытия диалога.</param>
+            <returns>Экземпляр DeclareDefectiveProductViewModel.</returns>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.DeclareDefectiveProductViewModel.Dispose(System.Boolean)">
+            <summary>
+            Освобождает ресурсы, используемые ViewModel.
+            </summary>
+            <param name="disposing">Указывает, нужно ли освобождать управляемые ресурсы.</param>
+        </member>
+        <member name="T:StockKeeperMail.Desktop.ViewModels.DisposeProductViewModel">
+            <summary>
+            ViewModel для формы списания товара со склада.
+            Позволяет указать количество товара для списания, проверяет его наличие и обновляет остатки.
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.DisposeProductViewModel.#ctor(StockKeeperMail.Desktop.Stores.NavigationStore,StockKeeperMail.Desktop.DAL.UnitOfWork,StockKeeperMail.Database.Models.ProductLocation,System.Action)">
+            <summary>
+            Инициализирует новый экземпляр ViewModel списания товара.
+            </summary>
+            <param name="navigationStore">Хранилище навигации.</param>
+            <param name="unitOfWork">Unit of Work для работы с базой данных.</param>
+            <param name="productLocation">Местоположение товара на складе.</param>
+            <param name="closeDialogCallback">Метод обратного вызова для закрытия диалога.</param>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.DisposeProductViewModel.Submit">
+            <summary>
+            Выполняет списание товара: уменьшает количество в локации и общий остаток товара.
+            Если валидация не пройдена или количество превышает доступное, списание не выполняется.
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.DisposeProductViewModel.Cancel">
+            <summary>
+            Отменяет списание и закрывает диалог.
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.DisposeProductViewModel.LoadViewModel(StockKeeperMail.Desktop.Stores.NavigationStore,StockKeeperMail.Desktop.DAL.UnitOfWork,StockKeeperMail.Database.Models.ProductLocation,System.Action)">
+            <summary>
+            Фабричный метод для загрузки ViewModel с необходимыми зависимостями.
+            </summary>
+            <param name="navigationStore">Хранилище навигации.</param>
+            <param name="unitOfWork">Unit of Work для работы с базой данных.</param>
+            <param name="productLocation">Местоположение товара на складе.</param>
+            <param name="closeDialogCallback">Метод обратного вызова для закрытия диалога.</param>
+            <returns>Экземпляр DisposeProductViewModel.</returns>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.DisposeProductViewModel.Dispose(System.Boolean)">
+            <summary>
+            Освобождает ресурсы, используемые ViewModel.
+            </summary>
+            <param name="disposing">Указывает, нужно ли освобождать управляемые ресурсы.</param>
+        </member>
+        <member name="T:StockKeeperMail.Desktop.ViewModels.GetProductViewModel">
+            <summary>
+            ViewModel для формы получения товара со склада.
+            Позволяет указать количество товара для изъятия, проверяет его наличие и обновляет остатки.
+            Поддерживает два режима: для заказа (не уменьшает общий остаток товара) и обычный.
+            </summary>
+        </member>
+        <member name="P:StockKeeperMail.Desktop.ViewModels.GetProductViewModel.IsForOrder">
+            <summary>
+            Указывает, выполняется ли операция в рамках заказа.
+            Если true, общий остаток товара не уменьшается.
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.GetProductViewModel.#ctor(StockKeeperMail.Desktop.Stores.NavigationStore,StockKeeperMail.Desktop.DAL.UnitOfWork,StockKeeperMail.Database.Models.ProductLocation,System.Action)">
+            <summary>
+            Инициализирует новый экземпляр ViewModel получения товара.
+            </summary>
+            <param name="navigationStore">Хранилище навигации.</param>
+            <param name="unitOfWork">Unit of Work для работы с базой данных.</param>
+            <param name="productLocation">Местоположение товара на складе.</param>
+            <param name="closeDialogCallback">Метод обратного вызова для закрытия диалога.</param>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.GetProductViewModel.Submit">
+            <summary>
+            Выполняет списание товара со склада: уменьшает количество в локации.
+            Если операция не для заказа, также уменьшает общий остаток товара.
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.GetProductViewModel.Cancel">
+            <summary>
+            Отменяет операцию и закрывает диалог.
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.GetProductViewModel.LoadViewModel(StockKeeperMail.Desktop.Stores.NavigationStore,StockKeeperMail.Desktop.DAL.UnitOfWork,StockKeeperMail.Database.Models.ProductLocation,System.Action)">
+            <summary>
+            Фабричный метод для загрузки ViewModel с необходимыми зависимостями.
+            </summary>
+            <param name="navigationStore">Хранилище навигации.</param>
+            <param name="unitOfWork">Unit of Work для работы с базой данных.</param>
+            <param name="productLocation">Местоположение товара на складе.</param>
+            <param name="closeDialogCallback">Метод обратного вызова для закрытия диалога.</param>
+            <returns>Экземпляр GetProductViewModel.</returns>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.GetProductViewModel.Dispose(System.Boolean)">
+            <summary>
+            Освобождает ресурсы, используемые ViewModel.
+            </summary>
+            <param name="disposing">Указывает, нужно ли освобождать управляемые ресурсы.</param>
+        </member>
+        <member name="T:StockKeeperMail.Desktop.ViewModels.MoveProductViewModel">
+            <summary>
+            ViewModel для формы перемещения товара между складами (локациями).
+            Позволяет выбрать новую локацию, указать количество и переместить товар.
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.MoveProductViewModel.#ctor(StockKeeperMail.Desktop.Stores.NavigationStore,StockKeeperMail.Desktop.DAL.UnitOfWork,StockKeeperMail.Database.Models.ProductLocation,System.Action)">
+            <summary>
+            Инициализирует новый экземпляр ViewModel перемещения товара.
+            </summary>
+            <param name="navigationStore">Хранилище навигации.</param>
+            <param name="unitOfWork">Unit of Work для работы с базой данных.</param>
+            <param name="productLocation">Текущее местоположение товара.</param>
+            <param name="closeDialogCallback">Метод обратного вызова для закрытия диалога.</param>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.MoveProductViewModel.SetInitialValues(StockKeeperMail.Database.Models.ProductLocation)">
+            <summary>
+            Устанавливает начальные значения (не используется в текущей реализации).
+            </summary>
+            <param name="productLocation">Текущее местоположение товара.</param>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.MoveProductViewModel.Submit">
+            <summary>
+            Выполняет перемещение товара: уменьшает количество в исходной локации,
+            увеличивает (или создаёт запись) в целевой локации.
+            Если валидация не пройдена или количество превышает доступное, перемещение не выполняется.
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.MoveProductViewModel.Cancel">
+            <summary>
+            Отменяет перемещение и закрывает диалог.
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.MoveProductViewModel.LoadLocations">
+            <summary>
+            Загружает список доступных локаций (исключая текущую).
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.MoveProductViewModel.LoadViewModel(StockKeeperMail.Desktop.Stores.NavigationStore,StockKeeperMail.Desktop.DAL.UnitOfWork,StockKeeperMail.Database.Models.ProductLocation,System.Action)">
+            <summary>
+            Фабричный метод для загрузки ViewModel с необходимыми зависимостями.
+            </summary>
+            <param name="navigationStore">Хранилище навигации.</param>
+            <param name="unitOfWork">Unit of Work для работы с базой данных.</param>
+            <param name="productLocation">Текущее местоположение товара.</param>
+            <param name="closeDialogCallback">Метод обратного вызова для закрытия диалога.</param>
+            <returns>Экземпляр MoveProductViewModel.</returns>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.MoveProductViewModel.Dispose(System.Boolean)">
+            <summary>
+            Освобождает ресурсы, используемые ViewModel.
+            </summary>
+            <param name="disposing">Указывает, нужно ли освобождать управляемые ресурсы.</param>
+        </member>
+        <member name="T:StockKeeperMail.Desktop.ViewModels.StorageDetailViewModel">
+            <summary>
+            Представляет класс StorageDetailViewModel.
+            </summary>
+        </member>
+        <member name="T:StockKeeperMail.Desktop.ViewModels.StorageListViewModel">
+            <summary>
+            ViewModel для отображения списка складов (локаций).
+            Управляет загрузкой локаций и переходом к деталям конкретного склада.
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.StorageListViewModel.#ctor(StockKeeperMail.Desktop.Stores.NavigationStore)">
+            <summary>
+            Инициализирует новый экземпляр ViewModel списка складов.
+            </summary>
+            <param name="navigationStore">Хранилище навигации.</param>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.StorageListViewModel.LocationDetails(StockKeeperMail.Desktop.ViewModels.LocationViewModel)">
+            <summary>
+            Переходит к детальному просмотру выбранной локации.
+            </summary>
+            <param name="locationViewModel">ViewModel выбранной локации.</param>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.StorageListViewModel.LoadLocations">
+            <summary>
+            Загружает список всех локаций из базы данных.
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.StorageListViewModel.LoadViewModel(StockKeeperMail.Desktop.Stores.NavigationStore)">
+            <summary>
+            Фабричный метод для создания ViewModel с предварительной загрузкой данных.
+            </summary>
+            <param name="navigationStore">Хранилище навигации.</param>
+            <returns>Загруженный экземпляр StorageListViewModel.</returns>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.StorageListViewModel.Dispose(System.Boolean)">
+            <summary>
+            Освобождает ресурсы, используемые ViewModel.
+            </summary>
+            <param name="disposing">Указывает, нужно ли освобождать управляемые ресурсы.</param>
+        </member>
+        <member name="T:StockKeeperMail.Desktop.ViewModels.CreateSupplierViewModel">
+            <summary>
+            ViewModel для формы создания нового поставщика.
+            Обеспечивает валидацию вводимых данных и сохранение поставщика в базу данных.
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.CreateSupplierViewModel.#ctor(StockKeeperMail.Desktop.Stores.NavigationStore,StockKeeperMail.Desktop.DAL.UnitOfWork,System.Action)">
+            <summary>
+            Инициализирует новый экземпляр ViewModel создания поставщика.
+            </summary>
+            <param name="navigationStore">Хранилище навигации.</param>
+            <param name="unitOfWork">Unit of Work для работы с базой данных.</param>
+            <param name="closeDialogCallback">Метод обратного вызова для закрытия диалога.</param>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.CreateSupplierViewModel.Submit">
+            <summary>
+            Отправляет данные формы, создаёт нового поставщика и сохраняет его в базе данных.
+            Если валидация не пройдена, сохранение не выполняется.
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.CreateSupplierViewModel.Cancel">
+            <summary>
+            Отменяет создание поставщика и закрывает диалог.
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.CreateSupplierViewModel.LoadViewModel(StockKeeperMail.Desktop.Stores.NavigationStore,StockKeeperMail.Desktop.DAL.UnitOfWork,System.Action)">
+            <summary>
+            Фабричный метод для загрузки ViewModel с необходимыми зависимостями.
+            </summary>
+            <param name="navigationStore">Хранилище навигации.</param>
+            <param name="unitOfWork">Unit of Work для работы с базой данных.</param>
+            <param name="closeDialogCallback">Метод обратного вызова для закрытия диалога.</param>
+            <returns>Экземпляр CreateSupplierViewModel.</returns>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.CreateSupplierViewModel.Dispose(System.Boolean)">
+            <summary>
+            Освобождает ресурсы, используемые ViewModel.
+            </summary>
+            <param name="disposing">Указывает, нужно ли освобождать управляемые ресурсы.</param>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.CreateSupplierViewModel.CanCreateSupplier(System.Object)">
+            <summary>
+            Проверяет, можно ли создать поставщика (всегда true).
+            </summary>
+            <param name="obj">Параметр команды.</param>
+            <returns>Всегда true.</returns>
+        </member>
+        <member name="T:StockKeeperMail.Desktop.ViewModels.EditSupplierViewModel">
+            <summary>
+            ViewModel для формы редактирования существующего поставщика.
+            Обеспечивает валидацию вводимых данных и сохранение изменений в базе данных.
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.EditSupplierViewModel.#ctor(StockKeeperMail.Desktop.Stores.NavigationStore,StockKeeperMail.Desktop.DAL.UnitOfWork,StockKeeperMail.Database.Models.Supplier,System.Action)">
+            <summary>
+            Инициализирует новый экземпляр ViewModel редактирования поставщика.
+            </summary>
+            <param name="navigationStore">Хранилище навигации.</param>
+            <param name="unitOfWork">Unit of Work для работы с базой данных.</param>
+            <param name="supplier">Редактируемый поставщик.</param>
+            <param name="closeDialogCallback">Метод обратного вызова для закрытия диалога.</param>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.EditSupplierViewModel.SetInitialValues(StockKeeperMail.Database.Models.Supplier)">
+            <summary>
+            Устанавливает начальные значения полей из редактируемого поставщика.
+            </summary>
+            <param name="supplier">Поставщик, чьи значения используются.</param>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.EditSupplierViewModel.Submit">
+            <summary>
+            Сохраняет изменения поставщика в базе данных, если валидация пройдена.
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.EditSupplierViewModel.Cancel">
+            <summary>
+            Отменяет редактирование и закрывает диалог без сохранения изменений.
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.EditSupplierViewModel.LoadViewModel(StockKeeperMail.Desktop.Stores.NavigationStore,StockKeeperMail.Desktop.DAL.UnitOfWork,StockKeeperMail.Database.Models.Supplier,System.Action)">
+            <summary>
+            Фабричный метод для загрузки ViewModel с необходимыми зависимостями.
+            </summary>
+            <param name="navigationStore">Хранилище навигации.</param>
+            <param name="unitOfWork">Unit of Work для работы с базой данных.</param>
+            <param name="supplier">Редактируемый поставщик.</param>
+            <param name="closeDialogCallback">Метод обратного вызова для закрытия диалога.</param>
+            <returns>Экземпляр EditSupplierViewModel.</returns>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.EditSupplierViewModel.Dispose(System.Boolean)">
+            <summary>
+            Освобождает ресурсы, используемые ViewModel.
+            </summary>
+            <param name="disposing">Указывает, нужно ли освобождать управляемые ресурсы.</param>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.EditSupplierViewModel.CanModifySupplier(System.Object)">
+            <summary>
+            Проверяет, можно ли изменять поставщика (всегда true).
+            </summary>
+            <param name="obj">Параметр команды.</param>
+            <returns>Всегда true.</returns>
+        </member>
+        <member name="T:StockKeeperMail.Desktop.ViewModels.SupplierListViewModel">
+            <summary>
+            ViewModel для отображения списка поставщиков.
+            Управляет загрузкой, созданием, редактированием и удалением поставщиков.
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.SupplierListViewModel.#ctor(StockKeeperMail.Desktop.Stores.NavigationStore)">
+            <summary>
+            Инициализирует новый экземпляр ViewModel списка поставщиков.
+            </summary>
+            <param name="navigationStore">Хранилище навигации.</param>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.SupplierListViewModel.RemoveSupplier(StockKeeperMail.Desktop.ViewModels.SupplierViewModel)">
+            <summary>
+            Удаляет выбранного поставщика после подтверждения пользователя.
+            </summary>
+            <param name="supplierViewModel">ViewModel удаляемого поставщика.</param>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.SupplierListViewModel.CreateSupplier">
+            <summary>
+            Открывает диалог создания нового поставщика.
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.SupplierListViewModel.EditSupplier(StockKeeperMail.Desktop.ViewModels.SupplierViewModel)">
+            <summary>
+            Открывает диалог редактирования выбранного поставщика.
+            </summary>
+            <param name="supplierViewModel">ViewModel поставщика для редактирования.</param>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.SupplierListViewModel.CloseDialogCallback">
+            <summary>
+            Callback-метод, вызываемый при закрытии диалогового окна.
+            Обновляет список поставщиков и закрывает диалог.
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.SupplierListViewModel.LoadSuppliers">
+            <summary>
+            Загружает список всех поставщиков из базы данных.
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.SupplierListViewModel.LoadViewModel(StockKeeperMail.Desktop.Stores.NavigationStore)">
+            <summary>
+            Фабричный метод для создания ViewModel с предварительной загрузкой данных.
+            </summary>
+            <param name="navigationStore">Хранилище навигации.</param>
+            <returns>Загруженный экземпляр SupplierListViewModel.</returns>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.SupplierListViewModel.Dispose(System.Boolean)">
+            <summary>
+            Освобождает ресурсы, используемые ViewModel.
+            </summary>
+            <param name="disposing">Указывает, нужно ли освобождать управляемые ресурсы.</param>
+        </member>
+        <member name="T:StockKeeperMail.Desktop.ViewModels.SupplierViewModel">
+            <summary>
+            Представляет класс SupplierViewModel.
+            </summary>
+        </member>
+        <member name="T:StockKeeperMail.Desktop.ViewModels.ViewModelBase">
+            <summary>
+            Базовый класс для всех ViewModel в приложении.
+            Реализует <see cref="T:System.IDisposable"/> для корректного освобождения ресурсов.
+            Наследуется от <see cref="T:CommunityToolkit.Mvvm.ComponentModel.ObservableValidator"/> для поддержки валидации свойств.
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.ViewModelBase.Dispose">
+            <summary>
+            Реализация метода <see cref="M:System.IDisposable.Dispose"/>.
+            Вызывает защищённый виртуальный метод <see cref="M:StockKeeperMail.Desktop.ViewModels.ViewModelBase.Dispose(System.Boolean)"/>.
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.ViewModels.ViewModelBase.Dispose(System.Boolean)">
+            <summary>
+            Защищённый виртуальный метод для освобождения ресурсов.
+            </summary>
+            <param name="disposing">
+            Если <c>true</c>, освобождаются как управляемые, так и неуправляемые ресурсы.
+            Если <c>false</c>, освобождаются только неуправляемые ресурсы.
+            </param>
+        </member>
+        <member name="T:StockKeeperMail.Desktop.Views.CategoryFormView">
+            <summary>
+            Interaction logic for CategoryFormView.xaml
+            </summary>
+            <summary>
+            CategoryFormView
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.Views.CategoryFormView.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:StockKeeperMail.Desktop.Views.CategoryListView">
+            <summary>
+            Interaction logic for CategoryListView.xaml
+            </summary>
+            <summary>
+            CategoryListView
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.Views.CategoryListView.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:StockKeeperMail.Desktop.Views.CreateProductLocationView">
+            <summary>
+            Interaction logic for CreateProductLocationView.xaml
+            </summary>
+            <summary>
+            CreateProductLocationView
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.Views.CreateProductLocationView.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:StockKeeperMail.Desktop.Views.CustomerFormView">
+            <summary>
+            Interaction logic for CustomerFormView.xaml
+            </summary>
+            <summary>
+            CustomerFormView
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.Views.CustomerFormView.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:StockKeeperMail.Desktop.Views.CustomerListView">
+            <summary>
+            Interaction logic for CustomerListView.xaml
+            </summary>
+            <summary>
+            CustomerListView
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.Views.CustomerListView.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:StockKeeperMail.Desktop.Views.DashboardView">
+            <summary>
+            Interaction logic for DashboardView.xaml
+            </summary>
+            <summary>
+            DashboardView
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.Views.DashboardView.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:StockKeeperMail.Desktop.Views.CreateDefectiveView">
+            <summary>
+            Interaction logic for CreateDefectiveView.xaml
+            </summary>
+            <summary>
+            CreateDefectiveView
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.Views.CreateDefectiveView.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:StockKeeperMail.Desktop.Views.DefectiveListView">
+            <summary>
+            Interaction logic for DefectiveListView.xaml
+            </summary>
+            <summary>
+            DefectiveListView
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.Views.DefectiveListView.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:StockKeeperMail.Desktop.Views.EditDefectiveView">
+            <summary>
+            Interaction logic for EditDefectiveView.xaml
+            </summary>
+            <summary>
+            EditDefectiveView
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.Views.EditDefectiveView.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:StockKeeperMail.Desktop.Views.LocationFormView">
+            <summary>
+            Interaction logic for LocationFormView.xaml
+            </summary>
+            <summary>
+            LocationFormView
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.Views.LocationFormView.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:StockKeeperMail.Desktop.Views.LocationListView">
+            <summary>
+            Interaction logic for LocationListView.xaml
+            </summary>
+            <summary>
+            LocationListView
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.Views.LocationListView.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:StockKeeperMail.Desktop.Views.LoginView">
+            <summary>
+            Interaction logic for LoginView.xaml
+            </summary>
+            <summary>
+            LoginView
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.Views.LoginView.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:StockKeeperMail.Desktop.Views.LogListView">
+            <summary>
+            Interaction logic for LogListView.xaml
+            </summary>
+            <summary>
+            LogListView
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.Views.LogListView.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:StockKeeperMail.Desktop.Views.ComposeMessageView">
+            <summary>
+            Представляет класс ComposeMessageView.
+            </summary>
+            <summary>
+            ComposeMessageView
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.Views.ComposeMessageView.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:StockKeeperMail.Desktop.Views.MessageListView">
+            <summary>
+            Представляет класс MessageListView.
+            </summary>
+            <summary>
+            MessageListView
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.Views.MessageListView.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:StockKeeperMail.Desktop.Views.CreateOrderDetailView">
+            <summary>
+            Interaction logic for CreateOrderDetailView.xaml
+            </summary>
+            <summary>
+            CreateOrderDetailView
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.Views.CreateOrderDetailView.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:StockKeeperMail.Desktop.Views.EditOrderDetailView">
+            <summary>
+            Interaction logic for EditOrderDetailView.xaml
+            </summary>
+            <summary>
+            EditOrderDetailView
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.Views.EditOrderDetailView.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:StockKeeperMail.Desktop.Views.CreateOrderView">
+            <summary>
+            Interaction logic for CreateOrderView.xaml
+            </summary>
+            <summary>
+            CreateOrderView
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.Views.CreateOrderView.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:StockKeeperMail.Desktop.Views.EditOrderView">
+            <summary>
+            Interaction logic for EditOrderView.xaml
+            </summary>
+            <summary>
+            EditOrderView
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.Views.EditOrderView.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:StockKeeperMail.Desktop.Views.OrderListView">
+            <summary>
+            Interaction logic for OrderListView.xaml
+            </summary>
+            <summary>
+            OrderListView
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.Views.OrderListView.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:StockKeeperMail.Desktop.Views.PrintInvoiceView">
+            <summary>
+            Interaction logic for PrintInvoiceView.xaml
+            </summary>
+            <summary>
+            PrintInvoiceView
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.Views.PrintInvoiceView.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:StockKeeperMail.Desktop.Views.ProductFormView">
+            <summary>
+            Interaction logic for ProductFormView.xaml
+            </summary>
+            <summary>
+            ProductFormView
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.Views.ProductFormView.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:StockKeeperMail.Desktop.Views.ProductListView">
+            <summary>
+            Interaction logic for ProductListView.xaml
+            </summary>
+            <summary>
+            ProductListView
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.Views.ProductListView.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:StockKeeperMail.Desktop.Views.RoleFormView">
+            <summary>
+            Interaction logic for RoleFormView.xaml
+            </summary>
+            <summary>
+            RoleFormView
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.Views.RoleFormView.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:StockKeeperMail.Desktop.Views.RoleListView">
+            <summary>
+            Interaction logic for RoleListView.xaml
+            </summary>
+            <summary>
+            RoleListView
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.Views.RoleListView.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:StockKeeperMail.Desktop.Views.StaffFormView">
+            <summary>
+            Interaction logic for StaffFormView.xaml
+            </summary>
+            <summary>
+            StaffFormView
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.Views.StaffFormView.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:StockKeeperMail.Desktop.Views.StaffListView">
+            <summary>
+            Interaction logic for StaffListView.xaml
+            </summary>
+            <summary>
+            StaffListView
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.Views.StaffListView.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:StockKeeperMail.Desktop.Views.DeclareDefectiveProductView">
+            <summary>
+            Interaction logic for DeclareDefectiveProductView.xaml
+            </summary>
+            <summary>
+            DeclareDefectiveProductView
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.Views.DeclareDefectiveProductView.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:StockKeeperMail.Desktop.Views.DisposeProductView">
+            <summary>
+            Interaction logic for DisposeProductView.xaml
+            </summary>
+            <summary>
+            DisposeProductView
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.Views.DisposeProductView.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:StockKeeperMail.Desktop.Views.GetProductView">
+            <summary>
+            Interaction logic for GetProductView.xaml
+            </summary>
+            <summary>
+            GetProductView
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.Views.GetProductView.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:StockKeeperMail.Desktop.Views.MoveProductView">
+            <summary>
+            Interaction logic for MoveProductView.xaml
+            </summary>
+            <summary>
+            MoveProductView
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.Views.MoveProductView.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:StockKeeperMail.Desktop.Views.StorageDetailView">
+            <summary>
+            Interaction logic for StorageDetailViewModel.xaml
+            </summary>
+            <summary>
+            StorageDetailView
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.Views.StorageDetailView.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:StockKeeperMail.Desktop.Views.StorageListView">
+            <summary>
+            Interaction logic for StorageListView.xaml
+            </summary>
+            <summary>
+            StorageListView
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.Views.StorageListView.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:StockKeeperMail.Desktop.Views.SupplierFormView">
+            <summary>
+            Interaction logic for SupplierFormView.xaml
+            </summary>
+            <summary>
+            SupplierFormView
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.Views.SupplierFormView.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:StockKeeperMail.Desktop.Views.SupplierListView">
+            <summary>
+            Interaction logic for SupplierListView.xaml
+            </summary>
+            <summary>
+            SupplierListView
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Desktop.Views.SupplierListView.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:XamlGeneratedNamespace.GeneratedInternalTypeHelper">
+            <summary>
+            GeneratedInternalTypeHelper
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.CreateInstance(System.Type,System.Globalization.CultureInfo)">
+            <summary>
+            CreateInstance
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.GetPropertyValue(System.Reflection.PropertyInfo,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            GetPropertyValue
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.SetPropertyValue(System.Reflection.PropertyInfo,System.Object,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            SetPropertyValue
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.CreateDelegate(System.Type,System.Object,System.String)">
+            <summary>
+            CreateDelegate
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.AddEventHandler(System.Reflection.EventInfo,System.Object,System.Delegate)">
+            <summary>
+            AddEventHandler
+            </summary>
+        </member>
+        <member name="T:CommunityToolkit.Mvvm.ComponentModel.__Internals.__ObservableValidatorExtensions">
+            <summary>
+            A helper type with generated validation stubs for types deriving from <see cref="T:CommunityToolkit.Mvvm.ComponentModel.ObservableValidator"/>.
+            </summary>
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+        </member>
+        <member name="M:CommunityToolkit.Mvvm.ComponentModel.__Internals.__ObservableValidatorExtensions.CreateAllPropertiesValidator(StockKeeperMail.Desktop.ViewModels.CategoryListViewModel)">
+            <summary>
+            Creates a validation stub for <see cref="T:StockKeeperMail.Desktop.ViewModels.CategoryListViewModel"/> objects.
+            </summary>
+            <param name="_">Dummy parameter, only used to disambiguate the method signature.</param>
+            <returns>A validation stub for <see cref="T:StockKeeperMail.Desktop.ViewModels.CategoryListViewModel"/> objects.</returns>
+        </member>
+        <member name="M:CommunityToolkit.Mvvm.ComponentModel.__Internals.__ObservableValidatorExtensions.CreateAllPropertiesValidator(StockKeeperMail.Desktop.ViewModels.CategoryViewModel)">
+            <summary>
+            Creates a validation stub for <see cref="T:StockKeeperMail.Desktop.ViewModels.CategoryViewModel"/> objects.
+            </summary>
+            <param name="_">Dummy parameter, only used to disambiguate the method signature.</param>
+            <returns>A validation stub for <see cref="T:StockKeeperMail.Desktop.ViewModels.CategoryViewModel"/> objects.</returns>
+        </member>
+        <member name="M:CommunityToolkit.Mvvm.ComponentModel.__Internals.__ObservableValidatorExtensions.CreateAllPropertiesValidator(StockKeeperMail.Desktop.ViewModels.CreateCategoryViewModel)">
+            <summary>
+            Creates a validation stub for <see cref="T:StockKeeperMail.Desktop.ViewModels.CreateCategoryViewModel"/> objects.
+            </summary>
+            <param name="_">Dummy parameter, only used to disambiguate the method signature.</param>
+            <returns>A validation stub for <see cref="T:StockKeeperMail.Desktop.ViewModels.CreateCategoryViewModel"/> objects.</returns>
+        </member>
+        <member name="M:CommunityToolkit.Mvvm.ComponentModel.__Internals.__ObservableValidatorExtensions.CreateAllPropertiesValidator(StockKeeperMail.Desktop.ViewModels.EditCategoryViewModel)">
+            <summary>
+            Creates a validation stub for <see cref="T:StockKeeperMail.Desktop.ViewModels.EditCategoryViewModel"/> objects.
+            </summary>
+            <param name="_">Dummy parameter, only used to disambiguate the method signature.</param>
+            <returns>A validation stub for <see cref="T:StockKeeperMail.Desktop.ViewModels.EditCategoryViewModel"/> objects.</returns>
+        </member>
+        <member name="M:CommunityToolkit.Mvvm.ComponentModel.__Internals.__ObservableValidatorExtensions.CreateAllPropertiesValidator(StockKeeperMail.Desktop.ViewModels.CreateCustomerViewModel)">
+            <summary>
+            Creates a validation stub for <see cref="T:StockKeeperMail.Desktop.ViewModels.CreateCustomerViewModel"/> objects.
+            </summary>
+            <param name="_">Dummy parameter, only used to disambiguate the method signature.</param>
+            <returns>A validation stub for <see cref="T:StockKeeperMail.Desktop.ViewModels.CreateCustomerViewModel"/> objects.</returns>
+        </member>
+        <member name="M:CommunityToolkit.Mvvm.ComponentModel.__Internals.__ObservableValidatorExtensions.CreateAllPropertiesValidator(StockKeeperMail.Desktop.ViewModels.CustomerListViewModel)">
+            <summary>
+            Creates a validation stub for <see cref="T:StockKeeperMail.Desktop.ViewModels.CustomerListViewModel"/> objects.
+            </summary>
+            <param name="_">Dummy parameter, only used to disambiguate the method signature.</param>
+            <returns>A validation stub for <see cref="T:StockKeeperMail.Desktop.ViewModels.CustomerListViewModel"/> objects.</returns>
+        </member>
+        <member name="M:CommunityToolkit.Mvvm.ComponentModel.__Internals.__ObservableValidatorExtensions.CreateAllPropertiesValidator(StockKeeperMail.Desktop.ViewModels.CustomerViewModel)">
+            <summary>
+            Creates a validation stub for <see cref="T:StockKeeperMail.Desktop.ViewModels.CustomerViewModel"/> objects.
+            </summary>
+            <param name="_">Dummy parameter, only used to disambiguate the method signature.</param>
+            <returns>A validation stub for <see cref="T:StockKeeperMail.Desktop.ViewModels.CustomerViewModel"/> objects.</returns>
+        </member>
+        <member name="M:CommunityToolkit.Mvvm.ComponentModel.__Internals.__ObservableValidatorExtensions.CreateAllPropertiesValidator(StockKeeperMail.Desktop.ViewModels.EditCustomerViewModel)">
+            <summary>
+            Creates a validation stub for <see cref="T:StockKeeperMail.Desktop.ViewModels.EditCustomerViewModel"/> objects.
+            </summary>
+            <param name="_">Dummy parameter, only used to disambiguate the method signature.</param>
+            <returns>A validation stub for <see cref="T:StockKeeperMail.Desktop.ViewModels.EditCustomerViewModel"/> objects.</returns>
+        </member>
+        <member name="M:CommunityToolkit.Mvvm.ComponentModel.__Internals.__ObservableValidatorExtensions.CreateAllPropertiesValidator(StockKeeperMail.Desktop.ViewModels.DashboardViewModel)">
+            <summary>
+            Creates a validation stub for <see cref="T:StockKeeperMail.Desktop.ViewModels.DashboardViewModel"/> objects.
+            </summary>
+            <param name="_">Dummy parameter, only used to disambiguate the method signature.</param>
+            <returns>A validation stub for <see cref="T:StockKeeperMail.Desktop.ViewModels.DashboardViewModel"/> objects.</returns>
+        </member>
+        <member name="M:CommunityToolkit.Mvvm.ComponentModel.__Internals.__ObservableValidatorExtensions.CreateAllPropertiesValidator(StockKeeperMail.Desktop.ViewModels.CreateDefectiveViewModel)">
+            <summary>
+            Creates a validation stub for <see cref="T:StockKeeperMail.Desktop.ViewModels.CreateDefectiveViewModel"/> objects.
+            </summary>
+            <param name="_">Dummy parameter, only used to disambiguate the method signature.</param>
+            <returns>A validation stub for <see cref="T:StockKeeperMail.Desktop.ViewModels.CreateDefectiveViewModel"/> objects.</returns>
+        </member>
+        <member name="M:CommunityToolkit.Mvvm.ComponentModel.__Internals.__ObservableValidatorExtensions.CreateAllPropertiesValidator(StockKeeperMail.Desktop.ViewModels.DefectiveListViewModel)">
+            <summary>
+            Creates a validation stub for <see cref="T:StockKeeperMail.Desktop.ViewModels.DefectiveListViewModel"/> objects.
+            </summary>
+            <param name="_">Dummy parameter, only used to disambiguate the method signature.</param>
+            <returns>A validation stub for <see cref="T:StockKeeperMail.Desktop.ViewModels.DefectiveListViewModel"/> objects.</returns>
+        </member>
+        <member name="M:CommunityToolkit.Mvvm.ComponentModel.__Internals.__ObservableValidatorExtensions.CreateAllPropertiesValidator(StockKeeperMail.Desktop.ViewModels.DefectiveViewModel)">
+            <summary>
+            Creates a validation stub for <see cref="T:StockKeeperMail.Desktop.ViewModels.DefectiveViewModel"/> objects.
+            </summary>
+            <param name="_">Dummy parameter, only used to disambiguate the method signature.</param>
+            <returns>A validation stub for <see cref="T:StockKeeperMail.Desktop.ViewModels.DefectiveViewModel"/> objects.</returns>
+        </member>
+        <member name="M:CommunityToolkit.Mvvm.ComponentModel.__Internals.__ObservableValidatorExtensions.CreateAllPropertiesValidator(StockKeeperMail.Desktop.ViewModels.EditDefectiveViewModel)">
+            <summary>
+            Creates a validation stub for <see cref="T:StockKeeperMail.Desktop.ViewModels.EditDefectiveViewModel"/> objects.
+            </summary>
+            <param name="_">Dummy parameter, only used to disambiguate the method signature.</param>
+            <returns>A validation stub for <see cref="T:StockKeeperMail.Desktop.ViewModels.EditDefectiveViewModel"/> objects.</returns>
+        </member>
+        <member name="M:CommunityToolkit.Mvvm.ComponentModel.__Internals.__ObservableValidatorExtensions.CreateAllPropertiesValidator(StockKeeperMail.Desktop.ViewModels.ListViewHelpers.CategoryListViewHelper)">
+            <summary>
+            Creates a validation stub for <see cref="T:StockKeeperMail.Desktop.ViewModels.ListViewHelpers.CategoryListViewHelper"/> objects.
+            </summary>
+            <param name="_">Dummy parameter, only used to disambiguate the method signature.</param>
+            <returns>A validation stub for <see cref="T:StockKeeperMail.Desktop.ViewModels.ListViewHelpers.CategoryListViewHelper"/> objects.</returns>
+        </member>
+        <member name="M:CommunityToolkit.Mvvm.ComponentModel.__Internals.__ObservableValidatorExtensions.CreateAllPropertiesValidator(StockKeeperMail.Desktop.ViewModels.ListViewHelpers.CustomerListViewHelper)">
+            <summary>
+            Creates a validation stub for <see cref="T:StockKeeperMail.Desktop.ViewModels.ListViewHelpers.CustomerListViewHelper"/> objects.
+            </summary>
+            <param name="_">Dummy parameter, only used to disambiguate the method signature.</param>
+            <returns>A validation stub for <see cref="T:StockKeeperMail.Desktop.ViewModels.ListViewHelpers.CustomerListViewHelper"/> objects.</returns>
+        </member>
+        <member name="M:CommunityToolkit.Mvvm.ComponentModel.__Internals.__ObservableValidatorExtensions.CreateAllPropertiesValidator(StockKeeperMail.Desktop.ViewModels.ListViewHelpers.LocationListViewHelper)">
+            <summary>
+            Creates a validation stub for <see cref="T:StockKeeperMail.Desktop.ViewModels.ListViewHelpers.LocationListViewHelper"/> objects.
+            </summary>
+            <param name="_">Dummy parameter, only used to disambiguate the method signature.</param>
+            <returns>A validation stub for <see cref="T:StockKeeperMail.Desktop.ViewModels.ListViewHelpers.LocationListViewHelper"/> objects.</returns>
+        </member>
+        <member name="M:CommunityToolkit.Mvvm.ComponentModel.__Internals.__ObservableValidatorExtensions.CreateAllPropertiesValidator(StockKeeperMail.Desktop.ViewModels.ListViewHelpers.DefectiveListViewHelper)">
+            <summary>
+            Creates a validation stub for <see cref="T:StockKeeperMail.Desktop.ViewModels.ListViewHelpers.DefectiveListViewHelper"/> objects.
+            </summary>
+            <param name="_">Dummy parameter, only used to disambiguate the method signature.</param>
+            <returns>A validation stub for <see cref="T:StockKeeperMail.Desktop.ViewModels.ListViewHelpers.DefectiveListViewHelper"/> objects.</returns>
+        </member>
+        <member name="M:CommunityToolkit.Mvvm.ComponentModel.__Internals.__ObservableValidatorExtensions.CreateAllPropertiesValidator(StockKeeperMail.Desktop.ViewModels.ListViewHelpers.LogListViewHelper)">
+            <summary>
+            Creates a validation stub for <see cref="T:StockKeeperMail.Desktop.ViewModels.ListViewHelpers.LogListViewHelper"/> objects.
+            </summary>
+            <param name="_">Dummy parameter, only used to disambiguate the method signature.</param>
+            <returns>A validation stub for <see cref="T:StockKeeperMail.Desktop.ViewModels.ListViewHelpers.LogListViewHelper"/> objects.</returns>
+        </member>
+        <member name="M:CommunityToolkit.Mvvm.ComponentModel.__Internals.__ObservableValidatorExtensions.CreateAllPropertiesValidator(StockKeeperMail.Desktop.ViewModels.ListViewHelpers.OrderListViewHelper)">
+            <summary>
+            Creates a validation stub for <see cref="T:StockKeeperMail.Desktop.ViewModels.ListViewHelpers.OrderListViewHelper"/> objects.
+            </summary>
+            <param name="_">Dummy parameter, only used to disambiguate the method signature.</param>
+            <returns>A validation stub for <see cref="T:StockKeeperMail.Desktop.ViewModels.ListViewHelpers.OrderListViewHelper"/> objects.</returns>
+        </member>
+        <member name="M:CommunityToolkit.Mvvm.ComponentModel.__Internals.__ObservableValidatorExtensions.CreateAllPropertiesValidator(StockKeeperMail.Desktop.ViewModels.ListViewHelpers.ProductListViewHelper)">
+            <summary>
+            Creates a validation stub for <see cref="T:StockKeeperMail.Desktop.ViewModels.ListViewHelpers.ProductListViewHelper"/> objects.
+            </summary>
+            <param name="_">Dummy parameter, only used to disambiguate the method signature.</param>
+            <returns>A validation stub for <see cref="T:StockKeeperMail.Desktop.ViewModels.ListViewHelpers.ProductListViewHelper"/> objects.</returns>
+        </member>
+        <member name="M:CommunityToolkit.Mvvm.ComponentModel.__Internals.__ObservableValidatorExtensions.CreateAllPropertiesValidator(StockKeeperMail.Desktop.ViewModels.ListViewHelpers.RoleListViewHelper)">
+            <summary>
+            Creates a validation stub for <see cref="T:StockKeeperMail.Desktop.ViewModels.ListViewHelpers.RoleListViewHelper"/> objects.
+            </summary>
+            <param name="_">Dummy parameter, only used to disambiguate the method signature.</param>
+            <returns>A validation stub for <see cref="T:StockKeeperMail.Desktop.ViewModels.ListViewHelpers.RoleListViewHelper"/> objects.</returns>
+        </member>
+        <member name="M:CommunityToolkit.Mvvm.ComponentModel.__Internals.__ObservableValidatorExtensions.CreateAllPropertiesValidator(StockKeeperMail.Desktop.ViewModels.ListViewHelpers.StaffListViewHelper)">
+            <summary>
+            Creates a validation stub for <see cref="T:StockKeeperMail.Desktop.ViewModels.ListViewHelpers.StaffListViewHelper"/> objects.
+            </summary>
+            <param name="_">Dummy parameter, only used to disambiguate the method signature.</param>
+            <returns>A validation stub for <see cref="T:StockKeeperMail.Desktop.ViewModels.ListViewHelpers.StaffListViewHelper"/> objects.</returns>
+        </member>
+        <member name="M:CommunityToolkit.Mvvm.ComponentModel.__Internals.__ObservableValidatorExtensions.CreateAllPropertiesValidator(StockKeeperMail.Desktop.ViewModels.ListViewHelpers.StorageDetailListViewHelper)">
+            <summary>
+            Creates a validation stub for <see cref="T:StockKeeperMail.Desktop.ViewModels.ListViewHelpers.StorageDetailListViewHelper"/> objects.
+            </summary>
+            <param name="_">Dummy parameter, only used to disambiguate the method signature.</param>
+            <returns>A validation stub for <see cref="T:StockKeeperMail.Desktop.ViewModels.ListViewHelpers.StorageDetailListViewHelper"/> objects.</returns>
+        </member>
+        <member name="M:CommunityToolkit.Mvvm.ComponentModel.__Internals.__ObservableValidatorExtensions.CreateAllPropertiesValidator(StockKeeperMail.Desktop.ViewModels.ListViewHelpers.StorageListViewHelper)">
+            <summary>
+            Creates a validation stub for <see cref="T:StockKeeperMail.Desktop.ViewModels.ListViewHelpers.StorageListViewHelper"/> objects.
+            </summary>
+            <param name="_">Dummy parameter, only used to disambiguate the method signature.</param>
+            <returns>A validation stub for <see cref="T:StockKeeperMail.Desktop.ViewModels.ListViewHelpers.StorageListViewHelper"/> objects.</returns>
+        </member>
+        <member name="M:CommunityToolkit.Mvvm.ComponentModel.__Internals.__ObservableValidatorExtensions.CreateAllPropertiesValidator(StockKeeperMail.Desktop.ViewModels.ListViewHelpers.SupplierListViewHelper)">
+            <summary>
+            Creates a validation stub for <see cref="T:StockKeeperMail.Desktop.ViewModels.ListViewHelpers.SupplierListViewHelper"/> objects.
+            </summary>
+            <param name="_">Dummy parameter, only used to disambiguate the method signature.</param>
+            <returns>A validation stub for <see cref="T:StockKeeperMail.Desktop.ViewModels.ListViewHelpers.SupplierListViewHelper"/> objects.</returns>
+        </member>
+        <member name="M:CommunityToolkit.Mvvm.ComponentModel.__Internals.__ObservableValidatorExtensions.CreateAllPropertiesValidator(StockKeeperMail.Desktop.ViewModels.CreateLocationViewModel)">
+            <summary>
+            Creates a validation stub for <see cref="T:StockKeeperMail.Desktop.ViewModels.CreateLocationViewModel"/> objects.
+            </summary>
+            <param name="_">Dummy parameter, only used to disambiguate the method signature.</param>
+            <returns>A validation stub for <see cref="T:StockKeeperMail.Desktop.ViewModels.CreateLocationViewModel"/> objects.</returns>
+        </member>
+        <member name="M:CommunityToolkit.Mvvm.ComponentModel.__Internals.__ObservableValidatorExtensions.CreateAllPropertiesValidator(StockKeeperMail.Desktop.ViewModels.EditLocationViewModel)">
+            <summary>
+            Creates a validation stub for <see cref="T:StockKeeperMail.Desktop.ViewModels.EditLocationViewModel"/> objects.
+            </summary>
+            <param name="_">Dummy parameter, only used to disambiguate the method signature.</param>
+            <returns>A validation stub for <see cref="T:StockKeeperMail.Desktop.ViewModels.EditLocationViewModel"/> objects.</returns>
+        </member>
+        <member name="M:CommunityToolkit.Mvvm.ComponentModel.__Internals.__ObservableValidatorExtensions.CreateAllPropertiesValidator(StockKeeperMail.Desktop.ViewModels.LocationListViewModel)">
+            <summary>
+            Creates a validation stub for <see cref="T:StockKeeperMail.Desktop.ViewModels.LocationListViewModel"/> objects.
+            </summary>
+            <param name="_">Dummy parameter, only used to disambiguate the method signature.</param>
+            <returns>A validation stub for <see cref="T:StockKeeperMail.Desktop.ViewModels.LocationListViewModel"/> objects.</returns>
+        </member>
+        <member name="M:CommunityToolkit.Mvvm.ComponentModel.__Internals.__ObservableValidatorExtensions.CreateAllPropertiesValidator(StockKeeperMail.Desktop.ViewModels.LoginViewModel)">
+            <summary>
+            Creates a validation stub for <see cref="T:StockKeeperMail.Desktop.ViewModels.LoginViewModel"/> objects.
+            </summary>
+            <param name="_">Dummy parameter, only used to disambiguate the method signature.</param>
+            <returns>A validation stub for <see cref="T:StockKeeperMail.Desktop.ViewModels.LoginViewModel"/> objects.</returns>
+        </member>
+        <member name="M:CommunityToolkit.Mvvm.ComponentModel.__Internals.__ObservableValidatorExtensions.CreateAllPropertiesValidator(StockKeeperMail.Desktop.ViewModels.LogListViewModel)">
+            <summary>
+            Creates a validation stub for <see cref="T:StockKeeperMail.Desktop.ViewModels.LogListViewModel"/> objects.
+            </summary>
+            <param name="_">Dummy parameter, only used to disambiguate the method signature.</param>
+            <returns>A validation stub for <see cref="T:StockKeeperMail.Desktop.ViewModels.LogListViewModel"/> objects.</returns>
+        </member>
+        <member name="M:CommunityToolkit.Mvvm.ComponentModel.__Internals.__ObservableValidatorExtensions.CreateAllPropertiesValidator(StockKeeperMail.Desktop.ViewModels.LogViewModel)">
+            <summary>
+            Creates a validation stub for <see cref="T:StockKeeperMail.Desktop.ViewModels.LogViewModel"/> objects.
+            </summary>
+            <param name="_">Dummy parameter, only used to disambiguate the method signature.</param>
+            <returns>A validation stub for <see cref="T:StockKeeperMail.Desktop.ViewModels.LogViewModel"/> objects.</returns>
+        </member>
+        <member name="M:CommunityToolkit.Mvvm.ComponentModel.__Internals.__ObservableValidatorExtensions.CreateAllPropertiesValidator(StockKeeperMail.Desktop.ViewModels.MainViewModel)">
+            <summary>
+            Creates a validation stub for <see cref="T:StockKeeperMail.Desktop.ViewModels.MainViewModel"/> objects.
+            </summary>
+            <param name="_">Dummy parameter, only used to disambiguate the method signature.</param>
+            <returns>A validation stub for <see cref="T:StockKeeperMail.Desktop.ViewModels.MainViewModel"/> objects.</returns>
+        </member>
+        <member name="M:CommunityToolkit.Mvvm.ComponentModel.__Internals.__ObservableValidatorExtensions.CreateAllPropertiesValidator(StockKeeperMail.Desktop.ViewModels.ComposeMessageViewModel)">
+            <summary>
+            Creates a validation stub for <see cref="T:StockKeeperMail.Desktop.ViewModels.ComposeMessageViewModel"/> objects.
+            </summary>
+            <param name="_">Dummy parameter, only used to disambiguate the method signature.</param>
+            <returns>A validation stub for <see cref="T:StockKeeperMail.Desktop.ViewModels.ComposeMessageViewModel"/> objects.</returns>
+        </member>
+        <member name="M:CommunityToolkit.Mvvm.ComponentModel.__Internals.__ObservableValidatorExtensions.CreateAllPropertiesValidator(StockKeeperMail.Desktop.ViewModels.MessageListItemViewModel)">
+            <summary>
+            Creates a validation stub for <see cref="T:StockKeeperMail.Desktop.ViewModels.MessageListItemViewModel"/> objects.
+            </summary>
+            <param name="_">Dummy parameter, only used to disambiguate the method signature.</param>
+            <returns>A validation stub for <see cref="T:StockKeeperMail.Desktop.ViewModels.MessageListItemViewModel"/> objects.</returns>
+        </member>
+        <member name="M:CommunityToolkit.Mvvm.ComponentModel.__Internals.__ObservableValidatorExtensions.CreateAllPropertiesValidator(StockKeeperMail.Desktop.ViewModels.MessageListViewModel)">
+            <summary>
+            Creates a validation stub for <see cref="T:StockKeeperMail.Desktop.ViewModels.MessageListViewModel"/> objects.
+            </summary>
+            <param name="_">Dummy parameter, only used to disambiguate the method signature.</param>
+            <returns>A validation stub for <see cref="T:StockKeeperMail.Desktop.ViewModels.MessageListViewModel"/> objects.</returns>
+        </member>
+        <member name="M:CommunityToolkit.Mvvm.ComponentModel.__Internals.__ObservableValidatorExtensions.CreateAllPropertiesValidator(StockKeeperMail.Desktop.ViewModels.CreateOrderDetailViewModel)">
+            <summary>
+            Creates a validation stub for <see cref="T:StockKeeperMail.Desktop.ViewModels.CreateOrderDetailViewModel"/> objects.
+            </summary>
+            <param name="_">Dummy parameter, only used to disambiguate the method signature.</param>
+            <returns>A validation stub for <see cref="T:StockKeeperMail.Desktop.ViewModels.CreateOrderDetailViewModel"/> objects.</returns>
+        </member>
+        <member name="M:CommunityToolkit.Mvvm.ComponentModel.__Internals.__ObservableValidatorExtensions.CreateAllPropertiesValidator(StockKeeperMail.Desktop.ViewModels.EditOrderDetailViewModel)">
+            <summary>
+            Creates a validation stub for <see cref="T:StockKeeperMail.Desktop.ViewModels.EditOrderDetailViewModel"/> objects.
+            </summary>
+            <param name="_">Dummy parameter, only used to disambiguate the method signature.</param>
+            <returns>A validation stub for <see cref="T:StockKeeperMail.Desktop.ViewModels.EditOrderDetailViewModel"/> objects.</returns>
+        </member>
+        <member name="M:CommunityToolkit.Mvvm.ComponentModel.__Internals.__ObservableValidatorExtensions.CreateAllPropertiesValidator(StockKeeperMail.Desktop.ViewModels.OrderDetailListViewModel)">
+            <summary>
+            Creates a validation stub for <see cref="T:StockKeeperMail.Desktop.ViewModels.OrderDetailListViewModel"/> objects.
+            </summary>
+            <param name="_">Dummy parameter, only used to disambiguate the method signature.</param>
+            <returns>A validation stub for <see cref="T:StockKeeperMail.Desktop.ViewModels.OrderDetailListViewModel"/> objects.</returns>
+        </member>
+        <member name="M:CommunityToolkit.Mvvm.ComponentModel.__Internals.__ObservableValidatorExtensions.CreateAllPropertiesValidator(StockKeeperMail.Desktop.ViewModels.CreateOrderViewModel)">
+            <summary>
+            Creates a validation stub for <see cref="T:StockKeeperMail.Desktop.ViewModels.CreateOrderViewModel"/> objects.
+            </summary>
+            <param name="_">Dummy parameter, only used to disambiguate the method signature.</param>
+            <returns>A validation stub for <see cref="T:StockKeeperMail.Desktop.ViewModels.CreateOrderViewModel"/> objects.</returns>
+        </member>
+        <member name="M:CommunityToolkit.Mvvm.ComponentModel.__Internals.__ObservableValidatorExtensions.CreateAllPropertiesValidator(StockKeeperMail.Desktop.ViewModels.EditOrderViewModel)">
+            <summary>
+            Creates a validation stub for <see cref="T:StockKeeperMail.Desktop.ViewModels.EditOrderViewModel"/> objects.
+            </summary>
+            <param name="_">Dummy parameter, only used to disambiguate the method signature.</param>
+            <returns>A validation stub for <see cref="T:StockKeeperMail.Desktop.ViewModels.EditOrderViewModel"/> objects.</returns>
+        </member>
+        <member name="M:CommunityToolkit.Mvvm.ComponentModel.__Internals.__ObservableValidatorExtensions.CreateAllPropertiesValidator(StockKeeperMail.Desktop.ViewModels.OrderListViewModel)">
+            <summary>
+            Creates a validation stub for <see cref="T:StockKeeperMail.Desktop.ViewModels.OrderListViewModel"/> objects.
+            </summary>
+            <param name="_">Dummy parameter, only used to disambiguate the method signature.</param>
+            <returns>A validation stub for <see cref="T:StockKeeperMail.Desktop.ViewModels.OrderListViewModel"/> objects.</returns>
+        </member>
+        <member name="M:CommunityToolkit.Mvvm.ComponentModel.__Internals.__ObservableValidatorExtensions.CreateAllPropertiesValidator(StockKeeperMail.Desktop.ViewModels.OrderViewModel)">
+            <summary>
+            Creates a validation stub for <see cref="T:StockKeeperMail.Desktop.ViewModels.OrderViewModel"/> objects.
+            </summary>
+            <param name="_">Dummy parameter, only used to disambiguate the method signature.</param>
+            <returns>A validation stub for <see cref="T:StockKeeperMail.Desktop.ViewModels.OrderViewModel"/> objects.</returns>
+        </member>
+        <member name="M:CommunityToolkit.Mvvm.ComponentModel.__Internals.__ObservableValidatorExtensions.CreateAllPropertiesValidator(StockKeeperMail.Desktop.ViewModels.PrintInvoiceViewModel)">
+            <summary>
+            Creates a validation stub for <see cref="T:StockKeeperMail.Desktop.ViewModels.PrintInvoiceViewModel"/> objects.
+            </summary>
+            <param name="_">Dummy parameter, only used to disambiguate the method signature.</param>
+            <returns>A validation stub for <see cref="T:StockKeeperMail.Desktop.ViewModels.PrintInvoiceViewModel"/> objects.</returns>
+        </member>
+        <member name="M:CommunityToolkit.Mvvm.ComponentModel.__Internals.__ObservableValidatorExtensions.CreateAllPropertiesValidator(StockKeeperMail.Desktop.ViewModels.CreateProductLocationViewModel)">
+            <summary>
+            Creates a validation stub for <see cref="T:StockKeeperMail.Desktop.ViewModels.CreateProductLocationViewModel"/> objects.
+            </summary>
+            <param name="_">Dummy parameter, only used to disambiguate the method signature.</param>
+            <returns>A validation stub for <see cref="T:StockKeeperMail.Desktop.ViewModels.CreateProductLocationViewModel"/> objects.</returns>
+        </member>
+        <member name="M:CommunityToolkit.Mvvm.ComponentModel.__Internals.__ObservableValidatorExtensions.CreateAllPropertiesValidator(StockKeeperMail.Desktop.ViewModels.CreateProductViewModel)">
+            <summary>
+            Creates a validation stub for <see cref="T:StockKeeperMail.Desktop.ViewModels.CreateProductViewModel"/> objects.
+            </summary>
+            <param name="_">Dummy parameter, only used to disambiguate the method signature.</param>
+            <returns>A validation stub for <see cref="T:StockKeeperMail.Desktop.ViewModels.CreateProductViewModel"/> objects.</returns>
+        </member>
+        <member name="M:CommunityToolkit.Mvvm.ComponentModel.__Internals.__ObservableValidatorExtensions.CreateAllPropertiesValidator(StockKeeperMail.Desktop.ViewModels.EditProductViewModel)">
+            <summary>
+            Creates a validation stub for <see cref="T:StockKeeperMail.Desktop.ViewModels.EditProductViewModel"/> objects.
+            </summary>
+            <param name="_">Dummy parameter, only used to disambiguate the method signature.</param>
+            <returns>A validation stub for <see cref="T:StockKeeperMail.Desktop.ViewModels.EditProductViewModel"/> objects.</returns>
+        </member>
+        <member name="M:CommunityToolkit.Mvvm.ComponentModel.__Internals.__ObservableValidatorExtensions.CreateAllPropertiesValidator(StockKeeperMail.Desktop.ViewModels.ProductListViewModel)">
+            <summary>
+            Creates a validation stub for <see cref="T:StockKeeperMail.Desktop.ViewModels.ProductListViewModel"/> objects.
+            </summary>
+            <param name="_">Dummy parameter, only used to disambiguate the method signature.</param>
+            <returns>A validation stub for <see cref="T:StockKeeperMail.Desktop.ViewModels.ProductListViewModel"/> objects.</returns>
+        </member>
+        <member name="M:CommunityToolkit.Mvvm.ComponentModel.__Internals.__ObservableValidatorExtensions.CreateAllPropertiesValidator(StockKeeperMail.Desktop.ViewModels.ProductViewModel)">
+            <summary>
+            Creates a validation stub for <see cref="T:StockKeeperMail.Desktop.ViewModels.ProductViewModel"/> objects.
+            </summary>
+            <param name="_">Dummy parameter, only used to disambiguate the method signature.</param>
+            <returns>A validation stub for <see cref="T:StockKeeperMail.Desktop.ViewModels.ProductViewModel"/> objects.</returns>
+        </member>
+        <member name="M:CommunityToolkit.Mvvm.ComponentModel.__Internals.__ObservableValidatorExtensions.CreateAllPropertiesValidator(StockKeeperMail.Desktop.ViewModels.CreateRoleViewModel)">
+            <summary>
+            Creates a validation stub for <see cref="T:StockKeeperMail.Desktop.ViewModels.CreateRoleViewModel"/> objects.
+            </summary>
+            <param name="_">Dummy parameter, only used to disambiguate the method signature.</param>
+            <returns>A validation stub for <see cref="T:StockKeeperMail.Desktop.ViewModels.CreateRoleViewModel"/> objects.</returns>
+        </member>
+        <member name="M:CommunityToolkit.Mvvm.ComponentModel.__Internals.__ObservableValidatorExtensions.CreateAllPropertiesValidator(StockKeeperMail.Desktop.ViewModels.EditRoleViewModel)">
+            <summary>
+            Creates a validation stub for <see cref="T:StockKeeperMail.Desktop.ViewModels.EditRoleViewModel"/> objects.
+            </summary>
+            <param name="_">Dummy parameter, only used to disambiguate the method signature.</param>
+            <returns>A validation stub for <see cref="T:StockKeeperMail.Desktop.ViewModels.EditRoleViewModel"/> objects.</returns>
+        </member>
+        <member name="M:CommunityToolkit.Mvvm.ComponentModel.__Internals.__ObservableValidatorExtensions.CreateAllPropertiesValidator(StockKeeperMail.Desktop.ViewModels.RoleListViewModel)">
+            <summary>
+            Creates a validation stub for <see cref="T:StockKeeperMail.Desktop.ViewModels.RoleListViewModel"/> objects.
+            </summary>
+            <param name="_">Dummy parameter, only used to disambiguate the method signature.</param>
+            <returns>A validation stub for <see cref="T:StockKeeperMail.Desktop.ViewModels.RoleListViewModel"/> objects.</returns>
+        </member>
+        <member name="M:CommunityToolkit.Mvvm.ComponentModel.__Internals.__ObservableValidatorExtensions.CreateAllPropertiesValidator(StockKeeperMail.Desktop.ViewModels.RolePrivilegesHelper)">
+            <summary>
+            Creates a validation stub for <see cref="T:StockKeeperMail.Desktop.ViewModels.RolePrivilegesHelper"/> objects.
+            </summary>
+            <param name="_">Dummy parameter, only used to disambiguate the method signature.</param>
+            <returns>A validation stub for <see cref="T:StockKeeperMail.Desktop.ViewModels.RolePrivilegesHelper"/> objects.</returns>
+        </member>
+        <member name="M:CommunityToolkit.Mvvm.ComponentModel.__Internals.__ObservableValidatorExtensions.CreateAllPropertiesValidator(StockKeeperMail.Desktop.ViewModels.RoleViewModel)">
+            <summary>
+            Creates a validation stub for <see cref="T:StockKeeperMail.Desktop.ViewModels.RoleViewModel"/> objects.
+            </summary>
+            <param name="_">Dummy parameter, only used to disambiguate the method signature.</param>
+            <returns>A validation stub for <see cref="T:StockKeeperMail.Desktop.ViewModels.RoleViewModel"/> objects.</returns>
+        </member>
+        <member name="M:CommunityToolkit.Mvvm.ComponentModel.__Internals.__ObservableValidatorExtensions.CreateAllPropertiesValidator(StockKeeperMail.Desktop.ViewModels.CreateStaffViewModel)">
+            <summary>
+            Creates a validation stub for <see cref="T:StockKeeperMail.Desktop.ViewModels.CreateStaffViewModel"/> objects.
+            </summary>
+            <param name="_">Dummy parameter, only used to disambiguate the method signature.</param>
+            <returns>A validation stub for <see cref="T:StockKeeperMail.Desktop.ViewModels.CreateStaffViewModel"/> objects.</returns>
+        </member>
+        <member name="M:CommunityToolkit.Mvvm.ComponentModel.__Internals.__ObservableValidatorExtensions.CreateAllPropertiesValidator(StockKeeperMail.Desktop.ViewModels.EditStaffViewModel)">
+            <summary>
+            Creates a validation stub for <see cref="T:StockKeeperMail.Desktop.ViewModels.EditStaffViewModel"/> objects.
+            </summary>
+            <param name="_">Dummy parameter, only used to disambiguate the method signature.</param>
+            <returns>A validation stub for <see cref="T:StockKeeperMail.Desktop.ViewModels.EditStaffViewModel"/> objects.</returns>
+        </member>
+        <member name="M:CommunityToolkit.Mvvm.ComponentModel.__Internals.__ObservableValidatorExtensions.CreateAllPropertiesValidator(StockKeeperMail.Desktop.ViewModels.StaffListViewModel)">
+            <summary>
+            Creates a validation stub for <see cref="T:StockKeeperMail.Desktop.ViewModels.StaffListViewModel"/> objects.
+            </summary>
+            <param name="_">Dummy parameter, only used to disambiguate the method signature.</param>
+            <returns>A validation stub for <see cref="T:StockKeeperMail.Desktop.ViewModels.StaffListViewModel"/> objects.</returns>
+        </member>
+        <member name="M:CommunityToolkit.Mvvm.ComponentModel.__Internals.__ObservableValidatorExtensions.CreateAllPropertiesValidator(StockKeeperMail.Desktop.ViewModels.StaffViewModel)">
+            <summary>
+            Creates a validation stub for <see cref="T:StockKeeperMail.Desktop.ViewModels.StaffViewModel"/> objects.
+            </summary>
+            <param name="_">Dummy parameter, only used to disambiguate the method signature.</param>
+            <returns>A validation stub for <see cref="T:StockKeeperMail.Desktop.ViewModels.StaffViewModel"/> objects.</returns>
+        </member>
+        <member name="M:CommunityToolkit.Mvvm.ComponentModel.__Internals.__ObservableValidatorExtensions.CreateAllPropertiesValidator(StockKeeperMail.Desktop.ViewModels.DeclareDefectiveProductViewModel)">
+            <summary>
+            Creates a validation stub for <see cref="T:StockKeeperMail.Desktop.ViewModels.DeclareDefectiveProductViewModel"/> objects.
+            </summary>
+            <param name="_">Dummy parameter, only used to disambiguate the method signature.</param>
+            <returns>A validation stub for <see cref="T:StockKeeperMail.Desktop.ViewModels.DeclareDefectiveProductViewModel"/> objects.</returns>
+        </member>
+        <member name="M:CommunityToolkit.Mvvm.ComponentModel.__Internals.__ObservableValidatorExtensions.CreateAllPropertiesValidator(StockKeeperMail.Desktop.ViewModels.DisposeProductViewModel)">
+            <summary>
+            Creates a validation stub for <see cref="T:StockKeeperMail.Desktop.ViewModels.DisposeProductViewModel"/> objects.
+            </summary>
+            <param name="_">Dummy parameter, only used to disambiguate the method signature.</param>
+            <returns>A validation stub for <see cref="T:StockKeeperMail.Desktop.ViewModels.DisposeProductViewModel"/> objects.</returns>
+        </member>
+        <member name="M:CommunityToolkit.Mvvm.ComponentModel.__Internals.__ObservableValidatorExtensions.CreateAllPropertiesValidator(StockKeeperMail.Desktop.ViewModels.GetProductViewModel)">
+            <summary>
+            Creates a validation stub for <see cref="T:StockKeeperMail.Desktop.ViewModels.GetProductViewModel"/> objects.
+            </summary>
+            <param name="_">Dummy parameter, only used to disambiguate the method signature.</param>
+            <returns>A validation stub for <see cref="T:StockKeeperMail.Desktop.ViewModels.GetProductViewModel"/> objects.</returns>
+        </member>
+        <member name="M:CommunityToolkit.Mvvm.ComponentModel.__Internals.__ObservableValidatorExtensions.CreateAllPropertiesValidator(StockKeeperMail.Desktop.ViewModels.MoveProductViewModel)">
+            <summary>
+            Creates a validation stub for <see cref="T:StockKeeperMail.Desktop.ViewModels.MoveProductViewModel"/> objects.
+            </summary>
+            <param name="_">Dummy parameter, only used to disambiguate the method signature.</param>
+            <returns>A validation stub for <see cref="T:StockKeeperMail.Desktop.ViewModels.MoveProductViewModel"/> objects.</returns>
+        </member>
+        <member name="M:CommunityToolkit.Mvvm.ComponentModel.__Internals.__ObservableValidatorExtensions.CreateAllPropertiesValidator(StockKeeperMail.Desktop.ViewModels.StorageDetailViewModel)">
+            <summary>
+            Creates a validation stub for <see cref="T:StockKeeperMail.Desktop.ViewModels.StorageDetailViewModel"/> objects.
+            </summary>
+            <param name="_">Dummy parameter, only used to disambiguate the method signature.</param>
+            <returns>A validation stub for <see cref="T:StockKeeperMail.Desktop.ViewModels.StorageDetailViewModel"/> objects.</returns>
+        </member>
+        <member name="M:CommunityToolkit.Mvvm.ComponentModel.__Internals.__ObservableValidatorExtensions.CreateAllPropertiesValidator(StockKeeperMail.Desktop.ViewModels.StorageListViewModel)">
+            <summary>
+            Creates a validation stub for <see cref="T:StockKeeperMail.Desktop.ViewModels.StorageListViewModel"/> objects.
+            </summary>
+            <param name="_">Dummy parameter, only used to disambiguate the method signature.</param>
+            <returns>A validation stub for <see cref="T:StockKeeperMail.Desktop.ViewModels.StorageListViewModel"/> objects.</returns>
+        </member>
+        <member name="M:CommunityToolkit.Mvvm.ComponentModel.__Internals.__ObservableValidatorExtensions.CreateAllPropertiesValidator(StockKeeperMail.Desktop.ViewModels.CreateSupplierViewModel)">
+            <summary>
+            Creates a validation stub for <see cref="T:StockKeeperMail.Desktop.ViewModels.CreateSupplierViewModel"/> objects.
+            </summary>
+            <param name="_">Dummy parameter, only used to disambiguate the method signature.</param>
+            <returns>A validation stub for <see cref="T:StockKeeperMail.Desktop.ViewModels.CreateSupplierViewModel"/> objects.</returns>
+        </member>
+        <member name="M:CommunityToolkit.Mvvm.ComponentModel.__Internals.__ObservableValidatorExtensions.CreateAllPropertiesValidator(StockKeeperMail.Desktop.ViewModels.EditSupplierViewModel)">
+            <summary>
+            Creates a validation stub for <see cref="T:StockKeeperMail.Desktop.ViewModels.EditSupplierViewModel"/> objects.
+            </summary>
+            <param name="_">Dummy parameter, only used to disambiguate the method signature.</param>
+            <returns>A validation stub for <see cref="T:StockKeeperMail.Desktop.ViewModels.EditSupplierViewModel"/> objects.</returns>
+        </member>
+        <member name="M:CommunityToolkit.Mvvm.ComponentModel.__Internals.__ObservableValidatorExtensions.CreateAllPropertiesValidator(StockKeeperMail.Desktop.ViewModels.SupplierListViewModel)">
+            <summary>
+            Creates a validation stub for <see cref="T:StockKeeperMail.Desktop.ViewModels.SupplierListViewModel"/> objects.
+            </summary>
+            <param name="_">Dummy parameter, only used to disambiguate the method signature.</param>
+            <returns>A validation stub for <see cref="T:StockKeeperMail.Desktop.ViewModels.SupplierListViewModel"/> objects.</returns>
+        </member>
+        <member name="M:CommunityToolkit.Mvvm.ComponentModel.__Internals.__ObservableValidatorExtensions.CreateAllPropertiesValidator(StockKeeperMail.Desktop.ViewModels.SupplierViewModel)">
+            <summary>
+            Creates a validation stub for <see cref="T:StockKeeperMail.Desktop.ViewModels.SupplierViewModel"/> objects.
+            </summary>
+            <param name="_">Dummy parameter, only used to disambiguate the method signature.</param>
+            <returns>A validation stub for <see cref="T:StockKeeperMail.Desktop.ViewModels.SupplierViewModel"/> objects.</returns>
+        </member>
+        <member name="M:CommunityToolkit.Mvvm.ComponentModel.__Internals.__ObservableValidatorExtensions.CreateAllPropertiesValidator(StockKeeperMail.Desktop.ViewModels.ViewModelBase)">
+            <summary>
+            Creates a validation stub for <see cref="T:StockKeeperMail.Desktop.ViewModels.ViewModelBase"/> objects.
+            </summary>
+            <param name="_">Dummy parameter, only used to disambiguate the method signature.</param>
+            <returns>A validation stub for <see cref="T:StockKeeperMail.Desktop.ViewModels.ViewModelBase"/> objects.</returns>
+        </member>
+    </members>
+</doc>

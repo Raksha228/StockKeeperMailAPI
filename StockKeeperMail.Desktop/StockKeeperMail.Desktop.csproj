@@ -1,0 +1,213 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net10.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <StartupObject>StockKeeperMail.Desktop.App</StartupObject>
+    <ApplicationIcon>Assets\IMSLogo.ico</ApplicationIcon>
+    <GenerateDocumentationFile>True</GenerateDocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Models\**" />
+    <Compile Remove="Repositories\**" />
+    <Compile Remove="Services\Providers\**" />
+    <Compile Remove="ViewModels\AttributeValueViewModels\**" />
+    <Compile Remove="ViewModels\AttributeViewModels\**" />
+    <Compile Remove="ViewModels\ProductCategoryViewModels\**" />
+    <Compile Remove="ViewModels\StoreViewsModels\**" />
+    <Compile Remove="ViewModels\UserViewModels\**" />
+    <Compile Remove="Views\StoreViews\**" />
+    <EmbeddedResource Remove="Models\**" />
+    <EmbeddedResource Remove="Repositories\**" />
+    <EmbeddedResource Remove="Services\Providers\**" />
+    <EmbeddedResource Remove="ViewModels\AttributeValueViewModels\**" />
+    <EmbeddedResource Remove="ViewModels\AttributeViewModels\**" />
+    <EmbeddedResource Remove="ViewModels\ProductCategoryViewModels\**" />
+    <EmbeddedResource Remove="ViewModels\StoreViewsModels\**" />
+    <EmbeddedResource Remove="ViewModels\UserViewModels\**" />
+    <EmbeddedResource Remove="Views\StoreViews\**" />
+    <None Remove="Models\**" />
+    <None Remove="Repositories\**" />
+    <None Remove="Services\Providers\**" />
+    <None Remove="ViewModels\AttributeValueViewModels\**" />
+    <None Remove="ViewModels\AttributeViewModels\**" />
+    <None Remove="ViewModels\ProductCategoryViewModels\**" />
+    <None Remove="ViewModels\StoreViewsModels\**" />
+    <None Remove="ViewModels\UserViewModels\**" />
+    <None Remove="Views\StoreViews\**" />
+    <Page Remove="Models\**" />
+    <Page Remove="Repositories\**" />
+    <Page Remove="Services\Providers\**" />
+    <Page Remove="ViewModels\AttributeValueViewModels\**" />
+    <Page Remove="ViewModels\AttributeViewModels\**" />
+    <Page Remove="ViewModels\ProductCategoryViewModels\**" />
+    <Page Remove="ViewModels\StoreViewsModels\**" />
+    <Page Remove="ViewModels\UserViewModels\**" />
+    <Page Remove="Views\StoreViews\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="LoginWindow.xaml.cs" />
+    <Compile Remove="Services\DatabaseServiceBase.cs" />
+    <Compile Remove="Stores\CollectionStore.cs" />
+    <Compile Remove="Stores\ProductStore.cs" />
+    <Compile Remove="ViewModels\CommandViewModel.cs" />
+    <Compile Remove="ViewModels\CreateProductViewModel.cs" />
+    <Compile Remove="ViewModels\ProductListViewModel.cs" />
+    <Compile Remove="ViewModels\ProductViewModel.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Assets\IMSLogo.ico" />
+    <None Remove="Assets\IMSLogo.png" />
+    <None Remove="Assets\logo.png" />
+    <None Remove="Assets\SplashScreen.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Remove="LoginWindow.xaml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.2" />
+    <PackageReference Include="LiveCharts.Wpf.Core" Version="0.9.8" />
+    <PackageReference Include="MaterialDesignThemes" Version="5.3.1" />
+    <PackageReference Include="MaterialDesignColors" Version="5.3.1" />
+        <PackageReference Include="Microsoft.Extensions.Configuration" Version="10.0.5" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="10.0.5" />
+    <PackageReference Include="Microsoft.Extensions.Hosting" Version="10.0.5" />
+  </ItemGroup>
+
+  <ItemGroup>
+	  <ProjectReference Include="..\StockKeeperMail.Contracts\StockKeeperMail.Contracts.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="apiconfig.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Assets\IMSLogo.ico" />
+    <Resource Include="Assets\IMSLogo.png" />
+    <Resource Include="Assets\logo.png" />
+    <Resource Include="Assets\SplashScreen.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Views\DefectiveViews\CreateDefectiveView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\DefectiveViews\DefectiveListView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\DefectiveViews\EditDefectiveView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\ProductViews\ProductListView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\CustomerViews\CustomerListView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\CustomerViews\CustomerFormView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\OrderViews\CreateOrderView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\OrderViews\EditOrderView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\OrderViews\OrderListView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\StaffViews\StaffFormView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\StaffViews\StaffListView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\OrderDetailViews\CreateOrderDetailView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\RoleViews\RoleFormView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\RoleViews\RoleListView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\SupplierViews\SupplierFormView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Update="Views\DefectiveViews\CreateDefectiveView.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\DefectiveViews\DefectiveListView.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\DefectiveViews\EditDefectiveView.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\ProductViews\ProductListView.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\CustomerViews\CustomerListView.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\CustomerViews\CustomerFormView.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\OrderViews\CreateOrderView.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\OrderViews\EditOrderView.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\OrderViews\OrderListView.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\StaffViews\StaffFormView.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\StaffViews\StaffListView.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\OrderDetailViews\CreateOrderDetailView.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\RoleViews\RoleFormView.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\RoleViews\RoleListView.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\SupplierViews\SupplierFormView.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+
+</Project>

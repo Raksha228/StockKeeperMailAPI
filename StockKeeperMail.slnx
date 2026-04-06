@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="StockKeeperMail.Contracts/StockKeeperMail.Contracts.csproj" />
+  <Project Path="StockKeeperMail.Api/StockKeeperMail.Api.csproj" />
+  <Project Path="StockKeeperMail.Desktop/StockKeeperMail.Desktop.csproj" />
+</Solution>

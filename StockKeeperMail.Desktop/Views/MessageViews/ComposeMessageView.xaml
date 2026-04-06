@@ -1,0 +1,80 @@
+<UserControl x:Class="StockKeeperMail.Desktop.Views.ComposeMessageView"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             mc:Ignorable="d" 
+             d:DesignHeight="650" d:DesignWidth="900">
+
+    <Grid Margin="30" Width="820">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <TextBlock
+            Grid.Row="0"
+            Text="Новое сообщение"
+            Style="{StaticResource MaterialDesignHeadline5TextBlock}"
+            FontWeight="Bold" />
+
+        <Grid Grid.Row="1" Margin="0,25,0,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <TextBlock Text="Получатель" FontWeight="DemiBold" />
+            <ComboBox
+                Grid.Row="1"
+                Margin="0,8,0,0"
+                ItemsSource="{Binding Recipients}"
+                DisplayMemberPath="DisplayName"
+                SelectedValuePath="StaffID"
+                SelectedValue="{Binding RecipientStaffID, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                Style="{StaticResource MaterialDesignComboBox}" />
+        </Grid>
+
+        <Grid Grid.Row="2" Margin="0,25,0,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <TextBlock Text="Тема" FontWeight="DemiBold" />
+            <TextBox
+                Grid.Row="1"
+                Margin="0,8,0,0"
+                Text="{Binding Subject, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                Style="{StaticResource MaterialDesignTextBox}" />
+
+            <TextBlock Grid.Row="2" Margin="0,20,0,0" Text="Сообщение" FontWeight="DemiBold" />
+            <TextBox
+                Grid.Row="3"
+                Margin="0,8,0,0"
+                Text="{Binding Body, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                Style="{StaticResource MaterialDesignTextBox}"
+                AcceptsReturn="True"
+                VerticalScrollBarVisibility="Auto"
+                TextWrapping="Wrap"
+                MinHeight="260" />
+        </Grid>
+
+        <StackPanel Grid.Row="3" Margin="0,25,0,0" Orientation="Horizontal" HorizontalAlignment="Right">
+            <Button
+                Margin="0,0,10,0"
+                Content="Отмена"
+                Command="{Binding CancelCommand}"
+                Style="{StaticResource MaterialDesignPaperButton}" />
+            <Button
+                Content="Отправить"
+                Command="{Binding SubmitCommand}"
+                Style="{StaticResource MaterialDesignPaperButton}" />
+        </StackPanel>
+    </Grid>
+</UserControl>

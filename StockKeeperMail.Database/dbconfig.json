@@ -1,0 +1,14 @@
+﻿{
+  //"exclude": [
+  //  "**/bin",
+  //  "**/bower_components",
+  //  "**/jspm_packages",
+  //  "**/node_modules",
+  //  "**/obj",
+  //  "**/platforms"
+  //]
+
+  "ConnectionStrings": {
+    "DB": "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=VLGMedBD;Integrated Security=True;Encrypt=False;"
+  }
+}

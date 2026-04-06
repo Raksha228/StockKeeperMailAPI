@@ -1,0 +1,788 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>StockKeeperMail.Contracts</name>
+    </assembly>
+    <members>
+        <member name="T:StockKeeperMail.Database.Models.Category">
+            <summary>
+            Представляет категорию товаров, используемую для группировки номенклатуры.
+            </summary>
+        </member>
+        <member name="P:StockKeeperMail.Database.Models.Category.CategoryID">
+            <summary>
+            Уникальный идентификатор категории.
+            </summary>
+        </member>
+        <member name="P:StockKeeperMail.Database.Models.Category.CategoryName">
+            <summary>
+            Наименование категории.
+            </summary>
+        </member>
+        <member name="P:StockKeeperMail.Database.Models.Category.CategoryStatus">
+            <summary>
+            Текущий статус категории.
+            </summary>
+        </member>
+        <member name="P:StockKeeperMail.Database.Models.Category.CategoryDescription">
+            <summary>
+            Описание категории.
+            </summary>
+        </member>
+        <member name="P:StockKeeperMail.Database.Models.Category.Products">
+            <summary>
+            Связанная коллекция товаров.
+            </summary>
+        </member>
+        <member name="T:StockKeeperMail.Database.Models.Customer">
+            <summary>
+            Представляет клиента, оформляющего заказы в системе.
+            </summary>
+        </member>
+        <member name="P:StockKeeperMail.Database.Models.Customer.CustomerID">
+            <summary>
+            Уникальный идентификатор клиента.
+            </summary>
+        </member>
+        <member name="P:StockKeeperMail.Database.Models.Customer.StaffID">
+            <summary>
+            Уникальный идентификатор сотрудника.
+            </summary>
+        </member>
+        <member name="P:StockKeeperMail.Database.Models.Customer.CustomerFirstname">
+            <summary>
+            Имя клиента.
+            </summary>
+        </member>
+        <member name="P:StockKeeperMail.Database.Models.Customer.CustomerLastname">
+            <summary>
+            Фамилия клиента.
+            </summary>
+        </member>
+        <member name="P:StockKeeperMail.Database.Models.Customer.CustomerAddress">
+            <summary>
+            Адрес клиента.
+            </summary>
+        </member>
+        <member name="P:StockKeeperMail.Database.Models.Customer.CustomerPhone">
+            <summary>
+            Контактный телефон клиента.
+            </summary>
+        </member>
+        <member name="P:StockKeeperMail.Database.Models.Customer.CustomerEmail">
+            <summary>
+            Электронная почта клиента.
+            </summary>
+        </member>
+        <member name="P:StockKeeperMail.Database.Models.Customer.Staff">
+            <summary>
+            Связанный сотрудник.
+            </summary>
+        </member>
+        <member name="T:StockKeeperMail.Database.Models.Defective">
+            <summary>
+            Представляет запись о бракованном или списанном товаре.
+            </summary>
+        </member>
+        <member name="P:StockKeeperMail.Database.Models.Defective.DefectiveID">
+            <summary>
+            Уникальный идентификатор записи о браке.
+            </summary>
+        </member>
+        <member name="P:StockKeeperMail.Database.Models.Defective.ProductID">
+            <summary>
+            Уникальный идентификатор товара.
+            </summary>
+        </member>
+        <member name="P:StockKeeperMail.Database.Models.Defective.Quantity">
+            <summary>
+            Количество бракованного товара.
+            </summary>
+        </member>
+        <member name="P:StockKeeperMail.Database.Models.Defective.DateDeclared">
+            <summary>
+            Дата фиксации брака.
+            </summary>
+        </member>
+        <member name="P:StockKeeperMail.Database.Models.Defective.Product">
+            <summary>
+            Связанный товар.
+            </summary>
+        </member>
+        <member name="T:StockKeeperMail.Database.Models.InternalMessage">
+            <summary>
+            Представляет внутреннее сообщение между сотрудниками системы.
+            </summary>
+        </member>
+        <member name="P:StockKeeperMail.Database.Models.InternalMessage.InternalMessageID">
+            <summary>
+            Уникальный идентификатор внутреннего сообщения.
+            </summary>
+        </member>
+        <member name="P:StockKeeperMail.Database.Models.InternalMessage.SenderStaffID">
+            <summary>
+            Идентификатор связанной сущности SenderStaff.
+            </summary>
+        </member>
+        <member name="P:StockKeeperMail.Database.Models.InternalMessage.RecipientStaffID">
+            <summary>
+            Идентификатор связанной сущности RecipientStaff.
+            </summary>
+        </member>
+        <member name="P:StockKeeperMail.Database.Models.InternalMessage.Subject">
+            <summary>
+            Тема внутреннего сообщения.
+            </summary>
+        </member>
+        <member name="P:StockKeeperMail.Database.Models.InternalMessage.Body">
+            <summary>
+            Текст внутреннего сообщения.
+            </summary>
+        </member>
+        <member name="P:StockKeeperMail.Database.Models.InternalMessage.SentAt">
+            <summary>
+            Дата и время отправки сообщения.
+            </summary>
+        </member>
+        <member name="P:StockKeeperMail.Database.Models.InternalMessage.IsRead">
+            <summary>
+            Признак того, что сообщение прочитано.
+            </summary>
+        </member>
+        <member name="P:StockKeeperMail.Database.Models.InternalMessage.SenderStaff">
+            <summary>
+            Сотрудник-отправитель сообщения.
+            </summary>
+        </member>
+        <member name="P:StockKeeperMail.Database.Models.InternalMessage.RecipientStaff">
+            <summary>
+            Сотрудник-получатель сообщения.
+            </summary>
+        </member>
+        <member name="T:StockKeeperMail.Database.Models.Location">
+            <summary>
+            Представляет локацию хранения товара внутри склада.
+            </summary>
+        </member>
+        <member name="P:StockKeeperMail.Database.Models.Location.LocationID">
+            <summary>
+            Уникальный идентификатор локации.
+            </summary>
+        </member>
+        <member name="P:StockKeeperMail.Database.Models.Location.LocationName">
+            <summary>
+            Наименование локации хранения.
+            </summary>
+        </member>
+        <member name="P:StockKeeperMail.Database.Models.Location.ProductLocations">
+            <summary>
+            Связанная коллекция размещений товаров по локациям.
+            </summary>
+        </member>
+        <member name="T:StockKeeperMail.Database.Models.Log">
+            <summary>
+            Представляет запись журнала действий сотрудников в системе.
+            </summary>
+        </member>
+        <member name="P:StockKeeperMail.Database.Models.Log.LogID">
+            <summary>
+            Уникальный идентификатор записи журнала.
+            </summary>
+        </member>
+        <member name="P:StockKeeperMail.Database.Models.Log.StaffID">
+            <summary>
+            Уникальный идентификатор сотрудника.
+            </summary>
+        </member>
+        <member name="P:StockKeeperMail.Database.Models.Log.LogCategory">
+            <summary>
+            Категория записи журнала.
+            </summary>
+        </member>
+        <member name="P:StockKeeperMail.Database.Models.Log.ActionType">
+            <summary>
+            Тип выполненного действия.
+            </summary>
+        </member>
+        <member name="P:StockKeeperMail.Database.Models.Log.LogDetails">
+            <summary>
+            Подробности зафиксированного действия.
+            </summary>
+        </member>
+        <member name="P:StockKeeperMail.Database.Models.Log.DateTime">
+            <summary>
+            Дата и время создания записи журнала.
+            </summary>
+        </member>
+        <member name="P:StockKeeperMail.Database.Models.Log.Staff">
+            <summary>
+            Связанный сотрудник.
+            </summary>
+        </member>
+        <member name="T:StockKeeperMail.Database.Models.Order">
+            <summary>
+            Представляет заказ клиента с общей суммой и статусом доставки.
+            </summary>
+        </member>
+        <member name="P:StockKeeperMail.Database.Models.Order.OrderID">
+            <summary>
+            Уникальный идентификатор заказа.
+            </summary>
+        </member>
+        <member name="P:StockKeeperMail.Database.Models.Order.CustomerID">
+            <summary>
+            Уникальный идентификатор клиента.
+            </summary>
+        </member>
+        <member name="P:StockKeeperMail.Database.Models.Order.OrderDate">
+            <summary>
+            Дата оформления заказа.
+            </summary>
+        </member>
+        <member name="P:StockKeeperMail.Database.Models.Order.DeliveryStatus">
+            <summary>
+            Статус доставки заказа.
+            </summary>
+        </member>
+        <member name="P:StockKeeperMail.Database.Models.Order.OrderTotal">
+            <summary>
+            Итоговая сумма заказа.
+            </summary>
+        </member>
+        <member name="P:StockKeeperMail.Database.Models.Order.Customer">
+            <summary>
+            Связанный клиент.
+            </summary>
+        </member>
+        <member name="P:StockKeeperMail.Database.Models.Order.OrderDetails">
+            <summary>
+            Связанная коллекция строк заказа.
+            </summary>
+        </member>
+        <member name="T:StockKeeperMail.Database.Models.OrderDetail">
+            <summary>
+            Представляет строку заказа с товаром, количеством и суммой.
+            </summary>
+        </member>
+        <member name="P:StockKeeperMail.Database.Models.OrderDetail.ProductID">
+            <summary>
+            Уникальный идентификатор товара.
+            </summary>
+        </member>
+        <member name="P:StockKeeperMail.Database.Models.OrderDetail.OrderID">
+            <summary>
+            Уникальный идентификатор заказа.
+            </summary>
+        </member>
+        <member name="P:StockKeeperMail.Database.Models.OrderDetail.OrderDetailQuantity">
+            <summary>
+            Количество товара в строке заказа.
+            </summary>
+        </member>
+        <member name="P:StockKeeperMail.Database.Models.OrderDetail.OrderDetailAmount">
+            <summary>
+            Сумма по строке заказа.
+            </summary>
+        </member>
+        <member name="P:StockKeeperMail.Database.Models.OrderDetail.Product">
+            <summary>
+            Связанный товар.
+            </summary>
+        </member>
+        <member name="P:StockKeeperMail.Database.Models.OrderDetail.Order">
+            <summary>
+            Связанный заказ.
+            </summary>
+        </member>
+        <member name="T:StockKeeperMail.Database.Models.Product">
+            <summary>
+            Представляет товар, доступный для хранения и оформления в заказах.
+            </summary>
+        </member>
+        <member name="P:StockKeeperMail.Database.Models.Product.ProductID">
+            <summary>
+            Уникальный идентификатор товара.
+            </summary>
+        </member>
+        <member name="P:StockKeeperMail.Database.Models.Product.SupplierID">
+            <summary>
+            Уникальный идентификатор поставщика.
+            </summary>
+        </member>
+        <member name="P:StockKeeperMail.Database.Models.Product.CategoryID">
+            <summary>
+            Уникальный идентификатор категории.
+            </summary>
+        </member>
+        <member name="P:StockKeeperMail.Database.Models.Product.ProductName">
+            <summary>
+            Наименование товара.
+            </summary>
+        </member>
+        <member name="P:StockKeeperMail.Database.Models.Product.ProductSKU">
+            <summary>
+            Артикул товара.
+            </summary>
+        </member>
+        <member name="P:StockKeeperMail.Database.Models.Product.ProductUnit">
+            <summary>
+            Единица измерения товара.
+            </summary>
+        </member>
+        <member name="P:StockKeeperMail.Database.Models.Product.ProductPrice">
+            <summary>
+            Цена товара.
+            </summary>
+        </member>
+        <member name="P:StockKeeperMail.Database.Models.Product.ProductQuantity">
+            <summary>
+            Количество товара.
+            </summary>
+        </member>
+        <member name="P:StockKeeperMail.Database.Models.Product.ProductAvailability">
+            <summary>
+            Статус доступности товара.
+            </summary>
+        </member>
+        <member name="P:StockKeeperMail.Database.Models.Product.Supplier">
+            <summary>
+            Связанный поставщик.
+            </summary>
+        </member>
+        <member name="P:StockKeeperMail.Database.Models.Product.Category">
+            <summary>
+            Связанная категория.
+            </summary>
+        </member>
+        <member name="P:StockKeeperMail.Database.Models.Product.ProductLocations">
+            <summary>
+            Связанная коллекция размещений товаров по локациям.
+            </summary>
+        </member>
+        <member name="P:StockKeeperMail.Database.Models.Product.OrderDetails">
+            <summary>
+            Связанная коллекция строк заказа.
+            </summary>
+        </member>
+        <member name="T:StockKeeperMail.Database.Models.ProductLocation">
+            <summary>
+            Представляет связь между товаром и локацией его хранения.
+            </summary>
+        </member>
+        <member name="P:StockKeeperMail.Database.Models.ProductLocation.LocationID">
+            <summary>
+            Уникальный идентификатор локации.
+            </summary>
+        </member>
+        <member name="P:StockKeeperMail.Database.Models.ProductLocation.ProductID">
+            <summary>
+            Уникальный идентификатор товара.
+            </summary>
+        </member>
+        <member name="P:StockKeeperMail.Database.Models.ProductLocation.ProductQuantity">
+            <summary>
+            Количество товара.
+            </summary>
+        </member>
+        <member name="P:StockKeeperMail.Database.Models.ProductLocation.Location">
+            <summary>
+            Связанная локация.
+            </summary>
+        </member>
+        <member name="P:StockKeeperMail.Database.Models.ProductLocation.Product">
+            <summary>
+            Связанный товар.
+            </summary>
+        </member>
+        <member name="T:StockKeeperMail.Database.Models.Role">
+            <summary>
+            Представляет роль сотрудника и набор разрешений на действия в системе.
+            </summary>
+        </member>
+        <member name="P:StockKeeperMail.Database.Models.Role.RoleID">
+            <summary>
+            Уникальный идентификатор роли.
+            </summary>
+        </member>
+        <member name="P:StockKeeperMail.Database.Models.Role.RoleName">
+            <summary>
+            Наименование роли.
+            </summary>
+        </member>
+        <member name="P:StockKeeperMail.Database.Models.Role.RoleStatus">
+            <summary>
+            Текущий статус роли.
+            </summary>
+        </member>
+        <member name="P:StockKeeperMail.Database.Models.Role.RoleDescription">
+            <summary>
+            Описание роли.
+            </summary>
+        </member>
+        <member name="P:StockKeeperMail.Database.Models.Role.OrdersView">
+            <summary>
+            Разрешение на просмотр заказов.
+            </summary>
+        </member>
+        <member name="P:StockKeeperMail.Database.Models.Role.OrdersAdd">
+            <summary>
+            Разрешение на добавление заказов.
+            </summary>
+        </member>
+        <member name="P:StockKeeperMail.Database.Models.Role.OrdersEdit">
+            <summary>
+            Разрешение на редактирование заказов.
+            </summary>
+        </member>
+        <member name="P:StockKeeperMail.Database.Models.Role.OrdersDelete">
+            <summary>
+            Разрешение на удаление заказов.
+            </summary>
+        </member>
+        <member name="P:StockKeeperMail.Database.Models.Role.CustomersView">
+            <summary>
+            Разрешение на просмотр клиентов.
+            </summary>
+        </member>
+        <member name="P:StockKeeperMail.Database.Models.Role.CustomersAdd">
+            <summary>
+            Разрешение на добавление клиентов.
+            </summary>
+        </member>
+        <member name="P:StockKeeperMail.Database.Models.Role.CustomersEdit">
+            <summary>
+            Разрешение на редактирование клиентов.
+            </summary>
+        </member>
+        <member name="P:StockKeeperMail.Database.Models.Role.CustomersDelete">
+            <summary>
+            Разрешение на удаление клиентов.
+            </summary>
+        </member>
+        <member name="P:StockKeeperMail.Database.Models.Role.ProductsView">
+            <summary>
+            Разрешение на просмотр товаров.
+            </summary>
+        </member>
+        <member name="P:StockKeeperMail.Database.Models.Role.ProductsAdd">
+            <summary>
+            Разрешение на добавление товаров.
+            </summary>
+        </member>
+        <member name="P:StockKeeperMail.Database.Models.Role.ProductsEdit">
+            <summary>
+            Разрешение на редактирование товаров.
+            </summary>
+        </member>
+        <member name="P:StockKeeperMail.Database.Models.Role.ProductsDelete">
+            <summary>
+            Разрешение на удаление товаров.
+            </summary>
+        </member>
+        <member name="P:StockKeeperMail.Database.Models.Role.StoragesView">
+            <summary>
+            Разрешение на просмотр складских данных.
+            </summary>
+        </member>
+        <member name="P:StockKeeperMail.Database.Models.Role.StoragesAdd">
+            <summary>
+            Разрешение на добавление складских данных.
+            </summary>
+        </member>
+        <member name="P:StockKeeperMail.Database.Models.Role.StoragesEdit">
+            <summary>
+            Разрешение на редактирование складских данных.
+            </summary>
+        </member>
+        <member name="P:StockKeeperMail.Database.Models.Role.StoragesDelete">
+            <summary>
+            Разрешение на удаление складских данных.
+            </summary>
+        </member>
+        <member name="P:StockKeeperMail.Database.Models.Role.DefectivesView">
+            <summary>
+            Разрешение на просмотр брака.
+            </summary>
+        </member>
+        <member name="P:StockKeeperMail.Database.Models.Role.DefectivesAdd">
+            <summary>
+            Разрешение на добавление брака.
+            </summary>
+        </member>
+        <member name="P:StockKeeperMail.Database.Models.Role.DefectivesEdit">
+            <summary>
+            Разрешение на редактирование брака.
+            </summary>
+        </member>
+        <member name="P:StockKeeperMail.Database.Models.Role.DefectivesDelete">
+            <summary>
+            Разрешение на удаление брака.
+            </summary>
+        </member>
+        <member name="P:StockKeeperMail.Database.Models.Role.CategoriesView">
+            <summary>
+            Разрешение на просмотр категорий.
+            </summary>
+        </member>
+        <member name="P:StockKeeperMail.Database.Models.Role.CategoriesAdd">
+            <summary>
+            Разрешение на добавление категорий.
+            </summary>
+        </member>
+        <member name="P:StockKeeperMail.Database.Models.Role.CategoriesEdit">
+            <summary>
+            Разрешение на редактирование категорий.
+            </summary>
+        </member>
+        <member name="P:StockKeeperMail.Database.Models.Role.CategoriesDelete">
+            <summary>
+            Разрешение на удаление категорий.
+            </summary>
+        </member>
+        <member name="P:StockKeeperMail.Database.Models.Role.LocationsView">
+            <summary>
+            Разрешение на просмотр локаций.
+            </summary>
+        </member>
+        <member name="P:StockKeeperMail.Database.Models.Role.LocationsAdd">
+            <summary>
+            Разрешение на добавление локаций.
+            </summary>
+        </member>
+        <member name="P:StockKeeperMail.Database.Models.Role.LocationsEdit">
+            <summary>
+            Разрешение на редактирование локаций.
+            </summary>
+        </member>
+        <member name="P:StockKeeperMail.Database.Models.Role.LocationsDelete">
+            <summary>
+            Разрешение на удаление локаций.
+            </summary>
+        </member>
+        <member name="P:StockKeeperMail.Database.Models.Role.SuppliersView">
+            <summary>
+            Разрешение на просмотр поставщиков.
+            </summary>
+        </member>
+        <member name="P:StockKeeperMail.Database.Models.Role.SuppliersAdd">
+            <summary>
+            Разрешение на добавление поставщиков.
+            </summary>
+        </member>
+        <member name="P:StockKeeperMail.Database.Models.Role.SuppliersEdit">
+            <summary>
+            Разрешение на редактирование поставщиков.
+            </summary>
+        </member>
+        <member name="P:StockKeeperMail.Database.Models.Role.SuppliersDelete">
+            <summary>
+            Разрешение на удаление поставщиков.
+            </summary>
+        </member>
+        <member name="P:StockKeeperMail.Database.Models.Role.RolesView">
+            <summary>
+            Разрешение на просмотр ролей.
+            </summary>
+        </member>
+        <member name="P:StockKeeperMail.Database.Models.Role.RolesAdd">
+            <summary>
+            Разрешение на добавление ролей.
+            </summary>
+        </member>
+        <member name="P:StockKeeperMail.Database.Models.Role.RolesEdit">
+            <summary>
+            Разрешение на редактирование ролей.
+            </summary>
+        </member>
+        <member name="P:StockKeeperMail.Database.Models.Role.RolesDelete">
+            <summary>
+            Разрешение на удаление ролей.
+            </summary>
+        </member>
+        <member name="P:StockKeeperMail.Database.Models.Role.StaffsView">
+            <summary>
+            Разрешение на просмотр сотрудников.
+            </summary>
+        </member>
+        <member name="P:StockKeeperMail.Database.Models.Role.StaffsAdd">
+            <summary>
+            Разрешение на добавление сотрудников.
+            </summary>
+        </member>
+        <member name="P:StockKeeperMail.Database.Models.Role.StaffsEdit">
+            <summary>
+            Разрешение на редактирование сотрудников.
+            </summary>
+        </member>
+        <member name="P:StockKeeperMail.Database.Models.Role.StaffsDelete">
+            <summary>
+            Разрешение на удаление сотрудников.
+            </summary>
+        </member>
+        <member name="P:StockKeeperMail.Database.Models.Role.LogsView">
+            <summary>
+            Разрешение на просмотр журналов.
+            </summary>
+        </member>
+        <member name="P:StockKeeperMail.Database.Models.Role.LogsAdd">
+            <summary>
+            Разрешение на добавление журналов.
+            </summary>
+        </member>
+        <member name="P:StockKeeperMail.Database.Models.Role.LogsEdit">
+            <summary>
+            Разрешение на редактирование журналов.
+            </summary>
+        </member>
+        <member name="P:StockKeeperMail.Database.Models.Role.LogsDelete">
+            <summary>
+            Разрешение на удаление журналов.
+            </summary>
+        </member>
+        <member name="P:StockKeeperMail.Database.Models.Role.Staffs">
+            <summary>
+            Связанная коллекция сотрудников с данной ролью.
+            </summary>
+        </member>
+        <member name="T:StockKeeperMail.Database.Models.Staff">
+            <summary>
+            Представляет сотрудника, работающего в системе.
+            </summary>
+        </member>
+        <member name="P:StockKeeperMail.Database.Models.Staff.StaffID">
+            <summary>
+            Уникальный идентификатор сотрудника.
+            </summary>
+        </member>
+        <member name="P:StockKeeperMail.Database.Models.Staff.RoleID">
+            <summary>
+            Уникальный идентификатор роли.
+            </summary>
+        </member>
+        <member name="P:StockKeeperMail.Database.Models.Staff.StaffFirstName">
+            <summary>
+            Имя сотрудника.
+            </summary>
+        </member>
+        <member name="P:StockKeeperMail.Database.Models.Staff.StaffLastName">
+            <summary>
+            Фамилия сотрудника.
+            </summary>
+        </member>
+        <member name="P:StockKeeperMail.Database.Models.Staff.StaffAddress">
+            <summary>
+            Адрес сотрудника.
+            </summary>
+        </member>
+        <member name="P:StockKeeperMail.Database.Models.Staff.StaffPhone">
+            <summary>
+            Контактный телефон сотрудника.
+            </summary>
+        </member>
+        <member name="P:StockKeeperMail.Database.Models.Staff.StaffEmail">
+            <summary>
+            Электронная почта сотрудника.
+            </summary>
+        </member>
+        <member name="P:StockKeeperMail.Database.Models.Staff.StaffUsername">
+            <summary>
+            Логин сотрудника для входа в систему.
+            </summary>
+        </member>
+        <member name="P:StockKeeperMail.Database.Models.Staff.StaffPassword">
+            <summary>
+            Пароль сотрудника для входа в систему.
+            </summary>
+        </member>
+        <member name="P:StockKeeperMail.Database.Models.Staff.Role">
+            <summary>
+            Связанная роль сотрудника.
+            </summary>
+        </member>
+        <member name="P:StockKeeperMail.Database.Models.Staff.SentMessages">
+            <summary>
+            Коллекция сообщений, отправленных сотрудником.
+            </summary>
+        </member>
+        <member name="P:StockKeeperMail.Database.Models.Staff.ReceivedMessages">
+            <summary>
+            Коллекция сообщений, полученных сотрудником.
+            </summary>
+        </member>
+        <member name="T:StockKeeperMail.Database.Models.Supplier">
+            <summary>
+            Представляет поставщика товаров.
+            </summary>
+        </member>
+        <member name="P:StockKeeperMail.Database.Models.Supplier.SupplierID">
+            <summary>
+            Уникальный идентификатор поставщика.
+            </summary>
+        </member>
+        <member name="P:StockKeeperMail.Database.Models.Supplier.SupplierName">
+            <summary>
+            Наименование поставщика.
+            </summary>
+        </member>
+        <member name="P:StockKeeperMail.Database.Models.Supplier.SupplierAddress">
+            <summary>
+            Адрес поставщика.
+            </summary>
+        </member>
+        <member name="P:StockKeeperMail.Database.Models.Supplier.SupplierPhone">
+            <summary>
+            Контактный телефон поставщика.
+            </summary>
+        </member>
+        <member name="P:StockKeeperMail.Database.Models.Supplier.SupplierEmail">
+            <summary>
+            Электронная почта поставщика.
+            </summary>
+        </member>
+        <member name="P:StockKeeperMail.Database.Models.Supplier.SupplierStatus">
+            <summary>
+            Текущий статус поставщика.
+            </summary>
+        </member>
+        <member name="P:StockKeeperMail.Database.Models.Supplier.Products">
+            <summary>
+            Связанная коллекция товаров.
+            </summary>
+        </member>
+        <member name="T:StockKeeperMail.Database.Models.Warehouse">
+            <summary>
+            Представляет склад или складской объект компании.
+            </summary>
+        </member>
+        <member name="P:StockKeeperMail.Database.Models.Warehouse.WarehouseID">
+            <summary>
+            Уникальный идентификатор склада.
+            </summary>
+        </member>
+        <member name="P:StockKeeperMail.Database.Models.Warehouse.WarehouseName">
+            <summary>
+            Наименование склада.
+            </summary>
+        </member>
+        <member name="P:StockKeeperMail.Database.Models.Warehouse.WarehouseAddress">
+            <summary>
+            Адрес склада.
+            </summary>
+        </member>
+        <member name="P:StockKeeperMail.Database.Models.Warehouse.WarehousePhone">
+            <summary>
+            Контактный телефон склада.
+            </summary>
+        </member>
+        <member name="P:StockKeeperMail.Database.Models.Warehouse.WarehouseEmail">
+            <summary>
+            Электронная почта склада.
+            </summary>
+        </member>
+        <member name="P:StockKeeperMail.Database.Models.Warehouse.WarehouseVat">
+            <summary>
+            Ставка НДС для склада.
+            </summary>
+        </member>
+    </members>
+</doc>

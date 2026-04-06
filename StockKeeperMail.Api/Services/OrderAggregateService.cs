@@ -9,8 +9,7 @@ using System.Threading.Tasks;
 namespace StockKeeperMail.Api.Services
 {
     /// <summary>
-    /// Сервис для сохранения заказа как агрегата:
-    /// сам заказ, строки заказа и измененные остатки товаров.
+    /// Сервис для сохранения заказа как агрегата вместе со строками заказа и обновлёнными товарами.
     /// </summary>
     public class OrderAggregateService
     {
@@ -19,6 +18,9 @@ namespace StockKeeperMail.Api.Services
         private readonly MongoRepository<Product> _products;
         private readonly EntityHydrationService _hydrationService;
 
+        /// <summary>
+        /// Инициализирует сервис работы с заказами как агрегатами.
+        /// </summary>
         public OrderAggregateService(
             MongoRepository<Order> orders,
             MongoRepository<OrderDetail> orderDetails,
@@ -31,21 +33,33 @@ namespace StockKeeperMail.Api.Services
             _hydrationService = hydrationService;
         }
 
+        /// <summary>
+        /// Возвращает список заказов вместе со связанными сущностями.
+        /// </summary>
         public async Task<List<Order>> GetAllAsync()
         {
             return await _hydrationService.HydrateAsync(await _orders.GetAllAsync());
         }
 
+        /// <summary>
+        /// Сохраняет новый заказ и связанные данные.
+        /// </summary>
         public async Task InsertAsync(Order order)
         {
             await SaveAggregateAsync(order, isNew: true);
         }
 
+        /// <summary>
+        /// Обновляет заказ и связанные данные.
+        /// </summary>
         public async Task UpdateAsync(Order order)
         {
             await SaveAggregateAsync(order, isNew: false);
         }
 
+        /// <summary>
+        /// Удаляет заказ и все связанные строки заказа.
+        /// </summary>
         public async Task DeleteAsync(Order order)
         {
             await _orders.DeleteAsync(order);

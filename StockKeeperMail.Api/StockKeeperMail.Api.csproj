@@ -4,6 +4,7 @@
     <Nullable>disable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <DocumentationFile>..\Xml\StockKeeperMail.Api.xml</DocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>

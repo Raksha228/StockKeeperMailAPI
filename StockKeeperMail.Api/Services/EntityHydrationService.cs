@@ -8,8 +8,8 @@ using System.Threading.Tasks;
 namespace StockKeeperMail.Api.Services
 {
     /// <summary>
-    /// Наполняет сущности связанными данными для выдачи в WPF-клиент.
-    /// Навигационные свойства в MongoDB не хранятся, они строятся на лету.
+    /// Наполняет сущности связанными данными перед отправкой их клиенту.
+    /// Навигационные свойства в MongoDB не хранятся и формируются на лету.
     /// </summary>
     public class EntityHydrationService
     {
@@ -28,6 +28,9 @@ namespace StockKeeperMail.Api.Services
         private readonly MongoRepository<Log> _logs;
         private readonly MongoRepository<InternalMessage> _messages;
 
+        /// <summary>
+        /// Инициализирует сервис гидратации сущностей.
+        /// </summary>
         public EntityHydrationService(
             MongoRepository<Role> roles,
             MongoRepository<Category> categories,
@@ -60,6 +63,9 @@ namespace StockKeeperMail.Api.Services
             _messages = messages;
         }
 
+        /// <summary>
+        /// Заполняет навигационные свойства для списка сущностей указанного типа.
+        /// </summary>
         public async Task<List<TEntity>> HydrateAsync<TEntity>(List<TEntity> entities) where TEntity : class
         {
             if (typeof(TEntity) == typeof(Role))

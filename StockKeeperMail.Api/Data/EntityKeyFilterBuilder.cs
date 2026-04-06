@@ -8,10 +8,13 @@ using System.Reflection;
 namespace StockKeeperMail.Api.Data
 {
     /// <summary>
-    /// Формирует фильтр MongoDB по ключевым свойствам сущности.
+    /// Строит фильтры MongoDB по ключевым свойствам сущностей.
     /// </summary>
     public static class EntityKeyFilterBuilder
     {
+        /// <summary>
+        /// Формирует фильтр по значениям ключевых свойств переданной сущности.
+        /// </summary>
         public static FilterDefinition<TEntity> Build<TEntity>(TEntity entity)
         {
             if (entity == null)
@@ -37,6 +40,9 @@ namespace StockKeeperMail.Api.Data
             return filters.Count == 1 ? filters[0] : filterBuilder.And(filters);
         }
 
+        /// <summary>
+        /// Возвращает список публичных свойств, помеченных атрибутом Key.
+        /// </summary>
         public static IEnumerable<PropertyInfo> GetKeyProperties(Type type)
         {
             return type

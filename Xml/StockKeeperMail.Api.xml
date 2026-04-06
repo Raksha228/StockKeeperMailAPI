@@ -1,0 +1,399 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>StockKeeperMail.Api</name>
+    </assembly>
+    <members>
+        <member name="T:StockKeeperMail.Api.Controllers.CategoriesController">
+            <summary>
+            Контроллер для работы с категориями товаров.
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Api.Controllers.CategoriesController.#ctor(StockKeeperMail.Api.Services.GenericEntityService{StockKeeperMail.Database.Models.Category})">
+            <summary>
+            Инициализирует контроллер категорий.
+            </summary>
+        </member>
+        <member name="T:StockKeeperMail.Api.Controllers.CustomersController">
+            <summary>
+            Контроллер для работы с клиентами.
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Api.Controllers.CustomersController.#ctor(StockKeeperMail.Api.Services.GenericEntityService{StockKeeperMail.Database.Models.Customer})">
+            <summary>
+            Инициализирует контроллер клиентов.
+            </summary>
+        </member>
+        <member name="T:StockKeeperMail.Api.Controllers.DefectivesController">
+            <summary>
+            Контроллер для работы с бракованными товарами.
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Api.Controllers.DefectivesController.#ctor(StockKeeperMail.Api.Services.GenericEntityService{StockKeeperMail.Database.Models.Defective})">
+            <summary>
+            Инициализирует контроллер брака.
+            </summary>
+        </member>
+        <member name="T:StockKeeperMail.Api.Controllers.EntityControllerBase`1">
+            <summary>
+            Базовый контроллер для типовых CRUD-операций над сущностями.
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Api.Controllers.EntityControllerBase`1.#ctor(StockKeeperMail.Api.Services.GenericEntityService{`0})">
+            <summary>
+            Инициализирует базовый CRUD-контроллер.
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Api.Controllers.EntityControllerBase`1.Get">
+            <summary>
+            Возвращает список сущностей текущего типа.
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Api.Controllers.EntityControllerBase`1.Post(`0)">
+            <summary>
+            Создаёт новую сущность.
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Api.Controllers.EntityControllerBase`1.Put(`0)">
+            <summary>
+            Обновляет существующую сущность.
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Api.Controllers.EntityControllerBase`1.Delete(`0)">
+            <summary>
+            Удаляет переданную сущность.
+            </summary>
+        </member>
+        <member name="T:StockKeeperMail.Api.Controllers.HealthController">
+            <summary>
+            Контроллер для проверки доступности API.
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Api.Controllers.HealthController.Get">
+            <summary>
+            Возвращает признак доступности API.
+            </summary>
+        </member>
+        <member name="T:StockKeeperMail.Api.Controllers.LocationsController">
+            <summary>
+            Контроллер для работы с локациями хранения.
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Api.Controllers.LocationsController.#ctor(StockKeeperMail.Api.Services.GenericEntityService{StockKeeperMail.Database.Models.Location})">
+            <summary>
+            Инициализирует контроллер локаций.
+            </summary>
+        </member>
+        <member name="T:StockKeeperMail.Api.Controllers.LogsController">
+            <summary>
+            Контроллер для работы с журналом действий.
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Api.Controllers.LogsController.#ctor(StockKeeperMail.Api.Services.GenericEntityService{StockKeeperMail.Database.Models.Log})">
+            <summary>
+            Инициализирует контроллер журнала действий.
+            </summary>
+        </member>
+        <member name="T:StockKeeperMail.Api.Controllers.MessagesController">
+            <summary>
+            Контроллер для работы с внутренними сообщениями.
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Api.Controllers.MessagesController.#ctor(StockKeeperMail.Api.Services.GenericEntityService{StockKeeperMail.Database.Models.InternalMessage})">
+            <summary>
+            Инициализирует контроллер внутренних сообщений.
+            </summary>
+        </member>
+        <member name="T:StockKeeperMail.Api.Controllers.OrderDetailsController">
+            <summary>
+            Контроллер для работы со строками заказов.
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Api.Controllers.OrderDetailsController.#ctor(StockKeeperMail.Api.Services.GenericEntityService{StockKeeperMail.Database.Models.OrderDetail})">
+            <summary>
+            Инициализирует контроллер строк заказов.
+            </summary>
+        </member>
+        <member name="T:StockKeeperMail.Api.Controllers.OrdersController">
+            <summary>
+            Контроллер для работы с заказами как агрегатами вместе со строками заказа.
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Api.Controllers.OrdersController.#ctor(StockKeeperMail.Api.Services.OrderAggregateService)">
+            <summary>
+            Инициализирует контроллер заказов.
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Api.Controllers.OrdersController.Get">
+            <summary>
+            Возвращает список заказов вместе со связанными данными.
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Api.Controllers.OrdersController.Post(StockKeeperMail.Database.Models.Order)">
+            <summary>
+            Создаёт новый заказ вместе со строками заказа.
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Api.Controllers.OrdersController.Put(StockKeeperMail.Database.Models.Order)">
+            <summary>
+            Обновляет заказ и связанные строки заказа.
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Api.Controllers.OrdersController.Delete(StockKeeperMail.Database.Models.Order)">
+            <summary>
+            Удаляет заказ и связанные строки заказа.
+            </summary>
+        </member>
+        <member name="T:StockKeeperMail.Api.Controllers.ProductLocationsController">
+            <summary>
+            Контроллер для работы с размещением товаров по локациям.
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Api.Controllers.ProductLocationsController.#ctor(StockKeeperMail.Api.Services.GenericEntityService{StockKeeperMail.Database.Models.ProductLocation})">
+            <summary>
+            Инициализирует контроллер размещения товаров.
+            </summary>
+        </member>
+        <member name="T:StockKeeperMail.Api.Controllers.ProductsController">
+            <summary>
+            Контроллер для работы с товарами.
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Api.Controllers.ProductsController.#ctor(StockKeeperMail.Api.Services.GenericEntityService{StockKeeperMail.Database.Models.Product})">
+            <summary>
+            Инициализирует контроллер товаров.
+            </summary>
+        </member>
+        <member name="T:StockKeeperMail.Api.Controllers.RolesController">
+            <summary>
+            Контроллер для работы с ролями сотрудников.
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Api.Controllers.RolesController.#ctor(StockKeeperMail.Api.Services.GenericEntityService{StockKeeperMail.Database.Models.Role})">
+            <summary>
+            Инициализирует контроллер ролей.
+            </summary>
+        </member>
+        <member name="T:StockKeeperMail.Api.Controllers.StaffController">
+            <summary>
+            Контроллер для работы с сотрудниками.
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Api.Controllers.StaffController.#ctor(StockKeeperMail.Api.Services.GenericEntityService{StockKeeperMail.Database.Models.Staff})">
+            <summary>
+            Инициализирует контроллер сотрудников.
+            </summary>
+        </member>
+        <member name="T:StockKeeperMail.Api.Controllers.SuppliersController">
+            <summary>
+            Контроллер для работы с поставщиками.
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Api.Controllers.SuppliersController.#ctor(StockKeeperMail.Api.Services.GenericEntityService{StockKeeperMail.Database.Models.Supplier})">
+            <summary>
+            Инициализирует контроллер поставщиков.
+            </summary>
+        </member>
+        <member name="T:StockKeeperMail.Api.Controllers.WarehousesController">
+            <summary>
+            Контроллер для работы со складами.
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Api.Controllers.WarehousesController.#ctor(StockKeeperMail.Api.Services.GenericEntityService{StockKeeperMail.Database.Models.Warehouse})">
+            <summary>
+            Инициализирует контроллер складов.
+            </summary>
+        </member>
+        <member name="T:StockKeeperMail.Api.Data.ApiRouteMapper">
+            <summary>
+            Сопоставляет тип сущности с именем маршрута и коллекции MongoDB.
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Api.Data.ApiRouteMapper.GetRoute``1">
+            <summary>
+            Возвращает маршрут для указанного типа сущности.
+            </summary>
+        </member>
+        <member name="T:StockKeeperMail.Api.Data.EntityKeyFilterBuilder">
+            <summary>
+            Строит фильтры MongoDB по ключевым свойствам сущностей.
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Api.Data.EntityKeyFilterBuilder.Build``1(``0)">
+            <summary>
+            Формирует фильтр по значениям ключевых свойств переданной сущности.
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Api.Data.EntityKeyFilterBuilder.GetKeyProperties(System.Type)">
+            <summary>
+            Возвращает список публичных свойств, помеченных атрибутом Key.
+            </summary>
+        </member>
+        <member name="T:StockKeeperMail.Api.Data.MongoDatabaseContext">
+            <summary>
+            Обертка над IMongoDatabase и общими настройками сериализации.
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Api.Data.MongoDatabaseContext.#ctor(Microsoft.Extensions.Options.IOptions{StockKeeperMail.Api.Data.MongoDbOptions})">
+            <summary>
+            Инициализирует контекст MongoDB на основе настроек приложения.
+            </summary>
+        </member>
+        <member name="P:StockKeeperMail.Api.Data.MongoDatabaseContext.Database">
+            <summary>
+            Экземпляр базы данных MongoDB.
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Api.Data.MongoDatabaseContext.GetCollection``1">
+            <summary>
+            Возвращает коллекцию MongoDB для указанного типа сущности.
+            </summary>
+        </member>
+        <member name="T:StockKeeperMail.Api.Data.MongoDbOptions">
+            <summary>
+            Содержит настройки подключения к MongoDB.
+            </summary>
+        </member>
+        <member name="P:StockKeeperMail.Api.Data.MongoDbOptions.ConnectionString">
+            <summary>
+            Строка подключения к MongoDB.
+            </summary>
+        </member>
+        <member name="P:StockKeeperMail.Api.Data.MongoDbOptions.DatabaseName">
+            <summary>
+            Имя базы данных MongoDB.
+            </summary>
+        </member>
+        <member name="T:StockKeeperMail.Api.Data.MongoRepository`1">
+            <summary>
+            Базовый репозиторий MongoDB для выполнения CRUD-операций.
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Api.Data.MongoRepository`1.#ctor(StockKeeperMail.Api.Data.MongoDatabaseContext)">
+            <summary>
+            Инициализирует репозиторий для указанного типа сущности.
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Api.Data.MongoRepository`1.GetAllAsync">
+            <summary>
+            Возвращает все документы коллекции.
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Api.Data.MongoRepository`1.GetFirstOrDefaultAsync(MongoDB.Driver.FilterDefinition{`0})">
+            <summary>
+            Возвращает первый документ, удовлетворяющий фильтру.
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Api.Data.MongoRepository`1.InsertAsync(`0)">
+            <summary>
+            Добавляет новый документ в коллекцию.
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Api.Data.MongoRepository`1.ReplaceAsync(`0)">
+            <summary>
+            Полностью заменяет существующий документ по ключу.
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Api.Data.MongoRepository`1.DeleteAsync(`0)">
+            <summary>
+            Удаляет документ по ключу сущности.
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Api.Data.MongoRepository`1.DeleteManyAsync(MongoDB.Driver.FilterDefinition{`0})">
+            <summary>
+            Удаляет набор документов по фильтру.
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Api.Data.MongoRepository`1.InsertManyAsync(System.Collections.Generic.IEnumerable{`0})">
+            <summary>
+            Добавляет набор документов в коллекцию.
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Api.Data.MongoRepository`1.ReplaceManyAsync(System.Collections.Generic.IEnumerable{`0})">
+            <summary>
+            Последовательно обновляет набор документов.
+            </summary>
+        </member>
+        <member name="T:StockKeeperMail.Api.Services.EntityHydrationService">
+            <summary>
+            Наполняет сущности связанными данными перед отправкой их клиенту.
+            Навигационные свойства в MongoDB не хранятся и формируются на лету.
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Api.Services.EntityHydrationService.#ctor(StockKeeperMail.Api.Data.MongoRepository{StockKeeperMail.Database.Models.Role},StockKeeperMail.Api.Data.MongoRepository{StockKeeperMail.Database.Models.Category},StockKeeperMail.Api.Data.MongoRepository{StockKeeperMail.Database.Models.Warehouse},StockKeeperMail.Api.Data.MongoRepository{StockKeeperMail.Database.Models.Supplier},StockKeeperMail.Api.Data.MongoRepository{StockKeeperMail.Database.Models.Staff},StockKeeperMail.Api.Data.MongoRepository{StockKeeperMail.Database.Models.Product},StockKeeperMail.Api.Data.MongoRepository{StockKeeperMail.Database.Models.Order},StockKeeperMail.Api.Data.MongoRepository{StockKeeperMail.Database.Models.OrderDetail},StockKeeperMail.Api.Data.MongoRepository{StockKeeperMail.Database.Models.Location},StockKeeperMail.Api.Data.MongoRepository{StockKeeperMail.Database.Models.Customer},StockKeeperMail.Api.Data.MongoRepository{StockKeeperMail.Database.Models.Defective},StockKeeperMail.Api.Data.MongoRepository{StockKeeperMail.Database.Models.ProductLocation},StockKeeperMail.Api.Data.MongoRepository{StockKeeperMail.Database.Models.Log},StockKeeperMail.Api.Data.MongoRepository{StockKeeperMail.Database.Models.InternalMessage})">
+            <summary>
+            Инициализирует сервис гидратации сущностей.
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Api.Services.EntityHydrationService.HydrateAsync``1(System.Collections.Generic.List{``0})">
+            <summary>
+            Заполняет навигационные свойства для списка сущностей указанного типа.
+            </summary>
+        </member>
+        <member name="T:StockKeeperMail.Api.Services.GenericEntityService`1">
+            <summary>
+            Сервис CRUD-операций для обычных сущностей.
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Api.Services.GenericEntityService`1.#ctor(StockKeeperMail.Api.Data.MongoRepository{`0},StockKeeperMail.Api.Services.EntityHydrationService)">
+            <summary>
+            Инициализирует сервис типовых операций с сущностью.
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Api.Services.GenericEntityService`1.GetAllAsync">
+            <summary>
+            Возвращает все сущности с заполненными связанными данными.
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Api.Services.GenericEntityService`1.InsertAsync(`0)">
+            <summary>
+            Создаёт новую сущность.
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Api.Services.GenericEntityService`1.UpdateAsync(`0)">
+            <summary>
+            Обновляет существующую сущность.
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Api.Services.GenericEntityService`1.DeleteAsync(`0)">
+            <summary>
+            Удаляет существующую сущность.
+            </summary>
+        </member>
+        <member name="T:StockKeeperMail.Api.Services.OrderAggregateService">
+            <summary>
+            Сервис для сохранения заказа как агрегата вместе со строками заказа и обновлёнными товарами.
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Api.Services.OrderAggregateService.#ctor(StockKeeperMail.Api.Data.MongoRepository{StockKeeperMail.Database.Models.Order},StockKeeperMail.Api.Data.MongoRepository{StockKeeperMail.Database.Models.OrderDetail},StockKeeperMail.Api.Data.MongoRepository{StockKeeperMail.Database.Models.Product},StockKeeperMail.Api.Services.EntityHydrationService)">
+            <summary>
+            Инициализирует сервис работы с заказами как агрегатами.
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Api.Services.OrderAggregateService.GetAllAsync">
+            <summary>
+            Возвращает список заказов вместе со связанными сущностями.
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Api.Services.OrderAggregateService.InsertAsync(StockKeeperMail.Database.Models.Order)">
+            <summary>
+            Сохраняет новый заказ и связанные данные.
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Api.Services.OrderAggregateService.UpdateAsync(StockKeeperMail.Database.Models.Order)">
+            <summary>
+            Обновляет заказ и связанные данные.
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Api.Services.OrderAggregateService.DeleteAsync(StockKeeperMail.Database.Models.Order)">
+            <summary>
+            Удаляет заказ и все связанные строки заказа.
+            </summary>
+        </member>
+        <member name="T:Program">
+            <summary>
+            Auto-generated public partial Program class for top-level statement apps.
+            </summary>
+        </member>
+    </members>
+</doc>

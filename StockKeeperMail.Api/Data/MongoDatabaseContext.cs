@@ -13,6 +13,9 @@ namespace StockKeeperMail.Api.Data
     {
         private static bool _serializersRegistered;
 
+        /// <summary>
+        /// Инициализирует контекст MongoDB на основе настроек приложения.
+        /// </summary>
         public MongoDatabaseContext(IOptions<MongoDbOptions> options)
         {
             RegisterSerializers();
@@ -21,8 +24,14 @@ namespace StockKeeperMail.Api.Data
             Database = client.GetDatabase(options.Value.DatabaseName);
         }
 
+        /// <summary>
+        /// Экземпляр базы данных MongoDB.
+        /// </summary>
         public IMongoDatabase Database { get; }
 
+        /// <summary>
+        /// Возвращает коллекцию MongoDB для указанного типа сущности.
+        /// </summary>
         public IMongoCollection<TEntity> GetCollection<TEntity>()
         {
             string collectionName = ApiRouteMapper.GetRoute<TEntity>();

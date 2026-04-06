@@ -5,7 +5,7 @@ using System.Collections.Generic;
 namespace StockKeeperMail.Api.Data
 {
     /// <summary>
-    /// Возвращает маршрут и имя коллекции для типов сущностей.
+    /// Сопоставляет тип сущности с именем маршрута и коллекции MongoDB.
     /// </summary>
     public static class ApiRouteMapper
     {
@@ -27,6 +27,9 @@ namespace StockKeeperMail.Api.Data
             [typeof(InternalMessage)] = "messages"
         };
 
+        /// <summary>
+        /// Возвращает маршрут для указанного типа сущности.
+        /// </summary>
         public static string GetRoute<TEntity>()
         {
             if (Routes.TryGetValue(typeof(TEntity), out string route))

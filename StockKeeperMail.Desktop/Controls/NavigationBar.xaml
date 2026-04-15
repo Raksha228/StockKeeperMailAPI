@@ -219,6 +219,23 @@
                                 <Label Margin="5 0 0 0" Content="Сотрудники" FontSize="12" FontWeight="Bold"/>
                             </StackPanel>
                         </Button>
+
+
+                        <Button Command="{Binding NavigateToCredentialListCommand}" HorizontalContentAlignment="Left" Background="Transparent" BorderBrush="Transparent">
+                            <Button.Style>
+                                <Style TargetType="Button" BasedOn="{StaticResource {x:Type Button}}">
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding CurrentStaff.Role.RolesAdd}" Value="False">
+                                            <Setter Property="Visibility" Value="Collapsed"/>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Button.Style>
+                            <StackPanel Orientation="Horizontal" Margin="20 0 0 0">
+                                <materialDesign:PackIcon Kind="AccountOutline" VerticalAlignment="Center" Foreground="{DynamicResource BrandPrimaryBrush}"/>
+                                <Label Margin="5 0 0 0" Content="Учетные данные" FontSize="12" FontWeight="Bold"/>
+                            </StackPanel>
+                        </Button>
                     </StackPanel>
                 </Grid>
 
@@ -246,6 +263,15 @@
                         <StackPanel Orientation="Horizontal" Margin="20 0 0 0">
                             <materialDesign:PackIcon Kind="File" VerticalAlignment="Center" Foreground="{DynamicResource BrandPrimaryBrush}"/>
                             <Label Margin="5 0 0 0" Content="Журнал активности" FontSize="12" FontWeight="Bold"/>
+                        </StackPanel>
+                    </Button>
+                </Grid>
+
+                <Grid Margin="0 20 0 0">
+                    <Button Command="{Binding NavigateToReportListCommand}" HorizontalContentAlignment="Left" Background="Transparent" BorderBrush="Transparent">
+                        <StackPanel Orientation="Horizontal" Margin="20 0 0 0">
+                            <materialDesign:PackIcon Kind="FileDocumentOutline" VerticalAlignment="Center" Foreground="{DynamicResource BrandPrimaryBrush}"/>
+                            <Label Margin="5 0 0 0" Content="Отчеты" FontSize="12" FontWeight="Bold"/>
                         </StackPanel>
                     </Button>
                 </Grid>

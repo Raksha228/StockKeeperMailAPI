@@ -1,0 +1,146 @@
+﻿<UserControl x:Class="StockKeeperMail.Desktop.Views.ReportListView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:views="clr-namespace:StockKeeperMail.Desktop.Views"
+             mc:Ignorable="d"
+             d:DesignHeight="1080"
+             d:DesignWidth="1920">
+
+    <materialDesign:DialogHost CloseOnClickAway="True"
+                               IsOpen="{Binding IsDialogOpen, Mode=OneWay}"
+                               DialogBackground="Transparent">
+
+        <materialDesign:DialogHost.DialogContent>
+            <materialDesign:Card UniformCornerRadius="10">
+                <ContentControl Content="{Binding DialogViewModel}"/>
+            </materialDesign:Card>
+        </materialDesign:DialogHost.DialogContent>
+
+        <Grid Margin="30">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+
+                <StackPanel>
+                    <TextBlock Text="Отчеты"
+                               Style="{StaticResource MaterialDesignHeadline4TextBlock}"
+                               FontWeight="Bold"/>
+                    <TextBlock Margin="0,8,0,0"
+                               Text="Здесь можно просматривать уже созданные отчеты, открывать их и формировать новые выгрузки в Excel или на печать."
+                               Opacity="0.75"/>
+                </StackPanel>
+
+                <Button Grid.Column="1"
+                        Margin="0,0,10,0"
+                        Command="{Binding LoadReportsCommand}">
+                    <Button.Style>
+                        <Style TargetType="Button" BasedOn="{StaticResource MaterialDesignPaperButton}"/>
+                    </Button.Style>
+                    <materialDesign:PackIcon Kind="Refresh"/>
+                </Button>
+
+                <Button Grid.Column="2"
+                        Command="{Binding CreateReportCommand}">
+                    <Button.Style>
+                        <Style TargetType="Button" BasedOn="{StaticResource MaterialDesignRaisedButton}">
+                            <Setter Property="Background" Value="{DynamicResource BrandPrimaryBrush}"/>
+                            <Setter Property="Foreground" Value="White"/>
+                        </Style>
+                    </Button.Style>
+                    <StackPanel Orientation="Horizontal">
+                        <materialDesign:PackIcon Kind="Plus" Margin="0,0,6,0"/>
+                        <TextBlock Text="Создать отчет" VerticalAlignment="Center"/>
+                    </StackPanel>
+                </Button>
+            </Grid>
+
+            <Border Grid.Row="1"
+                    Margin="0,20,0,0"
+                    Padding="0"
+                    CornerRadius="10"
+                    BorderBrush="{DynamicResource BrandPrimaryDarkBrush}"
+                    BorderThickness="2">
+                <DataGrid ItemsSource="{Binding Reports}"
+                          Style="{StaticResource MaterialDesignDataGrid}"
+                          IsReadOnly="True"
+                          AutoGenerateColumns="False">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Название"
+                                            HeaderStyle="{StaticResource MaterialDesignDataGridColumnHeader}"
+                                            CellStyle="{StaticResource MaterialDesignDataGridCell}"
+                                            Binding="{Binding ReportName}"
+                                            Width="200"/>
+
+                        <DataGridTextColumn Header="Дата создания"
+                                            HeaderStyle="{StaticResource MaterialDesignDataGridColumnHeader}"
+                                            CellStyle="{StaticResource MaterialDesignDataGridCell}"
+                                            Binding="{Binding CreatedAt}"
+                                            Width="150"/>
+
+                        <DataGridTextColumn Header="Автор"
+                                            HeaderStyle="{StaticResource MaterialDesignDataGridColumnHeader}"
+                                            CellStyle="{StaticResource MaterialDesignDataGridCell}"
+                                            Binding="{Binding CreatedBy}"
+                                            Width="180"/>
+
+                        <DataGridTextColumn Header="Разделы"
+                                            HeaderStyle="{StaticResource MaterialDesignDataGridColumnHeader}"
+                                            CellStyle="{StaticResource MaterialDesignDataGridCell}"
+                                            Binding="{Binding Sections}"
+                                            Width="*"/>
+
+                        <DataGridTextColumn Header="Формат"
+                                            HeaderStyle="{StaticResource MaterialDesignDataGridColumnHeader}"
+                                            CellStyle="{StaticResource MaterialDesignDataGridCell}"
+                                            Binding="{Binding Format}"
+                                            Width="110"/>
+
+                        <DataGridTextColumn Header="Путь"
+                                            HeaderStyle="{StaticResource MaterialDesignDataGridColumnHeader}"
+                                            CellStyle="{StaticResource MaterialDesignDataGridCell}"
+                                            Binding="{Binding FilePath}"
+                                            Width="320"/>
+
+                        <DataGridTemplateColumn Header="Действия"
+                                                HeaderStyle="{StaticResource MaterialDesignDataGridColumnHeader}"
+                                                Width="220">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal">
+                                        <Button Margin="0,0,8,0"
+                                                Command="{Binding DataContext.OpenReportCommand, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=views:ReportListView}}"
+                                                CommandParameter="{Binding}">
+                                            <Button.Style>
+                                                <Style TargetType="Button" BasedOn="{StaticResource MaterialDesignPaperButton}"/>
+                                            </Button.Style>
+                                            <TextBlock Text="Открыть"/>
+                                        </Button>
+
+                                        <Button Command="{Binding DataContext.OpenFolderCommand, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=views:ReportListView}}"
+                                                CommandParameter="{Binding}">
+                                            <Button.Style>
+                                                <Style TargetType="Button" BasedOn="{StaticResource MaterialDesignPaperButton}"/>
+                                            </Button.Style>
+                                            <TextBlock Text="Папка"/>
+                                        </Button>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Border>
+        </Grid>
+    </materialDesign:DialogHost>
+</UserControl>

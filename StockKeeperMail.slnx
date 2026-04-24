@@ -2,4 +2,6 @@
   <Project Path="StockKeeperMail.Contracts/StockKeeperMail.Contracts.csproj" />
   <Project Path="StockKeeperMail.Api/StockKeeperMail.Api.csproj" />
   <Project Path="StockKeeperMail.Desktop/StockKeeperMail.Desktop.csproj" />
+  <Project Path="StockKeeperMail.Api.Tests/StockKeeperMail.Api.Tests.csproj" />
+  <Project Path="StockKeeperMail.Desktop.Tests/StockKeeperMail.Desktop.Tests.csproj" />
 </Solution>

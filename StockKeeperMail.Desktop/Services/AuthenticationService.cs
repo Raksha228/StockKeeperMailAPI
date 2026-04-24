@@ -30,6 +30,7 @@ namespace StockKeeperMail.Desktop.Services
         {
             Staff storedStaff = _unitOfWork.StaffRepository.Get(s => s.StaffUsername == username && s.StaffPassword == password).SingleOrDefault();
 
+            _staff = storedStaff;
             return storedStaff;
         }
 

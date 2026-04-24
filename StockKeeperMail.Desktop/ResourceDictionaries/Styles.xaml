@@ -1,20 +1,167 @@
-﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes">
 
-<Style x:Key="GridViewColumnHeaderStyle1" TargetType="{x:Type GridViewColumnHeader}">
-    <Setter Property="Template">
-        <Setter.Value>
-            <ControlTemplate TargetType="{x:Type GridViewColumnHeader}">
-                <Border BorderThickness="0,0,0,1" BorderBrush="{DynamicResource BrandPrimaryDarkBrush}" Background="Transparent">
-                    <TextBlock x:Name="ContentHeader" Text="{TemplateBinding Content}" Padding="5,5,5,0" Width="{TemplateBinding Width}" TextAlignment="Center" />
-                </Border>
-            </ControlTemplate>
-        </Setter.Value>
-    </Setter>
-    <Setter Property="OverridesDefaultStyle" Value="True" />
-    <Setter Property="Foreground" Value="Black" />
-    <Setter Property="FontFamily" Value="Segoe UI" />
-    <Setter Property="FontSize" Value="12" />
-</Style>
+    <Color x:Key="BrandPrimaryColor">#4F46E5</Color>
+    <Color x:Key="BrandPrimaryDarkColor">#312E81</Color>
+    <Color x:Key="BrandAccentColor">#06B6D4</Color>
+    <Color x:Key="BrandAccentWarmColor">#F59E0B</Color>
+    <Color x:Key="BrandSuccessColor">#10B981</Color>
+    <Color x:Key="BrandDangerColor">#EF4444</Color>
+    <Color x:Key="BrandInkColor">#172033</Color>
+    <Color x:Key="BrandMutedColor">#64748B</Color>
+    <Color x:Key="BrandSurfaceColor">#FFFFFF</Color>
+    <Color x:Key="BrandSoftSurfaceColor">#F8FAFC</Color>
+
+    <SolidColorBrush x:Key="BrandPrimaryBrush" Color="{StaticResource BrandPrimaryColor}" />
+    <SolidColorBrush x:Key="BrandPrimaryDarkBrush" Color="{StaticResource BrandPrimaryDarkColor}" />
+    <SolidColorBrush x:Key="BrandAccentBrush" Color="{StaticResource BrandAccentColor}" />
+    <SolidColorBrush x:Key="BrandAccentLightBrush" Color="#67E8F9" />
+    <SolidColorBrush x:Key="BrandAccentWarmBrush" Color="{StaticResource BrandAccentWarmColor}" />
+    <SolidColorBrush x:Key="BrandSuccessBrush" Color="{StaticResource BrandSuccessColor}" />
+    <SolidColorBrush x:Key="BrandDangerBrush" Color="{StaticResource BrandDangerColor}" />
+    <SolidColorBrush x:Key="BrandTextBrush" Color="{StaticResource BrandInkColor}" />
+    <SolidColorBrush x:Key="BrandMutedTextBrush" Color="{StaticResource BrandMutedColor}" />
+    <SolidColorBrush x:Key="BrandSurfaceBrush" Color="{StaticResource BrandSoftSurfaceColor}" />
+    <SolidColorBrush x:Key="BrandCardBrush" Color="{StaticResource BrandSurfaceColor}" />
+    <SolidColorBrush x:Key="BrandBorderBrush" Color="#E2E8F0" />
+    <SolidColorBrush x:Key="BrandNavTextBrush" Color="#ECFEFF" />
+    <SolidColorBrush x:Key="BrandNavMutedBrush" Color="#A5F3FC" />
+    <SolidColorBrush x:Key="BrandSubtleSurfaceBrush" Color="#EEF2FF" />
+    <SolidColorBrush x:Key="BrandWindowShellBrush" Color="#EFFFFFFF" />
+    <SolidColorBrush x:Key="BrandWindowInnerSurfaceBrush" Color="#FFFFFF" />
+    <SolidColorBrush x:Key="BrandFooterBrush" Color="#80FFFFFF" />
+    <SolidColorBrush x:Key="InvoiceBackgroundBrush" Color="#FFFFFF" />
+    <SolidColorBrush x:Key="InvoiceForegroundBrush" Color="#172033" />
+    <SolidColorBrush x:Key="InvoiceBorderBrush" Color="#111827" />
+    <SolidColorBrush x:Key="InvoiceHeaderBackgroundBrush" Color="#F3F4F6" />
+
+    <LinearGradientBrush x:Key="AppBackgroundBrush" StartPoint="0,0" EndPoint="1,1">
+        <GradientStop Color="#EEF2FF" Offset="0"/>
+        <GradientStop Color="#F0FDFA" Offset="0.52"/>
+        <GradientStop Color="#FFF7ED" Offset="1"/>
+    </LinearGradientBrush>
+
+    <LinearGradientBrush x:Key="BrandSidebarGradientBrush" StartPoint="0,0" EndPoint="1,1">
+        <GradientStop Color="#111827" Offset="0"/>
+        <GradientStop Color="#312E81" Offset="0.48"/>
+        <GradientStop Color="#0E7490" Offset="1"/>
+    </LinearGradientBrush>
+
+    <LinearGradientBrush x:Key="BrandHeroGradientBrush" StartPoint="0,0" EndPoint="1,1">
+        <GradientStop Color="#4F46E5" Offset="0"/>
+        <GradientStop Color="#06B6D4" Offset="1"/>
+    </LinearGradientBrush>
+
+    <LinearGradientBrush x:Key="BrandWarmGradientBrush" StartPoint="0,0" EndPoint="1,1">
+        <GradientStop Color="#F59E0B" Offset="0"/>
+        <GradientStop Color="#EF4444" Offset="1"/>
+    </LinearGradientBrush>
+
+    <Style x:Key="GridViewColumnHeaderStyle1" TargetType="{x:Type GridViewColumnHeader}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type GridViewColumnHeader}">
+                    <Border CornerRadius="10,10,0,0" BorderThickness="0,0,0,1" BorderBrush="{DynamicResource BrandBorderBrush}" Background="{DynamicResource BrandSubtleSurfaceBrush}">
+                        <TextBlock x:Name="ContentHeader" Text="{TemplateBinding Content}" Padding="12,10,12,8" Width="{TemplateBinding Width}" TextAlignment="Center" />
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="OverridesDefaultStyle" Value="True" />
+        <Setter Property="Foreground" Value="{DynamicResource BrandTextBrush}" />
+        <Setter Property="FontFamily" Value="Segoe UI" />
+        <Setter Property="FontSize" Value="13" />
+        <Setter Property="FontWeight" Value="SemiBold" />
+    </Style>
+
+    <Style x:Key="MaterialDesignDataGrid" TargetType="{x:Type DataGrid}">
+        <Setter Property="Background" Value="{DynamicResource BrandCardBrush}"/>
+        <Setter Property="Foreground" Value="{DynamicResource BrandTextBrush}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource BrandBorderBrush}"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="RowHeaderWidth" Value="0"/>
+        <Setter Property="GridLinesVisibility" Value="None"/>
+        <Setter Property="HorizontalGridLinesBrush" Value="Transparent"/>
+        <Setter Property="VerticalGridLinesBrush" Value="Transparent"/>
+        <Setter Property="RowHeight" Value="46"/>
+        <Setter Property="ColumnHeaderHeight" Value="46"/>
+        <Setter Property="CanUserAddRows" Value="False"/>
+        <Setter Property="CanUserResizeRows" Value="False"/>
+        <Setter Property="AlternationCount" Value="2"/>
+        <Setter Property="FontFamily" Value="Segoe UI"/>
+        <Setter Property="FontSize" Value="13"/>
+    </Style>
+
+    <Style x:Key="MaterialDesignDataGridColumnHeader" TargetType="{x:Type DataGridColumnHeader}">
+        <Setter Property="Background" Value="{DynamicResource BrandSubtleSurfaceBrush}"/>
+        <Setter Property="Foreground" Value="{DynamicResource BrandPrimaryDarkBrush}"/>
+        <Setter Property="Padding" Value="16,0"/>
+        <Setter Property="FontWeight" Value="SemiBold"/>
+        <Setter Property="HorizontalContentAlignment" Value="Left"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource BrandBorderBrush}"/>
+        <Setter Property="BorderThickness" Value="0,0,0,1"/>
+    </Style>
+
+    <Style TargetType="{x:Type DataGridRow}">
+        <Setter Property="Background" Value="{DynamicResource BrandCardBrush}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource BrandBorderBrush}"/>
+        <Setter Property="BorderThickness" Value="0,0,0,1"/>
+        <Style.Triggers>
+            <Trigger Property="AlternationIndex" Value="1">
+                <Setter Property="Background" Value="{DynamicResource BrandSurfaceBrush}"/>
+            </Trigger>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="#EAF4FF"/>
+            </Trigger>
+            <Trigger Property="IsSelected" Value="True">
+                <Setter Property="Background" Value="#DCE9FF"/>
+                <Setter Property="Foreground" Value="{DynamicResource BrandPrimaryDarkBrush}"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style TargetType="{x:Type DataGridCell}">
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="HorizontalContentAlignment" Value="Left"/>
+        <Setter Property="Padding" Value="14,0,14,0"/>
+        <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+    </Style>
+
+    <Style TargetType="{x:Type TextBox}" BasedOn="{StaticResource MaterialDesignOutlinedTextBox}">
+        <Setter Property="Margin" Value="0,6,0,14"/>
+        <Setter Property="Padding" Value="12"/>
+        <Setter Property="BorderThickness" Value="1.4"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource BrandBorderBrush}"/>
+    </Style>
+
+    <Style TargetType="{x:Type PasswordBox}" BasedOn="{StaticResource MaterialDesignOutlinedPasswordBox}">
+        <Setter Property="Margin" Value="0,6,0,14"/>
+        <Setter Property="Padding" Value="12"/>
+        <Setter Property="BorderThickness" Value="1.4"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource BrandBorderBrush}"/>
+    </Style>
+
+    <Style TargetType="{x:Type ComboBox}" BasedOn="{StaticResource MaterialDesignComboBox}">
+        <Setter Property="Margin" Value="0,6,0,14"/>
+        <Setter Property="Padding" Value="10"/>
+        <Setter Property="Foreground" Value="{DynamicResource BrandTextBrush}"/>
+    </Style>
+
+    <Style TargetType="{x:Type CheckBox}" BasedOn="{StaticResource MaterialDesignCheckBox}">
+        <Setter Property="Margin" Value="4"/>
+        <Setter Property="Foreground" Value="{DynamicResource BrandTextBrush}"/>
+    </Style>
+
+    <Style TargetType="{x:Type Label}">
+        <Setter Property="Foreground" Value="{DynamicResource BrandTextBrush}"/>
+        <Setter Property="FontFamily" Value="Segoe UI"/>
+    </Style>
+
+    <Style TargetType="{x:Type TextBlock}">
+        <Setter Property="Foreground" Value="{DynamicResource BrandTextBrush}"/>
+        <Setter Property="FontFamily" Value="Segoe UI"/>
+    </Style>
 
 </ResourceDictionary>

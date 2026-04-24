@@ -73,25 +73,28 @@
                         <DataGridTextColumn
                             Header="Название"
                             HeaderStyle="{StaticResource MaterialDesignDataGridColumnHeader}"
+                                CellStyle="{StaticResource MaterialDesignDataGridCell}"
                             Binding="{Binding CategoryName}"
-                            Width="auto"/>
+                            Width="170"/>
 
                         <DataGridTextColumn
                             Header="Описание"
                             HeaderStyle="{StaticResource MaterialDesignDataGridColumnHeader}"
+                                CellStyle="{StaticResource MaterialDesignDataGridCell}"
                             Binding="{Binding CategoryDescription}"
-                            Width="auto"/>
+                            Width="*"/>
 
                         <DataGridTextColumn
                             Header="Статус"
                             HeaderStyle="{StaticResource MaterialDesignDataGridColumnHeader}"
+                                CellStyle="{StaticResource MaterialDesignDataGridCell}"
                             Binding="{Binding CategoryStatus, Converter={StaticResource EnglishToRussianUiTextConverter}}"
-                            Width="auto"/>
+                            Width="140"/>
 
                         <DataGridTemplateColumn 
                             Header="Действия"
                             HeaderStyle="{StaticResource MaterialDesignDataGridColumnHeader}"
-                            Width="auto">
+                            Width="180">
 
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>

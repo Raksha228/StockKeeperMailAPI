@@ -77,47 +77,44 @@
                                 HeaderStyle="{StaticResource MaterialDesignDataGridColumnHeader}"
                                 CellStyle="{StaticResource MaterialDesignDataGridCell}"
                                 Binding="{Binding Role.RoleName}"
-                                Width="auto"/>
+                                Width="*"/>
 
                         <DataGridTextColumn
                                 Header="Имя"
                                 HeaderStyle="{StaticResource MaterialDesignDataGridColumnHeader}"
                                 CellStyle="{StaticResource MaterialDesignDataGridCell}"
                                 Binding="{Binding StaffFirstName}"
-                                Width="auto"/>
+                                Width="*"/>
 
                         <DataGridTextColumn
                                 Header="Фамилия"
                                 HeaderStyle="{StaticResource MaterialDesignDataGridColumnHeader}"
                                 CellStyle="{StaticResource MaterialDesignDataGridCell}"
                                 Binding="{Binding StaffLastName}"
-                                Width="auto"/>
+                                Width="*"/>
 
                         <DataGridTextColumn
                                 Header="Адрес"
                                 HeaderStyle="{StaticResource MaterialDesignDataGridColumnHeader}"
                                 CellStyle="{StaticResource MaterialDesignDataGridCell}"
                                 Binding="{Binding StaffAddress}"
-                                Width="auto"/>
+                                Width="*"/>
 
                         <DataGridTextColumn
                                 Header="Телефон"
                                 HeaderStyle="{StaticResource MaterialDesignDataGridColumnHeader}"
                                 CellStyle="{StaticResource MaterialDesignDataGridCell}"
                                 Binding="{Binding StaffPhone}"
-                                Width="auto"/>
+                                Width="*"/>
 
                         <DataGridTextColumn
                                 Header="Email"
                                 HeaderStyle="{StaticResource MaterialDesignDataGridColumnHeader}"
                                 CellStyle="{StaticResource MaterialDesignDataGridCell}"
                                 Binding="{Binding StaffEmail}"
-                                Width="auto"/>
+                                Width="*"/>
 
-                        <DataGridTemplateColumn
-                            Header="Действия"
-                            HeaderStyle="{StaticResource MaterialDesignDataGridColumnHeader}"
-                            Width="auto">
+                        <DataGridTemplateColumn Header="Действия" HeaderStyle="{StaticResource MaterialDesignDataGridColumnHeader}" Width="170">
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
                                     <StackPanel Orientation="Horizontal">

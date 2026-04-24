@@ -107,6 +107,9 @@ namespace StockKeeperMail.Desktop.ViewModels
                 })
                 .ToList();
 
+            double totalYearSales = monthlySalesData.Sum(d => d.Sales);
+            CultureInfo ruCulture = new CultureInfo("ru-RU");
+
             _monthlySales = new SeriesCollection
             {
                 new ColumnSeries
@@ -115,7 +118,12 @@ namespace StockKeeperMail.Desktop.ViewModels
                     Values = new ChartValues<double>(monthlySalesData.Select(d => d.Sales)),
                     Fill = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#0B3BDE")),
                     Stroke = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#0625AA")),
-                    StrokeThickness = 1.5
+                    StrokeThickness = 1.5,
+                    LabelPoint = point =>
+                    {
+                        double share = totalYearSales <= 0 ? 0 : Math.Round(point.Y / totalYearSales * 100, 2);
+                        return $"{point.Y.ToString("N0", ruCulture)} руб. • Доля месяца: {share.ToString("N2", ruCulture)}%";
+                    }
                 }
             };
 

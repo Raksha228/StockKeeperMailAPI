@@ -69,26 +69,23 @@
                                 HeaderStyle="{StaticResource MaterialDesignDataGridColumnHeader}"
                                 CellStyle="{StaticResource MaterialDesignDataGridCell}"
                                 Binding="{Binding Product.ProductName}"
-                                Width="auto"/>
+                                Width="*"/>
 
                         <DataGridTextColumn
                                 Header="Количество"
                                 HeaderStyle="{StaticResource MaterialDesignDataGridColumnHeader}"
                                 CellStyle="{StaticResource MaterialDesignDataGridCell}"
                                 Binding="{Binding Quantity}"
-                                Width="auto"/>
+                                Width="*"/>
 
                         <DataGridTextColumn
                                 Header="Дата регистрации"
                                 HeaderStyle="{StaticResource MaterialDesignDataGridColumnHeader}"
                                 CellStyle="{StaticResource MaterialDesignDataGridCell}"
                                 Binding="{Binding DateDeclared}"
-                                Width="auto"/>
+                                Width="*"/>
 
-                        <DataGridTemplateColumn
-                            Header="Действия"
-                            HeaderStyle="{StaticResource MaterialDesignDataGridColumnHeader}"
-                            Width="auto">
+                        <DataGridTemplateColumn Header="Действия" HeaderStyle="{StaticResource MaterialDesignDataGridColumnHeader}" Width="170">
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
                                     <StackPanel Orientation="Horizontal">

@@ -43,38 +43,44 @@
                     <DataGridTextColumn
                             Header="Дата и время"
                             HeaderStyle="{StaticResource MaterialDesignDataGridColumnHeader}"
+                                CellStyle="{StaticResource MaterialDesignDataGridCell}"
                             Binding="{Binding DateTime}"
-                            Width="auto"/>
+                            Width="*"/>
 
                     <DataGridTextColumn
                             Header="ID записи"
                             HeaderStyle="{StaticResource MaterialDesignDataGridColumnHeader}"
+                                CellStyle="{StaticResource MaterialDesignDataGridCell}"
                             Binding="{Binding LogID}"
-                            Width="auto"/>
+                            Width="*"/>
 
                     <DataGridTextColumn
                             Header="Сотрудник"
                             HeaderStyle="{StaticResource MaterialDesignDataGridColumnHeader}"
+                                CellStyle="{StaticResource MaterialDesignDataGridCell}"
                             Binding="{Binding StaffName}"
-                            Width="auto"/>
+                            Width="*"/>
 
                     <DataGridTextColumn
                             Header="Категория"
                             HeaderStyle="{StaticResource MaterialDesignDataGridColumnHeader}"
+                                CellStyle="{StaticResource MaterialDesignDataGridCell}"
                             Binding="{Binding LogCategory}"
-                            Width="auto"/>
+                            Width="*"/>
 
                     <DataGridTextColumn
                             Header="Действие"
                             HeaderStyle="{StaticResource MaterialDesignDataGridColumnHeader}"
+                                CellStyle="{StaticResource MaterialDesignDataGridCell}"
                             Binding="{Binding ActionType}"
-                            Width="auto"/>
+                            Width="*"/>
 
                     <DataGridTextColumn
                             Header="Детали"
                             HeaderStyle="{StaticResource MaterialDesignDataGridColumnHeader}"
+                                CellStyle="{StaticResource MaterialDesignDataGridCell}"
                             Binding="{Binding LogDetails}"
-                            Width="auto"/>
+                            Width="*"/>
 
 
                 </DataGrid.Columns>

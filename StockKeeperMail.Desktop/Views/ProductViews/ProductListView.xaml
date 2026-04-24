@@ -76,57 +76,62 @@
                         <DataGridTextColumn
                                 Header="Название"
                                 HeaderStyle="{StaticResource MaterialDesignDataGridColumnHeader}"
+                                CellStyle="{StaticResource MaterialDesignDataGridCell}"
                                 Binding="{Binding ProductName}"
-                                Width="auto"/>
+                                Width="*"/>
 
                         <DataGridTextColumn
                                 Header="Артикул"
                                 HeaderStyle="{StaticResource MaterialDesignDataGridColumnHeader}"
+                                CellStyle="{StaticResource MaterialDesignDataGridCell}"
                                 Binding="{Binding ProductSKU}"
-                                Width="auto"/>
+                                Width="*"/>
 
                         <DataGridTextColumn
                                 Header="Ед. изм."
                                 HeaderStyle="{StaticResource MaterialDesignDataGridColumnHeader}"
+                                CellStyle="{StaticResource MaterialDesignDataGridCell}"
                                 Binding="{Binding ProductUnit}"
-                                Width="auto"/>
+                                Width="*"/>
 
                         <DataGridTextColumn
                                 Header="Цена"
                                 HeaderStyle="{StaticResource MaterialDesignDataGridColumnHeader}"
+                                CellStyle="{StaticResource MaterialDesignDataGridCell}"
                                 Binding="{Binding ProductPrice}"
-                                Width="auto"/>
+                                Width="*"/>
 
                         <DataGridTextColumn
                                 Header="Количество"
                                 HeaderStyle="{StaticResource MaterialDesignDataGridColumnHeader}"
+                                CellStyle="{StaticResource MaterialDesignDataGridCell}"
                                 Binding="{Binding ProductQuantity}"
-                                Width="auto"/>
+                                Width="*"/>
 
                         <DataGridTextColumn
                                 Header="Доступность"
                                 HeaderStyle="{StaticResource MaterialDesignDataGridColumnHeader}"
+                                CellStyle="{StaticResource MaterialDesignDataGridCell}"
                                 Binding="{Binding ProductAvailability, Converter={StaticResource EnglishToRussianUiTextConverter}}"
-                                Width="auto"/>
+                                Width="*"/>
 
 
                         <DataGridTextColumn
                                 Header="Категория"
                                 HeaderStyle="{StaticResource MaterialDesignDataGridColumnHeader}"
+                                CellStyle="{StaticResource MaterialDesignDataGridCell}"
                                 Binding="{Binding Category.CategoryName}"
-                                Width="auto"/>
+                                Width="*"/>
 
                         <DataGridTextColumn
                                 Header="Поставщик"
                                 HeaderStyle="{StaticResource MaterialDesignDataGridColumnHeader}"
+                                CellStyle="{StaticResource MaterialDesignDataGridCell}"
                                 Binding="{Binding Supplier.SupplierName}"
-                                Width="auto"/>
+                                Width="*"/>
 
 
-                        <DataGridTemplateColumn 
-                                Header="Действия"
-                                HeaderStyle="{StaticResource MaterialDesignDataGridColumnHeader}"
-                                Width="auto">
+                        <DataGridTemplateColumn Header="Действия" HeaderStyle="{StaticResource MaterialDesignDataGridColumnHeader}" Width="170">
 
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>

@@ -5,10 +5,10 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              mc:Ignorable="d"
              Width="900"
-             MinHeight="1200"
-             Background="White">
+             MinHeight="1280"
+             Background="{DynamicResource InvoiceBackgroundBrush}">
 
-    <Grid Margin="32" TextOptions.TextFormattingMode="Display">
+    <Grid Margin="32,48,32,52" TextOptions.TextFormattingMode="Display">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="18"/>
@@ -27,10 +27,10 @@
 
         <!-- Верхний блок: банковские реквизиты -->
         <Border Grid.Row="0"
-                BorderBrush="Black"
+                BorderBrush="{DynamicResource InvoiceBorderBrush}"
                 BorderThickness="1"
                 Padding="0"
-                Background="White">
+                Background="{DynamicResource InvoiceBackgroundBrush}">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="32"/>
@@ -49,63 +49,63 @@
                 </Grid.ColumnDefinitions>
 
                 <!-- row 0 -->
-                <Border Grid.Row="0" Grid.Column="0" BorderBrush="Black" BorderThickness="0,0,1,1" Padding="6">
+                <Border Grid.Row="0" Grid.Column="0" BorderBrush="{DynamicResource InvoiceBorderBrush}" BorderThickness="0,0,1,1" Padding="6">
                     <TextBlock Text="ИНН" VerticalAlignment="Center" FontSize="13"/>
                 </Border>
-                <Border Grid.Row="0" Grid.Column="1" BorderBrush="Black" BorderThickness="0,0,1,1" Padding="6">
+                <Border Grid.Row="0" Grid.Column="1" BorderBrush="{DynamicResource InvoiceBorderBrush}" BorderThickness="0,0,1,1" Padding="6">
                     <TextBlock Text="614303992509" VerticalAlignment="Center" FontSize="13" FontWeight="SemiBold"/>
                 </Border>
-                <Border Grid.Row="0" Grid.Column="2" BorderBrush="Black" BorderThickness="0,0,1,1" Padding="6">
+                <Border Grid.Row="0" Grid.Column="2" BorderBrush="{DynamicResource InvoiceBorderBrush}" BorderThickness="0,0,1,1" Padding="6">
                     <TextBlock Text="Сч. №" VerticalAlignment="Center" FontSize="13"/>
                 </Border>
-                <Border Grid.Row="0" Grid.Column="3" BorderBrush="Black" BorderThickness="0,0,0,1" Padding="6">
+                <Border Grid.Row="0" Grid.Column="3" BorderBrush="{DynamicResource InvoiceBorderBrush}" BorderThickness="0,0,0,1" Padding="6">
                     <TextBlock Text="40802810601100001593" VerticalAlignment="Center" FontSize="13" FontWeight="SemiBold"/>
                 </Border>
 
                 <!-- row 1 -->
-                <Border Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" BorderBrush="Black" BorderThickness="0,0,1,1" Padding="6">
+                <Border Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" BorderBrush="{DynamicResource InvoiceBorderBrush}" BorderThickness="0,0,1,1" Padding="6">
                     <TextBlock Text="Получатель" VerticalAlignment="Center" FontSize="13"/>
                 </Border>
-                <Border Grid.Row="1" Grid.Column="2" BorderBrush="Black" BorderThickness="0,0,1,1" Padding="6">
+                <Border Grid.Row="1" Grid.Column="2" BorderBrush="{DynamicResource InvoiceBorderBrush}" BorderThickness="0,0,1,1" Padding="6">
                     <TextBlock Text="БИК" VerticalAlignment="Center" FontSize="13"/>
                 </Border>
-                <Border Grid.Row="1" Grid.Column="3" BorderBrush="Black" BorderThickness="0,0,0,1" Padding="6">
+                <Border Grid.Row="1" Grid.Column="3" BorderBrush="{DynamicResource InvoiceBorderBrush}" BorderThickness="0,0,0,1" Padding="6">
                     <TextBlock Text="046015762" VerticalAlignment="Center" FontSize="13" FontWeight="SemiBold"/>
                 </Border>
 
                 <!-- row 2 -->
-                <Border Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" BorderBrush="Black" BorderThickness="0,0,1,1" Padding="6">
-                    <TextBlock Text="ИП Бахолдина Ольга Никитична «ВолгоМед»"
+                <Border Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" BorderBrush="{DynamicResource InvoiceBorderBrush}" BorderThickness="0,0,1,1" Padding="6">
+                    <TextBlock Text="ИП Бахолдина Ольга Никитовна «ВолгоМед»"
                                VerticalAlignment="Center"
                                FontSize="13"
                                FontWeight="SemiBold"
                                TextWrapping="Wrap"/>
                 </Border>
-                <Border Grid.Row="2" Grid.Column="2" BorderBrush="Black" BorderThickness="0,0,1,1" Padding="6">
+                <Border Grid.Row="2" Grid.Column="2" BorderBrush="{DynamicResource InvoiceBorderBrush}" BorderThickness="0,0,1,1" Padding="6">
                     <TextBlock Text="Сч. №" VerticalAlignment="Center" FontSize="13"/>
                 </Border>
-                <Border Grid.Row="2" Grid.Column="3" BorderBrush="Black" BorderThickness="0,0,0,1" Padding="6">
+                <Border Grid.Row="2" Grid.Column="3" BorderBrush="{DynamicResource InvoiceBorderBrush}" BorderThickness="0,0,0,1" Padding="6">
                     <TextBlock Text="30101810100000000762" VerticalAlignment="Center" FontSize="13" FontWeight="SemiBold"/>
                 </Border>
 
                 <!-- row 3 -->
-                <Border Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" BorderBrush="Black" BorderThickness="0,0,1,1" Padding="6">
+                <Border Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" BorderBrush="{DynamicResource InvoiceBorderBrush}" BorderThickness="0,0,1,1" Padding="6">
                     <TextBlock Text="Банк получателя" VerticalAlignment="Center" FontSize="13"/>
 
                 </Border>
-                <Border Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="2" BorderBrush="Black" BorderThickness="0,0,0,1" Padding="6">
+                <Border Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="2" BorderBrush="{DynamicResource InvoiceBorderBrush}" BorderThickness="0,0,0,1" Padding="6">
                     <TextBlock Text="" VerticalAlignment="Center" FontSize="13"/>
                 </Border>
 
                 <!-- row 4 -->
-                <Border Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" BorderBrush="Black" BorderThickness="0,0,1,1" Padding="6">
+                <Border Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" BorderBrush="{DynamicResource InvoiceBorderBrush}" BorderThickness="0,0,1,1" Padding="6">
                     <TextBlock Text="ПАО КБ &quot;ЦЕНТР-ИНВЕСТ&quot;"
                                VerticalAlignment="Center"
                                FontSize="13"
                                FontWeight="SemiBold"
                                TextWrapping="Wrap"/>
                 </Border>
-                <Border Grid.Row="4" Grid.Column="2" Grid.ColumnSpan="2" BorderBrush="Black" BorderThickness="0,0,0,1" Padding="6">
+                <Border Grid.Row="4" Grid.Column="2" Grid.ColumnSpan="2" BorderBrush="{DynamicResource InvoiceBorderBrush}" BorderThickness="0,0,0,1" Padding="6">
                     <TextBlock Text="" VerticalAlignment="Center" FontSize="13"/>
                 </Border>
 
@@ -120,14 +120,14 @@
                    Text="Счёт на оплату"
                    FontSize="24"
                    FontWeight="Bold"
-                   Foreground="Black"
+                   Foreground="{DynamicResource InvoiceForegroundBrush}"
                    HorizontalAlignment="Center"/>
 
         <!-- Блок реквизитов и информации -->
         <StackPanel Grid.Row="4">
             <TextBlock Margin="0,0,0,6" FontSize="14" TextWrapping="Wrap">
                 <Run Text="Поставщик: " FontWeight="Bold"/>
-                <Run Text="ИП Бахолдина Ольга Никитична «ВолгоМед», Волгодонск, Бульвар Великой Победы д. 11, помещение 10, ИНН 614303992509, ОГРН 324619600125852, р/с 40802810601100001593, ПАО КБ &quot;ЦЕНТР-ИНВЕСТ&quot;, к/с 30101810100000000762, БИК 046015762"/>
+                <Run Text="ИП Бахолдина Ольга Никитовна «ВолгоМед», Волгодонск, Бульвар Великой Победы д. 11, помещение 10, ИНН 614303992509, ОГРН 324619600125852, р/с 40802810601100001593, ПАО КБ &quot;ЦЕНТР-ИНВЕСТ&quot;, к/с 30101810100000000762, БИК 046015762"/>
             </TextBlock>
 
             <TextBlock Margin="0,0,0,6" FontSize="14">
@@ -157,14 +157,14 @@
         </StackPanel>
 
         <!-- Таблица -->
-        <Border Grid.Row="6" BorderBrush="Black" BorderThickness="1">
+        <Border Grid.Row="6" BorderBrush="{DynamicResource InvoiceBorderBrush}" BorderThickness="1">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="36"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
 
-                <Grid Grid.Row="0" Background="#F3F3F3">
+                <Grid Grid.Row="0" Background="{DynamicResource InvoiceHeaderBackgroundBrush}">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="50"/>
                         <ColumnDefinition Width="*"/>
@@ -174,22 +174,22 @@
                         <ColumnDefinition Width="150"/>
                     </Grid.ColumnDefinitions>
 
-                    <Border Grid.Column="0" BorderBrush="Black" BorderThickness="0,0,1,1" Padding="6">
+                    <Border Grid.Column="0" BorderBrush="{DynamicResource InvoiceBorderBrush}" BorderThickness="0,0,1,1" Padding="6">
                         <TextBlock Text="№" FontWeight="Bold" TextAlignment="Center" VerticalAlignment="Center"/>
                     </Border>
-                    <Border Grid.Column="1" BorderBrush="Black" BorderThickness="0,0,1,1" Padding="6">
+                    <Border Grid.Column="1" BorderBrush="{DynamicResource InvoiceBorderBrush}" BorderThickness="0,0,1,1" Padding="6">
                         <TextBlock Text="Наименование товара, работ, услуг" FontWeight="Bold" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Center"/>
                     </Border>
-                    <Border Grid.Column="2" BorderBrush="Black" BorderThickness="0,0,1,1" Padding="6">
+                    <Border Grid.Column="2" BorderBrush="{DynamicResource InvoiceBorderBrush}" BorderThickness="0,0,1,1" Padding="6">
                         <TextBlock Text="Ед. изм." FontWeight="Bold" TextAlignment="Center" VerticalAlignment="Center"/>
                     </Border>
-                    <Border Grid.Column="3" BorderBrush="Black" BorderThickness="0,0,1,1" Padding="6">
+                    <Border Grid.Column="3" BorderBrush="{DynamicResource InvoiceBorderBrush}" BorderThickness="0,0,1,1" Padding="6">
                         <TextBlock Text="Кол-во" FontWeight="Bold" TextAlignment="Center" VerticalAlignment="Center"/>
                     </Border>
-                    <Border Grid.Column="4" BorderBrush="Black" BorderThickness="0,0,1,1" Padding="6">
+                    <Border Grid.Column="4" BorderBrush="{DynamicResource InvoiceBorderBrush}" BorderThickness="0,0,1,1" Padding="6">
                         <TextBlock Text="Цена без НДС, руб." FontWeight="Bold" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Center"/>
                     </Border>
-                    <Border Grid.Column="5" BorderBrush="Black" BorderThickness="0,0,0,1" Padding="6">
+                    <Border Grid.Column="5" BorderBrush="{DynamicResource InvoiceBorderBrush}" BorderThickness="0,0,0,1" Padding="6">
                         <TextBlock Text="Сумма без НДС, руб." FontWeight="Bold" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Center"/>
                     </Border>
                 </Grid>
@@ -197,8 +197,8 @@
                 <ListView Grid.Row="1"
                           ItemsSource="{Binding OrderDetails, Mode=OneWay}"
                           BorderThickness="0"
-                          Background="White"
-                          Foreground="Black"
+                          Background="{DynamicResource InvoiceBackgroundBrush}"
+                          Foreground="{DynamicResource InvoiceForegroundBrush}"
                           IsHitTestVisible="False">
                     <ListView.ItemContainerStyle>
                         <Style TargetType="ListViewItem">
@@ -220,29 +220,29 @@
                                     <ColumnDefinition Width="150"/>
                                 </Grid.ColumnDefinitions>
 
-                                <Border Grid.Column="0" BorderBrush="Black" BorderThickness="0,0,1,1" Padding="6">
+                                <Border Grid.Column="0" BorderBrush="{DynamicResource InvoiceBorderBrush}" BorderThickness="0,0,1,1" Padding="6">
                                     <TextBlock Text="{Binding RelativeSource={RelativeSource AncestorType=ListViewItem}, Path=(ItemsControl.AlternationIndex), ConverterCulture=ru-RU}"
                                                TextAlignment="Center"
                                                VerticalAlignment="Center"/>
                                 </Border>
 
-                                <Border Grid.Column="1" BorderBrush="Black" BorderThickness="0,0,1,1" Padding="6">
+                                <Border Grid.Column="1" BorderBrush="{DynamicResource InvoiceBorderBrush}" BorderThickness="0,0,1,1" Padding="6">
                                     <TextBlock Text="{Binding Product.ProductName, Mode=OneWay}" TextWrapping="Wrap" VerticalAlignment="Center"/>
                                 </Border>
 
-                                <Border Grid.Column="2" BorderBrush="Black" BorderThickness="0,0,1,1" Padding="6">
+                                <Border Grid.Column="2" BorderBrush="{DynamicResource InvoiceBorderBrush}" BorderThickness="0,0,1,1" Padding="6">
                                     <TextBlock Text="шт" TextAlignment="Center" VerticalAlignment="Center"/>
                                 </Border>
 
-                                <Border Grid.Column="3" BorderBrush="Black" BorderThickness="0,0,1,1" Padding="6">
+                                <Border Grid.Column="3" BorderBrush="{DynamicResource InvoiceBorderBrush}" BorderThickness="0,0,1,1" Padding="6">
                                     <TextBlock Text="{Binding OrderDetailQuantity, Mode=OneWay}" TextAlignment="Center" VerticalAlignment="Center"/>
                                 </Border>
 
-                                <Border Grid.Column="4" BorderBrush="Black" BorderThickness="0,0,1,1" Padding="6">
+                                <Border Grid.Column="4" BorderBrush="{DynamicResource InvoiceBorderBrush}" BorderThickness="0,0,1,1" Padding="6">
                                     <TextBlock Text="{Binding Product.ProductPrice, Mode=OneWay}" TextAlignment="Right" VerticalAlignment="Center"/>
                                 </Border>
 
-                                <Border Grid.Column="5" BorderBrush="Black" BorderThickness="0,0,0,1" Padding="6">
+                                <Border Grid.Column="5" BorderBrush="{DynamicResource InvoiceBorderBrush}" BorderThickness="0,0,0,1" Padding="6">
                                     <TextBlock Text="{Binding OrderDetailAmount, Mode=OneWay}" TextAlignment="Right" VerticalAlignment="Center"/>
                                 </Border>
                             </Grid>
@@ -254,14 +254,14 @@
 
         <!-- Итого -->
         <StackPanel Grid.Row="8" HorizontalAlignment="Right" Width="320">
-            <Border BorderBrush="Black" BorderThickness="1">
+            <Border BorderBrush="{DynamicResource InvoiceBorderBrush}" BorderThickness="1">
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="140"/>
                     </Grid.ColumnDefinitions>
 
-                    <Border Grid.Column="0" BorderBrush="Black" BorderThickness="0,0,1,0" Padding="8">
+                    <Border Grid.Column="0" BorderBrush="{DynamicResource InvoiceBorderBrush}" BorderThickness="0,0,1,0" Padding="8">
                         <TextBlock Text="Итого без НДС" FontWeight="SemiBold" VerticalAlignment="Center"/>
                     </Border>
 
@@ -305,7 +305,7 @@
 
                 <Border Grid.Column="1"
                         Margin="10,0,10,0"
-                        BorderBrush="Black"
+                        BorderBrush="{DynamicResource InvoiceBorderBrush}"
                         BorderThickness="0,0,0,1"
                         Height="24"
                         VerticalAlignment="Bottom"/>

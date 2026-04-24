@@ -12,11 +12,11 @@
         WindowState="Maximized"
         Icon="pack://application:,,,/Assets/logo.png"
         WindowStyle="None"
-        Background="{DynamicResource MaterialDesignBackground}"
-        Foreground="{DynamicResource MaterialDesignBody}"
+        Background="{DynamicResource AppBackgroundBrush}"
+        Foreground="{DynamicResource BrandTextBrush}"
         FontFamily="Segoe UI">
 
-    <Grid>
+    <Grid Background="{DynamicResource AppBackgroundBrush}">
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
             <RowDefinition Height="auto"/>
@@ -28,30 +28,38 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
-            <Grid Grid.Column="0" Width="220">
-                <Grid.Style>
-                    <Style TargetType="Grid">
+            <Border Grid.Column="0" Width="256" Margin="16,16,0,16" CornerRadius="28" Background="{DynamicResource BrandSidebarGradientBrush}" ClipToBounds="True">
+                <Border.Style>
+                    <Style TargetType="Border">
                         <Style.Triggers>
                             <DataTrigger Binding="{Binding IsLoggedIn}" Value="False">
                                 <Setter Property="Visibility" Value="Collapsed"/>
                             </DataTrigger>
                         </Style.Triggers>
                     </Style>
-                </Grid.Style>
-
+                </Border.Style>
+                <Border.Effect>
+                    <DropShadowEffect BlurRadius="24" ShadowDepth="0" Opacity="0.20" Color="#312E81"/>
+                </Border.Effect>
                 <controls:NavigationBar/>
-            </Grid>
+            </Border>
 
-            <Grid Grid.Column="1" Background="{DynamicResource MaterialDesignBackground}">
-                <ContentControl Content="{Binding CurrentViewModel}" Background="{DynamicResource MaterialDesignBackground}"/>
-            </Grid>
+            <Border Grid.Column="1" Margin="16" CornerRadius="32" Background="{DynamicResource BrandWindowShellBrush}" ClipToBounds="True">
+                <Border.Effect>
+                    <DropShadowEffect BlurRadius="28" ShadowDepth="0" Opacity="0.12" Color="#334155"/>
+                </Border.Effect>
+                <Grid Background="{DynamicResource BrandWindowInnerSurfaceBrush}">
+                    <ContentControl Content="{Binding CurrentViewModel}"/>
+                </Grid>
+            </Border>
         </Grid>
 
-        <Label Grid.Row="1" HorizontalAlignment="Center" FontWeight="SemiBold" FontSize="10" Padding="0,8,0,12">
-            <StackPanel>
-                <TextBlock Text="ИП Бахолдин • Волго-Мед" HorizontalAlignment="Center"/>
-                <TextBlock Text="Инвентаризация складских запасов и внутренняя почта" HorizontalAlignment="Center"/>
+        <Border Grid.Row="1" HorizontalAlignment="Center" Margin="0,0,0,10" Padding="18,7" CornerRadius="18" Background="{DynamicResource BrandFooterBrush}">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="ИП Бахолдина • Волго-Мед" FontWeight="SemiBold" FontSize="11" Foreground="{DynamicResource BrandMutedTextBrush}"/>
+                <TextBlock Text="  •  " FontSize="11" Foreground="{DynamicResource BrandMutedTextBrush}"/>
+                <TextBlock Text="Инвентаризация складских запасов и внутренняя почта" FontSize="11" Foreground="{DynamicResource BrandMutedTextBrush}"/>
             </StackPanel>
-        </Label>
+        </Border>
     </Grid>
 </Window>

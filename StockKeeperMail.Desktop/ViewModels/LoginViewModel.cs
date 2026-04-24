@@ -84,19 +84,10 @@ namespace StockKeeperMail.Desktop.ViewModels
         public void ToggleTheme()
         {
             Theme theme = paletteHelper.GetTheme();
+            bool shouldUseDarkTheme = theme.GetBaseTheme() != BaseTheme.Dark;
 
-            if (theme.GetBaseTheme() == BaseTheme.Dark)
-            {
-                IsDarkTheme = false;
-                theme.SetBaseTheme(BaseTheme.Light);
-            }
-            else
-            {
-                IsDarkTheme = true;
-                theme.SetBaseTheme(BaseTheme.Dark);
-            }
-
-            paletteHelper.SetTheme(theme);
+            IsDarkTheme = shouldUseDarkTheme;
+            App.ApplyBrandTheme(shouldUseDarkTheme);
         }
 
         /// <summary>

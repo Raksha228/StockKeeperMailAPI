@@ -1,28 +1,22 @@
-﻿<Application x:Class="StockKeeperMail.Desktop.App"
+<Application x:Class="StockKeeperMail.Desktop.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:StockKeeperMail.Desktop"
              xmlns:converters="clr-namespace:StockKeeperMail.Desktop.Converters"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes">
-    
+
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="ResourceDictionaries/DataTemplateDictionary.xaml"/>
-                <materialDesign:BundledTheme BaseTheme="Light" PrimaryColor="Blue" SecondaryColor="Pink" />
+                <materialDesign:BundledTheme BaseTheme="Light" PrimaryColor="DeepPurple" SecondaryColor="Cyan" />
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesign2.Defaults.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.ObsoleteBrushes.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.ObsoleteStyles.xaml" />
+                <ResourceDictionary Source="ResourceDictionaries/Styles.xaml"/>
+                <ResourceDictionary Source="ResourceDictionaries/DataTemplateDictionary.xaml"/>
             </ResourceDictionary.MergedDictionaries>
 
             <converters:EnglishToRussianUiTextConverter x:Key="EnglishToRussianUiTextConverter"/>
-
-            <SolidColorBrush x:Key="BrandPrimaryBrush" Color="#0B3BDE" />
-            <SolidColorBrush x:Key="BrandPrimaryDarkBrush" Color="#0625AA" />
-            <SolidColorBrush x:Key="BrandAccentBrush" Color="#AA1845" />
-            <SolidColorBrush x:Key="BrandAccentLightBrush" Color="#C42858" />
-            <SolidColorBrush x:Key="BrandSurfaceBrush" Color="#F6F7FB" />
-
         </ResourceDictionary>
     </Application.Resources>
 </Application>

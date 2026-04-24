@@ -59,8 +59,8 @@
                         </Style>
                     </Button.Style>
                     <StackPanel Orientation="Horizontal">
-                        <materialDesign:PackIcon Kind="Plus" Margin="0,0,6,0"/>
-                        <TextBlock Text="Создать отчет" VerticalAlignment="Center"/>
+                        <materialDesign:PackIcon Kind="Plus" Margin="0,0,6,0" Foreground="White"/>
+                        <TextBlock Text="Создать отчет" VerticalAlignment="Center" Foreground="White" FontWeight="SemiBold"/>
                     </StackPanel>
                 </Button>
             </Grid>

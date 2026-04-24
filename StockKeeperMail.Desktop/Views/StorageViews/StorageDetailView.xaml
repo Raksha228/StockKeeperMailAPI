@@ -7,7 +7,7 @@
              xmlns:views="clr-namespace:StockKeeperMail.Desktop.Views"
              xmlns:local="clr-namespace:StockKeeperMail.Desktop.Views"
              xmlns:controls="clr-namespace:StockKeeperMail.Desktop.Controls"
-             mc:Ignorable="d" >
+             mc:Ignorable="d">
 
     <materialDesign:DialogHost 
         CloseOnClickAway="true" 
@@ -39,22 +39,22 @@
                     FontWeight="Bold"/>
 
                 <Button
-                Grid.Column="1"
-                Style="{StaticResource MaterialDesignPaperButton}"
-                Command="{
-                    Binding DataContext.AddProductCommand, 
-                    RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=views:StorageDetailView}}"
-                CommandParameter="{Binding}">
+                    Grid.Column="1"
+                    Style="{StaticResource MaterialDesignPaperButton}"
+                    Command="{
+                        Binding DataContext.AddProductCommand, 
+                        RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=views:StorageDetailView}}"
+                    CommandParameter="{Binding}">
                     <materialDesign:PackIcon Kind="Add"/>
                 </Button>
             </Grid>
 
-            <Grid 
-            Grid.Row="1">
+            <Grid Grid.Row="1">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="auto"/>
                 </Grid.RowDefinitions>
+
                 <DataGrid
                     Grid.Row="0"
                     ItemsSource="{Binding ProductLocations}"
@@ -62,95 +62,99 @@
                     BorderBrush="{DynamicResource BrandPrimaryDarkBrush}"
                     BorderThickness="2"
                     IsReadOnly="True"
-                    AutoGenerateColumns="False">
+                    AutoGenerateColumns="False"
+                    RowHeight="54">
+
                     <DataGrid.Columns>
                         <DataGridTextColumn
                             Header="Товар"
                             HeaderStyle="{StaticResource MaterialDesignDataGridColumnHeader}"
+                            CellStyle="{StaticResource MaterialDesignDataGridCell}"
                             Binding="{Binding Product.ProductName}"
-                            Width="auto"/>
+                            Width="*"/>
 
                         <DataGridTextColumn
                             Header="Количество"
                             HeaderStyle="{StaticResource MaterialDesignDataGridColumnHeader}"
+                            CellStyle="{StaticResource MaterialDesignDataGridCell}"
                             Binding="{Binding ProductQuantity}"
-                            Width="auto"/>
-
+                            Width="140"/>
 
                         <DataGridTemplateColumn 
                             Header="Действия"
                             HeaderStyle="{StaticResource MaterialDesignDataGridColumnHeader}"
-                            Width="auto">
+                            Width="620">
 
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
-                                    <StackPanel Orientation="Horizontal">
+                                    <StackPanel Orientation="Horizontal"
+                                                VerticalAlignment="Center"
+                                                HorizontalAlignment="Left">
+
+                                        <StackPanel.Resources>
+                                            <Style TargetType="Button"
+                                                   BasedOn="{StaticResource MaterialDesignPaperButton}">
+                                                <Setter Property="Height" Value="34"/>
+                                                <Setter Property="Padding" Value="14,0"/>
+                                                <Setter Property="Margin" Value="0,0,8,0"/>
+                                                <Setter Property="BorderBrush" Value="Orange"/>
+                                                <Setter Property="BorderThickness" Value="1.2"/>
+                                                <Setter Property="VerticalAlignment" Value="Center"/>
+                                                <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                                                <Setter Property="VerticalContentAlignment" Value="Center"/>
+                                            </Style>
+                                        </StackPanel.Resources>
+
                                         <Button
                                             Content="Получить"
-                                            Grid.Column="0"
-                                            Margin="0 0 10 0"
-                                            BorderBrush="Orange"
-                                            Style="{StaticResource MaterialDesignPaperButton}"
+                                            MinWidth="100"
                                             Command="{
                                                 Binding DataContext.GetProductCommand, 
                                                 RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=views:StorageDetailView}}"
-                                            CommandParameter="{Binding}">
-                                            <!--<materialDesign:PackIcon Kind="BinCircle"/>-->
-                                        </Button>
+                                            CommandParameter="{Binding}"/>
 
                                         <Button
                                             Content="Переместить"
-                                            Grid.Column="0"
-                                            Margin="0 0 10 0"
-                                            BorderBrush="Orange"
-                                            Style="{StaticResource MaterialDesignPaperButton}"
+                                            MinWidth="126"
                                             Command="{
                                                 Binding DataContext.MoveProductCommand, 
                                                 RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=views:StorageDetailView}}"
-                                            CommandParameter="{Binding}">
-                                            <!--<materialDesign:PackIcon Kind="BinCircle"/>-->
-                                        </Button>
+                                            CommandParameter="{Binding}"/>
 
                                         <Button
                                             Content="Списать"
-                                            Grid.Column="0"
-                                            Margin="0 0 10 0"
-                                            BorderBrush="Orange"
-                                            Style="{StaticResource MaterialDesignPaperButton}"
+                                            MinWidth="100"
                                             Command="{
                                                 Binding DataContext.DisposeProductCommand, 
                                                 RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=views:StorageDetailView}}"
-                                            CommandParameter="{Binding}">
-                                            <!--<materialDesign:PackIcon Kind="BinCircle"/>-->
-                                        </Button>
+                                            CommandParameter="{Binding}"/>
 
                                         <Button
                                             Content="Объявить бракованным"
-                                            Grid.Column="0"
-                                            BorderBrush="Orange"
-                                            Style="{StaticResource MaterialDesignPaperButton}"
+                                            MinWidth="190"
+                                            Margin="0"
                                             Command="{
                                                 Binding DataContext.DeclareDefectiveProductCommand, 
                                                 RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=views:StorageDetailView}}"
-                                            CommandParameter="{Binding}">
-                                            <!--<materialDesign:PackIcon Kind="BinCircle"/>-->
-                                        </Button>
+                                            CommandParameter="{Binding}"/>
 
                                     </StackPanel>
                                 </DataTemplate>
                             </DataGridTemplateColumn.CellTemplate>
                         </DataGridTemplateColumn>
-
                     </DataGrid.Columns>
                 </DataGrid>
+
                 <Grid Grid.Row="1">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
+
                     <Grid Grid.Column="0">
                         <controls:FilterControl Filter="{Binding StorageDetailListViewHelper.Filter}"/>
                     </Grid>
+
                     <Grid Grid.Column="1">
                         <controls:PaginationControl
                             CurrentPage="{Binding StorageDetailListViewHelper.CurrentPage}"
@@ -160,12 +164,10 @@
                             FirstPageCommand="{Binding StorageDetailListViewHelper.FirstPageCommand}"
                             PreviousPageCommand="{Binding StorageDetailListViewHelper.PreviousPageCommand}"
                             NextPageCommand="{Binding StorageDetailListViewHelper.NextPageCommand}"
-                            LastPageCommand="{Binding StorageDetailListViewHelper.LastPageCommand}"
-                            />
+                            LastPageCommand="{Binding StorageDetailListViewHelper.LastPageCommand}"/>
                     </Grid>
                 </Grid>
             </Grid>
         </Grid>
     </materialDesign:DialogHost>
-
 </UserControl>

@@ -30,14 +30,16 @@
             </DockPanel>
         </Border>
 
-        <Grid Grid.Row="1" Margin="20">
-            <Border Background="White"
+        <Grid Grid.Row="1" Margin="20,14,20,56">
+            <Border Background="{DynamicResource InvoiceBackgroundBrush}"
                     BorderBrush="{DynamicResource MaterialDesignDivider}"
                     BorderThickness="1"
-                    CornerRadius="6">
+                    CornerRadius="6"
+                    Padding="0,18,0,28">
                 <ScrollViewer VerticalScrollBarVisibility="Auto"
-                              HorizontalScrollBarVisibility="Disabled">
-                    <controls:InvoiceDocumentControl x:Name="InvoiceDocument"/>
+                              HorizontalScrollBarVisibility="Disabled"
+                              Background="{DynamicResource InvoiceBackgroundBrush}">
+                    <controls:InvoiceDocumentControl x:Name="InvoiceDocument" Margin="0,0,0,96"/>
                 </ScrollViewer>
             </Border>
         </Grid>

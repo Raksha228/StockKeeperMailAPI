@@ -5,42 +5,31 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:views="clr-namespace:StockKeeperMail.Desktop.Views"
-             xmlns:local="clr-namespace:StockKeeperMail.Desktop.Views"
              xmlns:controls="clr-namespace:StockKeeperMail.Desktop.Controls"
              mc:Ignorable="d">
 
-    <materialDesign:DialogHost 
-        CloseOnClickAway="true" 
-        IsOpen="{ Binding IsDialogOpen, Mode=OneWay}" 
-        DialogBackground="Transparent">
-
+    <materialDesign:DialogHost CloseOnClickAway="true" IsOpen="{Binding IsDialogOpen, Mode=OneWay}" DialogBackground="Transparent">
         <materialDesign:DialogHost.DialogContent>
             <materialDesign:Card UniformCornerRadius="10">
-                <ContentControl Content="{ Binding DialogViewModel }"/>
+                <ContentControl Content="{Binding DialogViewModel}"/>
             </materialDesign:Card>
         </materialDesign:DialogHost.DialogContent>
 
-        <Grid Margin="30 30 30 30">
+        <Grid Margin="30">
             <Grid.RowDefinitions>
-                <RowDefinition Height="auto"/>
+                <RowDefinition Height="Auto"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
 
             <Grid Grid.Row="0">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="Auto"/>
                 </Grid.ColumnDefinitions>
 
-                <TextBlock 
-                    Grid.Column="0" 
-                    Text="Склады/Магазины"
-                    Style="{StaticResource MaterialDesignHeadline4TextBlock}"
-                    FontWeight="Bold"/>
+                <TextBlock Grid.Column="0" Text="Склады/Магазины" Style="{StaticResource MaterialDesignHeadline4TextBlock}" FontWeight="Bold"/>
 
-                <Button
-                Grid.Column="1"
-                Command="{ Binding CreateLocationCommand }">
+                <Button Grid.Column="1" Command="{Binding CreateLocationCommand}">
                     <Button.Style>
                         <Style TargetType="Button" BasedOn="{StaticResource MaterialDesignPaperButton}">
                             <Style.Triggers>
@@ -54,44 +43,23 @@
                 </Button>
             </Grid>
 
-            <Grid 
-                Grid.Row="1">
+            <Grid Grid.Row="1">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"/>
-                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
-                <DataGrid
-                    Grid.Row="0"
-                    ItemsSource="{Binding Locations}"
-                    Style="{StaticResource MaterialDesignDataGrid}"
-                    BorderBrush="{DynamicResource BrandPrimaryDarkBrush}"
-                    BorderThickness="2"
-                    IsReadOnly="True"
-                    AutoGenerateColumns="False">
+
+                <DataGrid Grid.Row="0" ItemsSource="{Binding Locations}" Style="{StaticResource MaterialDesignDataGrid}" BorderBrush="{DynamicResource BrandPrimaryDarkBrush}" BorderThickness="2" IsReadOnly="True" AutoGenerateColumns="False">
                     <DataGrid.Columns>
-                        <DataGridTextColumn
-                            Header="Местоположение"
-                            HeaderStyle="{StaticResource MaterialDesignDataGridColumnHeader}"
-                            Binding="{Binding LocationName}"
-                            Width="auto"/>
-
-
-                        <DataGridTemplateColumn 
-                            Header="Действия"
-                            HeaderStyle="{StaticResource MaterialDesignDataGridColumnHeader}"
-                            Width="auto">
-
+                        <DataGridTextColumn Header="Местоположение" HeaderStyle="{StaticResource MaterialDesignDataGridColumnHeader}"
+                                CellStyle="{StaticResource MaterialDesignDataGridCell}" Binding="{Binding LocationName}" Width="*"/>
+                        <DataGridTemplateColumn Header="Действия" HeaderStyle="{StaticResource MaterialDesignDataGridColumnHeader}" Width="170">
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
                                     <StackPanel Orientation="Horizontal">
-                                        <Button
-                                            Grid.Column="0"
-                                            BorderBrush="Orange"
-                                            Margin="0 0 5 0"
-                                            Command="{
-                                                Binding DataContext.EditLocationCommand, 
-                                                RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=views:LocationListView}}"
-                                            CommandParameter="{Binding}">
+                                        <Button Grid.Column="0" BorderBrush="Orange" Margin="0,0,5,0"
+                                                Command="{Binding DataContext.EditLocationCommand, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=views:LocationListView}}"
+                                                CommandParameter="{Binding}">
                                             <Button.Style>
                                                 <Style TargetType="Button" BasedOn="{StaticResource MaterialDesignPaperButton}">
                                                     <Style.Triggers>
@@ -104,13 +72,9 @@
                                             <materialDesign:PackIcon Kind="Edit"/>
                                         </Button>
 
-                                        <Button 
-                                            Grid.Column="1"
-                                            BorderBrush="Red"
-                                            Command="{
-                                                Binding DataContext.RemoveLocationCommand, 
-                                                RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=views:LocationListView}}"
-                                            CommandParameter="{Binding}">
+                                        <Button Grid.Column="1" BorderBrush="Red"
+                                                Command="{Binding DataContext.RemoveLocationCommand, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=views:LocationListView}}"
+                                                CommandParameter="{Binding}">
                                             <Button.Style>
                                                 <Style TargetType="Button" BasedOn="{StaticResource MaterialDesignPaperButton}">
                                                     <Style.Triggers>
@@ -126,35 +90,29 @@
                                 </DataTemplate>
                             </DataGridTemplateColumn.CellTemplate>
                         </DataGridTemplateColumn>
-
                     </DataGrid.Columns>
                 </DataGrid>
+
                 <Grid Grid.Row="1">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
                     <Grid Grid.Column="0">
-                        <Grid Grid.Column="0">
-                            <controls:FilterControl Filter="{Binding LocationListViewHelper.Filter}"/>
-                        </Grid>
+                        <controls:FilterControl Filter="{Binding LocationListViewHelper.Filter}"/>
                     </Grid>
                     <Grid Grid.Column="1">
-                        <controls:PaginationControl
-                            CurrentPage="{Binding LocationListViewHelper.CurrentPage}"
-                            NumberOfPages="{Binding LocationListViewHelper.NumberOfPages}"
-                            RecordsPerPage="{Binding LocationListViewHelper.RecordsPerPage}"
-                            SelectedRecordsPerPage="{Binding LocationListViewHelper.SelectedRecordsPerPage}"
-                            FirstPageCommand="{Binding LocationListViewHelper.FirstPageCommand}"
-                            PreviousPageCommand="{Binding LocationListViewHelper.PreviousPageCommand}"
-                            NextPageCommand="{Binding LocationListViewHelper.NextPageCommand}"
-                            LastPageCommand="{Binding LocationListViewHelper.LastPageCommand}"
-                        />
+                        <controls:PaginationControl CurrentPage="{Binding LocationListViewHelper.CurrentPage}"
+                                                    NumberOfPages="{Binding LocationListViewHelper.NumberOfPages}"
+                                                    RecordsPerPage="{Binding LocationListViewHelper.RecordsPerPage}"
+                                                    SelectedRecordsPerPage="{Binding LocationListViewHelper.SelectedRecordsPerPage}"
+                                                    FirstPageCommand="{Binding LocationListViewHelper.FirstPageCommand}"
+                                                    PreviousPageCommand="{Binding LocationListViewHelper.PreviousPageCommand}"
+                                                    NextPageCommand="{Binding LocationListViewHelper.NextPageCommand}"
+                                                    LastPageCommand="{Binding LocationListViewHelper.LastPageCommand}"/>
                     </Grid>
                 </Grid>
-
             </Grid>
         </Grid>
     </materialDesign:DialogHost>
-
 </UserControl>

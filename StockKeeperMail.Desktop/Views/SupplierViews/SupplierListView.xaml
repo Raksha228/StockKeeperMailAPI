@@ -76,37 +76,39 @@
                         <DataGridTextColumn
                             Header="Название"
                             HeaderStyle="{StaticResource MaterialDesignDataGridColumnHeader}"
+                                CellStyle="{StaticResource MaterialDesignDataGridCell}"
                             Binding="{Binding SupplierName}"
-                            Width="auto"/>
+                            Width="*"/>
 
                         <DataGridTextColumn
                             Header="Адрес"
                             HeaderStyle="{StaticResource MaterialDesignDataGridColumnHeader}"
+                                CellStyle="{StaticResource MaterialDesignDataGridCell}"
                             Binding="{Binding SupplierAddress}"
-                            Width="auto"/>
+                            Width="*"/>
 
                         <DataGridTextColumn
                             Header="Телефон"
                             HeaderStyle="{StaticResource MaterialDesignDataGridColumnHeader}"
+                                CellStyle="{StaticResource MaterialDesignDataGridCell}"
                             Binding="{Binding SupplierPhone}"
-                            Width="auto"/>
+                            Width="*"/>
 
                         <DataGridTextColumn
                             Header="Email"
                             HeaderStyle="{StaticResource MaterialDesignDataGridColumnHeader}"
+                                CellStyle="{StaticResource MaterialDesignDataGridCell}"
                             Binding="{Binding SupplierEmail}"
-                            Width="auto"/>
+                            Width="*"/>
 
                         <DataGridTextColumn
                             Header="Статус"
                             HeaderStyle="{StaticResource MaterialDesignDataGridColumnHeader}"
+                                CellStyle="{StaticResource MaterialDesignDataGridCell}"
                             Binding="{Binding SupplierStatus, Converter={StaticResource EnglishToRussianUiTextConverter}}"
-                            Width="auto"/>
+                            Width="*"/>
 
-                        <DataGridTemplateColumn 
-                            Header="Действия"
-                            HeaderStyle="{StaticResource MaterialDesignDataGridColumnHeader}"
-                            Width="auto">
+                        <DataGridTemplateColumn Header="Действия" HeaderStyle="{StaticResource MaterialDesignDataGridColumnHeader}" Width="170">
 
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>

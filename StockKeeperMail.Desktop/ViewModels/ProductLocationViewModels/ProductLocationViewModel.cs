@@ -1,9 +1,4 @@
-﻿using StockKeeperMail.Database.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using StockKeeperMail.Database.Models;
 
 namespace StockKeeperMail.Desktop.ViewModels
 {
@@ -16,39 +11,15 @@ namespace StockKeeperMail.Desktop.ViewModels
 
         public ProductLocationViewModel(ProductLocation productLocation)
         {
-            _productLocation = productLocation;
+            _productLocation = productLocation ?? new ProductLocation();
         }
 
         public ProductLocation ProductLocation => _productLocation;
-        public string ProductID => _productLocation.ProductID.ToString();
-        public string LocationID => _productLocation.LocationID.ToString();
-        public string ProductQuantity => _productLocation.ProductQuantity.ToString();
+        public string ProductID => _productLocation?.ProductID.ToString() ?? string.Empty;
+        public string LocationID => _productLocation?.LocationID.ToString() ?? string.Empty;
+        public string ProductQuantity => _productLocation?.ProductQuantity.ToString() ?? "0";
 
-        public ProductViewModel Product
-        {
-            get
-            {
-                if (_productLocation.Product != null)
-                {
-                    return new ProductViewModel(_productLocation.Product);
-                }
-                return null;
-            }
-        }
-
-        public LocationViewModel Location
-        {
-            get
-            {
-                if (_productLocation.Location != null)
-                {
-                    return new LocationViewModel(_productLocation.Location);
-                }
-                return null;
-            }
-        }
-
-
-
+        public ProductViewModel Product => _productLocation?.Product == null ? null : new ProductViewModel(_productLocation.Product);
+        public LocationViewModel Location => _productLocation?.Location == null ? null : new LocationViewModel(_productLocation.Location);
     }
 }

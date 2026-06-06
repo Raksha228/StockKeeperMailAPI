@@ -56,11 +56,11 @@ namespace StockKeeperMail.Desktop.ViewModels
         {
             if (staff == null)
             {
-                return "Неизвестный сотрудник";
+                return "—";
             }
 
             string fullName = $"{staff.StaffFirstName} {staff.StaffLastName}".Trim();
-            return string.IsNullOrWhiteSpace(fullName) ? "Неизвестный сотрудник" : fullName;
+            return string.IsNullOrWhiteSpace(fullName) ? "—" : fullName;
         }
     }
 }

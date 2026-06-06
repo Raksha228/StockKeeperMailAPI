@@ -129,7 +129,7 @@ namespace StockKeeperMail.Api.Services
             foreach (Staff item in staff)
             {
                 roleMap.TryGetValue(item.RoleID, out Role role);
-                item.Role = role ?? CreateMissingRole(item.RoleID);
+                item.Role = role;
             }
 
             return staff;
@@ -144,8 +144,8 @@ namespace StockKeeperMail.Api.Services
             {
                 supplierMap.TryGetValue(item.SupplierID, out Supplier supplier);
                 categoryMap.TryGetValue(item.CategoryID, out Category category);
-                item.Supplier = supplier ?? CreateMissingSupplier(item.SupplierID);
-                item.Category = category ?? CreateMissingCategory(item.CategoryID);
+                item.Supplier = supplier;
+                item.Category = category;
             }
 
             return products;
@@ -158,7 +158,7 @@ namespace StockKeeperMail.Api.Services
             foreach (Customer item in customers)
             {
                 staffMap.TryGetValue(item.StaffID, out Staff staff);
-                item.Staff = staff ?? CreateMissingStaff(item.StaffID);
+                item.Staff = staff;
             }
 
             return customers;
@@ -173,7 +173,7 @@ namespace StockKeeperMail.Api.Services
             {
                 productMap.TryGetValue(item.ProductID, out Product product);
                 orderMap.TryGetValue(item.OrderID, out Order order);
-                item.Product = product ?? CreateMissingProduct(item.ProductID);
+                item.Product = product;
                 item.Order = order;
             }
 
@@ -188,7 +188,7 @@ namespace StockKeeperMail.Api.Services
             foreach (Order item in orders)
             {
                 customerMap.TryGetValue(item.CustomerID, out Customer customer);
-                item.Customer = customer ?? CreateMissingCustomer(item.CustomerID);
+                item.Customer = customer;
                 item.OrderDetails = hydratedOrderDetails
                     .Where(od => od.OrderID == item.OrderID)
                     .OrderBy(od => od.Product?.ProductName)
@@ -207,8 +207,8 @@ namespace StockKeeperMail.Api.Services
             {
                 productMap.TryGetValue(item.ProductID, out Product product);
                 locationMap.TryGetValue(item.LocationID, out Location location);
-                item.Product = product ?? CreateMissingProduct(item.ProductID);
-                item.Location = location ?? CreateMissingLocation(item.LocationID);
+                item.Product = product;
+                item.Location = location;
             }
 
             return productLocations;
@@ -242,9 +242,9 @@ namespace StockKeeperMail.Api.Services
                 productMap.TryGetValue(item.ProductID, out Product product);
                 warehouseMap.TryGetValue(item.WarehouseID, out Warehouse warehouse);
 
-                item.Supplier = supplier ?? CreateMissingSupplier(item.SupplierID);
-                item.Product = product ?? CreateMissingProduct(item.ProductID);
-                item.Warehouse = warehouse ?? CreateMissingWarehouse(item.WarehouseID);
+                item.Supplier = supplier;
+                item.Product = product;
+                item.Warehouse = warehouse;
             }
 
             return purchaseReceipts;
@@ -257,7 +257,7 @@ namespace StockKeeperMail.Api.Services
             foreach (Defective item in defectives)
             {
                 productMap.TryGetValue(item.ProductID, out Product product);
-                item.Product = product ?? CreateMissingProduct(item.ProductID);
+                item.Product = product;
             }
 
             return defectives;
@@ -270,7 +270,7 @@ namespace StockKeeperMail.Api.Services
             foreach (Log item in logs)
             {
                 staffMap.TryGetValue(item.StaffID, out Staff staff);
-                item.Staff = staff ?? CreateMissingStaff(item.StaffID);
+                item.Staff = staff;
             }
 
             return logs;
@@ -284,97 +284,11 @@ namespace StockKeeperMail.Api.Services
             {
                 staffMap.TryGetValue(item.SenderStaffID, out Staff sender);
                 staffMap.TryGetValue(item.RecipientStaffID, out Staff recipient);
-                item.SenderStaff = sender ?? CreateMissingStaff(item.SenderStaffID);
-                item.RecipientStaff = recipient ?? CreateMissingStaff(item.RecipientStaffID);
+                item.SenderStaff = sender;
+                item.RecipientStaff = recipient;
             }
 
             return messages;
         }
-
-        private static Role CreateMissingRole(Guid roleID)
-        {
-            return new Role
-            {
-                RoleID = roleID,
-                RoleName = "Не найдена роль"
-            };
-        }
-
-        private static Staff CreateMissingStaff(Guid staffID)
-        {
-            return new Staff
-            {
-                StaffID = staffID,
-                StaffFirstName = "Неизвестный",
-                StaffLastName = "сотрудник",
-                StaffUsername = staffID == Guid.Empty ? string.Empty : staffID.ToString(),
-                Role = CreateMissingRole(Guid.Empty)
-            };
-        }
-
-        private static Customer CreateMissingCustomer(Guid customerID)
-        {
-            return new Customer
-            {
-                CustomerID = customerID,
-                CustomerFirstname = "Неизвестный",
-                CustomerLastname = "покупатель",
-                CustomerAddress = string.Empty,
-                CustomerPhone = string.Empty,
-                CustomerEmail = string.Empty,
-                Staff = CreateMissingStaff(Guid.Empty)
-            };
-        }
-
-        private static Product CreateMissingProduct(Guid productID)
-        {
-            return new Product
-            {
-                ProductID = productID,
-                ProductName = "Неизвестный товар",
-                ProductSKU = string.Empty,
-                ProductUnit = string.Empty,
-                ProductAvailability = string.Empty,
-                Supplier = CreateMissingSupplier(Guid.Empty),
-                Category = CreateMissingCategory(Guid.Empty)
-            };
-        }
-
-        private static Supplier CreateMissingSupplier(Guid supplierID)
-        {
-            return new Supplier
-            {
-                SupplierID = supplierID,
-                SupplierName = "Неизвестный поставщик"
-            };
-        }
-
-        private static Category CreateMissingCategory(Guid categoryID)
-        {
-            return new Category
-            {
-                CategoryID = categoryID,
-                CategoryName = "Неизвестная категория"
-            };
-        }
-
-        private static Warehouse CreateMissingWarehouse(Guid warehouseID)
-        {
-            return new Warehouse
-            {
-                WarehouseID = warehouseID,
-                WarehouseName = "Неизвестный склад"
-            };
-        }
-
-        private static Location CreateMissingLocation(Guid locationID)
-        {
-            return new Location
-            {
-                LocationID = locationID,
-                LocationName = "Неизвестная ячейка"
-            };
-        }
-
     }
 }

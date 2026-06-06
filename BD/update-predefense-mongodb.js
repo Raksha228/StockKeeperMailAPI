@@ -109,52 +109,8 @@ database.getCollection("messages").find({}).forEach(function(doc) {
   }
 });
 
-// Чтобы экран сообщений не был пустым в демонстрационной базе, добавляем несколько писем,
-// но только если сообщений пока нет.
-if (database.getCollection("messages").countDocuments({}) === 0) {
-  database.getCollection("messages").insertMany([
-    {
-      _id: UUID("0b49b11f-110d-5f4d-a16c-91f5c6791001"),
-      InternalMessageID: UUID("0b49b11f-110d-5f4d-a16c-91f5c6791001"),
-      SenderStaffID: UUID("38841fb3-3d9e-530e-87ac-405843ba1e82"),
-      RecipientStaffID: UUID("4be43b93-b4cb-5c93-b1b6-434251fd7e7d"),
-      Subject: "Согласование поставки",
-      Body: "Поступление товара по поставщику Тривес подготовлено. Проверьте склад приемки.",
-      SentAt: ISODate("2026-03-14T09:15:00"),
-      IsRead: false
-    },
-    {
-      _id: UUID("01b6a806-6877-5f89-bcb6-7b7d1a920002"),
-      InternalMessageID: UUID("01b6a806-6877-5f89-bcb6-7b7d1a920002"),
-      SenderStaffID: UUID("4be43b93-b4cb-5c93-b1b6-434251fd7e7d"),
-      RecipientStaffID: UUID("627cf963-adef-5bc7-8abf-dddd621767e4"),
-      Subject: "Проверить онлайн-заказ",
-      Body: "Пожалуйста, проверьте внешний номер заказа и адрес доставки перед выставлением счета.",
-      SentAt: ISODate("2026-03-14T10:35:00"),
-      IsRead: true
-    },
-    {
-      _id: UUID("e2f67f38-c447-542a-9fe2-c66c7b4e0003"),
-      InternalMessageID: UUID("e2f67f38-c447-542a-9fe2-c66c7b4e0003"),
-      SenderStaffID: UUID("627cf963-adef-5bc7-8abf-dddd621767e4"),
-      RecipientStaffID: UUID("4be43b93-b4cb-5c93-b1b6-434251fd7e7d"),
-      Subject: "Нужна корректировка остатка",
-      Body: "После приемки обнаружено расхождение по количеству. Проверьте карточку товара.",
-      SentAt: ISODate("2026-03-15T11:20:00"),
-      IsRead: false
-    },
-    {
-      _id: UUID("d2eb9c32-7af1-5d2c-9c24-12aa0da40004"),
-      InternalMessageID: UUID("d2eb9c32-7af1-5d2c-9c24-12aa0da40004"),
-      SenderStaffID: UUID("4be43b93-b4cb-5c93-b1b6-434251fd7e7d"),
-      RecipientStaffID: UUID("38841fb3-3d9e-530e-87ac-405843ba1e82"),
-      Subject: "Отчет по заказам",
-      Body: "Сформируйте отчет за месяц после закрытия последних доставленных заказов.",
-      SentAt: ISODate("2026-03-15T15:40:00"),
-      IsRead: false
-    }
-  ]);
-}
+// Миграция не добавляет демонстрационные данные: все записи должны храниться только в MongoDB
+// и создаваться пользователем через приложение или явный seed-скрипт.
 
 database.getCollection("purchase-receipts").createIndex({ SupplierID: 1 });
 database.getCollection("purchase-receipts").createIndex({ ProductID: 1 });

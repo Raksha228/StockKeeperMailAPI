@@ -146,7 +146,7 @@ namespace StockKeeperMail.Desktop.ViewModels
             Staff currentStaff = _authenticationStore.CurrentStaff;
             if (currentStaff == null)
             {
-                return "Неизвестный пользователь";
+                return "—";
             }
 
             return $"{currentStaff.StaffFirstName} {currentStaff.StaffLastName}".Trim();

@@ -32,7 +32,7 @@ namespace StockKeeperMail.Desktop
             if (!ApiClientFactory.IsApiAvailable())
             {
                 MessageBox.Show(
-                    "Не удалось подключиться к REST API. Запусти проект StockKeeperMail.Api и проверь BaseUrl в файле apiconfig.json",
+                    "Не удалось подключиться к REST API или MongoDB. Запусти MongoDB, затем StockKeeperMail.Api и проверь BaseUrl в файле apiconfig.json",
                     "API недоступен",
                     MessageBoxButton.OK,
                     MessageBoxImage.Error);

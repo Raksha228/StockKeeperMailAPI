@@ -1,9 +1,4 @@
-﻿using StockKeeperMail.Database.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using StockKeeperMail.Database.Models;
 
 namespace StockKeeperMail.Desktop.ViewModels
 {
@@ -23,7 +18,7 @@ namespace StockKeeperMail.Desktop.ViewModels
             get
             {
                 string fullName = $"{CustomerFirstname} {CustomerLastname}".Trim();
-                return string.IsNullOrWhiteSpace(fullName) ? "Неизвестный покупатель" : fullName;
+                return string.IsNullOrWhiteSpace(fullName) ? "—" : fullName;
             }
         }
         public string CustomerAddress => _customer?.CustomerAddress ?? string.Empty;
@@ -31,28 +26,11 @@ namespace StockKeeperMail.Desktop.ViewModels
         public string CustomerEmail => _customer?.CustomerEmail ?? string.Empty;
 
         public string StaffID => _customer?.StaffID.ToString() ?? string.Empty;
-        public StaffViewModel Staff
-        {
-            get
-            {
-                if(_customer?.Staff != null)
-                {
-                    return new StaffViewModel(_customer.Staff);
-                }
-                return null;
-            }
-        }
+        public StaffViewModel Staff => _customer?.Staff == null ? null : new StaffViewModel(_customer.Staff);
 
         public CustomerViewModel(Customer customer)
         {
-            _customer = customer ?? new Customer
-            {
-                CustomerFirstname = "Неизвестный",
-                CustomerLastname = "покупатель",
-                CustomerAddress = string.Empty,
-                CustomerPhone = string.Empty,
-                CustomerEmail = string.Empty
-            };
+            _customer = customer ?? new Customer();
         }
     }
 }

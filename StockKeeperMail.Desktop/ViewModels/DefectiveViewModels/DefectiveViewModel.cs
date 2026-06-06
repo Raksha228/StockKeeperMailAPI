@@ -1,9 +1,4 @@
-﻿using StockKeeperMail.Database.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using StockKeeperMail.Database.Models;
 
 namespace StockKeeperMail.Desktop.ViewModels
 {
@@ -14,30 +9,16 @@ namespace StockKeeperMail.Desktop.ViewModels
     {
         private readonly Defective _defective;
         public Defective Defective => _defective;
-        public string DefectiveID => _defective.DefectiveID.ToString();
-        public string Quantity => _defective.Quantity.ToString();
-        public string DateDeclared => _defective.DateDeclared.ToString();
 
-        public ProductViewModel Product
-        {
-            get
-            {
-                if (_defective.Product != null)
-                {
-                    return new ProductViewModel(_defective.Product);
-                }
-                return null;
-            }
-        }
+        public string DefectiveID => _defective?.DefectiveID.ToString() ?? string.Empty;
+        public string Quantity => _defective?.Quantity.ToString() ?? "0";
+        public string DateDeclared => _defective?.DateDeclared.ToString() ?? string.Empty;
 
-
-
+        public ProductViewModel Product => _defective?.Product == null ? null : new ProductViewModel(_defective.Product);
 
         public DefectiveViewModel(Defective defective)
         {
-            _defective = defective;
+            _defective = defective ?? new Defective();
         }
-
-
     }
 }

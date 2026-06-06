@@ -148,22 +148,9 @@ namespace StockKeeperMail.Desktop.ViewModels
                 .OrderByDescending(m => m.SentAt)
                 .ToList();
 
-            // Защита для старых MongoDB-баз, где сообщения могли храниться без корректно заполненных
-            // SenderStaffID/RecipientStaffID или в старой схеме. Если строгая фильтрация ничего не нашла,
-            // показываем найденные письма, чтобы раздел не выглядел пустым и пользователь мог их открыть.
-            if (rawMessages.Count == 0 && allMessages.Count > 0)
-            {
-                rawMessages = allMessages
-                    .OrderByDescending(m => m.SentAt)
-                    .ToList();
-                StatusText = "Показаны все найденные сообщения: в старой базе не удалось точно сопоставить отправителя/получателя с текущим пользователем.";
-            }
-            else
-            {
-                StatusText = rawMessages.Count == 0
-                    ? "Сообщений нет."
-                    : $"Сообщений: {rawMessages.Count}";
-            }
+            StatusText = rawMessages.Count == 0
+                ? "Сообщений нет."
+                : $"Сообщений: {rawMessages.Count}";
 
             _sourceMessages = rawMessages
                 .Select(m => new MessageListItemViewModel(m, isInbox))

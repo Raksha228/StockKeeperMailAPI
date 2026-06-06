@@ -66,12 +66,12 @@
         </member>
         <member name="T:StockKeeperMail.Api.Controllers.HealthController">
             <summary>
-            Контроллер для проверки доступности API.
+            Контроллер для проверки доступности API и MongoDB.
             </summary>
         </member>
         <member name="M:StockKeeperMail.Api.Controllers.HealthController.Get">
             <summary>
-            Возвращает признак доступности API.
+            Возвращает признак доступности API и реального подключения к MongoDB.
             </summary>
         </member>
         <member name="T:StockKeeperMail.Api.Controllers.LocationsController">
@@ -240,9 +240,31 @@
             Возвращает список публичных свойств, помеченных атрибутом Key.
             </summary>
         </member>
+        <member name="T:StockKeeperMail.Api.Data.MongoDatabaseContext">
+            <summary>
+            Обертка над IMongoDatabase и общими настройками сериализации.
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Api.Data.MongoDatabaseContext.#ctor(Microsoft.Extensions.Options.IOptions{StockKeeperMail.Api.Data.MongoDbOptions})">
+            <summary>
+            Инициализирует контекст MongoDB на основе настроек приложения.
+            </summary>
+        </member>
+        <member name="P:StockKeeperMail.Api.Data.MongoDatabaseContext.Database">
+            <summary>
+            Экземпляр базы данных MongoDB.
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Api.Data.MongoDatabaseContext.GetCollection``1">
+            <summary>
+            Возвращает коллекцию MongoDB для указанного типа сущности.
+            </summary>
+        </member>
         <member name="T:StockKeeperMail.Api.Data.MongoDatabaseProvider">
             <summary>
             Создает подключение к MongoDB и предоставляет базу данных приложения.
+            Важно: MongoClient сам по себе не открывает соединение сразу, поэтому для проверки
+            доступности базы обязательно используется команда ping.
             </summary>
         </member>
         <member name="M:StockKeeperMail.Api.Data.MongoDatabaseProvider.#ctor(Microsoft.Extensions.Options.IOptions{StockKeeperMail.Api.Data.MongoDbOptions})">
@@ -250,9 +272,19 @@
             Инициализирует провайдер MongoDB.
             </summary>
         </member>
+        <member name="P:StockKeeperMail.Api.Data.MongoDatabaseProvider.DatabaseName">
+            <summary>
+            Имя базы данных MongoDB.
+            </summary>
+        </member>
         <member name="P:StockKeeperMail.Api.Data.MongoDatabaseProvider.Database">
             <summary>
             База данных MongoDB, с которой работает API.
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Api.Data.MongoDatabaseProvider.PingAsync(System.Threading.CancellationToken)">
+            <summary>
+            Выполняет реальную проверку подключения к MongoDB.
             </summary>
         </member>
         <member name="T:StockKeeperMail.Api.Data.MongoDbOptions">

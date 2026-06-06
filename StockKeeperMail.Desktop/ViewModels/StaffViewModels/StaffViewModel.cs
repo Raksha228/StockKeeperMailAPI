@@ -1,9 +1,4 @@
-﻿using StockKeeperMail.Database.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using StockKeeperMail.Database.Models;
 
 namespace StockKeeperMail.Desktop.ViewModels
 {
@@ -15,37 +10,29 @@ namespace StockKeeperMail.Desktop.ViewModels
         private readonly Staff _staff;
 
         public Staff Staff => _staff;
-        public string StaffID => _staff.StaffID.ToString();
-        public string RoleID => _staff.RoleID.ToString();
-        public string StaffFirstName => _staff.StaffFirstName;
-        public string StaffLastName => _staff.StaffLastName;
-        public string StaffFullname => _staff.StaffFirstName + " " + _staff.StaffLastName;
-        public string StaffAddress => _staff.StaffAddress;
-        public string StaffPhone => _staff.StaffPhone;
-        public string StaffEmail => _staff.StaffEmail;
-        public string StaffUsername => _staff.StaffUsername;
-        public string StaffPassword => _staff.StaffPassword;
-
-        public RoleViewModel Role
+        public string StaffID => _staff?.StaffID.ToString() ?? string.Empty;
+        public string RoleID => _staff?.RoleID.ToString() ?? string.Empty;
+        public string StaffFirstName => _staff?.StaffFirstName ?? string.Empty;
+        public string StaffLastName => _staff?.StaffLastName ?? string.Empty;
+        public string StaffFullname
         {
             get
             {
-                if(_staff.Role != null)
-                {
-                    return new RoleViewModel(_staff.Role);
-                }
-                return null;
+                string fullName = $"{StaffFirstName} {StaffLastName}".Trim();
+                return string.IsNullOrWhiteSpace(fullName) ? "—" : fullName;
             }
         }
+        public string StaffAddress => _staff?.StaffAddress ?? string.Empty;
+        public string StaffPhone => _staff?.StaffPhone ?? string.Empty;
+        public string StaffEmail => _staff?.StaffEmail ?? string.Empty;
+        public string StaffUsername => _staff?.StaffUsername ?? string.Empty;
+        public string StaffPassword => _staff?.StaffPassword ?? string.Empty;
 
-        
-
+        public RoleViewModel Role => _staff?.Role == null ? null : new RoleViewModel(_staff.Role);
 
         public StaffViewModel(Staff staff)
         {
-            _staff = staff;
+            _staff = staff ?? new Staff();
         }
-
-        
     }
 }

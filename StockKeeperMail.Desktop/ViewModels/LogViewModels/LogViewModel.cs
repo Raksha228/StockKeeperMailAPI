@@ -1,12 +1,4 @@
-﻿using StockKeeperMail.Database.Models;
-using StockKeeperMail.Desktop.DAL;
-using StockKeeperMail.Desktop.Stores;
-using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using StockKeeperMail.Database.Models;
 
 namespace StockKeeperMail.Desktop.ViewModels
 {
@@ -25,11 +17,11 @@ namespace StockKeeperMail.Desktop.ViewModels
             {
                 if (_log?.Staff == null)
                 {
-                    return "Неизвестный сотрудник";
+                    return "—";
                 }
 
                 string fullName = $"{_log.Staff.StaffFirstName} {_log.Staff.StaffLastName}".Trim();
-                return string.IsNullOrWhiteSpace(fullName) ? "Неизвестный сотрудник" : fullName;
+                return string.IsNullOrWhiteSpace(fullName) ? "—" : fullName;
             }
         }
         public string LogCategory => _log?.LogCategory ?? string.Empty;

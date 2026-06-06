@@ -5,10 +5,10 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              mc:Ignorable="d"
              Width="900"
-             MinHeight="1280"
+             MinHeight="1100"
              Background="{DynamicResource InvoiceBackgroundBrush}">
 
-    <Grid Margin="32,48,32,52" TextOptions.TextFormattingMode="Display">
+    <Grid Margin="32,0,32,0" TextOptions.TextFormattingMode="Display">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="18"/>
@@ -355,6 +355,6 @@
                        FontWeight="Bold"/>
         </StackPanel>
 
-        <Image Source="pack://application:,,,/Assets/IMSLogo.png" Height="200" VerticalAlignment="Top" Margin="10,150,650,0" Grid.Row="12"/>
+        <Image Source="pack://application:,,,/Assets/IMSLogo.png" Height="125" VerticalAlignment="Top" Margin="10,10,650,0" Grid.Row="12"/>
     </Grid>
 </UserControl>

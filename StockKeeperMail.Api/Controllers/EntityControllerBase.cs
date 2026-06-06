@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using StockKeeperMail.Api.Services;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using System;
 
 namespace StockKeeperMail.Api.Controllers
 {
@@ -46,8 +47,19 @@ namespace StockKeeperMail.Api.Controllers
         [HttpPut]
         public virtual async Task<IActionResult> Put([FromBody] TEntity entity)
         {
-            await _service.UpdateAsync(entity);
-            return Ok();
+            try
+            {
+                await _service.UpdateAsync(entity);
+                return Ok();
+            }
+            catch (KeyNotFoundException exception)
+            {
+                return NotFound(new { message = exception.Message });
+            }
+            catch (InvalidOperationException exception)
+            {
+                return BadRequest(new { message = exception.Message });
+            }
         }
 
         /// <summary>
@@ -56,8 +68,19 @@ namespace StockKeeperMail.Api.Controllers
         [HttpPost("delete")]
         public virtual async Task<IActionResult> Delete([FromBody] TEntity entity)
         {
-            await _service.DeleteAsync(entity);
-            return Ok();
+            try
+            {
+                await _service.DeleteAsync(entity);
+                return Ok();
+            }
+            catch (KeyNotFoundException exception)
+            {
+                return NotFound(new { message = exception.Message });
+            }
+            catch (InvalidOperationException exception)
+            {
+                return BadRequest(new { message = exception.Message });
+            }
         }
     }
 }

@@ -144,15 +144,7 @@ namespace StockKeeperMail.Desktop.ViewModels
             if (selectedCustomer == null)
             {
                 CustomerViewModel loadedCustomer = _customers.FirstOrDefault(c => c.CustomerID == order.CustomerID.ToString());
-                selectedCustomer = loadedCustomer?.Customer ?? new Customer
-                {
-                    CustomerID = order.CustomerID,
-                    CustomerFirstname = "Неизвестный",
-                    CustomerLastname = "покупатель",
-                    CustomerAddress = string.Empty,
-                    CustomerPhone = string.Empty,
-                    CustomerEmail = string.Empty
-                };
+                selectedCustomer = loadedCustomer?.Customer;
                 order.Customer = selectedCustomer;
             }
 

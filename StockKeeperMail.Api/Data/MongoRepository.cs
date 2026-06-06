@@ -58,21 +58,8 @@ namespace StockKeeperMail.Api.Data
 
         public async Task<TEntity> GetFirstOrDefaultByKeyAsync(TEntity entity)
         {
-            FilterDefinition<BsonDocument> filter = BuildFilterByKeys(entity);
-
-            foreach (IMongoCollection<BsonDocument> collection in _collections)
-            {
-                BsonDocument document = await collection
-                    .Find(filter)
-                    .FirstOrDefaultAsync();
-
-                if (document != null)
-                {
-                    return Map(document);
-                }
-            }
-
-            return null;
+            MongoDocumentReference reference = await FindDocumentReferenceAsync(entity);
+            return reference == null ? null : Map(reference.Document);
         }
 
         public async Task InsertAsync(TEntity entity)
@@ -83,52 +70,94 @@ namespace StockKeeperMail.Api.Data
 
         public async Task ReplaceAsync(TEntity entity)
         {
-            FilterDefinition<BsonDocument> filter = BuildFilterByKeys(entity);
-            BsonDocument replacement = ToDocument(entity);
-
-            foreach (IMongoCollection<BsonDocument> collection in _collections)
+            MongoDocumentReference reference = await FindDocumentReferenceAsync(entity);
+            if (reference == null)
             {
-                BsonDocument existing = await collection
-                    .Find(filter)
-                    .Project(Builders<BsonDocument>.Projection.Include("_id"))
-                    .FirstOrDefaultAsync();
-
-                if (existing != null)
-                {
-                    if (existing.TryGetValue("_id", out BsonValue existingId))
-                    {
-                        replacement["_id"] = existingId;
-                    }
-
-                    await collection.ReplaceOneAsync(filter, replacement, new ReplaceOptions { IsUpsert = false });
-                    return;
-                }
+                throw new KeyNotFoundException($"Документ типа {typeof(TEntity).Name} не найден для обновления. Проверь значение ключа.");
             }
 
-            await _collection.ReplaceOneAsync(filter, replacement, new ReplaceOptions { IsUpsert = true });
+            BsonDocument replacement = ToDocument(entity);
+            if (reference.Id != BsonNull.Value)
+            {
+                replacement["_id"] = reference.Id;
+            }
+
+            ReplaceOneResult result = await reference.Collection.ReplaceOneAsync(
+                reference.ExactFilter,
+                replacement,
+                new ReplaceOptions { IsUpsert = false });
+
+            if (result.MatchedCount == 0)
+            {
+                throw new KeyNotFoundException($"Документ типа {typeof(TEntity).Name} не найден для обновления по _id.");
+            }
         }
 
         public async Task DeleteAsync(TEntity entity)
         {
-            FilterDefinition<BsonDocument> filter = BuildFilterByKeys(entity);
-            foreach (IMongoCollection<BsonDocument> collection in _collections)
+            MongoDocumentReference reference = await FindDocumentReferenceAsync(entity);
+            if (reference == null)
             {
-                await collection.DeleteOneAsync(filter);
+                throw new KeyNotFoundException($"Документ типа {typeof(TEntity).Name} не найден для удаления. Проверь значение ключа.");
+            }
+
+            DeleteResult result = await reference.Collection.DeleteOneAsync(reference.ExactFilter);
+
+            if (result.DeletedCount == 0)
+            {
+                throw new KeyNotFoundException($"Документ типа {typeof(TEntity).Name} не найден для удаления по _id.");
             }
         }
 
         public async Task DeleteManyAsync(string columnName, object value)
         {
-            if (!_columns.Any(column => column.Name == columnName))
+            PropertyInfo column = _columns.FirstOrDefault(c => string.Equals(c.Name, columnName, StringComparison.OrdinalIgnoreCase));
+            if (column == null)
             {
                 throw new InvalidOperationException($"Поле {columnName} не найдено в типе {typeof(TEntity).Name}.");
             }
 
-            FilterDefinition<BsonDocument> filter = BuildValueFilter(columnName, value);
+            FilterDefinition<BsonDocument> filter = BuildFieldCandidatesFilter(columnName, value);
             foreach (IMongoCollection<BsonDocument> collection in _collections)
             {
-                await collection.DeleteManyAsync(filter);
+                DeleteResult result = await collection.DeleteManyAsync(filter);
+
+                if (result.DeletedCount > 0)
+                {
+                    continue;
+                }
+
+                List<BsonDocument> documents = await collection
+                    .Find(FilterDefinition<BsonDocument>.Empty)
+                    .ToListAsync();
+
+                foreach (BsonDocument document in documents)
+                {
+                    if (TryGetDocumentElementForField(document, columnName, out BsonElement element)
+                        && ValuesEquivalent(element.Value, value, column.PropertyType))
+                    {
+                        FilterDefinition<BsonDocument> exactFilter = document.TryGetValue("_id", out BsonValue existingId)
+                            ? Builders<BsonDocument>.Filter.Eq("_id", existingId)
+                            : Builders<BsonDocument>.Filter.Eq(element.Name, element.Value);
+
+                        await collection.DeleteOneAsync(exactFilter);
+                    }
+                }
             }
+        }
+
+        private static bool TryGetDocumentElementForField(BsonDocument document, string fieldName, out BsonElement element)
+        {
+            foreach (string candidateName in GetFieldNameCandidates(fieldName))
+            {
+                if (TryGetElementByName(document, candidateName, out element))
+                {
+                    return true;
+                }
+            }
+
+            element = default;
+            return false;
         }
 
         public async Task InsertManyAsync(IEnumerable<TEntity> entities)
@@ -154,6 +183,173 @@ namespace StockKeeperMail.Api.Data
             }
         }
 
+        private async Task<MongoDocumentReference> FindDocumentReferenceAsync(TEntity entity)
+        {
+            FilterDefinition<BsonDocument> filter = BuildFilterByKeys(entity);
+
+            foreach (IMongoCollection<BsonDocument> collection in _collections)
+            {
+                BsonDocument document = await collection
+                    .Find(filter)
+                    .FirstOrDefaultAsync();
+
+                if (document != null)
+                {
+                    return CreateDocumentReference(collection, document, entity);
+                }
+            }
+
+            // Fallback для старых/разных BSON GUID-форматов.
+            // MongoDB может хранить UUID как subtype 4, subtype 3 или строку; прямой фильтр
+            // не всегда совпадает с тем представлением, которое пришло из WPF-клиента.
+            // Поэтому дополнительно сравниваем ключи уже на стороне C# и затем обновляем/удаляем
+            // найденный документ по его настоящему _id.
+            foreach (IMongoCollection<BsonDocument> collection in _collections)
+            {
+                List<BsonDocument> documents = await collection
+                    .Find(FilterDefinition<BsonDocument>.Empty)
+                    .ToListAsync();
+
+                foreach (BsonDocument document in documents)
+                {
+                    if (DocumentMatchesKeys(document, entity))
+                    {
+                        return CreateDocumentReference(collection, document, entity);
+                    }
+                }
+            }
+
+            return null;
+        }
+
+        private MongoDocumentReference CreateDocumentReference(IMongoCollection<BsonDocument> collection, BsonDocument document, TEntity entity)
+        {
+            BsonValue id = document.TryGetValue("_id", out BsonValue existingId)
+                ? existingId
+                : BsonNull.Value;
+
+            FilterDefinition<BsonDocument> exactFilter = BuildExactDocumentFilter(document, entity);
+            return new MongoDocumentReference(collection, id, document, exactFilter);
+        }
+
+        private FilterDefinition<BsonDocument> BuildExactDocumentFilter(BsonDocument document, TEntity entity)
+        {
+            FilterDefinitionBuilder<BsonDocument> builder = Builders<BsonDocument>.Filter;
+
+            if (document.TryGetValue("_id", out BsonValue existingId))
+            {
+                return builder.Eq("_id", existingId);
+            }
+
+            List<FilterDefinition<BsonDocument>> filters = new List<FilterDefinition<BsonDocument>>();
+            foreach (PropertyInfo property in _keyColumns)
+            {
+                if (TryGetDocumentElementForKey(document, property, out BsonElement element))
+                {
+                    filters.Add(builder.Eq(element.Name, element.Value));
+                }
+                else
+                {
+                    filters.Add(BuildFieldCandidatesFilter(property.Name, property.GetValue(entity)));
+                }
+            }
+
+            return filters.Count == 1 ? filters[0] : builder.And(filters);
+        }
+
+        private bool DocumentMatchesKeys(BsonDocument document, TEntity entity)
+        {
+            foreach (PropertyInfo property in _keyColumns)
+            {
+                object expectedValue = property.GetValue(entity);
+                if (IsEmptyKeyValue(expectedValue))
+                {
+                    return false;
+                }
+
+                if (!AnyDocumentElementMatchesKey(document, property, expectedValue))
+                {
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
+        private bool AnyDocumentElementMatchesKey(BsonDocument document, PropertyInfo property, object expectedValue)
+        {
+            foreach (BsonElement element in GetDocumentElementsForKey(document, property))
+            {
+                if (ValuesEquivalent(element.Value, expectedValue, property.PropertyType))
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
+        private IEnumerable<BsonElement> GetDocumentElementsForKey(BsonDocument document, PropertyInfo property)
+        {
+            HashSet<string> usedNames = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
+
+            if (IsSingleGuidKey(property) && TryGetElementByName(document, "_id", out BsonElement idElement))
+            {
+                usedNames.Add(idElement.Name);
+                yield return idElement;
+            }
+
+            foreach (string fieldName in GetFieldNameCandidates(property.Name))
+            {
+                if (TryGetElementByName(document, fieldName, out BsonElement element) && usedNames.Add(element.Name))
+                {
+                    yield return element;
+                }
+            }
+        }
+
+        private bool TryGetDocumentElementForKey(BsonDocument document, PropertyInfo property, out BsonElement element)
+        {
+            if (IsSingleGuidKey(property))
+            {
+                if (TryGetElementByName(document, "_id", out element))
+                {
+                    return true;
+                }
+            }
+
+            foreach (string fieldName in GetFieldNameCandidates(property.Name))
+            {
+                if (TryGetElementByName(document, fieldName, out element))
+                {
+                    return true;
+                }
+            }
+
+            element = default;
+            return false;
+        }
+
+        private static bool TryGetElementByName(BsonDocument document, string fieldName, out BsonElement element)
+        {
+            if (document.TryGetElement(fieldName, out element))
+            {
+                return true;
+            }
+
+            foreach (BsonElement candidate in document.Elements)
+            {
+                if (string.Equals(candidate.Name, fieldName, StringComparison.OrdinalIgnoreCase))
+                {
+                    element = candidate;
+                    return true;
+                }
+            }
+
+            element = default;
+            return false;
+        }
+
         private FilterDefinition<BsonDocument> BuildFilterByKeys(TEntity entity)
         {
             if (entity == null)
@@ -167,19 +363,35 @@ namespace StockKeeperMail.Api.Data
             foreach (PropertyInfo property in _keyColumns)
             {
                 object value = property.GetValue(entity);
+                if (IsEmptyKeyValue(value))
+                {
+                    throw new InvalidOperationException($"Пустой ключ {property.Name} у типа {typeof(TEntity).Name}. Нельзя обновить или удалить документ без ключа.");
+                }
+
+                List<FilterDefinition<BsonDocument>> keyFilters = new List<FilterDefinition<BsonDocument>>();
+
                 if (IsSingleGuidKey(property))
                 {
-                    filters.Add(builder.Or(
-                        BuildValueFilter("_id", value),
-                        BuildValueFilter(property.Name, value)));
+                    keyFilters.Add(BuildValueFilter("_id", value));
                 }
-                else
-                {
-                    filters.Add(BuildValueFilter(property.Name, value));
-                }
+
+                keyFilters.Add(BuildFieldCandidatesFilter(property.Name, value));
+
+                filters.Add(keyFilters.Count == 1 ? keyFilters[0] : builder.Or(keyFilters));
             }
 
             return filters.Count == 1 ? filters[0] : builder.And(filters);
+        }
+
+        private static FilterDefinition<BsonDocument> BuildFieldCandidatesFilter(string fieldName, object value)
+        {
+            FilterDefinitionBuilder<BsonDocument> builder = Builders<BsonDocument>.Filter;
+            List<FilterDefinition<BsonDocument>> filters = GetFieldNameCandidates(fieldName)
+                .Distinct(StringComparer.OrdinalIgnoreCase)
+                .Select(candidate => BuildValueFilter(candidate, value))
+                .ToList();
+
+            return filters.Count == 1 ? filters[0] : builder.Or(filters);
         }
 
         private static FilterDefinition<BsonDocument> BuildValueFilter(string fieldName, object value)
@@ -192,7 +404,8 @@ namespace StockKeeperMail.Api.Data
                     builder.Eq(fieldName, new BsonBinaryData(guid, GuidRepresentation.Standard)),
                     builder.Eq(fieldName, new BsonBinaryData(guid, GuidRepresentation.CSharpLegacy)),
                     builder.Eq(fieldName, guid.ToString()),
-                    builder.Eq(fieldName, guid.ToString("D")));
+                    builder.Eq(fieldName, guid.ToString("D")),
+                    builder.Eq(fieldName, guid.ToString("N")));
             }
 
             return builder.Eq(fieldName, ToBsonValue(value));
@@ -209,9 +422,6 @@ namespace StockKeeperMail.Api.Data
 
                 if (IsSingleGuidKey(property))
                 {
-                    // Основной идентификатор MongoDB. Дополнительно сохраняем поле с исходным именем
-                    // (например StaffID/CustomerID), чтобы проект корректно работал и со старыми базами,
-                    // где ключ мог храниться не только в _id.
                     document["_id"] = bsonValue;
                     document[property.Name] = bsonValue;
                 }
@@ -304,9 +514,17 @@ namespace StockKeeperMail.Api.Data
                 string idVariant = propertyName.Substring(0, propertyName.Length - 2) + "Id";
                 yield return idVariant;
                 yield return char.ToLowerInvariant(idVariant[0]) + idVariant.Substring(1);
+                yield return char.ToUpperInvariant(idVariant[0]) + idVariant.Substring(1);
+            }
+
+            if (propertyName.EndsWith("Id", StringComparison.Ordinal))
+            {
+                string idVariant = propertyName.Substring(0, propertyName.Length - 2) + "ID";
+                yield return idVariant;
+                yield return char.ToLowerInvariant(idVariant[0]) + idVariant.Substring(1);
+                yield return char.ToUpperInvariant(idVariant[0]) + idVariant.Substring(1);
             }
         }
-
 
         private string BuildEntityKey(TEntity entity)
         {
@@ -330,6 +548,91 @@ namespace StockKeeperMail.Api.Data
             if (value == Guid.Empty)
             {
                 key.SetValue(entity, Guid.NewGuid());
+            }
+        }
+
+        private BsonValue GetFirstKeyValue(TEntity entity)
+        {
+            object value = _keyColumns[0].GetValue(entity);
+            return value == null ? BsonNull.Value : ToBsonValue(value);
+        }
+
+        private static bool IsEmptyKeyValue(object value)
+        {
+            if (value == null)
+            {
+                return true;
+            }
+
+            if (value is Guid guid)
+            {
+                return guid == Guid.Empty;
+            }
+
+            if (value is string text)
+            {
+                return string.IsNullOrWhiteSpace(text);
+            }
+
+            return false;
+        }
+
+        private static bool ValuesEquivalent(BsonValue actualValue, object expectedValue, Type expectedType)
+        {
+            if (actualValue == null || actualValue == BsonNull.Value)
+            {
+                return expectedValue == null;
+            }
+
+            Type targetType = Nullable.GetUnderlyingType(expectedType) ?? expectedType;
+
+            if (targetType == typeof(Guid))
+            {
+                if (expectedValue is Guid expectedGuid && TryReadGuid(actualValue, out Guid actualGuid))
+                {
+                    return actualGuid == expectedGuid;
+                }
+
+                return false;
+            }
+
+            if (TryFromBsonValue(actualValue, expectedType, out object convertedValue))
+            {
+                if (convertedValue == null || expectedValue == null)
+                {
+                    return convertedValue == expectedValue;
+                }
+
+                if (targetType == typeof(decimal))
+                {
+                    return Convert.ToDecimal(convertedValue, CultureInfo.InvariantCulture) == Convert.ToDecimal(expectedValue, CultureInfo.InvariantCulture);
+                }
+
+                if (targetType == typeof(double) || targetType == typeof(float))
+                {
+                    return Math.Abs(Convert.ToDouble(convertedValue, CultureInfo.InvariantCulture) - Convert.ToDouble(expectedValue, CultureInfo.InvariantCulture)) < 0.000001;
+                }
+
+                return string.Equals(
+                    Convert.ToString(convertedValue, CultureInfo.InvariantCulture),
+                    Convert.ToString(expectedValue, CultureInfo.InvariantCulture),
+                    StringComparison.OrdinalIgnoreCase);
+            }
+
+            return string.Equals(actualValue.ToString(), Convert.ToString(expectedValue, CultureInfo.InvariantCulture), StringComparison.OrdinalIgnoreCase);
+        }
+
+        private static bool TryReadGuid(BsonValue value, out Guid guid)
+        {
+            try
+            {
+                guid = ReadGuid(value);
+                return true;
+            }
+            catch
+            {
+                guid = Guid.Empty;
+                return false;
             }
         }
 
@@ -397,7 +700,7 @@ namespace StockKeeperMail.Api.Data
             {
                 return value.IsString
                     ? Enum.Parse(targetType, value.AsString)
-                    : Enum.ToObject(targetType, Convert.ToInt32(value));
+                    : Enum.ToObject(targetType, Convert.ToInt32(value.ToString(), CultureInfo.InvariantCulture));
             }
 
             if (targetType == typeof(Guid))
@@ -412,7 +715,7 @@ namespace StockKeeperMail.Api.Data
 
             if (targetType == typeof(int))
             {
-                return value.IsInt32 ? value.AsInt32 : int.Parse(value.ToString(), CultureInfo.InvariantCulture);
+                return value.IsInt32 ? value.AsInt32 : Convert.ToInt32(value.ToString(), CultureInfo.InvariantCulture);
             }
 
             if (targetType == typeof(long))
@@ -427,7 +730,7 @@ namespace StockKeeperMail.Api.Data
                     return Convert.ToInt64(value.AsInt32, CultureInfo.InvariantCulture);
                 }
 
-                return long.Parse(value.ToString(), CultureInfo.InvariantCulture);
+                return Convert.ToInt64(value.ToString(), CultureInfo.InvariantCulture);
             }
 
             if (targetType == typeof(decimal))
@@ -439,7 +742,7 @@ namespace StockKeeperMail.Api.Data
 
                 if (value.IsDouble)
                 {
-                    return Convert.ToDecimal(value.AsDouble);
+                    return Convert.ToDecimal(value.AsDouble, CultureInfo.InvariantCulture);
                 }
 
                 if (value.IsInt32)
@@ -464,7 +767,7 @@ namespace StockKeeperMail.Api.Data
 
                 if (value.IsDecimal128)
                 {
-                    return Convert.ToDouble(Decimal128.ToDecimal(value.AsDecimal128));
+                    return Convert.ToDouble(Decimal128.ToDecimal(value.AsDecimal128), CultureInfo.InvariantCulture);
                 }
 
                 return double.Parse(value.ToString(), CultureInfo.InvariantCulture);
@@ -503,6 +806,7 @@ namespace StockKeeperMail.Api.Data
             if (value.IsBsonBinaryData)
             {
                 BsonBinaryData binaryData = value.AsBsonBinaryData;
+
                 try
                 {
                     return binaryData.ToGuid(GuidRepresentation.Standard);
@@ -515,12 +819,34 @@ namespace StockKeeperMail.Api.Data
                     }
                     catch
                     {
+                        byte[] bytes = binaryData.Bytes;
+                        if (bytes != null && bytes.Length == 16)
+                        {
+                            return new Guid(bytes);
+                        }
+
                         return Guid.Parse(binaryData.ToString());
                     }
                 }
             }
 
             return Guid.Parse(value.ToString());
+        }
+
+        private sealed class MongoDocumentReference
+        {
+            public MongoDocumentReference(IMongoCollection<BsonDocument> collection, BsonValue id, BsonDocument document, FilterDefinition<BsonDocument> exactFilter)
+            {
+                Collection = collection;
+                Id = id;
+                Document = document;
+                ExactFilter = exactFilter;
+            }
+
+            public IMongoCollection<BsonDocument> Collection { get; }
+            public BsonValue Id { get; }
+            public BsonDocument Document { get; }
+            public FilterDefinition<BsonDocument> ExactFilter { get; }
         }
     }
 }

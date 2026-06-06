@@ -1,281 +1,225 @@
+# ВАЖНО: актуальная версия работает через MongoDB
+
+Для запуска требуется MongoDB. Проверка подключения выполняется через `BD/check-mongodb-connection.js`, а демонстрационное заполнение базы — через `BD/seed-stockkeepermail-until-today.js`.
+
+---
+
+<div id="top"></div>
+
+<div align="center">
+
 # StockKeeperMail
 
-**StockKeeperMail** — корпоративная информационная система для учета складских запасов, товаров, заказов, прихода товара, клиентов, поставщиков, сотрудников, внутренних сообщений, отчетности и журнала действий.
+Клиент-серверная система складского учета на WPF, ASP.NET Core Web API и MongoDB
 
-Проект реализован как клиент-серверное приложение:
+![C#](https://img.shields.io/badge/C%23-239120?style=for-the-badge&logo=c-sharp&logoColor=white)
+![.NET](https://img.shields.io/badge/.NET-10-512BD4?style=for-the-badge&logo=.net&logoColor=white)
+![WPF](https://img.shields.io/badge/WPF-Windows%20Desktop-5C2D91?style=for-the-badge&logo=windows&logoColor=white)
+![ASP.NET Core](https://img.shields.io/badge/ASP.NET_Core-Web_API-512BD4?style=for-the-badge&logo=.net&logoColor=white)
+![MongoDB](https://img.shields.io/badge/MongoDB-3.7.1-47A248?style=for-the-badge&logo=mongodb&logoColor=white)
+![MVVM](https://img.shields.io/badge/MVVM-CommunityToolkit-0A84FF?style=for-the-badge)
 
-- **StockKeeperMail.Desktop** — WPF-клиент;
-- **StockKeeperMail.Api** — ASP.NET Core Web API;
-- **StockKeeperMail.Contracts** — общие модели данных;
-- **MongoDB** — основное хранилище данных.
+</div>
 
 ---
 
 ## Содержание
 
-- [Назначение проекта](#назначение-проекта)
-- [Основной функционал](#основной-функционал)
-- [Добавленный функционал](#добавленный-функционал)
+- [О проекте](#о-проекте)
+- [Ключевые возможности](#ключевые-возможности)
+- [Скриншоты интерфейса](#скриншоты-интерфейса)
 - [Архитектура решения](#архитектура-решения)
 - [Структура проекта](#структура-проекта)
 - [Технологический стек](#технологический-стек)
-- [Требования для запуска](#требования-для-запуска)
-- [Настройка MongoDB](#настройка-mongodb)
-- [Заполнение базы данных](#заполнение-базы-данных)
-- [Запуск проекта](#запуск-проекта)
-- [Проверка API и базы данных](#проверка-api-и-базы-данных)
-- [Учетные записи для входа](#учетные-записи-для-входа)
-- [Основные API-маршруты](#основные-api-маршруты)
+- [Используемые библиотеки](#используемые-библиотеки)
+- [Быстрый старт](#быстрый-старт)
+- [Настройка конфигурации](#настройка-конфигурации)
+- [Добавление роли и сотрудника](#добавление-роли-и-сотрудника)
 - [Тестирование](#тестирование)
-- [Возможные проблемы](#возможные-проблемы)
+- [Проверка API](#проверка-api)
+- [XML--Summary-документация](#xml--summary-документация)
 
----
+## О проекте
 
-## Назначение проекта
+**StockKeeperMail** — это система для управления складскими остатками, товарами, заказами, приходом товара, поставщиками, ролями пользователей, сотрудниками, локациями хранения, внутренними сообщениями, отчетностью и журналом действий.
 
-Система предназначена для автоматизации работы ИП Бахолдина О.Н. «ВолгоМед».
+Текущая версия проекта переведена на клиент-серверную архитектуру:
 
-Приложение позволяет централизованно хранить и обрабатывать сведения о товарах, складских остатках, заказах, поставщиках, клиентах, сотрудниках, ролях, внутренних сообщениях и действиях пользователей.
+**WPF Desktop → ASP.NET Core Web API → MongoDB**
 
-Основная цель проекта — заменить разрозненный учет единой системой, в которой данные хранятся в MongoDB и доступны через REST API.
+> [!IMPORTANT]
+> В рабочем запуске участвуют три основных проекта:
+> - **StockKeeperMail.Desktop** — WPF-клиент
+> - **StockKeeperMail.Api** — ASP.NET Core Web API
+> - **StockKeeperMail.Contracts** — общий модуль моделей, используемый Desktop и API
 
----
 
-## Основной функционал
+## Ключевые возможности
 
 ### Авторизация и роли
+- вход в систему по логину и паролю
+- ролевая модель доступа
+- гибкое управление правами на просмотр, добавление, изменение и удаление данных
 
-- вход пользователя по логину и паролю;
-- разграничение доступа по ролям;
-- настройка прав на просмотр, добавление, редактирование и удаление данных;
-- отдельные роли для администратора, управляющего, продавца и кладовщика.
+### Работа со складом и товарами
+- управление товарами, категориями и поставщиками
+- учет остатков и доступности товаров
+- размещение товаров по локациям хранения
+- учет бракованной продукции
 
-### Товары и справочники
+### Работа с заказами
+- создание и редактирование заказов
+- хранение строк заказа
+- расчет общей суммы заказа
+- управление статусами доставки
 
-- учет товаров;
-- учет категорий;
-- учет поставщиков;
-- учет клиентов;
-- учет сотрудников;
-- учет складов и локаций хранения;
-- контроль количества товара;
-- работа со статусами доступности.
+### Управление персоналом и внутренними процессами
+- ведение сотрудников и ролей
+- внутренние сообщения между сотрудниками
+- журналирование действий
+- просмотр основных данных через единый клиентский интерфейс
 
-### Складской учет
+## Скриншоты интерфейса
 
-- размещение товара по складам и локациям;
-- просмотр остатков;
-- перемещение товара;
-- списание товара;
-- фиксация бракованной продукции;
-- журналирование складских операций.
+### LoginView
+![LoginView](images/LoginView.png)
 
-### Заказы
+### MainWindow
+![MainWindow](images/MainWindow.png)
 
-- создание заказов;
-- редактирование заказов;
-- удаление заказов;
-- добавление строк заказа;
-- расчет суммы заказа;
-- учет статуса доставки;
-- печать счета и накладной.
+### CategoryListView
+![CategoryListView](images/CategoryListView.png)
 
-### Внутренняя электронная почта
+### RoleFormView
+![RoleFormView](images/RoleFormView.png)
 
-- отправка внутренних сообщений сотрудникам;
-- просмотр входящих сообщений;
-- просмотр отправленных сообщений;
-- отметка сообщений как прочитанных;
-- хранение сообщений в MongoDB.
-
-### Журнал событий
-
-- фиксация входа пользователя;
-- фиксация создания, изменения и удаления записей;
-- просмотр действий сотрудников;
-- контроль операций с товарами, заказами, приходом и складскими данными.
-
-### Отчеты и статистика
-
-- формирование отчетов;
-- просмотр статистики заказов;
-- фильтрация статистики по периоду;
-- подготовка данных для анализа работы предприятия.
-
----
-
-## Добавленный функционал
-
-В актуальной версии проекта добавлены и учтены следующие возможности.
-
-### Приход товара
-
-Добавлен отдельный модуль регистрации поступления товара от поставщика на склад.
-
-Для прихода товара используются поля:
-
-- `PurchaseReceiptID` — идентификатор записи прихода;
-- `SupplierID` — поставщик;
-- `ProductID` — товар;
-- `WarehouseID` — склад поступления;
-- `DocumentNumber` — номер документа поставщика;
-- `Quantity` — количество поступившего товара;
-- `UnitPrice` — закупочная цена за единицу;
-- `TotalAmount` — итоговая сумма прихода;
-- `PurchasedAt` — дата и время регистрации прихода;
-- `Comment` — комментарий.
-
-Данные хранятся в коллекции MongoDB:
-
-```text
-purchase-receipts
-```
-
-### Новые поля заказа
-
-В заказ добавлены дополнительные поля:
-
-- `ExternalOrderNumber` — внешний номер заказа;
-- `IsOnlineOrder` — признак онлайн-заказа;
-- `DeliveryAddress` — адрес доставки.
-
-Эти поля используются при оформлении заказа, отображении списка заказов и печати документов.
-
-### Фильтр статистики заказов
-
-В главном окне добавлен фильтр статистики заказов по периоду:
-
-- день;
-- месяц;
-- год;
-- весь период.
-
-Для корректной демонстрации статистики seed-файл содержит заказы с неравномерным распределением по месяцам.
-
-### Проверка подключения к MongoDB
-
-API теперь выполняет реальную проверку подключения к MongoDB через команду `ping`.
-
-Если MongoDB недоступна, API не должен запускаться как будто система работает.
-
-Desktop-клиент также проверяет не только доступность API, но и состояние базы данных через `/api/health`.
-
-### Исправление CRUD-операций
-
-Операции обновления и удаления работают через MongoDB и выполняются по реальному `_id` документа.
-
-Репозиторий учитывает разные варианты хранения `Guid`:
-
-- стандартный `UUID`;
-- legacy `BinData`;
-- строковый GUID;
-- поля вида `ProductID`, `ProductId`, `productID`, `productId`;
-- поле `_id`.
-
----
+### PrintInvoiceView
+![PrintInvoiceView](images/PrintInvoiceView.png)
 
 ## Архитектура решения
 
-Проект построен по клиент-серверной архитектуре.
-
 ```text
-WPF Desktop
-    |
-    | HTTP / JSON
-    v
-ASP.NET Core Web API
-    |
-    | MongoDB.Driver
-    v
-MongoDB
+WPF Desktop (StockKeeperMail.Desktop)
+        |
+        | HTTP / JSON
+        v
+ASP.NET Core Web API (StockKeeperMail.Api)
+        |
+        | MongoDB.Driver
+        v
+MongoDB (StockKeeperMailDb)
 ```
 
-Клиентское приложение не обращается к базе данных напрямую. Все операции выполняются через REST API.
-
----
+### Что изменено относительно старой версии
+- прямое подключение WPF-клиента к SQL Server убрано
+- доступ к данным вынесен в `StockKeeperMail.Api`
+- общие модели вынесены в `StockKeeperMail.Contracts`
+- клиент работает через `HttpClient`
+- данные хранятся в MongoDB
+- API проверяет доступность MongoDB при запуске
+- Desktop-клиент проверяет состояние API и базы через `/api/health`
+- операции добавления, обновления и удаления выполняются через REST API
 
 ## Структура проекта
 
 ```text
-StockKeeperMailAPI/
-│
-├── StockKeeperMail.Api/
-│   └── ASP.NET Core Web API, контроллеры, сервисы, MongoDB-репозитории
-│
-├── StockKeeperMail.Desktop/
-│   └── WPF-клиент, ViewModel, XAML-окна, REST-клиент
-│
-├── StockKeeperMail.Contracts/
-│   └── общие модели данных для API и Desktop
-│
-├── StockKeeperMail.Api.Tests/
-│   └── тесты серверной части
-│
-├── StockKeeperMail.Desktop.Tests/
-│   └── тесты клиентской логики
-│
-├── BD/
-│   └── скрипты MongoDB для проверки, миграции и заполнения базы
-│
-├── Xml/
-│   └── XML-документация
-│
-└── README.md
+StockKeeperMail/
+├── StockKeeperMail.Api/               # ASP.NET Core Web API
+├── StockKeeperMail.Contracts/         # Общие модели для API и Desktop
+├── StockKeeperMail.Desktop/           # WPF-клиент
+├── StockKeeperMail.Database/          # Старый SQL-проект
+├── Xml/                               # XML-документация по модулям
+├── images/                            # Скриншоты интерфейса
+├── README.md
+└── StockKeeperMail.slnx
 ```
-
----
 
 ## Технологический стек
 
-- C#;
-- .NET 10;
-- WPF;
-- XAML;
-- MVVM;
-- CommunityToolkit.Mvvm;
-- ASP.NET Core Web API;
-- MongoDB;
-- MongoDB.Driver;
-- MaterialDesignThemes;
-- LiveCharts;
-- REST API;
-- JSON.
+- **Язык программирования:** C#
+- **Платформа:** .NET 10
+- **Клиент:** WPF + XAML + MVVM
+- **Сервер:** ASP.NET Core Web API
+- **Транспорт:** HTTP / JSON
+- **Хранение данных:** MongoDB
+- **Общий модуль моделей:** StockKeeperMail.Contracts
 
----
+## Используемые библиотеки
 
-## Требования для запуска
+### Desktop
+- [CommunityToolkit.Mvvm](https://www.nuget.org/packages/CommunityToolkit.Mvvm/)
+- [LiveCharts.Wpf.Core](https://www.nuget.org/packages/LiveCharts.Wpf.Core/)
+- [MaterialDesignThemes](https://www.nuget.org/packages/MaterialDesignThemes/)
+- [MaterialDesignColors](https://www.nuget.org/packages/MaterialDesignColors/)
+- [Microsoft.Extensions.Configuration](https://www.nuget.org/packages/Microsoft.Extensions.Configuration/)
+- [Microsoft.Extensions.Configuration.Json](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.Json/)
+- [Microsoft.Extensions.Hosting](https://www.nuget.org/packages/Microsoft.Extensions.Hosting/)
 
-Перед запуском должны быть установлены:
+### API и контракты
+- [MongoDB.Driver](https://www.nuget.org/packages/MongoDB.Driver/)
+- [MongoDB.Bson](https://www.nuget.org/packages/MongoDB.Bson/)
 
-- Visual Studio 2022 или новее;
-- .NET 10 SDK;
-- MongoDB Community Server;
-- MongoDB Shell `mongosh`;
-- MongoDB Compass — необязательно, но удобно для просмотра данных.
+### Платформа и фреймворки
+- [ASP.NET Core Web API](https://learn.microsoft.com/aspnet/core/web-api/)
+- [Windows Presentation Foundation (WPF)](https://learn.microsoft.com/dotnet/desktop/wpf/)
 
----
+## Быстрый старт
 
-## Настройка MongoDB
+### Требования
 
-По умолчанию API использует подключение:
+- Visual Studio 2022 или новее
+- .NET 10 SDK
+- MongoDB Community Server
+- MongoDB Compass, опционально, для просмотра данных
 
-```text
-mongodb://localhost:27017
+### Запуск через Visual Studio
+
+1. Открой `StockKeeperMail.slnx`
+2. Восстанови NuGet-пакеты
+3. Установи несколько стартовых проектов:
+   - `StockKeeperMail.Api`
+   - `StockKeeperMail.Desktop`
+4. Убедись, что API стартует раньше Desktop-клиента
+5. Запусти решение
+
+### Запуск через терминал
+
+#### 1. Запусти MongoDB
+
+Убедись, что сервер MongoDB доступен по адресу `mongodb://localhost:27017`
+
+#### 2. Запусти API
+
+```powershell
+cd StockKeeperMail.Api
+dotnet restore
+dotnet run
 ```
 
-Имя базы данных:
+Ожидаемый результат:
 
 ```text
-StockKeeperMailDb
+Now listening on: http://localhost:5194
 ```
 
-Настройка находится в файле:
+#### 3. Запусти Desktop-клиент
 
-```text
-StockKeeperMail.Api/appsettings.json
+В новом окне терминала:
+
+```powershell
+cd StockKeeperMail.Desktop
+dotnet restore
+dotnet run
 ```
 
-Пример:
+> [!IMPORTANT]
+> `StockKeeperMail.Contracts` запускается не отдельно, а подключается как общий проект-зависимость для Desktop и API
+
+## Настройка конфигурации
+
+### Настройка API
+
+Файл: `StockKeeperMail.Api/appsettings.json`
 
 ```json
 {
@@ -293,13 +237,9 @@ StockKeeperMail.Api/appsettings.json
 }
 ```
 
-Адрес API для WPF-клиента задается в файле:
+### Настройка Desktop-клиента
 
-```text
-StockKeeperMail.Desktop/apiconfig.json
-```
-
-Пример:
+Файл: `StockKeeperMail.Desktop/apiconfig.json`
 
 ```json
 {
@@ -309,133 +249,170 @@ StockKeeperMail.Desktop/apiconfig.json
 }
 ```
 
----
+> [!NOTE]
+> Значение `BaseUrl` в `apiconfig.json` должно совпадать с адресом, на котором запущен `StockKeeperMail.Api`
 
-## Заполнение базы данных
+## Добавление роли и сотрудника
 
-В папке `BD` находятся скрипты для MongoDB.
+После первого запуска база MongoDB может быть пустой. Для быстрого заполнения можно использовать seed-файл `BD/seed-stockkeepermail-until-today.js`. Если seed не запускался, можно вручную создать хотя бы одну роль и одного сотрудника через API.
 
-### Проверка подключения
+> [!WARNING]
+> Seed-файл очищает основные коллекции и заново заполняет демонстрационные данные.
 
-```powershell
-cd BD
-mongosh "mongodb://localhost:27017/StockKeeperMailDb" check-mongodb-connection.js
-```
-
-### Миграция существующей базы
+### 1. Добавление роли
 
 ```powershell
-cd BD
-mongosh "mongodb://localhost:27017/StockKeeperMailDb" update-predefense-mongodb.js
+Invoke-RestMethod \
+  -Method Post \
+  -Uri "http://localhost:5194/api/roles" \
+  -ContentType "application/json" \
+  -Body @'
+{
+  "RoleID": "11111111-1111-1111-1111-111111111111",
+  "RoleName": "Administrator",
+  "RoleStatus": "Active",
+  "RoleDescription": "System administrator",
+  "OrdersView": true,
+  "OrdersAdd": true,
+  "OrdersEdit": true,
+  "OrdersDelete": true,
+  "CustomersView": true,
+  "CustomersAdd": true,
+  "CustomersEdit": true,
+  "CustomersDelete": true,
+  "ProductsView": true,
+  "ProductsAdd": true,
+  "ProductsEdit": true,
+  "ProductsDelete": true,
+  "StoragesView": true,
+  "StoragesAdd": true,
+  "StoragesEdit": true,
+  "StoragesDelete": true,
+  "DefectivesView": true,
+  "DefectivesAdd": true,
+  "DefectivesEdit": true,
+  "DefectivesDelete": true,
+  "CategoriesView": true,
+  "CategoriesAdd": true,
+  "CategoriesEdit": true,
+  "CategoriesDelete": true,
+  "LocationsView": true,
+  "LocationsAdd": true,
+  "LocationsEdit": true,
+  "LocationsDelete": true,
+  "SuppliersView": true,
+  "SuppliersAdd": true,
+  "SuppliersEdit": true,
+  "SuppliersDelete": true,
+  "RolesView": true,
+  "RolesAdd": true,
+  "RolesEdit": true,
+  "RolesDelete": true,
+  "StaffsView": true,
+  "StaffsAdd": true,
+  "StaffsEdit": true,
+  "StaffsDelete": true,
+  "LogsView": true,
+  "LogsAdd": true,
+  "LogsEdit": true,
+  "LogsDelete": true
+}
+'@
 ```
 
-Миграция не должна очищать базу. Она добавляет недостающие поля, индексы и коллекции.
+### 2. Добавление сотрудника
 
-### Полное заполнение демонстрационными данными до 06.06.2026
+```powershell
+Invoke-RestMethod \
+  -Method Post \
+  -Uri "http://localhost:5194/api/staff" \
+  -ContentType "application/json" \
+  -Body @'
+{
+  "StaffID": "22222222-2222-2222-2222-222222222222",
+  "RoleID": "11111111-1111-1111-1111-111111111111",
+  "StaffFirstName": "Admin",
+  "StaffLastName": "User",
+  "StaffAddress": "Office",
+  "StaffPhone": "+70000000000",
+  "StaffEmail": "admin@local.test",
+  "StaffUsername": "admin",
+  "StaffPassword": "admin123"
+}
+'@
+```
 
-Актуальный seed-файл:
+### 3. Проверка, что записи созданы
+
+```powershell
+Invoke-RestMethod -Method Get -Uri "http://localhost:5194/api/roles"
+Invoke-RestMethod -Method Get -Uri "http://localhost:5194/api/staff"
+```
+
+### 4. Данные для входа
 
 ```text
-BD/seed-stockkeepermail-until-today.js
+Логин: admin
+Пароль: admin123
 ```
 
-Запуск:
+## Тестирование
+
+В проект включены два отдельных тестовых проекта:
+
+- **StockKeeperMail.Api.Tests** — автоматизированные тесты серверной части ASP.NET Core Web API.
+- **StockKeeperMail.Desktop.Tests** — автоматизированные тесты клиентской части WPF и вспомогательной бизнес-логики.
+
+Тесты позволяют проверить корректность базовых сценариев работы приложения после изменений в коде и снизить риск регрессий при доработке проекта.
+
+### Что покрыто тестами
+
+#### Серверная часть
+- проверка сопоставления сущностей с маршрутами API;
+- проверка построения фильтра по ключевым полям сущностей;
+- проверка health-check endpoint `GET /api/health`.
+
+#### Клиентская часть
+- проверка сопоставления маршрутов API;
+- проверка поиска ключевых свойств сущностей;
+- проверка событий `AuthenticationStore`;
+- проверка переноса прав роли в `RolePrivilegesHelper`;
+- проверка аутентификации пользователя;
+- проверка генерации Excel XML и отчетных документов.
+
+### Как запускать тесты
+
+Из корня решения выполните:
 
 ```powershell
-cd BD
-mongosh "mongodb://localhost:27017/StockKeeperMailDb" seed-stockkeepermail-until-today.js
+dotnet test
 ```
 
-Скрипт полностью очищает основные коллекции и заполняет базу заново.
-
-Период данных:
-
-```text
-01.02.2026 — 06.06.2026
-```
-
-Распределение заказов сделано неравномерным:
-
-| Месяц | Количество заказов |
-|---|---:|
-| Февраль 2026 | 18 |
-| Март 2026 | 37 |
-| Апрель 2026 | 24 |
-| Май 2026 | 46 |
-| Июнь 2026 до 06.06.2026 | 15 |
-
-В seed входят:
-
-- 140 заказов;
-- 256 строк заказов;
-- 54 записи прихода товара;
-- 20 товаров;
-- 30 клиентов;
-- 4 склада или магазина;
-- 20 локаций;
-- внутренние сообщения;
-- журнал событий;
-- брак;
-- роли и сотрудники.
-
-> Важно: seed-файл удаляет старые данные из основных коллекций. Перед запуском убедитесь, что текущие данные можно заменить.
-
----
-
-## Запуск проекта
-
-### 1. Запустить MongoDB
+Запуск только серверных тестов:
 
 ```powershell
-net start MongoDB
+dotnet test .\StockKeeperMail.Api.Tests\StockKeeperMail.Api.Tests.csproj
 ```
 
-Если MongoDB запущена не как служба, запустите ее вручную через `mongod`.
-
-### 2. Проверить MongoDB
+Запуск только тестов desktop-клиента:
 
 ```powershell
-cd BD
-mongosh "mongodb://localhost:27017/StockKeeperMailDb" check-mongodb-connection.js
+dotnet test .\StockKeeperMail.Desktop.Tests\StockKeeperMail.Desktop.Tests.csproj
 ```
 
-### 3. Запустить API
+### Дополнительно
 
-```powershell
-cd StockKeeperMail.Api
-dotnet restore
-dotnet run
-```
+В корне проекта приложен файл [TESTING_GUIDE.md](TESTING_GUIDE.md), в котором кратко описаны состав тестов, команды запуска и рекомендации по подготовке скриншотов для раздела дипломного проекта «Тестирование и отладка».
 
-Ожидаемый адрес API:
+## Проверка API
 
-```text
-http://localhost:5194
-```
-
-### 4. Запустить Desktop-клиент
-
-В отдельном терминале:
-
-```powershell
-cd StockKeeperMail.Desktop
-dotnet restore
-dotnet run
-```
-
-Также можно запускать API и Desktop из Visual Studio как несколько стартовых проектов.
-
----
-
-## Проверка API и базы данных
-
-Проверка состояния API и MongoDB:
+Для быстрой проверки доступности API открой:
 
 ```text
 http://localhost:5194/api/health
 ```
 
-Корректный ответ:
+Если сервис и MongoDB запущены корректно, endpoint вернет успешный ответ со статусом API и базы данных:
 
 ```json
 {
@@ -446,128 +423,23 @@ http://localhost:5194/api/health
 }
 ```
 
-Если MongoDB выключена или строка подключения неправильная, API должен вернуть ошибку или остановиться при запуске.
+Дополнительно в API используется маршрут `api/purchase-receipts` для работы с приходом товара.
+
+Удаление сущностей выполняется через маршрут `POST /api/<route>/delete`.
+
+## XML / Summary-документация
+
+В проекте подключена генерация XML-документации для публичных типов и членов. Готовые файлы размещаются в папке `Xml`.
+
+- [Документация API-модуля](Xml/StockKeeperMail.Api.xml)
+- [Документация Contracts-модуля](Xml/StockKeeperMail.Contracts.xml)
+- [Документация Desktop-модуля](Xml/StockKeeperMail.Desktop.xml)
+
+> [!TIP]
+> XML-файлы удобно использовать для навигации по публичному API проекта, проверки summary-комментариев и последующей публикации документации
 
 ---
 
-## Учетные записи для входа
-
-После запуска seed-файла доступны тестовые пользователи.
-
-| Роль | Логин | Пароль |
-|---|---|---|
-| Админ | `admin` | `admin123` |
-| Управляющий магазином | `manager` | `manager123` |
-| Продавец-консультант | `seller1` | `seller123` |
-| Продавец-консультант | `seller2` | `seller123` |
-| Продавец-консультант | `seller3` | `seller123` |
-| Кладовщик | `warehouse` | `stock123` |
-
----
-
-## Основные API-маршруты
-
-| Раздел | Метод | Маршрут |
-|---|---|---|
-| Проверка API и БД | GET | `/api/health` |
-| Роли | GET/POST/PUT | `/api/roles` |
-| Сотрудники | GET/POST/PUT | `/api/staff` |
-| Категории | GET/POST/PUT | `/api/categories` |
-| Поставщики | GET/POST/PUT | `/api/suppliers` |
-| Клиенты | GET/POST/PUT | `/api/customers` |
-| Товары | GET/POST/PUT | `/api/products` |
-| Склады | GET/POST/PUT | `/api/warehouses` |
-| Локации | GET/POST/PUT | `/api/locations` |
-| Остатки по локациям | GET/POST/PUT | `/api/product-locations` |
-| Заказы | GET/POST/PUT | `/api/orders` |
-| Строки заказов | GET/POST/PUT | `/api/order-details` |
-| Приход товара | GET/POST/PUT | `/api/purchase-receipts` |
-| Брак | GET/POST/PUT | `/api/defectives` |
-| Сообщения | GET/POST/PUT | `/api/messages` |
-| Журнал | GET/POST/PUT | `/api/logs` |
-
-Удаление выполняется через маршрут:
-
-```text
-POST /api/<route>/delete
-```
-
-Например:
-
-```text
-POST /api/products/delete
-```
-
----
-
-## Тестирование
-
-Для запуска всех тестов:
-
-```powershell
-dotnet test
-```
-
-Для запуска тестов API:
-
-```powershell
-dotnet test .\StockKeeperMail.Api.Tests\StockKeeperMail.Api.Tests.csproj
-```
-
-Для запуска тестов Desktop:
-
-```powershell
-dotnet test .\StockKeeperMail.Desktop.Tests\StockKeeperMail.Desktop.Tests.csproj
-```
-
----
-
-## Возможные проблемы
-
-### API не запускается
-
-Проверьте, что MongoDB запущена:
-
-```powershell
-net start MongoDB
-```
-
-Также проверьте строку подключения в `StockKeeperMail.Api/appsettings.json`.
-
-### Desktop не открывается
-
-Desktop проверяет доступность API и MongoDB. Сначала запустите API и проверьте:
-
-```text
-http://localhost:5194/api/health
-```
-
-### Данные не отображаются
-
-Проверьте, что база заполнена:
-
-```powershell
-cd BD
-mongosh "mongodb://localhost:27017/StockKeeperMailDb" seed-stockkeepermail-until-today.js
-```
-
-### Изменение или удаление не работает
-
-Убедитесь, что используется актуальная версия проекта. CRUD-операции должны выполняться через API и MongoDB, без локальных данных и без mock-режима.
-
-### Ошибка порта 5194
-
-Если порт занят, измените адрес в:
-
-```text
-StockKeeperMail.Api/appsettings.json
-StockKeeperMail.Desktop/apiconfig.json
-```
-
----
-
-## Примечание
-
-В актуальной версии приложение работает только через REST API и MongoDB.
-
-Локальные демонстрационные данные в клиенте не используются. Все данные должны храниться в базе MongoDB.
+<div align="right">
+  <a href="#top">Наверх ↑</a>
+</div>

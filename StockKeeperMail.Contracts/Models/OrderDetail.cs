@@ -1,5 +1,3 @@
-using MongoDB.Bson;
-using MongoDB.Bson.Serialization.Attributes;
 using System;
 using System.ComponentModel.DataAnnotations;
 
@@ -8,7 +6,6 @@ namespace StockKeeperMail.Database.Models
     /// <summary>
     /// Представляет строку заказа с товаром, количеством и суммой.
     /// </summary>
-    [BsonIgnoreExtraElements]
     public class OrderDetail
     {
         /// <summary>
@@ -31,19 +28,16 @@ namespace StockKeeperMail.Database.Models
         /// <summary>
         /// Сумма по строке заказа.
         /// </summary>
-        [BsonRepresentation(BsonType.Decimal128)]
         public decimal OrderDetailAmount { get; set; }
 
         /// <summary>
         /// Связанный товар.
         /// </summary>
-        [BsonIgnore]
         public Product Product { get; set; }
 
         /// <summary>
         /// Связанный заказ.
         /// </summary>
-        [BsonIgnore]
         public Order Order { get; set; }
     }
 }

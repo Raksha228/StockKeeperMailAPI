@@ -1,4 +1,3 @@
-using MongoDB.Bson.Serialization.Attributes;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -8,14 +7,12 @@ namespace StockKeeperMail.Database.Models
     /// <summary>
     /// Представляет сотрудника, работающего в системе.
     /// </summary>
-    [BsonIgnoreExtraElements]
     public class Staff
     {
         /// <summary>
         /// Уникальный идентификатор сотрудника.
         /// </summary>
         [Key]
-        [BsonId]
         public Guid StaffID { get; set; }
 
         /// <summary>
@@ -54,19 +51,16 @@ namespace StockKeeperMail.Database.Models
         /// <summary>
         /// Связанная роль сотрудника.
         /// </summary>
-        [BsonIgnore]
         public Role Role { get; set; }
 
         /// <summary>
         /// Коллекция сообщений, отправленных сотрудником.
         /// </summary>
-        [BsonIgnore]
         public ICollection<InternalMessage> SentMessages { get; set; }
 
         /// <summary>
         /// Коллекция сообщений, полученных сотрудником.
         /// </summary>
-        [BsonIgnore]
         public ICollection<InternalMessage> ReceivedMessages { get; set; }
     }
 }

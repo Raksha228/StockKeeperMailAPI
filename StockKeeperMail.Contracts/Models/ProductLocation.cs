@@ -1,4 +1,3 @@
-using MongoDB.Bson.Serialization.Attributes;
 using System;
 using System.ComponentModel.DataAnnotations;
 
@@ -7,7 +6,6 @@ namespace StockKeeperMail.Database.Models
     /// <summary>
     /// Представляет связь между товаром и локацией его хранения.
     /// </summary>
-    [BsonIgnoreExtraElements]
     public class ProductLocation
     {
         /// <summary>
@@ -30,13 +28,11 @@ namespace StockKeeperMail.Database.Models
         /// <summary>
         /// Связанная локация.
         /// </summary>
-        [BsonIgnore]
         public Location Location { get; set; }
 
         /// <summary>
         /// Связанный товар.
         /// </summary>
-        [BsonIgnore]
         public Product Product { get; set; }
     }
 }

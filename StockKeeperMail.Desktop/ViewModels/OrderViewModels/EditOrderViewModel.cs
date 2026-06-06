@@ -1,4 +1,4 @@
-﻿using CommunityToolkit.Mvvm.Input;
+using CommunityToolkit.Mvvm.Input;
 using StockKeeperMail.Database.Models;
 using StockKeeperMail.Desktop.DAL;
 using StockKeeperMail.Desktop.Stores;
@@ -54,6 +54,33 @@ namespace StockKeeperMail.Desktop.ViewModels
         public string OrderTotal
         {
             get { return _orderTotal; }
+        }
+
+        private string _externalOrderNumber;
+
+        [Required(ErrorMessage = "Внешний номер заказа обязателен для заполнения")]
+        [MaxLength(100, ErrorMessage = "Внешний номер заказа должен содержать не более 100 символов")]
+        public string ExternalOrderNumber
+        {
+            get { return _externalOrderNumber; }
+            set { SetProperty(ref _externalOrderNumber, value, true); }
+        }
+
+        private bool _isOnlineOrder;
+
+        public bool IsOnlineOrder
+        {
+            get { return _isOnlineOrder; }
+            set { SetProperty(ref _isOnlineOrder, value); }
+        }
+
+        private string _deliveryAddress;
+
+        [Required(ErrorMessage = "Адрес доставки обязателен для заполнения")]
+        public string DeliveryAddress
+        {
+            get { return _deliveryAddress; }
+            set { SetProperty(ref _deliveryAddress, value, true); }
         }
 
         private ViewModelBase _dialogViewModel;
@@ -113,11 +140,32 @@ namespace StockKeeperMail.Desktop.ViewModels
         /// <param name="order">Заказ, чьи значения используются.</param>
         private void SetInitialValues(Order order)
         {
-            _customer = new CustomerViewModel(order.Customer);
+            Customer selectedCustomer = order.Customer;
+            if (selectedCustomer == null)
+            {
+                CustomerViewModel loadedCustomer = _customers.FirstOrDefault(c => c.CustomerID == order.CustomerID.ToString());
+                selectedCustomer = loadedCustomer?.Customer ?? new Customer
+                {
+                    CustomerID = order.CustomerID,
+                    CustomerFirstname = "Неизвестный",
+                    CustomerLastname = "покупатель",
+                    CustomerAddress = string.Empty,
+                    CustomerPhone = string.Empty,
+                    CustomerEmail = string.Empty
+                };
+                order.Customer = selectedCustomer;
+            }
+
+            _customer = new CustomerViewModel(selectedCustomer);
             _deliveryStatus = order.DeliveryStatus;
+            _externalOrderNumber = order.ExternalOrderNumber ?? string.Empty;
+            _isOnlineOrder = order.IsOnlineOrder;
+            _deliveryAddress = string.IsNullOrWhiteSpace(order.DeliveryAddress)
+                ? selectedCustomer.CustomerAddress ?? string.Empty
+                : order.DeliveryAddress;
             _orderTotal = order.OrderTotal.ToString();
             _orderDetails.Clear();
-            foreach (OrderDetail od in _order.OrderDetails)
+            foreach (OrderDetail od in _order.OrderDetails ?? new List<OrderDetail>())
             {
                 _orderDetails.Add(new OrderDetailViewModel(od));
             }
@@ -142,11 +190,14 @@ namespace StockKeeperMail.Desktop.ViewModels
             }
 
             _order.DeliveryStatus = _deliveryStatus;
+            _order.ExternalOrderNumber = _externalOrderNumber?.Trim();
+            _order.IsOnlineOrder = _isOnlineOrder;
+            _order.DeliveryAddress = _deliveryAddress?.Trim();
             _order.OrderTotal = _orderDetails.Sum(od => od.OrderDetail.OrderDetailAmount);
 
             _unitOfWork.OrderRepository.Update(_order);
 
-            if (_deliveryStatus == _oldDeliveryStatus)
+            if (_deliveryStatus != _oldDeliveryStatus)
             {
                 _unitOfWork.LogRepository.Insert(LogUtil.CreateLog(LogCategory.ORDERS, ActionType.DELIVERY_STATUS_CHANGE, $"Delivery Status Changed; OrderID:{_order.OrderID}; DeliverStatus: from {_oldDeliveryStatus} to {_deliveryStatus};"));
             }
@@ -176,7 +227,7 @@ namespace StockKeeperMail.Desktop.ViewModels
         private void RemoveOrderDetail(OrderDetailViewModel orderDetailViewModel)
         {
             _orderDetails.Remove(orderDetailViewModel);
-            _order.OrderDetails.Remove(orderDetailViewModel.OrderDetail);
+            _order.OrderDetails?.Remove(orderDetailViewModel.OrderDetail);
 
             _orderTotal = _orderDetails.Sum(od => od.OrderDetail.OrderDetailAmount).ToString();
             OnPropertyChanged(nameof(OrderTotal));
@@ -203,12 +254,12 @@ namespace StockKeeperMail.Desktop.ViewModels
         private void CloseDialogCallback()
         {
             _orderDetails.Clear();
-            foreach (OrderDetail od in _order.OrderDetails)
+            foreach (OrderDetail od in _order.OrderDetails ?? new List<OrderDetail>())
             {
                 _orderDetails.Add(new OrderDetailViewModel(od));
             }
 
-            _orderTotal = _order.OrderDetails.Sum(od => od.OrderDetailAmount).ToString();
+            _orderTotal = (_order.OrderDetails ?? new List<OrderDetail>()).Sum(od => od.OrderDetailAmount).ToString();
             OnPropertyChanged(nameof(OrderTotal));
 
             _isDialogOpen = false;

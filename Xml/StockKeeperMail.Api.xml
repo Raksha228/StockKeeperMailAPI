@@ -164,6 +164,16 @@
             Инициализирует контроллер товаров.
             </summary>
         </member>
+        <member name="T:StockKeeperMail.Api.Controllers.PurchaseReceiptsController">
+            <summary>
+            Контроллер для работы с приходом товара от поставщиков.
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Api.Controllers.PurchaseReceiptsController.#ctor(StockKeeperMail.Api.Services.GenericEntityService{StockKeeperMail.Database.Models.PurchaseReceipt})">
+            <summary>
+            Инициализирует контроллер прихода товара.
+            </summary>
+        </member>
         <member name="T:StockKeeperMail.Api.Controllers.RolesController">
             <summary>
             Контроллер для работы с ролями сотрудников.
@@ -206,7 +216,7 @@
         </member>
         <member name="T:StockKeeperMail.Api.Data.ApiRouteMapper">
             <summary>
-            Сопоставляет тип сущности с именем маршрута и коллекции MongoDB.
+            Сопоставляет тип сущности с именем маршрута API.
             </summary>
         </member>
         <member name="M:StockKeeperMail.Api.Data.ApiRouteMapper.GetRoute``1">
@@ -216,12 +226,13 @@
         </member>
         <member name="T:StockKeeperMail.Api.Data.EntityKeyFilterBuilder">
             <summary>
-            Строит фильтры MongoDB по ключевым свойствам сущностей.
+            Возвращает ключевые свойства сущностей и формирует описание SQL-фильтра по ключу.
             </summary>
         </member>
         <member name="M:StockKeeperMail.Api.Data.EntityKeyFilterBuilder.Build``1(``0)">
             <summary>
-            Формирует фильтр по значениям ключевых свойств переданной сущности.
+            Формирует описание фильтра по значениям ключевых свойств переданной сущности.
+            Метод оставлен для совместимости с тестами и старым кодом, но больше не зависит от MongoDB.
             </summary>
         </member>
         <member name="M:StockKeeperMail.Api.Data.EntityKeyFilterBuilder.GetKeyProperties(System.Type)">
@@ -229,29 +240,24 @@
             Возвращает список публичных свойств, помеченных атрибутом Key.
             </summary>
         </member>
-        <member name="T:StockKeeperMail.Api.Data.MongoDatabaseContext">
+        <member name="T:StockKeeperMail.Api.Data.MongoDatabaseProvider">
             <summary>
-            Обертка над IMongoDatabase и общими настройками сериализации.
+            Создает подключение к MongoDB и предоставляет базу данных приложения.
             </summary>
         </member>
-        <member name="M:StockKeeperMail.Api.Data.MongoDatabaseContext.#ctor(Microsoft.Extensions.Options.IOptions{StockKeeperMail.Api.Data.MongoDbOptions})">
+        <member name="M:StockKeeperMail.Api.Data.MongoDatabaseProvider.#ctor(Microsoft.Extensions.Options.IOptions{StockKeeperMail.Api.Data.MongoDbOptions})">
             <summary>
-            Инициализирует контекст MongoDB на основе настроек приложения.
+            Инициализирует провайдер MongoDB.
             </summary>
         </member>
-        <member name="P:StockKeeperMail.Api.Data.MongoDatabaseContext.Database">
+        <member name="P:StockKeeperMail.Api.Data.MongoDatabaseProvider.Database">
             <summary>
-            Экземпляр базы данных MongoDB.
-            </summary>
-        </member>
-        <member name="M:StockKeeperMail.Api.Data.MongoDatabaseContext.GetCollection``1">
-            <summary>
-            Возвращает коллекцию MongoDB для указанного типа сущности.
+            База данных MongoDB, с которой работает API.
             </summary>
         </member>
         <member name="T:StockKeeperMail.Api.Data.MongoDbOptions">
             <summary>
-            Содержит настройки подключения к MongoDB.
+            Настройки подключения к MongoDB.
             </summary>
         </member>
         <member name="P:StockKeeperMail.Api.Data.MongoDbOptions.ConnectionString">
@@ -261,63 +267,47 @@
         </member>
         <member name="P:StockKeeperMail.Api.Data.MongoDbOptions.DatabaseName">
             <summary>
-            Имя базы данных MongoDB.
+            Имя базы данных приложения.
+            </summary>
+        </member>
+        <member name="T:StockKeeperMail.Api.Data.MongoEntityMetadata">
+            <summary>
+            Описывает соответствие C#-моделей коллекциям MongoDB и их скалярным полям.
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Api.Data.MongoEntityMetadata.GetCollectionName``1">
+            <summary>
+            Возвращает имя коллекции MongoDB для указанной сущности.
+            Имена коллекций совпадают с REST-маршрутами проекта.
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Api.Data.MongoEntityMetadata.GetCollectionAliases``1">
+            <summary>
+            Возвращает дополнительные имена коллекций, которые могли использоваться в старой MongoDB-версии проекта.
+            Это нужно, чтобы уже созданные пользователем документы не пропадали после перехода между версиями.
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Api.Data.MongoEntityMetadata.GetScalarProperties``1">
+            <summary>
+            Возвращает публичные простые свойства, которые должны храниться в документе MongoDB.
+            Навигационные свойства не сохраняются, чтобы не дублировать связанные сущности.
+            </summary>
+        </member>
+        <member name="M:StockKeeperMail.Api.Data.MongoEntityMetadata.GetKeyProperties``1">
+            <summary>
+            Возвращает ключевые свойства сущности, помеченные атрибутом [Key].
             </summary>
         </member>
         <member name="T:StockKeeperMail.Api.Data.MongoRepository`1">
             <summary>
             Базовый репозиторий MongoDB для выполнения CRUD-операций.
-            </summary>
-        </member>
-        <member name="M:StockKeeperMail.Api.Data.MongoRepository`1.#ctor(StockKeeperMail.Api.Data.MongoDatabaseContext)">
-            <summary>
-            Инициализирует репозиторий для указанного типа сущности.
-            </summary>
-        </member>
-        <member name="M:StockKeeperMail.Api.Data.MongoRepository`1.GetAllAsync">
-            <summary>
-            Возвращает все документы коллекции.
-            </summary>
-        </member>
-        <member name="M:StockKeeperMail.Api.Data.MongoRepository`1.GetFirstOrDefaultAsync(MongoDB.Driver.FilterDefinition{`0})">
-            <summary>
-            Возвращает первый документ, удовлетворяющий фильтру.
-            </summary>
-        </member>
-        <member name="M:StockKeeperMail.Api.Data.MongoRepository`1.InsertAsync(`0)">
-            <summary>
-            Добавляет новый документ в коллекцию.
-            </summary>
-        </member>
-        <member name="M:StockKeeperMail.Api.Data.MongoRepository`1.ReplaceAsync(`0)">
-            <summary>
-            Полностью заменяет существующий документ по ключу.
-            </summary>
-        </member>
-        <member name="M:StockKeeperMail.Api.Data.MongoRepository`1.DeleteAsync(`0)">
-            <summary>
-            Удаляет документ по ключу сущности.
-            </summary>
-        </member>
-        <member name="M:StockKeeperMail.Api.Data.MongoRepository`1.DeleteManyAsync(MongoDB.Driver.FilterDefinition{`0})">
-            <summary>
-            Удаляет набор документов по фильтру.
-            </summary>
-        </member>
-        <member name="M:StockKeeperMail.Api.Data.MongoRepository`1.InsertManyAsync(System.Collections.Generic.IEnumerable{`0})">
-            <summary>
-            Добавляет набор документов в коллекцию.
-            </summary>
-        </member>
-        <member name="M:StockKeeperMail.Api.Data.MongoRepository`1.ReplaceManyAsync(System.Collections.Generic.IEnumerable{`0})">
-            <summary>
-            Последовательно обновляет набор документов.
+            Хранит только скалярные свойства моделей; связанные сущности заполняются сервисом гидратации.
             </summary>
         </member>
         <member name="T:StockKeeperMail.Api.Services.EntityHydrationService">
             <summary>
             Наполняет сущности связанными данными перед отправкой их клиенту.
-            Навигационные свойства в MongoDB не хранятся и формируются на лету.
+            Навигационные свойства в MongoDB не дублируются и формируются на лету.
             </summary>
         </member>
         <member name="M:StockKeeperMail.Api.Services.EntityHydrationService.#ctor(StockKeeperMail.Api.Data.MongoRepository{StockKeeperMail.Database.Models.Role},StockKeeperMail.Api.Data.MongoRepository{StockKeeperMail.Database.Models.Category},StockKeeperMail.Api.Data.MongoRepository{StockKeeperMail.Database.Models.Warehouse},StockKeeperMail.Api.Data.MongoRepository{StockKeeperMail.Database.Models.Supplier},StockKeeperMail.Api.Data.MongoRepository{StockKeeperMail.Database.Models.Staff},StockKeeperMail.Api.Data.MongoRepository{StockKeeperMail.Database.Models.Product},StockKeeperMail.Api.Data.MongoRepository{StockKeeperMail.Database.Models.Order},StockKeeperMail.Api.Data.MongoRepository{StockKeeperMail.Database.Models.OrderDetail},StockKeeperMail.Api.Data.MongoRepository{StockKeeperMail.Database.Models.Location},StockKeeperMail.Api.Data.MongoRepository{StockKeeperMail.Database.Models.Customer},StockKeeperMail.Api.Data.MongoRepository{StockKeeperMail.Database.Models.Defective},StockKeeperMail.Api.Data.MongoRepository{StockKeeperMail.Database.Models.ProductLocation},StockKeeperMail.Api.Data.MongoRepository{StockKeeperMail.Database.Models.Log},StockKeeperMail.Api.Data.MongoRepository{StockKeeperMail.Database.Models.InternalMessage})">

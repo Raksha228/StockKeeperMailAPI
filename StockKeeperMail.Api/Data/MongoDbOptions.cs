@@ -1,7 +1,7 @@
 namespace StockKeeperMail.Api.Data
 {
     /// <summary>
-    /// Содержит настройки подключения к MongoDB.
+    /// Настройки подключения к MongoDB.
     /// </summary>
     public class MongoDbOptions
     {
@@ -9,8 +9,9 @@ namespace StockKeeperMail.Api.Data
         /// Строка подключения к MongoDB.
         /// </summary>
         public string ConnectionString { get; set; }
+
         /// <summary>
-        /// Имя базы данных MongoDB.
+        /// Имя базы данных приложения.
         /// </summary>
         public string DatabaseName { get; set; }
     }

@@ -101,6 +101,7 @@
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="320" />
                     <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
                 </Grid.ColumnDefinitions>
 
                 <TabControl Grid.Column="0"
@@ -136,6 +137,14 @@
                         SelectedValue="{Binding SelectedMailboxStaffID, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                         Style="{StaticResource MaterialDesignComboBox}" />
                 </Grid>
+
+                <TextBlock
+                    Grid.Column="2"
+                    Margin="20,0,0,0"
+                    VerticalAlignment="Center"
+                    Text="{Binding StatusText}"
+                    Foreground="{DynamicResource BrandMutedTextBrush}"
+                    FontSize="12" />
             </Grid>
 
             <Grid Grid.Row="2">

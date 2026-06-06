@@ -1,4 +1,3 @@
-using MongoDB.Bson.Serialization.Attributes;
 using System;
 using System.ComponentModel.DataAnnotations;
 
@@ -7,14 +6,12 @@ namespace StockKeeperMail.Database.Models
     /// <summary>
     /// Представляет запись журнала действий сотрудников в системе.
     /// </summary>
-    [BsonIgnoreExtraElements]
     public class Log
     {
         /// <summary>
         /// Уникальный идентификатор записи журнала.
         /// </summary>
         [Key]
-        [BsonId]
         public Guid LogID { get; set; }
 
         /// <summary>
@@ -41,7 +38,6 @@ namespace StockKeeperMail.Database.Models
         /// <summary>
         /// Связанный сотрудник.
         /// </summary>
-        [BsonIgnore]
         public Staff Staff { get; set; }
     }
 }

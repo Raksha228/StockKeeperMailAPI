@@ -1,4 +1,3 @@
-using MongoDB.Driver;
 using StockKeeperMail.Api.Data;
 using StockKeeperMail.Database.Models;
 using System;
@@ -62,8 +61,8 @@ namespace StockKeeperMail.Api.Services
         /// </summary>
         public async Task DeleteAsync(Order order)
         {
+            await _orderDetails.DeleteManyAsync(nameof(OrderDetail.OrderID), order.OrderID);
             await _orders.DeleteAsync(order);
-            await _orderDetails.DeleteManyAsync(Builders<OrderDetail>.Filter.Eq(od => od.OrderID, order.OrderID));
         }
 
         private async Task SaveAggregateAsync(Order order, bool isNew)
@@ -79,7 +78,7 @@ namespace StockKeeperMail.Api.Services
                 await _orders.ReplaceAsync(CopyOrder(order));
             }
 
-            await _orderDetails.DeleteManyAsync(Builders<OrderDetail>.Filter.Eq(od => od.OrderID, order.OrderID));
+            await _orderDetails.DeleteManyAsync(nameof(OrderDetail.OrderID), order.OrderID);
 
             if (currentOrderDetails.Count > 0)
             {
@@ -110,6 +109,9 @@ namespace StockKeeperMail.Api.Services
                 CustomerID = order.CustomerID,
                 OrderDate = order.OrderDate,
                 DeliveryStatus = order.DeliveryStatus,
+                ExternalOrderNumber = order.ExternalOrderNumber,
+                IsOnlineOrder = order.IsOnlineOrder,
+                DeliveryAddress = order.DeliveryAddress,
                 OrderTotal = order.OrderTotal
             };
         }

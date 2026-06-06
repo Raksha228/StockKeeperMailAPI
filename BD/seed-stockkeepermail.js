@@ -1,6 +1,6 @@
 // Seed для StockKeeperMail / MongoDB / mongosh
 // База: StockKeeperMailDb
-// ВАЖНО: для сущностей с [BsonId] поле GUID хранится в MongoDB как _id.
+// ВАЖНО: главные GUID-ключи хранятся в MongoDB в поле _id.
 // Запуск:
 //   mongosh "mongodb://localhost:27017/StockKeeperMailDb" seed-stockkeepermail.js
 //
@@ -21,6 +21,7 @@ const collectionsToReset = [
   "locations",
   "products",
   "product-locations",
+  "purchase-receipts",
   "customers",
   "orders",
   "order-details",
@@ -30,6 +31,10 @@ const collectionsToReset = [
 ];
 
 collectionsToReset.forEach(name => database.getCollection(name).deleteMany({}));
+
+if (!database.getCollectionNames().includes("purchase-receipts")) {
+  database.createCollection("purchase-receipts");
+}
 
 const roles = [
 {
@@ -1612,6 +1617,9 @@ const orders = [
   CustomerID: UUID("0f7e1994-39d7-5629-b423-dd98ea1eb8f6"),
   OrderDate: ISODate("2026-02-10T11:41:00"),
   DeliveryStatus: "Delivered",
+  ExternalOrderNumber: "",
+  IsOnlineOrder: false,
+  DeliveryAddress: "",
   OrderTotal: NumberDecimal("4890.00")
 },
 {
@@ -1619,6 +1627,9 @@ const orders = [
   CustomerID: UUID("b18d48ec-4de1-50cf-91a0-af72c3a8ead9"),
   OrderDate: ISODate("2026-02-10T10:37:00"),
   DeliveryStatus: "Delivered",
+  ExternalOrderNumber: "",
+  IsOnlineOrder: false,
+  DeliveryAddress: "",
   OrderTotal: NumberDecimal("2800.00")
 },
 {
@@ -1626,6 +1637,9 @@ const orders = [
   CustomerID: UUID("b9497a2f-b7b0-59ee-b4c2-20b52401a922"),
   OrderDate: ISODate("2026-02-12T10:52:00"),
   DeliveryStatus: "Delivered",
+  ExternalOrderNumber: "",
+  IsOnlineOrder: false,
+  DeliveryAddress: "",
   OrderTotal: NumberDecimal("3780.00")
 },
 {
@@ -1633,6 +1647,9 @@ const orders = [
   CustomerID: UUID("be71a251-86d5-57cf-a179-974a07d23db1"),
   OrderDate: ISODate("2026-02-13T15:41:00"),
   DeliveryStatus: "Delivered",
+  ExternalOrderNumber: "",
+  IsOnlineOrder: false,
+  DeliveryAddress: "",
   OrderTotal: NumberDecimal("3380.00")
 },
 {
@@ -1640,6 +1657,9 @@ const orders = [
   CustomerID: UUID("30e8fc0e-b850-5899-b644-6eca25b03a5a"),
   OrderDate: ISODate("2026-02-16T11:37:00"),
   DeliveryStatus: "Delivered",
+  ExternalOrderNumber: "",
+  IsOnlineOrder: false,
+  DeliveryAddress: "",
   OrderTotal: NumberDecimal("1280.00")
 },
 {
@@ -1647,6 +1667,9 @@ const orders = [
   CustomerID: UUID("bdd2217a-e62b-57c0-8b50-abdc93035b42"),
   OrderDate: ISODate("2026-02-16T10:44:00"),
   DeliveryStatus: "Delivered",
+  ExternalOrderNumber: "",
+  IsOnlineOrder: false,
+  DeliveryAddress: "",
   OrderTotal: NumberDecimal("2390.00")
 },
 {
@@ -1654,6 +1677,9 @@ const orders = [
   CustomerID: UUID("388d2cf0-81c8-5583-9bde-a54d0291d5a0"),
   OrderDate: ISODate("2026-02-17T17:44:00"),
   DeliveryStatus: "Delivered",
+  ExternalOrderNumber: "",
+  IsOnlineOrder: false,
+  DeliveryAddress: "",
   OrderTotal: NumberDecimal("5090.00")
 },
 {
@@ -1661,6 +1687,9 @@ const orders = [
   CustomerID: UUID("0e7a535f-0698-5033-a5cf-aa1db46219e3"),
   OrderDate: ISODate("2026-02-23T16:22:00"),
   DeliveryStatus: "Delivered",
+  ExternalOrderNumber: "",
+  IsOnlineOrder: false,
+  DeliveryAddress: "",
   OrderTotal: NumberDecimal("3770.00")
 },
 {
@@ -1668,6 +1697,9 @@ const orders = [
   CustomerID: UUID("0f7e1994-39d7-5629-b423-dd98ea1eb8f6"),
   OrderDate: ISODate("2026-02-24T15:17:00"),
   DeliveryStatus: "Delivered",
+  ExternalOrderNumber: "",
+  IsOnlineOrder: false,
+  DeliveryAddress: "",
   OrderTotal: NumberDecimal("4090.00")
 },
 {
@@ -1675,6 +1707,9 @@ const orders = [
   CustomerID: UUID("d46acdf7-49f5-5ebe-8efe-05c042126b5d"),
   OrderDate: ISODate("2026-02-25T16:41:00"),
   DeliveryStatus: "Delivered",
+  ExternalOrderNumber: "",
+  IsOnlineOrder: false,
+  DeliveryAddress: "",
   OrderTotal: NumberDecimal("9570.00")
 },
 {
@@ -1682,6 +1717,9 @@ const orders = [
   CustomerID: UUID("3f9a0889-9fe6-5607-b1d3-105119a109b8"),
   OrderDate: ISODate("2026-02-25T10:56:00"),
   DeliveryStatus: "Delivered",
+  ExternalOrderNumber: "",
+  IsOnlineOrder: false,
+  DeliveryAddress: "",
   OrderTotal: NumberDecimal("2700.00")
 },
 {
@@ -1689,6 +1727,9 @@ const orders = [
   CustomerID: UUID("be71a251-86d5-57cf-a179-974a07d23db1"),
   OrderDate: ISODate("2026-02-26T17:37:00"),
   DeliveryStatus: "Delivered",
+  ExternalOrderNumber: "",
+  IsOnlineOrder: false,
+  DeliveryAddress: "",
   OrderTotal: NumberDecimal("1290.00")
 },
 {
@@ -1696,6 +1737,9 @@ const orders = [
   CustomerID: UUID("30e8fc0e-b850-5899-b644-6eca25b03a5a"),
   OrderDate: ISODate("2026-02-27T14:52:00"),
   DeliveryStatus: "Delivered",
+  ExternalOrderNumber: "",
+  IsOnlineOrder: false,
+  DeliveryAddress: "",
   OrderTotal: NumberDecimal("3470.00")
 },
 {
@@ -1703,6 +1747,9 @@ const orders = [
   CustomerID: UUID("42b3b7f2-e52a-5a61-9c2a-73fd128d1b95"),
   OrderDate: ISODate("2026-03-04T14:56:00"),
   DeliveryStatus: "Delivered",
+  ExternalOrderNumber: "",
+  IsOnlineOrder: false,
+  DeliveryAddress: "",
   OrderTotal: NumberDecimal("6200.00")
 },
 {
@@ -1710,6 +1757,9 @@ const orders = [
   CustomerID: UUID("388d2cf0-81c8-5583-9bde-a54d0291d5a0"),
   OrderDate: ISODate("2026-03-06T11:26:00"),
   DeliveryStatus: "Delivered",
+  ExternalOrderNumber: "",
+  IsOnlineOrder: false,
+  DeliveryAddress: "",
   OrderTotal: NumberDecimal("3300.00")
 },
 {
@@ -1717,6 +1767,9 @@ const orders = [
   CustomerID: UUID("0e7a535f-0698-5033-a5cf-aa1db46219e3"),
   OrderDate: ISODate("2026-03-09T12:22:00"),
   DeliveryStatus: "Delivered",
+  ExternalOrderNumber: "",
+  IsOnlineOrder: false,
+  DeliveryAddress: "",
   OrderTotal: NumberDecimal("3160.00")
 },
 {
@@ -1724,6 +1777,9 @@ const orders = [
   CustomerID: UUID("0f7e1994-39d7-5629-b423-dd98ea1eb8f6"),
   OrderDate: ISODate("2026-03-10T11:17:00"),
   DeliveryStatus: "Delivered",
+  ExternalOrderNumber: "",
+  IsOnlineOrder: false,
+  DeliveryAddress: "",
   OrderTotal: NumberDecimal("31200.00")
 },
 {
@@ -1731,6 +1787,9 @@ const orders = [
   CustomerID: UUID("d46acdf7-49f5-5ebe-8efe-05c042126b5d"),
   OrderDate: ISODate("2026-03-11T10:11:00"),
   DeliveryStatus: "Delivered",
+  ExternalOrderNumber: "",
+  IsOnlineOrder: false,
+  DeliveryAddress: "",
   OrderTotal: NumberDecimal("5360.00")
 },
 {
@@ -1738,6 +1797,9 @@ const orders = [
   CustomerID: UUID("b9497a2f-b7b0-59ee-b4c2-20b52401a922"),
   OrderDate: ISODate("2026-03-12T12:47:00"),
   DeliveryStatus: "Delivered",
+  ExternalOrderNumber: "",
+  IsOnlineOrder: false,
+  DeliveryAddress: "",
   OrderTotal: NumberDecimal("5270.00")
 },
 {
@@ -1745,6 +1807,9 @@ const orders = [
   CustomerID: UUID("be71a251-86d5-57cf-a179-974a07d23db1"),
   OrderDate: ISODate("2026-03-13T10:44:00"),
   DeliveryStatus: "Delivered",
+  ExternalOrderNumber: "",
+  IsOnlineOrder: false,
+  DeliveryAddress: "",
   OrderTotal: NumberDecimal("15460.00")
 },
 {
@@ -1752,6 +1817,9 @@ const orders = [
   CustomerID: UUID("30e8fc0e-b850-5899-b644-6eca25b03a5a"),
   OrderDate: ISODate("2026-03-16T14:34:00"),
   DeliveryStatus: "Delivered",
+  ExternalOrderNumber: "",
+  IsOnlineOrder: false,
+  DeliveryAddress: "",
   OrderTotal: NumberDecimal("2600.00")
 },
 {
@@ -1759,6 +1827,9 @@ const orders = [
   CustomerID: UUID("42b3b7f2-e52a-5a61-9c2a-73fd128d1b95"),
   OrderDate: ISODate("2026-03-17T10:11:00"),
   DeliveryStatus: "Delivered",
+  ExternalOrderNumber: "",
+  IsOnlineOrder: false,
+  DeliveryAddress: "",
   OrderTotal: NumberDecimal("5860.00")
 },
 {
@@ -1766,6 +1837,9 @@ const orders = [
   CustomerID: UUID("1ccacb1d-cc3d-51b3-ac13-a36c4a813862"),
   OrderDate: ISODate("2026-03-17T17:22:00"),
   DeliveryStatus: "Delivered",
+  ExternalOrderNumber: "",
+  IsOnlineOrder: false,
+  DeliveryAddress: "",
   OrderTotal: NumberDecimal("2800.00")
 },
 {
@@ -1773,6 +1847,9 @@ const orders = [
   CustomerID: UUID("0e7a535f-0698-5033-a5cf-aa1db46219e3"),
   OrderDate: ISODate("2026-03-18T10:41:00"),
   DeliveryStatus: "Delivered",
+  ExternalOrderNumber: "",
+  IsOnlineOrder: false,
+  DeliveryAddress: "",
   OrderTotal: NumberDecimal("6660.00")
 },
 {
@@ -1780,6 +1857,9 @@ const orders = [
   CustomerID: UUID("0f7e1994-39d7-5629-b423-dd98ea1eb8f6"),
   OrderDate: ISODate("2026-03-19T12:11:00"),
   DeliveryStatus: "Delivered",
+  ExternalOrderNumber: "",
+  IsOnlineOrder: false,
+  DeliveryAddress: "",
   OrderTotal: NumberDecimal("8860.00")
 },
 {
@@ -1787,6 +1867,9 @@ const orders = [
   CustomerID: UUID("d46acdf7-49f5-5ebe-8efe-05c042126b5d"),
   OrderDate: ISODate("2026-03-20T15:22:00"),
   DeliveryStatus: "Delivered",
+  ExternalOrderNumber: "",
+  IsOnlineOrder: false,
+  DeliveryAddress: "",
   OrderTotal: NumberDecimal("960.00")
 },
 {
@@ -1794,6 +1877,9 @@ const orders = [
   CustomerID: UUID("b9497a2f-b7b0-59ee-b4c2-20b52401a922"),
   OrderDate: ISODate("2026-03-23T14:34:00"),
   DeliveryStatus: "Delivered",
+  ExternalOrderNumber: "",
+  IsOnlineOrder: false,
+  DeliveryAddress: "",
   OrderTotal: NumberDecimal("690.00")
 },
 {
@@ -1801,6 +1887,9 @@ const orders = [
   CustomerID: UUID("f92735c9-c5d1-541b-a4cb-03b2c9872cae"),
   OrderDate: ISODate("2026-03-23T11:11:00"),
   DeliveryStatus: "Delivered",
+  ExternalOrderNumber: "",
+  IsOnlineOrder: false,
+  DeliveryAddress: "",
   OrderTotal: NumberDecimal("3210.00")
 },
 {
@@ -1808,6 +1897,9 @@ const orders = [
   CustomerID: UUID("30e8fc0e-b850-5899-b644-6eca25b03a5a"),
   OrderDate: ISODate("2026-03-24T14:41:00"),
   DeliveryStatus: "Delivered",
+  ExternalOrderNumber: "",
+  IsOnlineOrder: false,
+  DeliveryAddress: "",
   OrderTotal: NumberDecimal("37070.00")
 },
 {
@@ -1815,6 +1907,9 @@ const orders = [
   CustomerID: UUID("bdd2217a-e62b-57c0-8b50-abdc93035b42"),
   OrderDate: ISODate("2026-03-24T13:47:00"),
   DeliveryStatus: "Delivered",
+  ExternalOrderNumber: "",
+  IsOnlineOrder: false,
+  DeliveryAddress: "",
   OrderTotal: NumberDecimal("4450.00")
 },
 {
@@ -1822,6 +1917,9 @@ const orders = [
   CustomerID: UUID("388d2cf0-81c8-5583-9bde-a54d0291d5a0"),
   OrderDate: ISODate("2026-03-25T10:11:00"),
   DeliveryStatus: "Delivered",
+  ExternalOrderNumber: "",
+  IsOnlineOrder: false,
+  DeliveryAddress: "",
   OrderTotal: NumberDecimal("5370.00")
 },
 {
@@ -1829,6 +1927,9 @@ const orders = [
   CustomerID: UUID("27d0ede2-b2eb-5a55-90c4-fd47a01167cb"),
   OrderDate: ISODate("2026-03-25T11:11:00"),
   DeliveryStatus: "Delivered",
+  ExternalOrderNumber: "",
+  IsOnlineOrder: false,
+  DeliveryAddress: "",
   OrderTotal: NumberDecimal("5130.00")
 },
 {
@@ -1836,6 +1937,9 @@ const orders = [
   CustomerID: UUID("0f7e1994-39d7-5629-b423-dd98ea1eb8f6"),
   OrderDate: ISODate("2026-03-26T10:26:00"),
   DeliveryStatus: "Delivered",
+  ExternalOrderNumber: "",
+  IsOnlineOrder: false,
+  DeliveryAddress: "",
   OrderTotal: NumberDecimal("3580.00")
 },
 {
@@ -1843,6 +1947,9 @@ const orders = [
   CustomerID: UUID("d46acdf7-49f5-5ebe-8efe-05c042126b5d"),
   OrderDate: ISODate("2026-03-27T16:41:00"),
   DeliveryStatus: "In Transit",
+  ExternalOrderNumber: "",
+  IsOnlineOrder: false,
+  DeliveryAddress: "",
   OrderTotal: NumberDecimal("6500.00")
 },
 {
@@ -1850,6 +1957,9 @@ const orders = [
   CustomerID: UUID("3f9a0889-9fe6-5607-b1d3-105119a109b8"),
   OrderDate: ISODate("2026-03-27T13:22:00"),
   DeliveryStatus: "Shipped",
+  ExternalOrderNumber: "",
+  IsOnlineOrder: false,
+  DeliveryAddress: "",
   OrderTotal: NumberDecimal("680.00")
 },
 {
@@ -1857,6 +1967,9 @@ const orders = [
   CustomerID: UUID("be71a251-86d5-57cf-a179-974a07d23db1"),
   OrderDate: ISODate("2026-03-30T17:26:00"),
   DeliveryStatus: "Delivered",
+  ExternalOrderNumber: "",
+  IsOnlineOrder: false,
+  DeliveryAddress: "",
   OrderTotal: NumberDecimal("640.00")
 },
 {
@@ -1864,6 +1977,9 @@ const orders = [
   CustomerID: UUID("30e8fc0e-b850-5899-b644-6eca25b03a5a"),
   OrderDate: ISODate("2026-03-31T15:22:00"),
   DeliveryStatus: "Shipped",
+  ExternalOrderNumber: "",
+  IsOnlineOrder: false,
+  DeliveryAddress: "",
   OrderTotal: NumberDecimal("39160.00")
 },
 {
@@ -1871,6 +1987,9 @@ const orders = [
   CustomerID: UUID("42b3b7f2-e52a-5a61-9c2a-73fd128d1b95"),
   OrderDate: ISODate("2026-04-01T14:07:00"),
   DeliveryStatus: "In Transit",
+  ExternalOrderNumber: "",
+  IsOnlineOrder: false,
+  DeliveryAddress: "",
   OrderTotal: NumberDecimal("1580.00")
 },
 {
@@ -1878,6 +1997,9 @@ const orders = [
   CustomerID: UUID("388d2cf0-81c8-5583-9bde-a54d0291d5a0"),
   OrderDate: ISODate("2026-04-02T16:41:00"),
   DeliveryStatus: "Delivered",
+  ExternalOrderNumber: "",
+  IsOnlineOrder: false,
+  DeliveryAddress: "",
   OrderTotal: NumberDecimal("1090.00")
 },
 {
@@ -1885,6 +2007,9 @@ const orders = [
   CustomerID: UUID("0e7a535f-0698-5033-a5cf-aa1db46219e3"),
   OrderDate: ISODate("2026-04-03T13:26:00"),
   DeliveryStatus: "In Transit",
+  ExternalOrderNumber: "",
+  IsOnlineOrder: false,
+  DeliveryAddress: "",
   OrderTotal: NumberDecimal("1770.00")
 },
 {
@@ -1892,6 +2017,9 @@ const orders = [
   CustomerID: UUID("311d186c-77bd-58d1-803d-a3baa5832f13"),
   OrderDate: ISODate("2026-04-03T11:47:00"),
   DeliveryStatus: "Delivered",
+  ExternalOrderNumber: "",
+  IsOnlineOrder: false,
+  DeliveryAddress: "",
   OrderTotal: NumberDecimal("4070.00")
 },
 {
@@ -1899,6 +2027,9 @@ const orders = [
   CustomerID: UUID("d46acdf7-49f5-5ebe-8efe-05c042126b5d"),
   OrderDate: ISODate("2026-04-06T16:44:00"),
   DeliveryStatus: "In Transit",
+  ExternalOrderNumber: "",
+  IsOnlineOrder: false,
+  DeliveryAddress: "",
   OrderTotal: NumberDecimal("7380.00")
 },
 {
@@ -1906,6 +2037,9 @@ const orders = [
   CustomerID: UUID("3f9a0889-9fe6-5607-b1d3-105119a109b8"),
   OrderDate: ISODate("2026-04-06T15:34:00"),
   DeliveryStatus: "Shipped",
+  ExternalOrderNumber: "",
+  IsOnlineOrder: false,
+  DeliveryAddress: "",
   OrderTotal: NumberDecimal("1150.00")
 },
 {
@@ -1913,6 +2047,9 @@ const orders = [
   CustomerID: UUID("be71a251-86d5-57cf-a179-974a07d23db1"),
   OrderDate: ISODate("2026-04-08T12:44:00"),
   DeliveryStatus: "In Transit",
+  ExternalOrderNumber: "",
+  IsOnlineOrder: false,
+  DeliveryAddress: "",
   OrderTotal: NumberDecimal("8970.00")
 },
 {
@@ -1920,6 +2057,9 @@ const orders = [
   CustomerID: UUID("cf7f6c03-fd3b-5a1d-ba4d-26f155e40cfc"),
   OrderDate: ISODate("2026-04-08T13:44:00"),
   DeliveryStatus: "In Transit",
+  ExternalOrderNumber: "",
+  IsOnlineOrder: false,
+  DeliveryAddress: "",
   OrderTotal: NumberDecimal("430.00")
 },
 {
@@ -1927,6 +2067,9 @@ const orders = [
   CustomerID: UUID("42b3b7f2-e52a-5a61-9c2a-73fd128d1b95"),
   OrderDate: ISODate("2026-04-09T11:34:00"),
   DeliveryStatus: "Shipped",
+  ExternalOrderNumber: "",
+  IsOnlineOrder: false,
+  DeliveryAddress: "",
   OrderTotal: NumberDecimal("1750.00")
 },
 {
@@ -1934,6 +2077,9 @@ const orders = [
   CustomerID: UUID("1ccacb1d-cc3d-51b3-ac13-a36c4a813862"),
   OrderDate: ISODate("2026-04-09T13:13:00"),
   DeliveryStatus: "In Transit",
+  ExternalOrderNumber: "",
+  IsOnlineOrder: false,
+  DeliveryAddress: "",
   OrderTotal: NumberDecimal("6330.00")
 },
 {
@@ -1941,6 +2087,9 @@ const orders = [
   CustomerID: UUID("0e7a535f-0698-5033-a5cf-aa1db46219e3"),
   OrderDate: ISODate("2026-04-10T11:34:00"),
   DeliveryStatus: "Shipped",
+  ExternalOrderNumber: "",
+  IsOnlineOrder: false,
+  DeliveryAddress: "",
   OrderTotal: NumberDecimal("6570.00")
 },
 {
@@ -1948,6 +2097,9 @@ const orders = [
   CustomerID: UUID("0f7e1994-39d7-5629-b423-dd98ea1eb8f6"),
   OrderDate: ISODate("2026-04-13T17:41:00"),
   DeliveryStatus: "Shipped",
+  ExternalOrderNumber: "",
+  IsOnlineOrder: false,
+  DeliveryAddress: "",
   OrderTotal: NumberDecimal("35260.00")
 },
 {
@@ -1955,6 +2107,9 @@ const orders = [
   CustomerID: UUID("b18d48ec-4de1-50cf-91a0-af72c3a8ead9"),
   OrderDate: ISODate("2026-04-13T17:44:00"),
   DeliveryStatus: "Processing",
+  ExternalOrderNumber: "",
+  IsOnlineOrder: false,
+  DeliveryAddress: "",
   OrderTotal: NumberDecimal("890.00")
 },
 {
@@ -1962,6 +2117,9 @@ const orders = [
   CustomerID: UUID("b9497a2f-b7b0-59ee-b4c2-20b52401a922"),
   OrderDate: ISODate("2026-04-14T11:13:00"),
   DeliveryStatus: "Processing",
+  ExternalOrderNumber: "",
+  IsOnlineOrder: false,
+  DeliveryAddress: "",
   OrderTotal: NumberDecimal("3190.00")
 },
 {
@@ -1969,6 +2127,9 @@ const orders = [
   CustomerID: UUID("be71a251-86d5-57cf-a179-974a07d23db1"),
   OrderDate: ISODate("2026-04-15T17:29:00"),
   DeliveryStatus: "In Transit",
+  ExternalOrderNumber: "",
+  IsOnlineOrder: false,
+  DeliveryAddress: "",
   OrderTotal: NumberDecimal("680.00")
 }
 ];
@@ -2733,9 +2894,55 @@ const logs = [
 database.getCollection("logs").insertMany(logs);
 
 const messages = [
-
+{
+  _id: UUID("0b49b11f-110d-5f4d-a16c-91f5c6791001"),
+  InternalMessageID: UUID("0b49b11f-110d-5f4d-a16c-91f5c6791001"),
+  SenderStaffID: UUID("38841fb3-3d9e-530e-87ac-405843ba1e82"),
+  RecipientStaffID: UUID("4be43b93-b4cb-5c93-b1b6-434251fd7e7d"),
+  Subject: "Согласование поставки",
+  Body: "Поступление товара по поставщику Тривес подготовлено. Проверьте склад приемки.",
+  SentAt: ISODate("2026-03-14T09:15:00"),
+  IsRead: false
+},
+{
+  _id: UUID("01b6a806-6877-5f89-bcb6-7b7d1a920002"),
+  InternalMessageID: UUID("01b6a806-6877-5f89-bcb6-7b7d1a920002"),
+  SenderStaffID: UUID("4be43b93-b4cb-5c93-b1b6-434251fd7e7d"),
+  RecipientStaffID: UUID("627cf963-adef-5bc7-8abf-dddd621767e4"),
+  Subject: "Проверить онлайн-заказ",
+  Body: "Пожалуйста, проверьте внешний номер заказа и адрес доставки перед выставлением счета.",
+  SentAt: ISODate("2026-03-14T10:35:00"),
+  IsRead: true
+},
+{
+  _id: UUID("e2f67f38-c447-542a-9fe2-c66c7b4e0003"),
+  InternalMessageID: UUID("e2f67f38-c447-542a-9fe2-c66c7b4e0003"),
+  SenderStaffID: UUID("627cf963-adef-5bc7-8abf-dddd621767e4"),
+  RecipientStaffID: UUID("4be43b93-b4cb-5c93-b1b6-434251fd7e7d"),
+  Subject: "Нужна корректировка остатка",
+  Body: "После приемки обнаружено расхождение по количеству. Проверьте карточку товара.",
+  SentAt: ISODate("2026-03-15T11:20:00"),
+  IsRead: false
+},
+{
+  _id: UUID("d2eb9c32-7af1-5d2c-9c24-12aa0da40004"),
+  InternalMessageID: UUID("d2eb9c32-7af1-5d2c-9c24-12aa0da40004"),
+  SenderStaffID: UUID("4be43b93-b4cb-5c93-b1b6-434251fd7e7d"),
+  RecipientStaffID: UUID("38841fb3-3d9e-530e-87ac-405843ba1e82"),
+  Subject: "Отчет по заказам",
+  Body: "Сформируйте отчет за месяц после закрытия последних доставленных заказов.",
+  SentAt: ISODate("2026-03-15T15:40:00"),
+  IsRead: false
+}
 ];
 if (messages.length) database.getCollection("messages").insertMany(messages);
+
+database.getCollection("purchase-receipts").createIndex({ SupplierID: 1 });
+database.getCollection("purchase-receipts").createIndex({ ProductID: 1 });
+database.getCollection("purchase-receipts").createIndex({ WarehouseID: 1 });
+database.getCollection("purchase-receipts").createIndex({ PurchasedAt: -1 });
+database.getCollection("orders").createIndex({ ExternalOrderNumber: 1 });
+database.getCollection("orders").createIndex({ OrderDate: -1 });
 
 print("Готово.");
 print("Категории: 2");
@@ -2747,3 +2954,5 @@ print("Строки заказов: 83");
 print("Локации остатков: 105");
 print("Брак: 8");
 print("Логи: 25");
+print("Приходы товара: 0");
+print("Сообщения: 4");

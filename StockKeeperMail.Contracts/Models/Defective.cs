@@ -1,4 +1,3 @@
-using MongoDB.Bson.Serialization.Attributes;
 using System;
 using System.ComponentModel.DataAnnotations;
 
@@ -7,14 +6,12 @@ namespace StockKeeperMail.Database.Models
     /// <summary>
     /// Представляет запись о бракованном или списанном товаре.
     /// </summary>
-    [BsonIgnoreExtraElements]
     public class Defective
     {
         /// <summary>
         /// Уникальный идентификатор записи о браке.
         /// </summary>
         [Key]
-        [BsonId]
         public Guid DefectiveID { get; set; }
 
         /// <summary>
@@ -33,7 +30,6 @@ namespace StockKeeperMail.Database.Models
         /// <summary>
         /// Связанный товар.
         /// </summary>
-        [BsonIgnore]
         public Product Product { get; set; }
     }
 }

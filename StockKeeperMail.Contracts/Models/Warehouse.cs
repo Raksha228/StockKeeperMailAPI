@@ -1,5 +1,3 @@
-using MongoDB.Bson;
-using MongoDB.Bson.Serialization.Attributes;
 using System;
 using System.ComponentModel.DataAnnotations;
 
@@ -8,14 +6,12 @@ namespace StockKeeperMail.Database.Models
     /// <summary>
     /// Представляет склад или складской объект компании.
     /// </summary>
-    [BsonIgnoreExtraElements]
     public class Warehouse
     {
         /// <summary>
         /// Уникальный идентификатор склада.
         /// </summary>
         [Key]
-        [BsonId]
         public Guid WarehouseID { get; set; }
 
         /// <summary>
@@ -38,7 +34,6 @@ namespace StockKeeperMail.Database.Models
         /// <summary>
         /// Ставка НДС для склада.
         /// </summary>
-        [BsonRepresentation(BsonType.Decimal128)]
         public decimal WarehouseVat { get; set; }
     }
 }

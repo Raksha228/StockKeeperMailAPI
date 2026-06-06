@@ -1,4 +1,4 @@
-﻿using CommunityToolkit.Mvvm.Input;
+using CommunityToolkit.Mvvm.Input;
 using StockKeeperMail.Database.Models;
 using StockKeeperMail.Desktop.Stores;
 using System;
@@ -32,6 +32,7 @@ namespace StockKeeperMail.Desktop.ViewModels
         public RelayCommand NavigateToSupplierListCommand { get; }
         public RelayCommand NavigateToStaffListCommand { get; }
         public RelayCommand NavigateToProductListCommand { get; }
+        public RelayCommand NavigateToPurchaseReceiptListCommand { get; }
         public RelayCommand NavigateToOrderListCommand { get; }
         public RelayCommand NavigateToLocationListCommand { get; }
         public RelayCommand NavigateToCustomerListCommand { get; }
@@ -62,6 +63,7 @@ namespace StockKeeperMail.Desktop.ViewModels
             NavigateToSupplierListCommand = new RelayCommand(NavigateToSupplierList);
             NavigateToStaffListCommand = new RelayCommand(NavigateToStaffList);
             NavigateToProductListCommand = new RelayCommand(NavigateToProductList);
+            NavigateToPurchaseReceiptListCommand = new RelayCommand(NavigateToPurchaseReceiptList);
             NavigateToOrderListCommand = new RelayCommand(NavigateToOrderList);
             NavigateToLocationListCommand = new RelayCommand(NavigateToLocationList);
             NavigateToCustomerListCommand = new RelayCommand(NavigateToCustomerList);
@@ -149,6 +151,11 @@ namespace StockKeeperMail.Desktop.ViewModels
         public void NavigateToProductList()
         {
             _navigationStore.CurrentViewModel = ProductListViewModel.LoadViewModel(_navigationStore);
+        }
+
+        public void NavigateToPurchaseReceiptList()
+        {
+            _navigationStore.CurrentViewModel = PurchaseReceiptListViewModel.LoadViewModel(_navigationStore);
         }
 
         public void NavigateToCustomerList()

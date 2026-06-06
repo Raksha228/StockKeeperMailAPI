@@ -244,6 +244,22 @@
             Статус доставки заказа.
             </summary>
         </member>
+        <member name="P:StockKeeperMail.Database.Models.Order.ExternalOrderNumber">
+            <summary>
+            Внешний номер заказа с сайта или другого канала продаж.
+            Используется как номер заказа в счёте на оплату.
+            </summary>
+        </member>
+        <member name="P:StockKeeperMail.Database.Models.Order.IsOnlineOrder">
+            <summary>
+            Признак того, что заказ был оформлен онлайн.
+            </summary>
+        </member>
+        <member name="P:StockKeeperMail.Database.Models.Order.DeliveryAddress">
+            <summary>
+            Адрес доставки заказа покупателю.
+            </summary>
+        </member>
         <member name="P:StockKeeperMail.Database.Models.Order.OrderTotal">
             <summary>
             Итоговая сумма заказа.
@@ -392,6 +408,76 @@
         <member name="P:StockKeeperMail.Database.Models.ProductLocation.Product">
             <summary>
             Связанный товар.
+            </summary>
+        </member>
+        <member name="T:StockKeeperMail.Database.Models.PurchaseReceipt">
+            <summary>
+            Представляет приход товара от поставщика на выбранный склад.
+            </summary>
+        </member>
+        <member name="P:StockKeeperMail.Database.Models.PurchaseReceipt.PurchaseReceiptID">
+            <summary>
+            Уникальный идентификатор записи прихода товара.
+            </summary>
+        </member>
+        <member name="P:StockKeeperMail.Database.Models.PurchaseReceipt.SupplierID">
+            <summary>
+            Уникальный идентификатор поставщика.
+            </summary>
+        </member>
+        <member name="P:StockKeeperMail.Database.Models.PurchaseReceipt.ProductID">
+            <summary>
+            Уникальный идентификатор товара.
+            </summary>
+        </member>
+        <member name="P:StockKeeperMail.Database.Models.PurchaseReceipt.WarehouseID">
+            <summary>
+            Уникальный идентификатор склада, на который поступил товар.
+            </summary>
+        </member>
+        <member name="P:StockKeeperMail.Database.Models.PurchaseReceipt.DocumentNumber">
+            <summary>
+            Внешний номер документа поставщика: накладная, УПД, счёт или закупочный заказ.
+            </summary>
+        </member>
+        <member name="P:StockKeeperMail.Database.Models.PurchaseReceipt.Quantity">
+            <summary>
+            Количество поступившего товара.
+            </summary>
+        </member>
+        <member name="P:StockKeeperMail.Database.Models.PurchaseReceipt.UnitPrice">
+            <summary>
+            Закупочная цена за единицу товара.
+            </summary>
+        </member>
+        <member name="P:StockKeeperMail.Database.Models.PurchaseReceipt.TotalAmount">
+            <summary>
+            Общая сумма поступления.
+            </summary>
+        </member>
+        <member name="P:StockKeeperMail.Database.Models.PurchaseReceipt.PurchasedAt">
+            <summary>
+            Дата и время регистрации закупки в системе.
+            </summary>
+        </member>
+        <member name="P:StockKeeperMail.Database.Models.PurchaseReceipt.Comment">
+            <summary>
+            Комментарий к закупке.
+            </summary>
+        </member>
+        <member name="P:StockKeeperMail.Database.Models.PurchaseReceipt.Supplier">
+            <summary>
+            Связанный поставщик.
+            </summary>
+        </member>
+        <member name="P:StockKeeperMail.Database.Models.PurchaseReceipt.Product">
+            <summary>
+            Связанный товар.
+            </summary>
+        </member>
+        <member name="P:StockKeeperMail.Database.Models.PurchaseReceipt.Warehouse">
+            <summary>
+            Связанный склад.
             </summary>
         </member>
         <member name="T:StockKeeperMail.Database.Models.Role">

@@ -1,0 +1,143 @@
+<UserControl x:Class="StockKeeperMail.Desktop.Views.PurchaseReceiptListView"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:views="clr-namespace:StockKeeperMail.Desktop.Views"
+             xmlns:controls="clr-namespace:StockKeeperMail.Desktop.Controls"
+             mc:Ignorable="d"
+             d:DesignHeight="1080" d:DesignWidth="1920">
+
+    <UserControl.Resources>
+        <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
+    </UserControl.Resources>
+
+    <Grid>
+        <Grid Margin="30">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="0" Margin="0,0,0,22">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="auto"/>
+                </Grid.ColumnDefinitions>
+
+                <StackPanel Grid.Column="0">
+                    <TextBlock Text="Приход товара"
+                               Style="{StaticResource MaterialDesignHeadline4TextBlock}"
+                               FontWeight="Bold"/>
+                    <TextBlock Text="Регистрация закупок у поставщиков и поступления на склады"
+                               Margin="0,6,0,0"
+                               Foreground="{DynamicResource BrandMutedTextBrush}"/>
+                </StackPanel>
+
+                <Button Grid.Column="1"
+                        MinWidth="190"
+                        Content="Зарегистрировать приход"
+                        Command="{Binding CreatePurchaseReceiptCommand}"
+                        Style="{StaticResource MaterialDesignPaperButton}"/>
+            </Grid>
+
+            <Grid Grid.Row="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+
+                <DataGrid Grid.Row="0"
+                          ItemsSource="{Binding PurchaseReceipts}"
+                          Style="{StaticResource MaterialDesignDataGrid}"
+                          BorderBrush="{DynamicResource BrandPrimaryDarkBrush}"
+                          BorderThickness="2"
+                          IsReadOnly="True"
+                          AutoGenerateColumns="False"
+                          RowHeight="54">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Дата и время"
+                                            HeaderStyle="{StaticResource MaterialDesignDataGridColumnHeader}"
+                                            CellStyle="{StaticResource MaterialDesignDataGridCell}"
+                                            Binding="{Binding PurchasedAt}"
+                                            Width="150"/>
+                        <DataGridTextColumn Header="Документ"
+                                            HeaderStyle="{StaticResource MaterialDesignDataGridColumnHeader}"
+                                            CellStyle="{StaticResource MaterialDesignDataGridCell}"
+                                            Binding="{Binding DocumentNumber}"
+                                            Width="150"/>
+                        <DataGridTextColumn Header="Поставщик"
+                                            HeaderStyle="{StaticResource MaterialDesignDataGridColumnHeader}"
+                                            CellStyle="{StaticResource MaterialDesignDataGridCell}"
+                                            Binding="{Binding Supplier.SupplierName}"
+                                            Width="*"/>
+                        <DataGridTextColumn Header="Товар"
+                                            HeaderStyle="{StaticResource MaterialDesignDataGridColumnHeader}"
+                                            CellStyle="{StaticResource MaterialDesignDataGridCell}"
+                                            Binding="{Binding Product.ProductName}"
+                                            Width="*"/>
+                        <DataGridTextColumn Header="Склад"
+                                            HeaderStyle="{StaticResource MaterialDesignDataGridColumnHeader}"
+                                            CellStyle="{StaticResource MaterialDesignDataGridCell}"
+                                            Binding="{Binding Warehouse.WarehouseName}"
+                                            Width="*"/>
+                        <DataGridTextColumn Header="Кол-во"
+                                            HeaderStyle="{StaticResource MaterialDesignDataGridColumnHeader}"
+                                            CellStyle="{StaticResource MaterialDesignDataGridCell}"
+                                            Binding="{Binding Quantity}"
+                                            Width="100"/>
+                        <DataGridTextColumn Header="Цена закупки"
+                                            HeaderStyle="{StaticResource MaterialDesignDataGridColumnHeader}"
+                                            CellStyle="{StaticResource MaterialDesignDataGridCell}"
+                                            Binding="{Binding UnitPrice}"
+                                            Width="130"/>
+                        <DataGridTextColumn Header="Сумма"
+                                            HeaderStyle="{StaticResource MaterialDesignDataGridColumnHeader}"
+                                            CellStyle="{StaticResource MaterialDesignDataGridCell}"
+                                            Binding="{Binding TotalAmount}"
+                                            Width="130"/>
+                        <DataGridTextColumn Header="Комментарий"
+                                            HeaderStyle="{StaticResource MaterialDesignDataGridColumnHeader}"
+                                            CellStyle="{StaticResource MaterialDesignDataGridCell}"
+                                            Binding="{Binding Comment}"
+                                            Width="*"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+
+                <Grid Grid.Row="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Grid Grid.Column="0">
+                        <controls:FilterControl Filter="{Binding PurchaseReceiptListViewHelper.Filter}"/>
+                    </Grid>
+
+                    <Grid Grid.Column="1">
+                        <controls:PaginationControl
+                            CurrentPage="{Binding PurchaseReceiptListViewHelper.CurrentPage}"
+                            NumberOfPages="{Binding PurchaseReceiptListViewHelper.NumberOfPages}"
+                            RecordsPerPage="{Binding PurchaseReceiptListViewHelper.RecordsPerPage}"
+                            SelectedRecordsPerPage="{Binding PurchaseReceiptListViewHelper.SelectedRecordsPerPage}"
+                            FirstPageCommand="{Binding PurchaseReceiptListViewHelper.FirstPageCommand}"
+                            PreviousPageCommand="{Binding PurchaseReceiptListViewHelper.PreviousPageCommand}"
+                            NextPageCommand="{Binding PurchaseReceiptListViewHelper.NextPageCommand}"
+                            LastPageCommand="{Binding PurchaseReceiptListViewHelper.LastPageCommand}"/>
+                    </Grid>
+                </Grid>
+            </Grid>
+        </Grid>
+
+        <!-- Локальное модальное окно без DialogHost/PopupEx. Это устраняет ошибку анимации PopupEx.IsOpen. -->
+        <Border Background="#80000000"
+                Visibility="{Binding IsDialogOpen, Converter={StaticResource BooleanToVisibilityConverter}}">
+            <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
+                <materialDesign:Card UniformCornerRadius="10" Padding="0" MaxWidth="900">
+                    <ContentControl Content="{Binding DialogViewModel}"/>
+                </materialDesign:Card>
+            </Grid>
+        </Border>
+    </Grid>
+</UserControl>

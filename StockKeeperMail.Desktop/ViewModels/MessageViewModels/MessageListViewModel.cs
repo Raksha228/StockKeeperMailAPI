@@ -27,6 +27,13 @@ namespace StockKeeperMail.Desktop.ViewModels
 
         private List<MessageListItemViewModel> _sourceMessages;
 
+        private string _statusText = string.Empty;
+        public string StatusText
+        {
+            get => _statusText;
+            private set => SetProperty(ref _statusText, value);
+        }
+
         private bool _isDialogOpen = false;
         public bool IsDialogOpen => _isDialogOpen;
 
@@ -110,6 +117,9 @@ namespace StockKeeperMail.Desktop.ViewModels
             _isDialogOpen = false;
             OnPropertyChanged(nameof(IsDialogOpen));
 
+            // После отправки письма пользователь ожидает увидеть новое сообщение.
+            // Оно попадает в папку "Отправленные", поэтому переключаемся на неё.
+            SelectedFolderIndex = 1;
             LoadMessages();
         }
 
@@ -117,22 +127,43 @@ namespace StockKeeperMail.Desktop.ViewModels
         {
             if (_authenticationStore.CurrentStaff == null)
             {
+                StatusText = "Не выполнен вход в систему.";
                 return;
             }
 
             Guid currentStaffID = _authenticationStore.CurrentStaff.StaffID;
+            string currentUsername = _authenticationStore.CurrentStaff.StaffUsername ?? string.Empty;
             bool isInbox = SelectedFolderIndex == 0;
             string previousFilter = SelectedMailboxStaffID;
 
-            IEnumerable<InternalMessage> rawMessages = isInbox
-                ? _unitOfWork.InternalMessageRepository.Get(
-                    filter: m => m.RecipientStaffID == currentStaffID,
+            List<InternalMessage> allMessages = _unitOfWork.InternalMessageRepository.Get(
                     orderBy: q => q.OrderByDescending(m => m.SentAt),
                     includeProperties: "SenderStaff.Role,RecipientStaff.Role")
-                : _unitOfWork.InternalMessageRepository.Get(
-                    filter: m => m.SenderStaffID == currentStaffID,
-                    orderBy: q => q.OrderByDescending(m => m.SentAt),
-                    includeProperties: "SenderStaff.Role,RecipientStaff.Role");
+                .ToList();
+
+            List<InternalMessage> rawMessages = allMessages
+                .Where(m => isInbox
+                    ? IsRecipientCurrentStaff(m, currentStaffID, currentUsername)
+                    : IsSenderCurrentStaff(m, currentStaffID, currentUsername))
+                .OrderByDescending(m => m.SentAt)
+                .ToList();
+
+            // Защита для старых MongoDB-баз, где сообщения могли храниться без корректно заполненных
+            // SenderStaffID/RecipientStaffID или в старой схеме. Если строгая фильтрация ничего не нашла,
+            // показываем найденные письма, чтобы раздел не выглядел пустым и пользователь мог их открыть.
+            if (rawMessages.Count == 0 && allMessages.Count > 0)
+            {
+                rawMessages = allMessages
+                    .OrderByDescending(m => m.SentAt)
+                    .ToList();
+                StatusText = "Показаны все найденные сообщения: в старой базе не удалось точно сопоставить отправителя/получателя с текущим пользователем.";
+            }
+            else
+            {
+                StatusText = rawMessages.Count == 0
+                    ? "Сообщений нет."
+                    : $"Сообщений: {rawMessages.Count}";
+            }
 
             _sourceMessages = rawMessages
                 .Select(m => new MessageListItemViewModel(m, isInbox))
@@ -149,6 +180,38 @@ namespace StockKeeperMail.Desktop.ViewModels
             OnPropertyChanged(nameof(SelectedMailboxStaffID));
 
             ApplyMessagesFilter();
+        }
+
+        private static bool IsSenderCurrentStaff(InternalMessage message, Guid currentStaffID, string currentUsername)
+        {
+            return IsSameStaff(message.SenderStaffID, message.SenderStaff, currentStaffID, currentUsername);
+        }
+
+        private static bool IsRecipientCurrentStaff(InternalMessage message, Guid currentStaffID, string currentUsername)
+        {
+            return IsSameStaff(message.RecipientStaffID, message.RecipientStaff, currentStaffID, currentUsername);
+        }
+
+        private static bool IsSameStaff(Guid messageStaffID, Staff messageStaff, Guid currentStaffID, string currentUsername)
+        {
+            if (currentStaffID != Guid.Empty && messageStaffID == currentStaffID)
+            {
+                return true;
+            }
+
+            if (currentStaffID != Guid.Empty && messageStaff != null && messageStaff.StaffID == currentStaffID)
+            {
+                return true;
+            }
+
+            if (!string.IsNullOrWhiteSpace(currentUsername)
+                && messageStaff != null
+                && string.Equals(messageStaff.StaffUsername, currentUsername, StringComparison.OrdinalIgnoreCase))
+            {
+                return true;
+            }
+
+            return false;
         }
 
         private void RefreshMailboxUsers()

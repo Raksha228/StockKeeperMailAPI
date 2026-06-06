@@ -18,16 +18,28 @@ namespace StockKeeperMail.Desktop.ViewModels
         private readonly Log _log;
         public Log Log => _log;
 
-        public string LogID => _log.LogID.ToString();
-        public string StaffName => _log.Staff.StaffFirstName + " " + _log.Staff.StaffLastName;
-        public string LogCategory => _log.LogCategory;
-        public string ActionType => _log.ActionType;
-        public string LogDetails => _log.LogDetails;
-        public string DateTime => _log.DateTime.ToString();
+        public string LogID => _log?.LogID.ToString() ?? string.Empty;
+        public string StaffName
+        {
+            get
+            {
+                if (_log?.Staff == null)
+                {
+                    return "Неизвестный сотрудник";
+                }
+
+                string fullName = $"{_log.Staff.StaffFirstName} {_log.Staff.StaffLastName}".Trim();
+                return string.IsNullOrWhiteSpace(fullName) ? "Неизвестный сотрудник" : fullName;
+            }
+        }
+        public string LogCategory => _log?.LogCategory ?? string.Empty;
+        public string ActionType => _log?.ActionType ?? string.Empty;
+        public string LogDetails => _log?.LogDetails ?? string.Empty;
+        public string DateTime => _log?.DateTime.ToString() ?? string.Empty;
 
         public LogViewModel(Log log)
         {
-            _log = log;
+            _log = log ?? new Log();
         }
     }
 }

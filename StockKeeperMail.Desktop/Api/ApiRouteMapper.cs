@@ -23,6 +23,7 @@ namespace StockKeeperMail.Desktop.Api
             [typeof(Customer)] = "customers",
             [typeof(Defective)] = "defectives",
             [typeof(ProductLocation)] = "product-locations",
+            [typeof(PurchaseReceipt)] = "purchase-receipts",
             [typeof(Log)] = "logs",
             [typeof(InternalMessage)] = "messages"
         };

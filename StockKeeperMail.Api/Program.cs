@@ -3,9 +3,9 @@ using StockKeeperMail.Api.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.Configure<MongoDbOptions>(builder.Configuration.GetSection("MongoDb"));
+builder.Services.Configure<MongoDbOptions>(builder.Configuration.GetSection("MongoDB"));
 
-builder.Services.AddSingleton<MongoDatabaseContext>();
+builder.Services.AddSingleton<MongoDatabaseProvider>();
 builder.Services.AddScoped(typeof(MongoRepository<>));
 builder.Services.AddScoped(typeof(GenericEntityService<>));
 builder.Services.AddScoped<EntityHydrationService>();

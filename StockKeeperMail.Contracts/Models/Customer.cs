@@ -1,4 +1,3 @@
-using MongoDB.Bson.Serialization.Attributes;
 using System;
 using System.ComponentModel.DataAnnotations;
 
@@ -7,14 +6,12 @@ namespace StockKeeperMail.Database.Models
     /// <summary>
     /// Представляет клиента, оформляющего заказы в системе.
     /// </summary>
-    [BsonIgnoreExtraElements]
     public class Customer
     {
         /// <summary>
         /// Уникальный идентификатор клиента.
         /// </summary>
         [Key]
-        [BsonId]
         public Guid CustomerID { get; set; }
 
         /// <summary>
@@ -45,7 +42,6 @@ namespace StockKeeperMail.Database.Models
         /// <summary>
         /// Связанный сотрудник.
         /// </summary>
-        [BsonIgnore]
         public Staff Staff { get; set; }
     }
 }

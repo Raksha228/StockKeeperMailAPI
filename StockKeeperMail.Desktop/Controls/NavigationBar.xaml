@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="StockKeeperMail.Desktop.Controls.NavigationBar"
+<UserControl x:Class="StockKeeperMail.Desktop.Controls.NavigationBar"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -114,6 +114,13 @@
                             <StackPanel Orientation="Horizontal" Margin="2,0,0,0">
                                 <materialDesign:PackIcon Kind="BoxOutline" VerticalAlignment="Center" Foreground="{DynamicResource BrandAccentLightBrush}"/>
                                 <TextBlock Margin="8,0,0,0" Style="{StaticResource NavTextStyle}" Text="Товары"/>
+                            </StackPanel>
+                        </Button>
+                        <Button Command="{Binding NavigateToPurchaseReceiptListCommand}">
+                            <Button.Style><Style TargetType="Button" BasedOn="{StaticResource {x:Type Button}}"><Style.Triggers><DataTrigger Binding="{Binding CurrentStaff.Role.ProductsView}" Value="False"><Setter Property="Visibility" Value="Collapsed"/></DataTrigger></Style.Triggers></Style></Button.Style>
+                            <StackPanel Orientation="Horizontal" Margin="2,0,0,0">
+                                <materialDesign:PackIcon Kind="ClipboardListOutline" VerticalAlignment="Center" Foreground="{DynamicResource BrandAccentLightBrush}"/>
+                                <TextBlock Margin="8,0,0,0" Style="{StaticResource NavTextStyle}" Text="Приход товара"/>
                             </StackPanel>
                         </Button>
                         <Button Command="{Binding NavigateToStorageListCommand}">

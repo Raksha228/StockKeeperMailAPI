@@ -1,4 +1,3 @@
-using MongoDB.Bson.Serialization.Attributes;
 using System;
 using System.ComponentModel.DataAnnotations;
 
@@ -7,14 +6,12 @@ namespace StockKeeperMail.Database.Models
     /// <summary>
     /// Представляет внутреннее сообщение между сотрудниками системы.
     /// </summary>
-    [BsonIgnoreExtraElements]
     public class InternalMessage
     {
         /// <summary>
         /// Уникальный идентификатор внутреннего сообщения.
         /// </summary>
         [Key]
-        [BsonId]
         public Guid InternalMessageID { get; set; }
 
         /// <summary>
@@ -51,13 +48,11 @@ namespace StockKeeperMail.Database.Models
         /// <summary>
         /// Сотрудник-отправитель сообщения.
         /// </summary>
-        [BsonIgnore]
         public Staff SenderStaff { get; set; }
 
         /// <summary>
         /// Сотрудник-получатель сообщения.
         /// </summary>
-        [BsonIgnore]
         public Staff RecipientStaff { get; set; }
     }
 }

@@ -1,4 +1,4 @@
-﻿using StockKeeperMail.Desktop.ViewModels;
+using StockKeeperMail.Desktop.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -27,7 +27,10 @@ namespace StockKeeperMail.Desktop.ViewModels.ListViewHelpers
         {
             if(obj is OrderViewModel viewModel)
             {
-                return viewModel.Customer.CustomerFullname.Contains(Filter, StringComparison.InvariantCultureIgnoreCase);
+                string filter = Filter ?? string.Empty;
+                return (viewModel.Customer?.CustomerFullname?.Contains(filter, StringComparison.InvariantCultureIgnoreCase) ?? false)
+                    || (viewModel.ExternalOrderNumber?.Contains(filter, StringComparison.InvariantCultureIgnoreCase) ?? false)
+                    || (viewModel.DeliveryAddress?.Contains(filter, StringComparison.InvariantCultureIgnoreCase) ?? false);
             }
             return false;
         }

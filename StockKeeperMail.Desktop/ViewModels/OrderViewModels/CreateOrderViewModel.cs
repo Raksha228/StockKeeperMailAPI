@@ -1,4 +1,4 @@
-﻿using CommunityToolkit.Mvvm.Input;
+using CommunityToolkit.Mvvm.Input;
 using StockKeeperMail.Database.Models;
 using StockKeeperMail.Desktop.DAL;
 using StockKeeperMail.Desktop.Stores;
@@ -35,14 +35,19 @@ namespace StockKeeperMail.Desktop.ViewModels
             get => _customerID;
             set
             {
-                SetProperty(ref _customerID, value);
+                SetProperty(ref _customerID, value, true);
                 _customer = _customers.Where(c => c.CustomerID == _customerID).SingleOrDefault();
+                if (_customer != null && string.IsNullOrWhiteSpace(_deliveryAddress))
+                {
+                    DeliveryAddress = _customer.CustomerAddress;
+                }
             }
         }
 
         private CustomerViewModel _customer;
         public CustomerViewModel Customer
         {
+            get { return _customer; }
             set
             {
                 SetProperty(ref _customer, value);
@@ -55,6 +60,33 @@ namespace StockKeeperMail.Desktop.ViewModels
         public string OrderTotal
         {
             get { return _orderTotal; }
+        }
+
+        private string _externalOrderNumber;
+
+        [Required(ErrorMessage = "Внешний номер заказа обязателен для заполнения")]
+        [MaxLength(100, ErrorMessage = "Внешний номер заказа должен содержать не более 100 символов")]
+        public string ExternalOrderNumber
+        {
+            get { return _externalOrderNumber; }
+            set { SetProperty(ref _externalOrderNumber, value, true); }
+        }
+
+        private bool _isOnlineOrder = true;
+
+        public bool IsOnlineOrder
+        {
+            get { return _isOnlineOrder; }
+            set { SetProperty(ref _isOnlineOrder, value); }
+        }
+
+        private string _deliveryAddress;
+
+        [Required(ErrorMessage = "Адрес доставки обязателен для заполнения")]
+        public string DeliveryAddress
+        {
+            get { return _deliveryAddress; }
+            set { SetProperty(ref _deliveryAddress, value, true); }
         }
 
         private ViewModelBase _dialogViewModel;
@@ -130,6 +162,9 @@ namespace StockKeeperMail.Desktop.ViewModels
 
             _order.CustomerID = new Guid(CustomerID);
             _order.DeliveryStatus = "Processing";
+            _order.ExternalOrderNumber = _externalOrderNumber?.Trim();
+            _order.IsOnlineOrder = _isOnlineOrder;
+            _order.DeliveryAddress = _deliveryAddress?.Trim();
             _order.OrderTotal = _orderDetails.Sum(od => Convert.ToDecimal(od.OrderDetailAmount));
             _order.OrderDate = DateTime.Now;
 

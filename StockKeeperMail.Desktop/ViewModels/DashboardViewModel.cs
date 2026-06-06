@@ -1,8 +1,10 @@
 ﻿using LiveCharts;
 using LiveCharts.Wpf;
+using StockKeeperMail.Database.Models;
 using StockKeeperMail.Desktop.DAL;
 using StockKeeperMail.Desktop.Stores;
 using System;
+using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Windows.Media;
@@ -17,6 +19,7 @@ namespace StockKeeperMail.Desktop.ViewModels
         private bool _isDisposed = false;
         private readonly NavigationStore _navigationStore;
         private readonly UnitOfWork _unitOfWork;
+        private readonly CultureInfo _ruCulture = new CultureInfo("ru-RU");
 
         private string _currentMonthRevenue;
         public string CurrentMonthRevenue
@@ -64,11 +67,38 @@ namespace StockKeeperMail.Desktop.ViewModels
         public SeriesCollection MonthlySales
         {
             get { return _monthlySales; }
+            private set { SetProperty(ref _monthlySales, value); }
         }
 
-        public string[] MonthlySalesXLabel { get; private set; }
+        private string[] _monthlySalesXLabel;
+        public string[] MonthlySalesXLabel
+        {
+            get { return _monthlySalesXLabel; }
+            private set { SetProperty(ref _monthlySalesXLabel, value); }
+        }
 
         public Func<double, string> MonthlySalesFormatter { get; private set; }
+
+        public IEnumerable<string> OrderChartPeriods { get; } = new[]
+        {
+            "За день",
+            "За месяц",
+            "За год",
+            "Весь период"
+        };
+
+        private string _selectedOrderChartPeriod;
+        public string SelectedOrderChartPeriod
+        {
+            get { return _selectedOrderChartPeriod; }
+            set
+            {
+                if (SetProperty(ref _selectedOrderChartPeriod, value))
+                {
+                    BuildOrderStatisticsChart();
+                }
+            }
+        }
 
         public DashboardViewModel(NavigationStore navigationStore)
         {
@@ -79,7 +109,7 @@ namespace StockKeeperMail.Desktop.ViewModels
                 .Get(filter: o => o.OrderDate.Month == DateTime.Now.Month && o.OrderDate.Year == DateTime.Now.Year)
                 .Sum(o => o.OrderTotal);
 
-            _currentMonthRevenue = currentMonthRevenueValue.ToString("N2", new CultureInfo("ru-RU"));
+            _currentMonthRevenue = currentMonthRevenueValue.ToString("N2", _ruCulture);
 
             _currentMonthOrders = _unitOfWork.OrderRepository
                 .Get(filter: o => o.OrderDate.Month == DateTime.Now.Month && o.OrderDate.Year == DateTime.Now.Year)
@@ -96,42 +126,82 @@ namespace StockKeeperMail.Desktop.ViewModels
             _inTransitOrdersCount = _unitOfWork.OrderRepository.Get(filter: o => o.DeliveryStatus == "In Transit").Count();
             _deliveredOrdersCount = _unitOfWork.OrderRepository.Get(filter: o => o.DeliveryStatus == "Delivered").Count();
 
-            var monthlySalesData = _unitOfWork.OrderRepository
-                .Get(o => o.OrderDate.Year == DateTime.Now.Year)
-                .GroupBy(o => o.OrderDate.Month)
-                .OrderBy(g => g.Key)
-                .Select(g => new
-                {
-                    Month = CultureInfo.GetCultureInfo("ru-RU").DateTimeFormat.GetAbbreviatedMonthName(g.Key),
-                    Sales = (double)g.Sum(x => x.OrderTotal)
-                })
-                .ToList();
+            MonthlySalesFormatter = value => value.ToString("N0", _ruCulture);
+            _selectedOrderChartPeriod = OrderChartPeriods.First();
+            BuildOrderStatisticsChart();
+        }
 
-            double totalYearSales = monthlySalesData.Sum(d => d.Sales);
-            CultureInfo ruCulture = new CultureInfo("ru-RU");
+        private void BuildOrderStatisticsChart()
+        {
+            List<Order> orders = _unitOfWork.OrderRepository.Get().ToList();
+            DateTime now = DateTime.Now;
 
-            _monthlySales = new SeriesCollection
+            List<string> labels;
+            List<double> values;
+
+            switch (_selectedOrderChartPeriod)
+            {
+                case "За день":
+                    labels = Enumerable.Range(0, 24).Select(hour => hour.ToString("00") + ":00").ToList();
+                    values = Enumerable.Range(0, 24)
+                        .Select(hour => (double)orders.Count(o => o.OrderDate.Date == now.Date && o.OrderDate.Hour == hour))
+                        .ToList();
+                    break;
+
+                case "За месяц":
+                    int daysInMonth = DateTime.DaysInMonth(now.Year, now.Month);
+                    labels = Enumerable.Range(1, daysInMonth).Select(day => day.ToString()).ToList();
+                    values = Enumerable.Range(1, daysInMonth)
+                        .Select(day => (double)orders.Count(o => o.OrderDate.Year == now.Year && o.OrderDate.Month == now.Month && o.OrderDate.Day == day))
+                        .ToList();
+                    break;
+
+                case "За год":
+                    labels = Enumerable.Range(1, 12)
+                        .Select(month => FirstCharToUpper(_ruCulture.DateTimeFormat.GetAbbreviatedMonthName(month)))
+                        .ToList();
+                    values = Enumerable.Range(1, 12)
+                        .Select(month => (double)orders.Count(o => o.OrderDate.Year == now.Year && o.OrderDate.Month == month))
+                        .ToList();
+                    break;
+
+                default:
+                    List<int> years = orders
+                        .Select(o => o.OrderDate.Year)
+                        .Distinct()
+                        .OrderBy(year => year)
+                        .ToList();
+
+                    if (years.Count == 0)
+                    {
+                        years.Add(now.Year);
+                    }
+
+                    labels = years.Select(year => year.ToString()).ToList();
+                    values = years.Select(year => (double)orders.Count(o => o.OrderDate.Year == year)).ToList();
+                    break;
+            }
+
+            double totalOrders = values.Sum();
+
+            MonthlySales = new SeriesCollection
             {
                 new ColumnSeries
                 {
-                    Title = "Продажи",
-                    Values = new ChartValues<double>(monthlySalesData.Select(d => d.Sales)),
+                    Title = "Заказы",
+                    Values = new ChartValues<double>(values),
                     Fill = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#0B3BDE")),
                     Stroke = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#0625AA")),
                     StrokeThickness = 1.5,
                     LabelPoint = point =>
                     {
-                        double share = totalYearSales <= 0 ? 0 : Math.Round(point.Y / totalYearSales * 100, 2);
-                        return $"{point.Y.ToString("N0", ruCulture)} руб. • Доля месяца: {share.ToString("N2", ruCulture)}%";
+                        double share = totalOrders <= 0 ? 0 : Math.Round(point.Y / totalOrders * 100, 2);
+                        return $"{point.Y.ToString("N0", _ruCulture)} заказ(ов) • Доля: {share.ToString("N2", _ruCulture)}%";
                     }
                 }
             };
 
-            MonthlySalesXLabel = monthlySalesData
-                .Select(d => FirstCharToUpper(d.Month))
-                .ToArray();
-
-            MonthlySalesFormatter = value => value.ToString("N0", new CultureInfo("ru-RU"));
+            MonthlySalesXLabel = labels.ToArray();
         }
 
         private string FirstCharToUpper(string value)

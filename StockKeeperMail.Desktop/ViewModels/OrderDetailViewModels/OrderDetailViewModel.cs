@@ -14,15 +14,15 @@ namespace StockKeeperMail.Desktop.ViewModels
     {
         private readonly OrderDetail _orderDetail;
         public OrderDetail OrderDetail => _orderDetail;
-        public string ProductID => _orderDetail.ProductID.ToString();
-        public string OrderID => _orderDetail.OrderID.ToString();
-        public string OrderDetailQuantity => _orderDetail.OrderDetailQuantity.ToString();
-        public string OrderDetailAmount => _orderDetail.OrderDetailAmount.ToString();
+        public string ProductID => _orderDetail?.ProductID.ToString() ?? string.Empty;
+        public string OrderID => _orderDetail?.OrderID.ToString() ?? string.Empty;
+        public string OrderDetailQuantity => _orderDetail?.OrderDetailQuantity.ToString() ?? "0";
+        public string OrderDetailAmount => _orderDetail?.OrderDetailAmount.ToString() ?? "0";
         public ProductViewModel Product
         {
             get
             {
-                if(_orderDetail.Product != null)
+                if(_orderDetail?.Product != null)
                 {
                     return new ProductViewModel(_orderDetail.Product);
                 }
@@ -34,7 +34,7 @@ namespace StockKeeperMail.Desktop.ViewModels
         {
             get
             {
-                if (_orderDetail.Product != null)
+                if (_orderDetail?.Order != null)
                 {
                     return new OrderViewModel(_orderDetail.Order);
                 }
@@ -44,7 +44,7 @@ namespace StockKeeperMail.Desktop.ViewModels
 
         public OrderDetailViewModel(OrderDetail orderDetail)
         {
-            _orderDetail = orderDetail;
+            _orderDetail = orderDetail ?? new OrderDetail();
         }
     }
 }

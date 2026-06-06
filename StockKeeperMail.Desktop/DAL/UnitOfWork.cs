@@ -23,6 +23,7 @@ namespace StockKeeperMail.Desktop.DAL
         public GenericRepository<Customer> CustomerRepository { get; }
         public GenericRepository<Defective> DefectiveRepository { get; }
         public GenericRepository<ProductLocation> ProductLocationRepository { get; }
+        public GenericRepository<PurchaseReceipt> PurchaseReceiptRepository { get; }
         public GenericRepository<Log> LogRepository { get; }
         public GenericRepository<InternalMessage> InternalMessageRepository { get; }
 
@@ -40,6 +41,7 @@ namespace StockKeeperMail.Desktop.DAL
             CustomerRepository = new GenericRepository<Customer>();
             DefectiveRepository = new GenericRepository<Defective>();
             ProductLocationRepository = new GenericRepository<ProductLocation>();
+            PurchaseReceiptRepository = new GenericRepository<PurchaseReceipt>();
             LogRepository = new GenericRepository<Log>();
             InternalMessageRepository = new GenericRepository<InternalMessage>();
         }

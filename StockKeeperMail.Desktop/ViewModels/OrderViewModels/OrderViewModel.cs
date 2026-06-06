@@ -1,5 +1,6 @@
-﻿using StockKeeperMail.Database.Models;
+using StockKeeperMail.Database.Models;
 using System;
+using System.Globalization;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,9 +16,13 @@ namespace StockKeeperMail.Desktop.ViewModels
         private Order _order;
         public Order Order => _order;
         public string OrderID => _order.OrderID.ToString();
-        public string CustomerID => _order.OrderID.ToString();
-        public string OrderDate => _order.OrderDate.ToString();
-        public string OrderTotal => _order.OrderTotal.ToString();
+        public string CustomerID => _order.CustomerID.ToString();
+        public string ExternalOrderNumber => string.IsNullOrWhiteSpace(_order.ExternalOrderNumber) ? "—" : _order.ExternalOrderNumber;
+        public string InvoiceOrderNumber => string.IsNullOrWhiteSpace(_order.ExternalOrderNumber) ? _order.OrderID.ToString() : _order.ExternalOrderNumber;
+        public string IsOnlineOrderText => _order.IsOnlineOrder ? "Да" : "Нет";
+        public string DeliveryAddress => string.IsNullOrWhiteSpace(_order.DeliveryAddress) ? "—" : _order.DeliveryAddress;
+        public string OrderDate => _order.OrderDate.ToString("dd.MM.yyyy HH:mm", new CultureInfo("ru-RU"));
+        public string OrderTotal => _order.OrderTotal.ToString("N2", new CultureInfo("ru-RU"));
         public string DeliveryStatus => _order.DeliveryStatus;
 
         public CustomerViewModel Customer

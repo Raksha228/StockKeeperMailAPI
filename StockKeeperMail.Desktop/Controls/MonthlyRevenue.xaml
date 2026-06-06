@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="StockKeeperMail.Desktop.Controls.MonthlyRevenue"
+<UserControl x:Class="StockKeeperMail.Desktop.Controls.MonthlyRevenue"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
@@ -15,11 +15,25 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <Label Content="Ежемесячный объем продаж"
-               HorizontalAlignment="Center"
-               FontSize="24"
-               FontWeight="Bold"
-               Grid.Row="0"/>
+        <Grid Grid.Row="0" Margin="0,0,0,8">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="220"/>
+            </Grid.ColumnDefinitions>
+
+            <Label Grid.Column="0"
+                   Content="Статистика заказов"
+                   HorizontalAlignment="Center"
+                   FontSize="24"
+                   FontWeight="Bold"/>
+
+            <ComboBox Grid.Column="1"
+                      ItemsSource="{Binding OrderChartPeriods}"
+                      SelectedItem="{Binding SelectedOrderChartPeriod, UpdateSourceTrigger=PropertyChanged}"
+                      Style="{StaticResource MaterialDesignComboBox}"
+                      Padding="8"
+                      VerticalAlignment="Center"/>
+        </Grid>
 
         <lvc:CartesianChart Series="{Binding MonthlySales}" Grid.Row="1" LegendLocation="Right">
 
@@ -36,7 +50,7 @@
             </lvc:CartesianChart.AxisX>
 
             <lvc:CartesianChart.AxisY>
-                <lvc:Axis Title="Сумма продаж"
+                <lvc:Axis Title="Количество заказов"
                           MinValue="0"
                           LabelFormatter="{Binding MonthlySalesFormatter}">
                     <lvc:Axis.Separator>

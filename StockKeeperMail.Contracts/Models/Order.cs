@@ -1,5 +1,3 @@
-using MongoDB.Bson;
-using MongoDB.Bson.Serialization.Attributes;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -9,14 +7,12 @@ namespace StockKeeperMail.Database.Models
     /// <summary>
     /// Представляет заказ клиента с общей суммой и статусом доставки.
     /// </summary>
-    [BsonIgnoreExtraElements]
     public class Order
     {
         /// <summary>
         /// Уникальный идентификатор заказа.
         /// </summary>
         [Key]
-        [BsonId]
         public Guid OrderID { get; set; }
 
         /// <summary>
@@ -33,21 +29,34 @@ namespace StockKeeperMail.Database.Models
         public string DeliveryStatus { get; set; }
 
         /// <summary>
+        /// Внешний номер заказа с сайта или другого канала продаж.
+        /// Используется как номер заказа в счёте на оплату.
+        /// </summary>
+        public string ExternalOrderNumber { get; set; }
+
+        /// <summary>
+        /// Признак того, что заказ был оформлен онлайн.
+        /// </summary>
+        public bool IsOnlineOrder { get; set; }
+
+        /// <summary>
+        /// Адрес доставки заказа покупателю.
+        /// </summary>
+        public string DeliveryAddress { get; set; }
+
+        /// <summary>
         /// Итоговая сумма заказа.
         /// </summary>
-        [BsonRepresentation(BsonType.Decimal128)]
         public decimal OrderTotal { get; set; }
 
         /// <summary>
         /// Связанный клиент.
         /// </summary>
-        [BsonIgnore]
         public Customer Customer { get; set; }
 
         /// <summary>
         /// Связанная коллекция строк заказа.
         /// </summary>
-        [BsonIgnore]
         public List<OrderDetail> OrderDetails { get; set; }
     }
 }

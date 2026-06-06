@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -55,6 +55,7 @@ namespace StockKeeperMail.Desktop.Utilities
             CATEGORIES,
             LOCATIONS,
             SUPPLIERS,
+            PURCHASES,
             ROLES,
             STAFFS,
             MESSAGES,
@@ -73,6 +74,7 @@ namespace StockKeeperMail.Desktop.Utilities
             MOVE,
             DELARE_AS_DEFECTIVE,
             ADD_STOCK,
+            REGISTER_PURCHASE,
             DELIVERY_STATUS_CHANGE,
             PRINT_INVOICE,
             SEND

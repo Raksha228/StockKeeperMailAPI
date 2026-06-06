@@ -1,4 +1,3 @@
-using MongoDB.Bson.Serialization.Attributes;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -8,14 +7,12 @@ namespace StockKeeperMail.Database.Models
     /// <summary>
     /// Представляет роль сотрудника и набор разрешений на действия в системе.
     /// </summary>
-    [BsonIgnoreExtraElements]
     public class Role
     {
         /// <summary>
         /// Уникальный идентификатор роли.
         /// </summary>
         [Key]
-        [BsonId]
         public Guid RoleID { get; set; }
 
         /// <summary>
@@ -221,7 +218,6 @@ namespace StockKeeperMail.Database.Models
         /// <summary>
         /// Связанная коллекция сотрудников с данной ролью.
         /// </summary>
-        [BsonIgnore]
         public ICollection<Staff> Staffs { get; set; }
     }
 }

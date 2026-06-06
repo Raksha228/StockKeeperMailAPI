@@ -5,7 +5,7 @@ using System.Collections.Generic;
 namespace StockKeeperMail.Api.Data
 {
     /// <summary>
-    /// Сопоставляет тип сущности с именем маршрута и коллекции MongoDB.
+    /// Сопоставляет тип сущности с именем маршрута API.
     /// </summary>
     public static class ApiRouteMapper
     {
@@ -23,6 +23,7 @@ namespace StockKeeperMail.Api.Data
             [typeof(Customer)] = "customers",
             [typeof(Defective)] = "defectives",
             [typeof(ProductLocation)] = "product-locations",
+            [typeof(PurchaseReceipt)] = "purchase-receipts",
             [typeof(Log)] = "logs",
             [typeof(InternalMessage)] = "messages"
         };
